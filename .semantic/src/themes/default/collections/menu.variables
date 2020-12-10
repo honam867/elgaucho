@@ -229,8 +229,8 @@
 @secondaryHoverItemBackground: @transparentBlack;
 @secondaryHoverItemColor: @selectedTextColor;
 
-@secondaryActiveItemBackground: @transparentBlack;
-@secondaryActiveItemColor: @selectedTextColor;
+@secondaryActiveItemBackground: @secondaryActiveItemBackgroundColorElgaucho;
+@secondaryActiveItemColor: @secondaryActiveItemColorTextElgaucho;
 @secondaryActiveHoverItemBackground: @transparentBlack;
 @secondaryActiveHoverItemColor: @selectedTextColor;
 
