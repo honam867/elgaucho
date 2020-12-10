@@ -11,6 +11,7 @@ import {
     Image
 } from 'semantic-ui-react';
 import Logo from "../../public/static/img/elgauchologo.png"
+import styled from "styled-components";
 const { MediaContextProvider, Media } = createMedia({
     breakpoints: {
         mobile: 0,
@@ -18,17 +19,19 @@ const { MediaContextProvider, Media } = createMedia({
         computer: 1024,
     },
 })
+import { useRouter } from "next/router";
+const MenuItemLink = styled(Menu.Item)`
+ &:hover {
+    color: #cf1b15  !important;
+    background: none !important;
+ font-weight:900 !important;
+ }
+ .ui.secondary.menu .active.item {
+     background: red !important;
+ }
+`;
 
-const CustomMenuItem = React.forwardRef(function CustomMenuItem(props, ref) {
-    return (
-        <Menu.Item
-            {...props}
-        >
-        </Menu.Item>
-    );
-});
-
-const CustomMenuItemImage = React.forwardRef(function CustomMenuItemImage(props, ref) {
+const MenuItemLinkImage = React.forwardRef(function MenuItemLinkImage(props, ref) {
     return (
         <Image
             {...props}
@@ -38,18 +41,14 @@ const CustomMenuItemImage = React.forwardRef(function CustomMenuItemImage(props,
 
 
 const DesktopContainer = ({ children }) => {
+    const router = useRouter();
+
     const [fixed, setFixedMenu] = useState(false);
     const hideFixedMenu = () => {
         setFixedMenu(false)
     }
     const showFixedMenu = () => {
         setFixedMenu(true)
-    }
-    const [activeItem, setstate] = useState("");
-    const handleItemClick = (e, { name }) => {
-        e.preventDefault();
-        const activeItem = name;
-        setstate(activeItem);
     }
     return (
         <Media greaterThan='mobile'>
@@ -58,48 +57,60 @@ const DesktopContainer = ({ children }) => {
                 onBottomPassed={showFixedMenu}
                 onBottomPassedReverse={hideFixedMenu}
             >
-                <Segment
-                >
-                    <Menu stackable secondary >
-                        <Menu.Item>
-                            <Link href="/" forwardRef>
-                                <CustomMenuItemImage src={Logo} alt="website logo" size="tiny" />
-                            </Link>
-                        </Menu.Item>
+                <Menu secondary >
+                    <Menu.Item>
+                        <Link href="/" forwardRef>
+                            <MenuItemLinkImage src={Logo} alt="website logo" size="tiny" />
+                        </Link>
+                    </Menu.Item>
 
-                        <Link href="/" onClick={handleItemClick} passHref>
-                            <CustomMenuItem
-                                name='home'
-                                active={activeItem === 'home'}
-                                as="a"
-                                position="right"
-                            >
-                            </CustomMenuItem>
-                        </Link>
-                        <Link href="/about" onClick={handleItemClick} forwardRef>
-                            <CustomMenuItem
-                                name='About'
-                                active={activeItem === 'About'}
-                                as="a"
-                            >
-                            </CustomMenuItem>
-                        </Link>
-                        <Link href="/" onClick={handleItemClick} forwardRef>
-                            <CustomMenuItem
-                                name='login'
-                                active={activeItem === 'About'}
-                                as="a"
-                            >
-                            </CustomMenuItem>
-                        </Link>
-                        <Link href="/" onClick={handleItemClick} forwardRef>
-                            <CustomMenuItem
-                            >
-                                <Icon name='cart' />
-                            </CustomMenuItem>
-                        </Link>
-                    </Menu>
-                </Segment>
+                    <Link href="/"  >
+                        <MenuItemLink
+                            name='Locations'
+                            active={router.pathname == "/"}
+                            position="right"
+                        >
+                        </MenuItemLink>
+                    </Link>
+                    <Link href="/about" forwardRef>
+                        <MenuItemLink
+                            name='EL Delivery & Take out'
+                            active={router.pathname == "/about"}
+
+                        >
+                        </MenuItemLink>
+                    </Link>
+                    <Link href="/" forwardRef>
+                        <MenuItemLink
+                            name='Menus'
+                        >
+                        </MenuItemLink>
+                    </Link>
+                    <Link href="/" forwardRef>
+                        <MenuItemLink
+                            name='Private Dining Events'
+                        >
+                        </MenuItemLink>
+                    </Link>
+                    <Link href="/" forwardRef>
+                        <MenuItemLink
+                            name='Gift Card'
+                        >
+                        </MenuItemLink>
+                    </Link>
+                    <Link href="/" forwardRef>
+                        <MenuItemLink
+                            name='Contact Us'
+                        >
+                        </MenuItemLink>
+                    </Link>
+                    <Link href="/" forwardRef>
+                        <MenuItemLink
+                        >
+                            <Icon name='cart' />
+                        </MenuItemLink>
+                    </Link>
+                </Menu>
             </Visibility>
             {children}
         </Media>
@@ -162,8 +173,6 @@ const MobileContainer = ({ children }) => {
         </Media>
     )
 }
-
-
 
 const ResponsiveProvider = ({ children }) => (
     <MediaContextProvider>

@@ -1457,5 +1457,8 @@
 @inputWarningPlaceholderColor: lighten(@formWarningColor, 40);
 @inputWarningPlaceholderFocusColor: lighten(@formWarningColor, 30);
 
-
-
+/*-------------------
+     Elgaucho Colors
+--------------------*/
+@secondaryActiveItemBackgroundColorElgaucho: #cf1b15;
+@secondaryActiveItemColorTextElgaucho: #FFFFFF;
