@@ -3,6 +3,8 @@ import App from 'next/app';
 import Head from 'next/head';
 import ReactDOM from 'react-dom';
 import '../.semantic/dist/semantic.min.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     return {
@@ -26,7 +28,7 @@ export default class MyApp extends App {
     return (
       <>
         <Head>
-          <title>Todo App</title>
+          <title>El Gaucho Vietnam</title>
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0"

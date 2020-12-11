@@ -4,11 +4,9 @@ import ResponsiveProvider from "../ResponsiveProvider";
 const Layout = ({ children }) => {
     return <>
         <ResponsiveProvider>
-            <Container>
-                <main style={{ height: "700px" }}>
-                    {children}
-                </main>
-            </Container>
+            <main >
+                {children}
+            </main>
             <Footer />
         </ResponsiveProvider>
     </>
