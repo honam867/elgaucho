@@ -8,7 +8,8 @@ import {
     Segment,
     Sidebar,
     Visibility,
-    Image
+    Image,
+    Sticky
 } from 'semantic-ui-react';
 import Logo from "../../public/static/img/elgauchologo.png"
 import styled from "styled-components";
@@ -57,60 +58,66 @@ const DesktopContainer = ({ children }) => {
                 onBottomPassed={showFixedMenu}
                 onBottomPassedReverse={hideFixedMenu}
             >
-                <Menu secondary >
-                    <Menu.Item>
-                        <Link href="/" forwardRef>
-                            <MenuItemLinkImage src={Logo} alt="website logo" size="tiny" />
-                        </Link>
-                    </Menu.Item>
+                <Sticky
+                    style={{ height: "110px", marginTop: "-55px" }}
+                >
+                    <Segment style={{ height: "110px", marginTop: "-30px" }}>
+                        <Menu secondary  >
+                            <Menu.Item>
+                                <Link href="/" forwardRef>
+                                    <MenuItemLinkImage src={Logo} alt="website logo" size="tiny" />
+                                </Link>
+                            </Menu.Item>
 
-                    <Link href="/"  >
-                        <MenuItemLink
-                            name='Locations'
-                            active={router.pathname == "/"}
-                            position="right"
-                        >
-                        </MenuItemLink>
-                    </Link>
-                    <Link href="/about" forwardRef>
-                        <MenuItemLink
-                            name='EL Delivery & Take out'
-                            active={router.pathname == "/about"}
+                            <Link href="/"  >
+                                <MenuItemLink
+                                    name='Locations'
+                                    active={router.pathname == "/"}
+                                    position="right"
+                                >
+                                </MenuItemLink>
+                            </Link>
+                            <Link href="/about" forwardRef>
+                                <MenuItemLink
+                                    name='EL Delivery & Take out'
+                                    active={router.pathname == "/about"}
 
-                        >
-                        </MenuItemLink>
-                    </Link>
-                    <Link href="/" forwardRef>
-                        <MenuItemLink
-                            name='Menus'
-                        >
-                        </MenuItemLink>
-                    </Link>
-                    <Link href="/" forwardRef>
-                        <MenuItemLink
-                            name='Private Dining Events'
-                        >
-                        </MenuItemLink>
-                    </Link>
-                    <Link href="/" forwardRef>
-                        <MenuItemLink
-                            name='Gift Card'
-                        >
-                        </MenuItemLink>
-                    </Link>
-                    <Link href="/" forwardRef>
-                        <MenuItemLink
-                            name='Contact Us'
-                        >
-                        </MenuItemLink>
-                    </Link>
-                    <Link href="/" forwardRef>
-                        <MenuItemLink
-                        >
-                            <Icon name='cart' />
-                        </MenuItemLink>
-                    </Link>
-                </Menu>
+                                >
+                                </MenuItemLink>
+                            </Link>
+                            <Link href="/" forwardRef>
+                                <MenuItemLink
+                                    name='Menus'
+                                >
+                                </MenuItemLink>
+                            </Link>
+                            <Link href="/" forwardRef>
+                                <MenuItemLink
+                                    name='Private Dining Events'
+                                >
+                                </MenuItemLink>
+                            </Link>
+                            <Link href="/" forwardRef>
+                                <MenuItemLink
+                                    name='Gift Card'
+                                >
+                                </MenuItemLink>
+                            </Link>
+                            <Link href="/" forwardRef>
+                                <MenuItemLink
+                                    name='Contact Us'
+                                >
+                                </MenuItemLink>
+                            </Link>
+                            <Link href="/" forwardRef>
+                                <MenuItemLink
+                                >
+                                    <Icon name='cart' />
+                                </MenuItemLink>
+                            </Link>
+                        </Menu>
+                    </Segment>
+                </Sticky>
             </Visibility>
             {children}
         </Media>
