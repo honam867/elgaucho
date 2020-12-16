@@ -1,14 +1,14 @@
 import { Container } from "semantic-ui-react";
 import Footer from "../Footer";
-import ResponsiveProvider from "../ResponsiveProvider";
+import ResponsiveHeader from "../ResponsiveHeader";
 const Layout = ({ children }) => {
     return <>
-        <ResponsiveProvider>
+        <ResponsiveHeader>
             <main >
                 {children}
             </main>
             <Footer />
-        </ResponsiveProvider>
+        </ResponsiveHeader>
     </>
 }
 export default Layout;

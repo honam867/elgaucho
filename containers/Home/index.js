@@ -7,8 +7,8 @@ import SrcImg4 from "../../public/static/img/IMG1jpg.jpg"
 import SrcImg5 from "../../public/static/img/IMG2.jpg"
 import SrcImg6 from "../../public/static/img/IMG3jpg.jpg"
 import SrcImg7 from "../../public/static/img/IMG4jpg.jpg"
-import { Image, Button, Container, Header } from "semantic-ui-react";
-import SliderHomePage from "../../components/SliderHomePage";
+import { Container, Header } from "semantic-ui-react";
+import SliderComponent from "../../components/SliderComponent";
 const Home = () => {
 
     // TODO Fake data Image
@@ -63,7 +63,7 @@ const Home = () => {
 
     return (
         <Layout>
-            <SliderHomePage Images={Images} />
+            <SliderComponent Images={Images} height="80vh" />
             <Container fluid >
                 <Header textAlign='center' as='h3' style={{ marginTop: "30px" }}>
 
@@ -93,7 +93,7 @@ const Home = () => {
                     Call Us: <a href="/" style={{ color: "#CF1315" }}>+84 972 697 654</a>
                 </Header>
                 <Container>
-                    <SliderHomePage Images={Images2} />
+                    <SliderComponent Images={Images2} height="70vh" />
                 </Container>
             </Container>
 
