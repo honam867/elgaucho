@@ -1,5 +1,5 @@
 import Layout from "../../components/Layout";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SliderComponent from "../../components/SliderComponent";
 import SrcImg1, { fixed } from "../../public/static/img/El-Gaucho-Dine-With-Us.jpg"
 import SrcImg2 from "../../public/static/img/El-Gaucho-Argentinian-Steakhouse-Restaurant-Homepage-Welcome-1920-x-800.jpg"
@@ -8,17 +8,6 @@ import { Container, Grid, Menu, Visibility } from "semantic-ui-react";
 import ResponsiveComponent from "../../components/Responsive";
 import styled from "styled-components";
 import MenuCustomStyle from "./menu.module.css";
-// const MenuItemLink = styled(Menu.Item)`
-//  &:hover {
-//     color: #cf1b15  !important;
-//     background: none !important;
-//  font-weight:900 !important;
-//  }
-//  .ui.secondary.menu .active.item {
-//      background: red !important;
-//  }
-// `;
-
 const Images = [
     {
         id: 1,
@@ -61,7 +50,7 @@ const MenuItemData = [
     },
 ]
 
-const MenuComponent = () => {
+const MenuComponent = ({ products }) => {
     const [activeItem, setActiveItem] = useState('home');
     const handleItemClick = (e, { name }) => {
         setActiveItem(name);
@@ -80,9 +69,14 @@ const MenuComponent = () => {
     }
     const fixedOverlayMenuStyle = {
         ...overlayMenuStyle,
-        top: '350px',
+        top: '300px',
         position: "fixed"
     }
+    const [productsLists, setproducts] = useState(products);
+    useEffect(() => {
+        setproducts(products)
+        setActiveItem(MenuItemData[0].name);
+    }, []);
     const MenusOnDesktop = () => {
         return (
             <Container  >
@@ -114,9 +108,6 @@ const MenuComponent = () => {
                                         )
                                     })
                                 }
-
-
-
                             </Menu>
                         </Grid.Column>
                     </div>
@@ -145,4 +136,21 @@ const MenuComponent = () => {
         </Layout>
     )
 }
+export async function getStaticProps() {
+    const res = await fetch('http://localhost:8000/users')
+    const products = await res.json()
+    console.log("🚀 ~ file: index.js ~ line 156 ~ getStaticProps ~ products", products)
+    return {
+        props: {
+            products,
+        },
+        // Next.js will attempt to re-generate the page:
+        // - When a request comes in
+        // - At most once every second
+        revalidate: 3, // In seconds
+    }
+}
+
+
+
 export default MenuComponent;

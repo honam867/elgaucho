@@ -23,13 +23,11 @@ const { MediaContextProvider, Media } = createMedia({
 import { useRouter } from "next/router";
 const MenuItemLink = styled(Menu.Item)`
  &:hover {
-    color: #cf1b15  !important;
-    background: none !important;
+    color: #fff  !important;
+    background: #cf1b15 !important;
  font-weight:900 !important;
  }
- .ui.secondary.menu .active.item {
-     background: red !important;
- }
+ 
 `;
 
 const MenuItemLinkImage = React.forwardRef(function MenuItemLinkImage(props, ref) {
@@ -42,9 +40,10 @@ const MenuItemLinkImage = React.forwardRef(function MenuItemLinkImage(props, ref
 
 const fixedMenuStyle = {
     backgroundColor: '#fff',
-    border: '1px solid #ddd',
-    boxShadow: '0px 3px 5px rgba(0, 0, 0, 0.2)',
-    height: "80px",
+    height: "75px",
+    maxHeight: "600px",
+    transition: "20px 1s ease-out",
+    overflow: "hidden"
 }
 
 const DesktopContainer = ({ children }) => {
@@ -54,13 +53,14 @@ const DesktopContainer = ({ children }) => {
         setFixedMenu(false)
     }
     const showFixedMenu = () => {
+        console.log('show')
         setFixedMenu(true)
     }
     return (
         <Media greaterThan='mobile'>
             <Visibility
                 once={false}
-                onBottomPassed={showFixedMenu}
+                onTopPassed={showFixedMenu}
                 onBottomPassedReverse={hideFixedMenu}
             >
                 <Menu secondary fixed={menuFixed ? 'top' : undefined} style={fixedMenuStyle}>
