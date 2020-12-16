@@ -79,7 +79,8 @@ const MenuComponent = ({ products }) => {
     }, []);
     const MenusOnDesktop = () => {
         return (
-            <Container  >
+
+            <Container>
                 <Grid divided doubling columns={2} style={{ marginTop: "30px" }}>
                     <div style={{ width: "25%" }}>
                         <Grid.Column width={3}>
@@ -117,7 +118,7 @@ const MenuComponent = ({ products }) => {
                         </div>
                     </Grid.Column>
                 </Grid>
-            </Container>
+            </Container >
         )
     }
     const MenusOnMobile = () => {
@@ -136,20 +137,22 @@ const MenuComponent = ({ products }) => {
         </Layout>
     )
 }
-export async function getStaticProps() {
-    const res = await fetch('http://localhost:8000/users')
-    const products = await res.json()
-    console.log("🚀 ~ file: index.js ~ line 156 ~ getStaticProps ~ products", products)
-    return {
-        props: {
-            products,
-        },
-        // Next.js will attempt to re-generate the page:
-        // - When a request comes in
-        // - At most once every second
-        revalidate: 3, // In seconds
-    }
-}
+// export async function getServerSideProps(context) {
+//     const res = await fetch('')
+//     const products = await res.json()
+//     console.log("🚀 ~ file: index.js ~ line 156 ~ getStaticProps ~ products", products)
+//     if (!products) {
+//         return {
+//             notFound: true,
+//         }
+//     }
+
+//     return {
+//         props: {
+//             products,
+//         }
+//     }
+// }
 
 
 
