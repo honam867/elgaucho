@@ -86,9 +86,10 @@ const DesktopContainer = ({ children }) => {
                         >
                         </MenuItemLink>
                     </Link>
-                    <Link href="/" forwardRef>
+                    <Link href="/Menu" forwardRef>
                         <MenuItemLink
                             name='Menus'
+                            active={router.pathname == "/Menu"}
                         >
                         </MenuItemLink>
                     </Link>
@@ -180,10 +181,10 @@ const MobileContainer = ({ children }) => {
     )
 }
 
-const ResponsiveProvider = ({ children }) => (
+const ResponsiveHeader = ({ children }) => (
     <MediaContextProvider>
         <DesktopContainer>{children}</DesktopContainer>
         <MobileContainer>{children}</MobileContainer>
     </MediaContextProvider>
 )
-export default ResponsiveProvider;
+export default ResponsiveHeader;

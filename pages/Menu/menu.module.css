@@ -1,0 +1,8 @@
+.customCorlor:hover {
+  color: white !important;
+  background: #cf1b15 !important;
+}
+.customBorder {
+  padding: 10px !important;
+  border-bottom: 2px solid #cf1b15 !important;
+}

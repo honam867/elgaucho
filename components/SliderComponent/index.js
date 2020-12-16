@@ -2,7 +2,7 @@ import Slider from "react-slick";
 import { useState } from "react";
 import styled from "styled-components";
 
-const SliderHomePage = ({ Images }) => {
+const SliderComponent = ({ Images, height }) => {
     const [activeSlide, setActiveSlide] = useState(0);
     const settings = {
         dots: true,
@@ -98,7 +98,7 @@ const SliderHomePage = ({ Images }) => {
                                 backgroundPosition: "center",
                                 backgroundRepeat: 'no-repeat',
                                 width: '100%',
-                                height: '80vh',
+                                height: height,
                                 color: 'white', outline: "none"
                             }}>
                         </div>
@@ -109,4 +109,4 @@ const SliderHomePage = ({ Images }) => {
 
     )
 }
-export default SliderHomePage;
+export default SliderComponent;

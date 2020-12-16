@@ -1,12 +1,21 @@
 import Layout from "../../components/Layout"
-import Link from "next/link";
-import { Button, Menu } from "semantic-ui-react";
-import styled from "styled-components";
+import OnDesktop from "../../components/OnDesktop";
+import OnMobile from "../../components/OnMobile";
+import Responsive from "../../components/Responsive";
+import style from "./about.module.css";
+
+const onDesktop = () => {
+    return <div>On Desktop</div>
+}
+const onMobile = () => {
+    return <div className={style.test}>On Mobile</div>
+}
+
 
 const About = () => {
     return (<Layout>
-        <div >this is about pages</div>
-
+        <Responsive onDesktop={onDesktop} onMobile={onMobile}>
+        </Responsive>
     </Layout>)
 }
 export default About;
