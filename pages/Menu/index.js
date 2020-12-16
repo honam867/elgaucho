@@ -1,5 +1,5 @@
 import Layout from "../../components/Layout";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SliderComponent from "../../components/SliderComponent";
 import SrcImg1, { fixed } from "../../public/static/img/El-Gaucho-Dine-With-Us.jpg"
 import SrcImg2 from "../../public/static/img/El-Gaucho-Argentinian-Steakhouse-Restaurant-Homepage-Welcome-1920-x-800.jpg"
@@ -8,17 +8,6 @@ import { Container, Grid, Menu, Visibility } from "semantic-ui-react";
 import ResponsiveComponent from "../../components/Responsive";
 import styled from "styled-components";
 import MenuCustomStyle from "./menu.module.css";
-// const MenuItemLink = styled(Menu.Item)`
-//  &:hover {
-//     color: #cf1b15  !important;
-//     background: none !important;
-//  font-weight:900 !important;
-//  }
-//  .ui.secondary.menu .active.item {
-//      background: red !important;
-//  }
-// `;
-
 const Images = [
     {
         id: 1,
@@ -61,7 +50,7 @@ const MenuItemData = [
     },
 ]
 
-const MenuComponent = () => {
+const MenuComponent = ({ products }) => {
     const [activeItem, setActiveItem] = useState('home');
     const handleItemClick = (e, { name }) => {
         setActiveItem(name);
@@ -80,12 +69,18 @@ const MenuComponent = () => {
     }
     const fixedOverlayMenuStyle = {
         ...overlayMenuStyle,
-        top: '350px',
+        top: '300px',
         position: "fixed"
     }
+    const [productsLists, setproducts] = useState(products);
+    useEffect(() => {
+        setproducts(products)
+        setActiveItem(MenuItemData[0].name);
+    }, []);
     const MenusOnDesktop = () => {
         return (
-            <Container  >
+
+            <Container>
                 <Grid divided doubling columns={2} style={{ marginTop: "30px" }}>
                     <div style={{ width: "25%" }}>
                         <Grid.Column width={3}>
@@ -114,9 +109,6 @@ const MenuComponent = () => {
                                         )
                                     })
                                 }
-
-
-
                             </Menu>
                         </Grid.Column>
                     </div>
@@ -126,7 +118,7 @@ const MenuComponent = () => {
                         </div>
                     </Grid.Column>
                 </Grid>
-            </Container>
+            </Container >
         )
     }
     const MenusOnMobile = () => {
@@ -145,4 +137,23 @@ const MenuComponent = () => {
         </Layout>
     )
 }
+// export async function getServerSideProps(context) {
+//     const res = await fetch('')
+//     const products = await res.json()
+//     console.log("🚀 ~ file: index.js ~ line 156 ~ getStaticProps ~ products", products)
+//     if (!products) {
+//         return {
+//             notFound: true,
+//         }
+//     }
+
+//     return {
+//         props: {
+//             products,
+//         }
+//     }
+// }
+
+
+
 export default MenuComponent;
