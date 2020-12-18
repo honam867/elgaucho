@@ -9,7 +9,7 @@ import {
     Sidebar,
     Visibility,
     Image,
-    Sticky
+    Sticky,
 } from 'semantic-ui-react';
 import Logo from "../../public/static/img/elgauchologo.png"
 import styled from "styled-components";
@@ -132,6 +132,10 @@ const MobileContainer = ({ children }) => {
     const handleToggle = () => {
         setSidebarOpened(true)
     }
+    const hideMenuSideBar = () => {
+        console.log('test');
+        setSidebarOpened(false)
+    }
     return (
         <Media at='mobile'>
             <Sidebar.Pushable>
@@ -151,6 +155,7 @@ const MobileContainer = ({ children }) => {
                     <Menu.Item as='a'>Careers</Menu.Item>
                     <Menu.Item as='a'>Log in</Menu.Item>
                     <Menu.Item as='a'>Sign Up</Menu.Item>
+                    <Menu.Item as='button' onClick={hideMenuSideBar} >Close</Menu.Item>
                 </Sidebar>
 
                 <Sidebar.Pusher dimmed={sidebarOpened}>

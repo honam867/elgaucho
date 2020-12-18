@@ -8,6 +8,7 @@ import { Container, Grid, Menu, Visibility } from "semantic-ui-react";
 import ResponsiveComponent from "../../components/Responsive";
 import styled from "styled-components";
 import MenuCustomStyle from "./menu.module.css";
+import ProductsComponent from "../../components/ProductsComponent";
 const Images = [
     {
         id: 1,
@@ -31,52 +32,76 @@ const Images = [
 
 const MenuItemData = [
     {
-        name: "Cut Of The Day",
+        name: "Soups~Starters~Salads",
     },
     {
-        name: "Lunch And Happy Hour",
+        name: "Burgers~Pastas",
     },
     {
-        name: "All Day Dining",
+        name: "Beef~Steaks",
     },
     {
-        name: "Drinks",
+        name: "Lamb~Pork~Chicken~Fish",
     },
     {
-        name: "Wines",
+        name: "Sides~Sauces~Desserts",
     },
     {
-        name: "Cigars & Butcher",
+        name: "Wine",
+    },
+    {
+        name: "El Butcher~Fresh Meats",
+    },
+    {
+        name: "El Souvenirs",
     },
 ]
 
 const MenuComponent = ({ products }) => {
-    const [activeItem, setActiveItem] = useState('home');
-    const handleItemClick = (e, { name }) => {
-        setActiveItem(name);
-    }
+    const [activeItem, setActiveItem] = useState('');
+
     const [overlayFixed, setStickOverlay] = useState(false);
-    const stickOverlay = () => {
-        setStickOverlay(true);
-    }
-    const unStickOverlay = () => {
-        setStickOverlay(false);
-    }
+
+    // TODO change productlist to MenuList
+    const [productList, setproducts] = useState(products);
+    // NOTE Set first categories to render 
+    const [categories, setCategories] = useState(products[0].categories);
+
     const overlayMenuStyle = {
         position: 'relative',
         top: 0,
         transition: 'top 0.5s ease',
     }
+
     const fixedOverlayMenuStyle = {
         ...overlayMenuStyle,
         top: '300px',
         position: "fixed"
     }
-    const [productsLists, setproducts] = useState(products);
+
+    const handleItemClick = (e, { name, value }) => {
+        // NOTE When click menu item, find by id to render categories of that item
+        const findCatecoriesWhenClickProductItemValue = productList.find(product => product.id === value.id);
+        setCategories(findCatecoriesWhenClickProductItemValue.categories);
+        setActiveItem(name);
+    }
+
+    const stickOverlay = () => {
+        setStickOverlay(true);
+    }
+
+    const unStickOverlay = () => {
+        setStickOverlay(false);
+    }
+
     useEffect(() => {
         setproducts(products)
-        setActiveItem(MenuItemData[0].name);
+        // TODO render null if products from api don't have item
+        setCategories(products[0].categories)
+
+        setActiveItem(products[0].name);
     }, []);
+
     const MenusOnDesktop = () => {
         return (
 
@@ -96,14 +121,15 @@ const MenuComponent = ({ products }) => {
                                 secondary
                                 vertical>
                                 {
-                                    MenuItemData.map((item, i) => {
+                                    productList.map((item) => {
                                         return (
                                             <Menu.Item
                                                 className={MenuCustomStyle.customCorlor}
-                                                key={i}
+                                                key={item.id}
                                                 name={item.name}
                                                 active={activeItem === item.name}
                                                 onClick={handleItemClick}
+                                                value={item}
                                             />
 
                                         )
@@ -113,8 +139,8 @@ const MenuComponent = ({ products }) => {
                         </Grid.Column>
                     </div>
                     <Grid.Column >
-                        <div style={{ height: "1500px" }}>
-                            <h1>Product columns</h1>
+                        <div >
+                            <ProductsComponent categories={categories} />
                         </div>
                     </Grid.Column>
                 </Grid>
@@ -128,7 +154,6 @@ const MenuComponent = ({ products }) => {
             </div>
         )
     }
-
     return (
         <Layout>
             <SliderComponent Images={Images} height="30vh" />
@@ -137,23 +162,22 @@ const MenuComponent = ({ products }) => {
         </Layout>
     )
 }
-// export async function getServerSideProps(context) {
-//     const res = await fetch('')
-//     const products = await res.json()
-//     console.log("🚀 ~ file: index.js ~ line 156 ~ getStaticProps ~ products", products)
-//     if (!products) {
-//         return {
-//             notFound: true,
-//         }
-//     }
 
-//     return {
-//         props: {
-//             products,
-//         }
-//     }
-// }
+export async function getServerSideProps(context) {
+    // NOTE fetch menu list from api
+    const res = await fetch('https://mockend.com/org/repo/menus')
+    const products = await res.json()
+    if (!products) {
+        return {
+            notFound: true,
+        }
+    }
 
-
+    return {
+        props: {
+            products,
+        }
+    }
+}
 
 export default MenuComponent;
