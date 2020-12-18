@@ -15,7 +15,10 @@ const ResponsiveComponent = ({ onDesktop, onMobile }) => (
         <Media at="sm">
             <OnMobile children={onMobile} />
         </Media>
-        <Media greaterThanOrEqual="md" >
+        <Media at="md">
+            <h1>Tablet</h1>
+        </Media>
+        <Media greaterThanOrEqual="lg" >
             <OnDesktop children={onDesktop} />
         </Media>
     </MediaContextProvider>

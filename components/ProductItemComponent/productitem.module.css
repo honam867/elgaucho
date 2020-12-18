@@ -1,0 +1,11 @@
+.centerButtonAdd {
+  position: absolute;
+  left: 30px;
+  top: 20px;
+  text-align: center;
+  background: #cf1b15 !important;
+  color: white !important;
+}
+.customHeightDescription {
+  min-height: 100px !important;
+}
