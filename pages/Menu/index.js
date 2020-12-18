@@ -165,7 +165,7 @@ const MenuComponent = ({ products }) => {
 
 export async function getServerSideProps(context) {
     // NOTE fetch menu list from api
-    const res = await fetch('https://mockend.com/org/repo/menus')
+    const res = await fetch('https://my-json-server.typicode.com/honam867/apiserver/menus')
     const products = await res.json()
     if (!products) {
         return {
