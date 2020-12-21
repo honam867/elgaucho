@@ -9,7 +9,7 @@ import SrcImg6 from "../../public/static/img/IMG3jpg.jpg"
 import SrcImg7 from "../../public/static/img/IMG4jpg.jpg"
 import { Container, Header } from "semantic-ui-react";
 import SliderComponent from "../../components/SliderComponent";
-const Home = () => {
+const Location = () => {
 
     // TODO Fake data Image
     const Images = [
@@ -63,7 +63,7 @@ const Home = () => {
 
     return (
         <Layout>
-            <SliderComponent Images={Images} height="80vh" />
+            <SliderComponent Images={Images} height="960px" />
             <Container fluid >
                 <Header textAlign='center' as='h3' style={{ marginTop: "30px" }}>
 
@@ -100,4 +100,4 @@ const Home = () => {
         </Layout>
     )
 }
-export default Home;
+export default Location;

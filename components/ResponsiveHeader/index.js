@@ -65,15 +65,15 @@ const DesktopContainer = ({ children }) => {
             >
                 <Menu secondary fixed={menuFixed ? 'top' : undefined} style={fixedMenuStyle}>
                     <Menu.Item>
-                        <Link href="/" forwardRef>
+                        <Link href="/Home" forwardRef>
                             <MenuItemLinkImage src={Logo} alt="website logo" size="tiny" />
                         </Link>
                     </Menu.Item>
 
-                    <Link href="/"  >
+                    <Link href="/Location"  >
                         <MenuItemLink
                             name='Locations'
-                            active={router.pathname == "/"}
+                            active={router.pathname == "/Location"}
                             position="right"
                         >
                         </MenuItemLink>
