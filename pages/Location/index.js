@@ -118,7 +118,7 @@ const Location = () => {
                     Call Us: <a href="/" style={{ color: "#CF1315" }}>+84 972 697 654</a>
                 </Header>
                 <Container>
-                    <SliderComponent Images={Images2} height="70vh" />
+                    <SliderComponent Images={Images2} height="70vh" fromPrivateDiningEventPages={true} />
                 </Container>
             </Container>
 

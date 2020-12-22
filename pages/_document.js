@@ -23,6 +23,9 @@ export default class MyDocument extends Document {
             .slick-initialized .slick-slide.slick-active {
               z-index: 1;
             }
+            .slick-slide div{
+              outline: none;
+            }
           `}</style>
         </body>
       </Html>

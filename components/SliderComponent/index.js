@@ -1,18 +1,16 @@
 import Slider from "react-slick";
 import { useState } from "react";
 import styled from "styled-components";
-import { Button, Header, Icon } from "semantic-ui-react";
-// import ButtonCustomComponent from "../ButtonCustomComponent";
-import Link from "next/link";
+import { Header, Icon } from "semantic-ui-react";
 import ButtonCustomComponent from "../ButtonCustomComponent";
 const CustomHeaderFullSlider = styled(Header)`
 font-size: 40px !important;
 color: white !important;
-animation: fadeInDown 1s  !important;
-@keyframes fadeInDown {
+animation: HeaderFullSlider 2s  !important;
+@keyframes HeaderFullSlider {
     0% {
        opacity: 0;
-       transform: translateY(-30px);
+       transform: translateY(-70px);
     }
     100% {
        opacity: 1;
@@ -24,8 +22,8 @@ const CustomSubTitleLocations = styled.p`
 font-size: 18px !important;
 font-weight: bold !important;
 color: white !important;
-animation: fadeInTop 2s  !important;
-@keyframes fadeInTop {
+animation: fadeInTopSubTitle 2s  !important;
+@keyframes fadeInTopSubTitle {
     100% {
        opacity: 1;
        transform: translateY(0px);
@@ -39,8 +37,8 @@ animation: fadeInTop 2s  !important;
 const CustomHeaderLocations = styled(Header)`
 font-size: 40px !important;
 color: white !important;
-animation: fadeInDown 2s  !important;
-@keyframes fadeInDown {
+animation: fadeInDownLocations 2s  !important;
+@keyframes fadeInDownLocations {
     0% {
        opacity: 0;
        transform: translateY(-30px);
@@ -53,8 +51,8 @@ animation: fadeInDown 2s  !important;
 `
 
 const CustomButtonAtLocationPage = styled.div`
-animation: fadeInDown 2s  !important;
-@keyframes fadeInDown {
+animation: fadeInDownButtonLocations 2s  !important;
+@keyframes fadeInDownButtonLocations {
     0% {
        opacity: 0;
        transform: translateY(-30px);
@@ -73,23 +71,63 @@ font-size: 40px !important;
 z-index: 1 !important;
 text-align: center !important;
 width: 100% !important;
-animation: fadeInDown 2.5s infinite !important;
+animation: fadeInDownAngleDown 2.5s infinite !important;
 animation-timing-function: ease-in-out !important;
-@keyframes fadeInDown {
+@keyframes fadeInDownAngleDown {
     0% {
        opacity: 1;
-       transform: translateY(-70px);
+       transform: translateY(-30px);
     }
     100% {
        opacity: 0;
        transform: translateY(0);
     }
  }
-}
-`;
+`
+
+
+
 const AngleDowButtonPosition = styled.div`
 position: relative !important;
 top: 180px !important;
+`
+
+const CustomHeaderPrivateDining = styled(Header)`
+font-size: 30px !important;
+color: white !important;
+position: absolute !important;
+width: 100% !important;
+top: 35% !important;
+text-align:center !important;
+animation: PrivateDiningFullSlider 1s  !important;
+@keyframes PrivateDiningFullSlider {
+    0% {
+       opacity: 0;
+       transform: translateX(-700px);
+    }
+    100% {
+       opacity: 1;
+       transform: translateX(0);
+    }
+ }
+`
+const NameLocationFromDiningPages = styled.div`
+    position: absolute;
+    bottom: 10px;
+    background-color: #000000;
+    padding: 30px;
+    opacity: 0.8;
+    animation: PrivateDiningFullSliderLocationSection 1s  !important;
+    @keyframes PrivateDiningFullSliderLocationSection {
+    0% {
+       opacity: 0;
+       transform: translateX(-20px);
+    }
+    100% {
+       opacity: 0.8;
+       transform: translateX(0);
+    }
+ }
 `
 const SliderComponent = ({ Images, height, ...props }) => {
     const [activeSlide, setActiveSlide] = useState(0);
@@ -178,7 +216,9 @@ const SliderComponent = ({ Images, height, ...props }) => {
     }
     const CustomBackgroundOpacity = {
         position: 'relative',
-        backgroundColor: "black"
+        backgroundColor: "black",
+        borderLeft: "0.5px solid #CF1315",
+        borderRight: "0.5px solid #CF1315"
     }
     const SlideShowAlignCaption = {
         color: "white !important",
@@ -206,7 +246,6 @@ const SliderComponent = ({ Images, height, ...props }) => {
                 {Images.map((item, i) => {
                     return (
                         <div key={item.id}>
-
                             <div
                                 style={{
                                     backgroundSize: "cover",
@@ -228,6 +267,20 @@ const SliderComponent = ({ Images, height, ...props }) => {
                                             <ButtonCustomComponent name={item.buttonName} url={item.url} />
                                         </CustomButtonAtLocationPage>
                                     </div>
+                                    : null
+                            }
+                            {
+                                props.fromPrivateDiningEventPages ?
+                                    <CustomHeaderPrivateDining>{Images[0].title}</CustomHeaderPrivateDining>
+                                    : null
+                            }
+                            {
+                                props.fromPrivateDiningEventPagesSection ?
+                                    <NameLocationFromDiningPages>
+                                        <Header style={{ color: "white" }}>
+                                            {item.name}
+                                        </Header>
+                                    </NameLocationFromDiningPages>
                                     : null
                             }
                         </div>
