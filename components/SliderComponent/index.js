@@ -1,27 +1,96 @@
 import Slider from "react-slick";
 import { useState } from "react";
 import styled from "styled-components";
-import { Header, Icon } from "semantic-ui-react";
-const CustomHeader = styled(Header)`
+import { Button, Header, Icon } from "semantic-ui-react";
+// import ButtonCustomComponent from "../ButtonCustomComponent";
+import Link from "next/link";
+import ButtonCustomComponent from "../ButtonCustomComponent";
+const CustomHeaderFullSlider = styled(Header)`
 font-size: 40px !important;
 color: white !important;
+animation: fadeInDown 1s  !important;
+@keyframes fadeInDown {
+    0% {
+       opacity: 0;
+       transform: translateY(-30px);
+    }
+    100% {
+       opacity: 1;
+       transform: translateY(0);
+    }
+ }
 `
-const AngleDownButton = styled(Icon)`
-position: relative !important;
+const CustomSubTitleLocations = styled.p`
+font-size: 18px !important;
+font-weight: bold !important;
+color: white !important;
+animation: fadeInTop 2s  !important;
+@keyframes fadeInTop {
+    100% {
+       opacity: 1;
+       transform: translateY(0px);
+    }
+    0% {
+       opacity: 0;
+       transform: translateY(30px);
+    }
+ } 
+`
+const CustomHeaderLocations = styled(Header)`
+font-size: 40px !important;
+color: white !important;
+animation: fadeInDown 2s  !important;
+@keyframes fadeInDown {
+    0% {
+       opacity: 0;
+       transform: translateY(-30px);
+    }
+    100% {
+       opacity: 1;
+       transform: translateY(0);
+    }
+ }
+`
+
+const CustomButtonAtLocationPage = styled.div`
+animation: fadeInDown 2s  !important;
+@keyframes fadeInDown {
+    0% {
+       opacity: 0;
+       transform: translateY(-30px);
+    }
+    100% {
+       opacity: 1;
+       transform: translateY(0);
+    }
+ }
+`
+const AngleDownButton = styled.div`
 cursor: pointer !important;
+position: absolute !important;
 color: #FFFFFF  !important;
-width: 100% !important;
-font-size: 50px !important;
-textAlign: center !important;
+font-size: 40px !important;
 z-index: 1 !important;
-animation: mymove 3s infinite !important;
+text-align: center !important;
+width: 100% !important;
+animation: fadeInDown 2.5s infinite !important;
 animation-timing-function: ease-in-out !important;
-@keyframes mymove {
-0% {top:0px; opacity: 1;}
-25% {top: 80px; opacity: 1;}
-100% {top:80px; opacity: 0;}
+@keyframes fadeInDown {
+    0% {
+       opacity: 1;
+       transform: translateY(-70px);
+    }
+    100% {
+       opacity: 0;
+       transform: translateY(0);
+    }
+ }
 }
 `;
+const AngleDowButtonPosition = styled.div`
+position: relative !important;
+top: 180px !important;
+`
 const SliderComponent = ({ Images, height, ...props }) => {
     const [activeSlide, setActiveSlide] = useState(0);
     const settings = {
@@ -40,7 +109,7 @@ const SliderComponent = ({ Images, height, ...props }) => {
         appendDots: dots => (
             <div
                 style={{
-                    marginBottom: "29px"
+                    paddingBottom: "30px"
                 }}
             >
                 <ul style={{ paddingLeft: "0px" }}> {dots} </ul>
@@ -114,19 +183,30 @@ const SliderComponent = ({ Images, height, ...props }) => {
     const SlideShowAlignCaption = {
         color: "white !important",
         position: "absolute",
-        top: "45%",
+        top: "40%",
+        width: "100%",
+        textAlign: "center"
+    }
+    const SlideShowAlignCaptionFullSlider = {
+        color: "white !important",
+        position: "absolute",
+        top: "40%",
         width: "100%",
         textAlign: "center"
     }
     const gotoMainSection = () => {
         props.gotomainsection();
     }
+    // `onClick`, `href`, and `ref` need to be passed to the DOM element
+    // for proper handling
+
     return (
         <div style={props.backgroundOpacity ? CustomBackgroundOpacity : CustomBackground}>
-            <div style={{ width: "100%", height: height }}>
-                <Slider   {...settings} style={{ width: "100%", height: "100%" }}>
-                    {Images.map((item, i) =>
+            <Slider   {...settings} style={{ width: "100%", height: "100%" }}>
+                {Images.map((item, i) => {
+                    return (
                         <div key={item.id}>
+
                             <div
                                 style={{
                                     backgroundSize: "cover",
@@ -134,25 +214,38 @@ const SliderComponent = ({ Images, height, ...props }) => {
                                     backgroundRepeat: 'no-repeat',
                                     backgroundImage: `url(${item.imgUrl})`,
                                     width: '100%',
-                                    height: `${height}`,
+                                    height: height,
                                     opacity: `${item.opacity}`,
                                 }}
-                            ></div>
+                            >
+                            </div>
+                            {
+                                props.fromLocationPage ?
+                                    <div style={SlideShowAlignCaption}>
+                                        <CustomHeaderLocations>{item.title}</CustomHeaderLocations>
+                                        <CustomSubTitleLocations>{item.subTitle}</CustomSubTitleLocations>
+                                        <CustomButtonAtLocationPage>
+                                            <ButtonCustomComponent name={item.buttonName} url={item.url} />
+                                        </CustomButtonAtLocationPage>
+                                    </div>
+                                    : null
+                            }
                         </div>
-                    )}
-                </Slider>
-
-            </div>
-            <div style={SlideShowAlignCaption}>
-                <CustomHeader as="h1">{props.captionTitle}</CustomHeader>
+                    )
+                }
+                )}
+            </Slider>
+            <div style={SlideShowAlignCaptionFullSlider}>
+                <CustomHeaderFullSlider as="h1">{props.captionTitle}</CustomHeaderFullSlider>
                 <p style={{ fontSize: "18px", color: "white" }}>{props.captionContent}</p>
                 {props.angleDown ?
-                    <div style={{ position: 'absolute', top: "350px", width: "100%" }}>
-                        <AngleDownButton onClick={gotoMainSection} name="angle down"></AngleDownButton>
-                    </div>
+                    <AngleDowButtonPosition>
+                        <AngleDownButton onClick={gotoMainSection} >
+                            <Icon name="angle down" />
+                        </AngleDownButton>
+                    </AngleDowButtonPosition>
                     : null
                 }
-
             </div>
         </div >
 

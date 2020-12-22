@@ -9,7 +9,6 @@ import {
     Sidebar,
     Visibility,
     Image,
-    Sticky,
 } from 'semantic-ui-react';
 import Logo from "../../public/static/img/elgauchologo.png"
 import styled from "styled-components";
@@ -78,12 +77,12 @@ const DesktopContainer = ({ children }) => {
                         >
                         </MenuItemLink>
                     </Link>
-                    <Link href="/about" forwardRef>
+                    <Link href="/Eldeliverytakeout" forwardRef>
                         <MenuItemLink
                             name='EL Delivery & Take out'
-                            active={router.pathname == "/about"}
-
+                            active={router.pathname == "/Eldeliverytakeout"}
                         >
+                            EL Delivery & Take out
                         </MenuItemLink>
                     </Link>
                     <Link href="/Menu" forwardRef>

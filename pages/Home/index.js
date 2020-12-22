@@ -1,4 +1,4 @@
-import { Button, Container, Header } from "semantic-ui-react";
+import { Container, Header } from "semantic-ui-react";
 import SliderComponent from "../../components/SliderComponent";
 import SrcImg1, { fixed } from "../../public/static/img/home-2-1.jpg"
 import SrcImg2 from "../../public/static/img/home-3.jpg"
@@ -74,7 +74,7 @@ const HomeFullSlider = () => {
         <>
             <SliderComponent
                 Images={Images}
-                height="940px"
+                height="100vh"
                 captionTitle={captionTitle}
                 captionContent={captionContent}
                 backgroundOpacity={true}

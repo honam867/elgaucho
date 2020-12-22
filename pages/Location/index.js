@@ -1,5 +1,4 @@
 import Layout from "../../components/Layout";
-import Link from "next/link";
 import SrcImg1 from "../../public/static/img/El-Gaucho-Dine-With-Us.jpg"
 import SrcImg2 from "../../public/static/img/El-Gaucho-Argentinian-Steakhouse-Restaurant-Homepage-Welcome-1920-x-800.jpg"
 import SrcImg3 from "../../public/static/img/VN04-2017_1036_37_38_39_40.jpg";
@@ -16,20 +15,34 @@ const Location = () => {
         {
             id: 1,
             name: "Img 1",
-            imgUrl: SrcImg1,
-            size: "450px"
+            imgUrl: SrcImg2,
+            size: "450px",
+            title: "WELCOME",
+            subTitle: "Finest Steakhouse-Style Food",
+            buttonTitle: "Finest Steakhouse-Style Food",
+            opacity: "0.8",
+            buttonName: "EL DELIVERY & TAKE OUT",
+            url: "Eldeliverytakeout"
         },
         {
             id: 2,
             name: "Img 2",
-            imgUrl: SrcImg2,
-            size: "450px"
+            imgUrl: SrcImg1,
+            size: "450px",
+            title: "DINE WITH US",
+            subTitle: "View Our Menus",
+            buttonName: "Menus",
         },
         {
             id: 3,
             name: "Img 3",
             imgUrl: SrcImg3,
-            size: "450px"
+            size: "450px",
+            title: "",
+            title: "GET IN TOUCH",
+            opacity: "0.8",
+            subTitle: "Drop Us A Line On Any Question Or Note You Might Have",
+            buttonName: "CONTACT US",
         }
     ];
     const Images2 = [
@@ -58,12 +71,24 @@ const Location = () => {
             size: "450px"
         }
     ];
-
+    const gotomainSection = () => window.scrollTo({
+        top: 400,
+        behavior: "smooth"
+    })
 
 
     return (
         <Layout>
-            <SliderComponent Images={Images} height="960px" />
+
+            {<SliderComponent
+                Images={Images}
+                height="92vh"
+                backgroundOpacity={true}
+                fromLocationPage={true}
+                angleDown={true}
+                gotomainsection={gotomainSection}
+            />
+            }
             <Container fluid >
                 <Header textAlign='center' as='h3' style={{ marginTop: "30px" }}>
 
