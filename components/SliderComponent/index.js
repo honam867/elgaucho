@@ -1,8 +1,28 @@
 import Slider from "react-slick";
 import { useState } from "react";
 import styled from "styled-components";
-
-const SliderComponent = ({ Images, height }) => {
+import { Header, Icon } from "semantic-ui-react";
+const CustomHeader = styled(Header)`
+font-size: 40px !important;
+color: white !important;
+`
+const AngleDownButton = styled(Icon)`
+position: relative !important;
+cursor: pointer !important;
+color: #FFFFFF  !important;
+width: 100% !important;
+font-size: 50px !important;
+textAlign: center !important;
+z-index: 1 !important;
+animation: mymove 3s infinite !important;
+animation-timing-function: ease-in-out !important;
+@keyframes mymove {
+0% {top:0px; opacity: 1;}
+25% {top: 80px; opacity: 1;}
+100% {top:80px; opacity: 0;}
+}
+`;
+const SliderComponent = ({ Images, height, ...props }) => {
     const [activeSlide, setActiveSlide] = useState(0);
     const settings = {
         dots: true,
@@ -23,7 +43,7 @@ const SliderComponent = ({ Images, height }) => {
                     marginBottom: "29px"
                 }}
             >
-                <ul style={{ margin: "30px" }}> {dots} </ul>
+                <ul style={{ paddingLeft: "0px" }}> {dots} </ul>
             </div>
         ),
         customPaging: (i) => {
@@ -84,28 +104,57 @@ const SliderComponent = ({ Images, height }) => {
             />
         );
     }
+    const CustomBackground = {
+        position: 'relative'
+    }
+    const CustomBackgroundOpacity = {
+        position: 'relative',
+        backgroundColor: "black"
+    }
+    const SlideShowAlignCaption = {
+        color: "white !important",
+        position: "absolute",
+        top: "45%",
+        width: "100%",
+        textAlign: "center"
+    }
+    const gotoMainSection = () => {
+        props.gotomainsection();
+    }
     return (
-        <div>
-            <Slider   {...settings}>
-                {Images.map((item, i) =>
-                    <div
-                        key={i}
-                    >
-                        <div
-                            style={{
-                                backgroundImage: `url(${item.imgUrl})`,
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
-                                backgroundRepeat: 'no-repeat',
-                                width: '100%',
-                                height: height,
-                                color: 'white', outline: "none"
-                            }}>
+        <div style={props.backgroundOpacity ? CustomBackgroundOpacity : CustomBackground}>
+            <div style={{ width: "100%", height: height }}>
+                <Slider   {...settings} style={{ width: "100%", height: "100%" }}>
+                    {Images.map((item, i) =>
+                        <div key={item.id}>
+                            <div
+                                style={{
+                                    backgroundSize: "cover",
+                                    backgroundPosition: "center center",
+                                    backgroundRepeat: 'no-repeat',
+                                    backgroundImage: `url(${item.imgUrl})`,
+                                    width: '100%',
+                                    height: `${height}`,
+                                    opacity: `${item.opacity}`,
+                                }}
+                            ></div>
                         </div>
+                    )}
+                </Slider>
+
+            </div>
+            <div style={SlideShowAlignCaption}>
+                <CustomHeader as="h1">{props.captionTitle}</CustomHeader>
+                <p style={{ fontSize: "18px", color: "white" }}>{props.captionContent}</p>
+                {props.angleDown ?
+                    <div style={{ position: 'absolute', top: "350px", width: "100%" }}>
+                        <AngleDownButton onClick={gotoMainSection} name="angle down"></AngleDownButton>
                     </div>
-                )}
-            </Slider>
-        </div>
+                    : null
+                }
+
+            </div>
+        </div >
 
     )
 }
