@@ -1,12 +1,11 @@
 import Layout from "../../components/Layout";
 import { useState, useEffect } from "react";
 import SliderComponent from "../../components/SliderComponent";
-import SrcImg1, { fixed } from "../../public/static/img/El-Gaucho-Dine-With-Us.jpg"
+import SrcImg1 from "../../public/static/img/El-Gaucho-Dine-With-Us.jpg"
 import SrcImg2 from "../../public/static/img/El-Gaucho-Argentinian-Steakhouse-Restaurant-Homepage-Welcome-1920-x-800.jpg"
 import SrcImg3 from "../../public/static/img/VN04-2017_1036_37_38_39_40.jpg";
 import { Container, Grid, Menu, Visibility } from "semantic-ui-react";
 import ResponsiveComponent from "../../components/Responsive";
-import styled from "styled-components";
 import MenuCustomStyle from "./menu.module.css";
 import ProductsComponent from "../../components/ProductsComponent";
 const Images = [
@@ -29,35 +28,7 @@ const Images = [
         size: "450px"
     }
 ];
-
-const MenuItemData = [
-    {
-        name: "Soups~Starters~Salads",
-    },
-    {
-        name: "Burgers~Pastas",
-    },
-    {
-        name: "Beef~Steaks",
-    },
-    {
-        name: "Lamb~Pork~Chicken~Fish",
-    },
-    {
-        name: "Sides~Sauces~Desserts",
-    },
-    {
-        name: "Wine",
-    },
-    {
-        name: "El Butcher~Fresh Meats",
-    },
-    {
-        name: "El Souvenirs",
-    },
-]
-
-const MenuComponent = ({ products }) => {
+const ElDeliveryTakeOutComponent = ({ products }) => {
     const [activeItem, setActiveItem] = useState('');
 
     const [overlayFixed, setStickOverlay] = useState(false);
@@ -180,4 +151,4 @@ export async function getServerSideProps(context) {
     }
 }
 
-export default MenuComponent;
+export default ElDeliveryTakeOutComponent;

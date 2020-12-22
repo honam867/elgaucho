@@ -1,4 +1,4 @@
-import { Button, Container, Header } from "semantic-ui-react";
+import { Container, Header } from "semantic-ui-react";
 import SliderComponent from "../../components/SliderComponent";
 import SrcImg1, { fixed } from "../../public/static/img/home-2-1.jpg"
 import SrcImg2 from "../../public/static/img/home-3.jpg"
@@ -33,32 +33,32 @@ const ButtonData = [
     {
         id: 1,
         name: 'Vietnam',
-        url: "/Location"
+        url: "/location"
     },
     {
         id: 2,
         name: 'Thailand',
-        url: "/Location"
+        url: "/location"
     },
     {
         id: 3,
         name: 'Hong Kong',
-        url: "/Location"
+        url: "/location"
     },
     {
         id: 4,
         name: 'Philippines',
-        url: "/Location"
+        url: "/location"
     },
     {
         id: 5,
         name: 'Czech Republic',
-        url: "/Location"
+        url: "/location"
     },
     {
         id: 6,
         name: 'Slovakia',
-        url: "/Location"
+        url: "/location"
     },
 ]
 
@@ -74,7 +74,7 @@ const HomeFullSlider = () => {
         <>
             <SliderComponent
                 Images={Images}
-                height="940px"
+                height="100vh"
                 captionTitle={captionTitle}
                 captionContent={captionContent}
                 backgroundOpacity={true}

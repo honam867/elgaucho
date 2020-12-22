@@ -10,13 +10,23 @@ export default class MyDocument extends Document {
             name="Description"
             content="an example of NextJS app with 100% accessible lighthouse score"
           />
-          <link rel="manifest" href="static/manifest.json" />
           <link rel="icon" href="static/img/elgauchologo.png" />
 
         </Head>
         <body>
           <Main />
           <NextScript />
+          <style jsx global>{`
+            #__next {
+              height: 100%;
+            }
+            .slick-initialized .slick-slide.slick-active {
+              z-index: 1;
+            }
+            .slick-slide div{
+              outline: none;
+            }
+          `}</style>
         </body>
       </Html>
     )

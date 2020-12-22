@@ -9,7 +9,6 @@ import {
     Sidebar,
     Visibility,
     Image,
-    Sticky,
 } from 'semantic-ui-react';
 import Logo from "../../public/static/img/elgauchologo.png"
 import styled from "styled-components";
@@ -65,25 +64,25 @@ const DesktopContainer = ({ children }) => {
             >
                 <Menu secondary fixed={menuFixed ? 'top' : undefined} style={fixedMenuStyle}>
                     <Menu.Item>
-                        <Link href="/Home" forwardRef>
+                        <Link href="/home" forwardRef>
                             <MenuItemLinkImage src={Logo} alt="website logo" size="tiny" />
                         </Link>
                     </Menu.Item>
 
-                    <Link href="/Location"  >
+                    <Link href="/location"  >
                         <MenuItemLink
                             name='Locations'
-                            active={router.pathname == "/Location"}
+                            active={router.pathname == "/location"}
                             position="right"
                         >
                         </MenuItemLink>
                     </Link>
-                    <Link href="/about" forwardRef>
+                    <Link href="/delivery" forwardRef>
                         <MenuItemLink
                             name='EL Delivery & Take out'
-                            active={router.pathname == "/about"}
-
+                            active={router.pathname == "/delivery"}
                         >
+                            EL Delivery & Take out
                         </MenuItemLink>
                     </Link>
                     <Link href="/Menu" forwardRef>
@@ -93,10 +92,12 @@ const DesktopContainer = ({ children }) => {
                         >
                         </MenuItemLink>
                     </Link>
-                    <Link href="/" forwardRef>
+                    <Link href="/private-dining-events" forwardRef>
                         <MenuItemLink
                             name='Private Dining Events'
+                            active={router.pathname == "/private-dining-events"}
                         >
+                            Private | Dining Events
                         </MenuItemLink>
                     </Link>
                     <Link href="/" forwardRef>
