@@ -22,7 +22,7 @@ const Location = () => {
             buttonTitle: "Finest Steakhouse-Style Food",
             opacity: "0.8",
             buttonName: "EL DELIVERY & TAKE OUT",
-            url: "Eldeliverytakeout"
+            url: "eldeliverytakeout"
         },
         {
             id: 2,
