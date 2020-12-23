@@ -8,10 +8,10 @@
        Fonts
 --------------------*/
 
-@fontName          : 'Lato';
+@fontName          : 'Playfair+Display';
 
-@headerFont        : @fontName, 'Helvetica Neue', Arial, Helvetica, sans-serif;
-@pageFont          : @fontName, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@headerFont        : "playfair display", HelveticaNeue, "Helvetica Neue", Helvetica-Neue, Helvetica, Arial, sans-serif;
+@pageFont          : HelveticaNeue, "Helvetica Neue", Helvetica, Arial, sans-serif;;
 
 @googleFontName    : @fontName;
 @importGoogleFonts : true;
@@ -99,10 +99,10 @@
 --------------------*/
 
 /* Used on inputs, textarea etc */
-@focusedFormBorderColor: #85B7D9;
+@focusedFormBorderColor: #cf1b15;
 
 /* Used on dropdowns, other larger blocks */
-@focusedFormMutedBorderColor: #96C8DA;
+@focusedFormMutedBorderColor: #cf1b15;
 
 /*-------------------
         Sizes
@@ -144,7 +144,7 @@
        Links
 --------------------*/
 
-@linkColor           : #4183C4;
+@linkColor           : #cf1b15;
 @linkUnderline       : none;
 @linkHoverColor      : darken(saturate(@linkColor, 20), 15, relative);
 @linkHoverUnderline  : @linkUnderline;
@@ -1460,5 +1460,5 @@
 /*-------------------
      Elgaucho Colors
 --------------------*/
-@secondaryActiveItemBackgroundColorElgaucho: #cf1b15;
-@secondaryActiveItemColorTextElgaucho: #FFFFFF;
+@secondaryActiveItemBackgroundColorElgaucho: #FFFFFF;
+@secondaryActiveItemColorTextElgaucho: #cf1b15;

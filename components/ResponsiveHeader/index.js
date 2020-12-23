@@ -22,11 +22,12 @@ const { MediaContextProvider, Media } = createMedia({
 import { useRouter } from "next/router";
 const MenuItemLink = styled(Menu.Item)`
  &:hover {
-    color: #fff  !important;
-    background: #cf1b15 !important;
- font-weight:900 !important;
+    color: #cf1b15  !important;
+    background: none !important;
  }
- 
+ border-right: 1px solid #C0C0C0 !important;
+ border-radius: 0px !important;
+ font-weight: bold !important;
 `;
 
 const MenuItemLinkImage = React.forwardRef(function MenuItemLinkImage(props, ref) {
@@ -39,9 +40,17 @@ const MenuItemLinkImage = React.forwardRef(function MenuItemLinkImage(props, ref
 
 const fixedMenuStyle = {
     backgroundColor: '#fff',
-    height: "75px",
+    height: "10px",
     maxHeight: "600px",
-    transition: "20px 1s ease-out",
+    overflow: "hidden",
+    transition: "height 0.2s",
+
+}
+const noFixedMenuStyle = {
+    backgroundColor: '#fff',
+    transition: "height 0.1s",
+    height: "76px",
+    maxHeight: "600px",
     overflow: "hidden"
 }
 
@@ -62,10 +71,10 @@ const DesktopContainer = ({ children }) => {
                 onTopPassed={showFixedMenu}
                 onBottomPassedReverse={hideFixedMenu}
             >
-                <Menu secondary fixed={menuFixed ? 'top' : undefined} style={fixedMenuStyle}>
+                <Menu secondary fixed={menuFixed ? 'top' : undefined} style={menuFixed ? fixedMenuStyle : noFixedMenuStyle}>
                     <Menu.Item>
                         <Link href="/home" forwardRef>
-                            <MenuItemLinkImage src={Logo} alt="website logo" size="tiny" />
+                            <MenuItemLinkImage src={Logo} alt="website logo" size={menuFixed ? "mini" : "tiny"} />
                         </Link>
                     </Menu.Item>
 
@@ -116,6 +125,18 @@ const DesktopContainer = ({ children }) => {
                         <MenuItemLink
                         >
                             <Icon name='cart' />
+                        </MenuItemLink>
+                    </Link>
+                    <Link href="/" forwardRef>
+                        <MenuItemLink
+                        >
+                            <Icon name='facebook' color="blue" />
+                        </MenuItemLink>
+                    </Link>
+                    <Link href="/" forwardRef>
+                        <MenuItemLink
+                        >
+                            <Icon name='instagram' color="violet" />
                         </MenuItemLink>
                     </Link>
                 </Menu>

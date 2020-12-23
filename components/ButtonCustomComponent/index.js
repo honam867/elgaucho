@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Button } from "semantic-ui-react";
+import { Button, Icon } from "semantic-ui-react";
 import styled from "styled-components";
 
 const CustomButton = styled(Button)`
@@ -12,7 +12,11 @@ margin: 10px !important;
 const ButtonCustomComponent = ({ name, ...props }) => {
     return (
         <Link href={`${props.url}`} passHref>
-            <CustomButton>{name}</CustomButton>
+            <CustomButton>
+                {props.icon ?
+                    <Icon name={props.iconName} />
+                    : null}
+                {name}</CustomButton>
         </Link>
 
     )
