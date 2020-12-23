@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-import { Button, Icon } from 'semantic-ui-react';
-import HomeFullSlider from './Home';
+
+import HomeFullSlider from './home';
 export class IndexPage extends React.PureComponent {
   render() {
     return <HomeFullSlider />

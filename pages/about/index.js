@@ -1,6 +1,4 @@
 import Layout from "../../components/Layout"
-import OnDesktop from "../../components/OnDesktop";
-import OnMobile from "../../components/OnMobile";
 import Responsive from "../../components/Responsive";
 import style from "./about.module.css";
 
