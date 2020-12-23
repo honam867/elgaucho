@@ -1,9 +1,19 @@
 import Layout from "../../components/Layout"
-import Link from "next/link";
+import Responsive from "../../components/Responsive";
+import style from "./about.module.css";
+
+const onDesktop = () => {
+    return <div>On Desktop</div>
+}
+const onMobile = () => {
+    return <div className={style.test}>On Mobile</div>
+}
+
+
 const About = () => {
     return (<Layout>
-        <div >this is about pages</div>
-        <Link href="/">go to home pages</Link>
+        <Responsive onDesktop={onDesktop} onMobile={onMobile}>
+        </Responsive>
     </Layout>)
 }
 export default About;
