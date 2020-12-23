@@ -1,3 +1,4 @@
+import Layout from "../../components/Layout";
 const MenuPage = () => {
     return (
         <Layout>
