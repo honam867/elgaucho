@@ -55,6 +55,7 @@ const Location = () => {
             opacity: "0.8",
             subTitle: "Drop Us A Line On Any Question Or Note You Might Have",
             buttonName: "CONTACT US",
+            url: "get-in-touch"
         }
     ];
     const Images2 = [

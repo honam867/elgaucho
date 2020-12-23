@@ -44,7 +44,7 @@ const fixedMenuStyle = {
     maxHeight: "600px",
     overflow: "hidden",
     transition: "height 0.2s",
-
+    borderBottom: "1px solid #cf1b15"
 }
 const noFixedMenuStyle = {
     backgroundColor: '#fff',
@@ -115,9 +115,10 @@ const DesktopContainer = ({ children }) => {
                         >
                         </MenuItemLink>
                     </Link>
-                    <Link href="/" forwardRef>
+                    <Link href="/get-in-touch" forwardRef>
                         <MenuItemLink
                             name='Contact Us'
+                            active={router.pathname == "/get-in-touch"}
                         >
                         </MenuItemLink>
                     </Link>

@@ -4,10 +4,13 @@ import SliderComponent from "../../components/SliderComponent";
 import SrcImg1 from "../../public/static/img/El-Gaucho-Dine-With-Us.jpg"
 import SrcImg2 from "../../public/static/img/El-Gaucho-Argentinian-Steakhouse-Restaurant-Homepage-Welcome-1920-x-800.jpg"
 import SrcImg3 from "../../public/static/img/VN04-2017_1036_37_38_39_40.jpg";
-import { Container, Grid, Menu, Visibility } from "semantic-ui-react";
+import { Button, Card, Container, Grid, GridColumn, Header, Icon, Image, Menu, Visibility } from "semantic-ui-react";
 import ResponsiveComponent from "../../components/Responsive";
 import MenuCustomStyle from "./menu.module.css";
 import ProductsComponent from "../../components/ProductsComponent";
+import styled from "styled-components";
+import ButtonCustomComponent from "../../components/ButtonCustomComponent";
+import Link from "next/link";
 const Images = [
     {
         id: 1,
@@ -28,6 +31,15 @@ const Images = [
         size: "450px"
     }
 ];
+
+const CustomStrong = styled.strong`
+    color: #cf1b15 !important;
+    font-weight:bold !important;
+`
+const CustomButton = styled(Button)`
+color: #cf1b15  !important;
+background-color: #ffffff !important;
+`;
 const ElDeliveryTakeOutComponent = ({ products }) => {
     const [activeItem, setActiveItem] = useState('');
 
@@ -41,13 +53,24 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
     const overlayMenuStyle = {
         position: 'relative',
         top: 0,
-        transition: 'top 0.5s ease',
+        transition: 'top 2s ease',
     }
 
     const fixedOverlayMenuStyle = {
         ...overlayMenuStyle,
         top: '300px',
-        position: "fixed"
+        position: "relative"
+    }
+
+    const overlayCardStyle = {
+        top: 0,
+        transition: 'top 2s ease',
+        width: "100%"
+    }
+
+    const fixedOverlayCardStyle = {
+        ...overlayCardStyle,
+        top: '300px',
     }
 
     const handleItemClick = (e, { name, value }) => {
@@ -76,43 +99,82 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
     const MenusOnDesktop = () => {
         return (
 
-            <Container>
-                <Grid divided doubling columns={2} style={{ marginTop: "30px" }}>
-                    <div style={{ width: "25%" }}>
-                        <Grid.Column width={3}>
-                            <Visibility
-                                offset={80}
-                                once={false}
-                                onTopPassed={stickOverlay}
-                                onTopVisible={unStickOverlay}
-                            />
-                            <Menu
-                                className={MenuCustomStyle.customBorder}
-                                style={overlayFixed ? fixedOverlayMenuStyle : overlayMenuStyle}
-                                secondary
-                                vertical>
-                                {
-                                    productList.map((item) => {
-                                        return (
-                                            <Menu.Item
-                                                className={MenuCustomStyle.customCorlor}
-                                                key={item.id}
-                                                name={item.name}
-                                                active={activeItem === item.name}
-                                                onClick={handleItemClick}
-                                                value={item}
-                                            />
+            <Container style={{ margin: "auto", width: "100%", padding: "0px 30px" }} fluid>
+                <Grid divided doubling columns={3} style={{ marginTop: "30px" }}>
+                    <Grid.Column width={3}>
+                        <Visibility
+                            offset={80}
+                            once={false}
+                            onTopPassed={stickOverlay}
+                            onTopVisible={unStickOverlay}
+                        />
+                        <Menu
+                            className={MenuCustomStyle.customBorder}
+                            style={overlayFixed ? fixedOverlayMenuStyle : overlayMenuStyle}
+                            secondary
+                            vertical>
+                            {
+                                productList.map((item) => {
+                                    return (
+                                        <Menu.Item
+                                            className={MenuCustomStyle.customCorlor}
+                                            key={item.id}
+                                            name={item.name}
+                                            active={activeItem === item.name}
+                                            onClick={handleItemClick}
+                                            value={item}
+                                        />
 
-                                        )
-                                    })
-                                }
-                            </Menu>
-                        </Grid.Column>
-                    </div>
-                    <Grid.Column >
+                                    )
+                                })
+                            }
+                        </Menu>
+                    </Grid.Column>
+                    <Grid.Column width={8}>
                         <div >
                             <ProductsComponent categories={categories} />
                         </div>
+                    </Grid.Column>
+
+                    <Grid.Column width={4} >
+                        <Visibility
+                            offset={80}
+                            once={false}
+                            onTopPassed={stickOverlay}
+                            onTopVisible={unStickOverlay}
+                        />
+                        <Card style={overlayFixed ? fixedOverlayCardStyle : overlayCardStyle}>
+                            <Card.Content textAlign="center">
+                                <Header as="h3">
+                                    Cart
+                                    </Header>
+                            </Card.Content>
+                            <Card.Content >
+                                <Grid columns={2}>
+                                    <Grid.Column width={10}>
+                                        <p>
+                                            29-HOMEMADE BLUE CHEESE BURGER
+                                        </p>
+                                        <small>1 X VND 290.000</small>
+                                    </Grid.Column>
+                                    <Grid.Column width={6}>
+                                        <Image size="tiny" src={SrcImg1} textAlign="right" />
+                                    </Grid.Column>
+
+                                </Grid>
+
+
+                            </Card.Content>
+                            <Card.Content>
+                                <CustomStrong>Subtotal:</CustomStrong> VND 220.000
+                                </Card.Content>
+                            <Card.Content extra>
+                                <div className='ui two buttons'>
+                                    <CustomButton>View Cart</CustomButton>
+                                    <CustomButton>Checkout</CustomButton>
+                                </div>
+                            </Card.Content>
+                        </Card>
                     </Grid.Column>
                 </Grid>
             </Container >
