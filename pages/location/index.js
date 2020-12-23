@@ -43,6 +43,7 @@ const Location = () => {
             title: "DINE WITH US",
             subTitle: "View Our Menus",
             buttonName: "Menus",
+            url: "menu"
         },
         {
             id: 3,
