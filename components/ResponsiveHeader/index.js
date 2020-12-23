@@ -94,10 +94,10 @@ const DesktopContainer = ({ children }) => {
                             EL Delivery & Take out
                         </MenuItemLink>
                     </Link>
-                    <Link href="/Menu" forwardRef>
+                    <Link href="/menu" forwardRef>
                         <MenuItemLink
                             name='Menus'
-                            active={router.pathname == "/Menu"}
+                            active={router.pathname == "/menu"}
                         >
                         </MenuItemLink>
                     </Link>

@@ -133,7 +133,7 @@ const SliderComponent = ({ Images, height, ...props }) => {
     const [activeSlide, setActiveSlide] = useState(0);
     const settings = {
         dots: true,
-        fade: true,
+        fade: !props.slide,
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -188,6 +188,7 @@ const SliderComponent = ({ Images, height, ...props }) => {
                 style={{
                     ...style,
                     display: "block",
+                    zIndex: 1,
                     right: "0px",
                     fontSize: "50px"
                 }}
