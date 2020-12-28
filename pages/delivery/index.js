@@ -226,7 +226,6 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
                                                 </Header>
                                             </Divider>
                                             <Item >
-                                                {category.name}
                                                 {category.categoryItem.map(categoryItem => {
                                                     return (
                                                         <Item.Image src={categoryItem.urlImage} size="mini" style={{ minHeight: "200px" }} />
