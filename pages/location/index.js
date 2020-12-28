@@ -6,7 +6,7 @@ import SrcImg4 from "../../public/static/img/IMG1jpg.jpg"
 import SrcImg5 from "../../public/static/img/IMG2.jpg"
 import SrcImg6 from "../../public/static/img/IMG3jpg.jpg"
 import SrcImg7 from "../../public/static/img/IMG4jpg.jpg"
-import { Button, Container, Header, Icon } from "semantic-ui-react";
+import { Button, Container, Header, Icon,Grid } from "semantic-ui-react";
 import SliderComponent from "../../components/SliderComponent";
 import LocationSectionGGMap from "../../components/LocationSectionGGMap";
 import ButtonCustomComponent from "../../components/ButtonCustomComponent";
@@ -106,7 +106,7 @@ const Location = () => {
 
                     OUR EL GAUCHO STEAKHOUSE – CONTEMPORARY AND SPECIALISED
                     </Header>
-                <Container fluid textAlign='center'>
+                <Container fluid textAlign='left'>
                     <p>
                         Food is our passion and it is our aim to establish the benchmark in Southeast Asia and beyond for a contemporary, specialised steakhouse concept. We opened our first restaurant in Vietnam in 2011 and went our way from Saigon to Hanoi and Danang; onward to Thailand to Bangkok, Koh Samui and Phuket; hopping to Slovakia and now recently opened in Manila, Phillipines; Hamburg, Germany and Hong Kong to expand our number of locations to seventeen restaurants and it is still the same joy.
                     </p>
@@ -136,10 +136,13 @@ const Location = () => {
                     <CustomButton name="Reverse Now" href="https://widget.guestplan.com/?i=9a12b86df5ecbae4b281ca66076eeab9c05a19c5">Reverse Now</CustomButton>
                 </Container>
 
-                <Container style={{ margin: "auto", width: "50%" }}>
-                    <div >
-                        <SliderComponent Images={Images2} height="70vh" fromPrivateDiningEventPages={true} />
-                    </div>
+                <Container >
+                <Grid centered columns={1}>
+              <Grid.Column computer={9} tablet={16} mobile={16}>
+              <SliderComponent Images={Images2} height="70vh" fromPrivateDiningEventPages={true} />
+              </Grid.Column>
+            </Grid>
+                  
                 </Container>
 
                 <Container textAlign="center" style={{ marginBottom: "30px" }}>
@@ -147,7 +150,7 @@ const Location = () => {
                     <ButtonCustomComponent icon={true} iconName="list ul" name="View Menus" url="/menu" />
                 </Container>
 
-                <Container fluid textAlign='center' style={{ padding: "0px 40px" }}>
+                <Container fluid textAlign='left' style={{ padding: "0px 40px" }}>
                     <p>
                         Our venue can be found on the ground floor of the Saigon Pearl urban development area less than 10 min away from District 1 featuring a corner location,
                         outside seating and a great view of the never-ending flow of motorbikes and cars passing you by on Nguyen Huu Canh street.
@@ -175,30 +178,38 @@ const Location = () => {
                     <CustomButton name="Reverse Now" href="https://widget.guestplan.com/?i=9a12b86df5ecbae4b281ca66076eeab9c05a19c5">Reverse Now</CustomButton>
                 </Container>
 
-                <Container style={{ margin: "auto", width: "50%" }}>
-                    <div >
-                        <SliderComponent Images={Images2} height="70vh" fromPrivateDiningEventPages={true} />
-                    </div>
+                <Container>
+                <Grid centered columns={1}>
+              <Grid.Column computer={9} tablet={16} mobile={16}>
+              <SliderComponent Images={Images2} height="70vh" fromPrivateDiningEventPages={true} />
+              </Grid.Column>
+            </Grid>
+                    
                 </Container>
 
                 <Container textAlign="center" style={{ marginBottom: "30px" }}>
                     <CustomButton name="Reverse Now" href="https://www.google.com/maps/place/Saigon+Pearl,+Ph%C6%B0%E1%BB%9Dng+22,+B%C3%ACnh+Th%E1%BA%A1nh,+Ho+Chi+Minh+City,+Vietnam/@10.78954,106.7177957,17z/data=!3m1!4b1!4m5!3m4!1s0x317528ab19e39189:0x66e1081c51e6c084!8m2!3d10.7901079!4d106.7197782?shorturl=1"><Icon name="map marker alternate" /> Get Directions</CustomButton>
                     <ButtonCustomComponent icon={true} iconName="list ul" name="View Menus" url="/menu" />
                     <Container>
-                        <div style={{ height: "600px", margin: "0 auto", width: "50%" }}>
+                    <Grid centered columns={1}>
+                        <Grid.Column computer={9} tablet={16} mobile={16}>
+                        <div style={{ height: "600px"}}>
                             <LocationSectionGGMap></LocationSectionGGMap>
                         </div>
+                        </Grid.Column>
+                    </Grid>
+                  
                     </Container>
                 </Container>
 
-                <Container fluid textAlign='center' style={{ padding: "0px 40px" }}>
+                <Container fluid textAlign='left' style={{ padding: "0px 40px" }}>
                     <p>
                         District 1 in Ho Chi Minh City is the true heart of the city and still shows the architectural influence of the French. It does not only  include most of the city’s administrative offices and consulates, but also some of the most famous buildings, such as the Saigon Notre-Dame Basilica and the Opera House.        </p>
                     <p>
                         Our location at 74/1 Hai Ba Trung is opposite the Park Hyatt Hotel and offers a four-floor open space building with floor to ceiling windows and partial balcony. The ground floor with its open kitchen and bar area, is not only the pulse of the restaurant, but also the welcome and lingering area.</p>
                     <p>
-                        With a rooftop having a stunning view of Saigon, this location is a preferred place for couples, families, business occasions and larger celebrating groups alike. In addition, the location offers private dining rooms as well as an exclusive event floor, for further details please visit our <br />
-                        <strong><Link href="/private-dining-events">Private Dining | Events</Link></strong>      page.
+                        With a rooftop having a stunning view of Saigon, this location is a preferred place for couples, families, business occasions and larger celebrating groups alike. In addition, the location offers private dining rooms as well as an exclusive event floor, for further details please visit our 
+                        <strong><Link href="/private-dining-events"> Private Dining | Events</Link></strong>      page.
 
             </p>
                     <p>

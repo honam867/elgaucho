@@ -22,7 +22,7 @@ const MenuPage = () => {
                     <CustomHeader as='h2'>
                         OUR MENUS
                         </CustomHeader>
-                    <Container fluid textAlign='center'>
+                    <Container fluid textAlign='left'>
                         <p>
                             Let your sense of taste be awoken with an aperitif, let the juicy meat melt in your mouth, dive into the latest wine treasures and find in a selection of cigars a peaceful retreat from the bustling world around.
                         </p>
@@ -85,7 +85,7 @@ const MenuPage = () => {
                     <CustomHeader as='h2'>
                         COCKTAILS AND DRINKS FOR ANY TASTE
                     </CustomHeader>
-                    <Container fluid textAlign='center'>
+                    <Container fluid textAlign='left'>
                         <p>
                             Having our bars as an established focal point within our restaurant locations, they have become a trademark of quality for classic and fusion cocktails, carefully executed to satisfy the most sophisticated taste.
                             At the same time the bar is a preferred seating for single guests, private and business traveling people who enjoy the comfortable and blended atmosphere likewise.
@@ -100,7 +100,7 @@ const MenuPage = () => {
                     <CustomHeader as='h2'>
                         WINE TREASURES
                     </CustomHeader>
-                    <Container fluid textAlign='center'>
+                    <Container fluid textAlign='left'>
                         <p>
                             We constantly strive to update and expand our wine list with the latest treasures by selecting the best quality wines. Our restaurant aims to satisfy its guests with outstanding options from international wineries, from Argentina to Chile, France to Spain, and Australia to USA.
                         </p>
@@ -120,7 +120,7 @@ const MenuPage = () => {
                     <CustomHeader as='h2'>
                         FINEST IMPORTED CIGARS
                     </CustomHeader>
-                    <Container fluid textAlign='center'>
+                    <Container fluid textAlign='left'>
                         <p>
                             Our cigar offer is designated for the discerning patron who enjoys the relaxing ritual of cigar smoking, accompanied by a glass of fine cognac, aged whisky, port or deeper red to enhance the sensation of a cigar for the aficionado.
                         </p>
