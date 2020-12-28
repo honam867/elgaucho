@@ -78,6 +78,7 @@ const HomeFullSlider = () => {
                 captionTitle={captionTitle}
                 captionContent={captionContent}
                 backgroundOpacity={true}
+                backgroundAttachment="fixed"
                 gotomainsection={gotomainSection}
                 angleDown={true} />
             <div style={{ background: "#fcfcfc", paddingTop: "50px", paddingBottom: "50px" }}>

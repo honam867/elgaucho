@@ -4,7 +4,7 @@ import SliderComponent from "../../components/SliderComponent";
 import SrcImg1 from "../../public/static/img/El-Gaucho-Dine-With-Us.jpg"
 import SrcImg2 from "../../public/static/img/El-Gaucho-Argentinian-Steakhouse-Restaurant-Homepage-Welcome-1920-x-800.jpg"
 import SrcImg3 from "../../public/static/img/VN04-2017_1036_37_38_39_40.jpg";
-import { Button, Card, Container, Grid, GridColumn, Header, Icon, Image, Menu, Visibility } from "semantic-ui-react";
+import { Button, Card, Container, Divider, Grid, GridColumn, Header, Icon, Image, Item, Menu, Reveal, Visibility } from "semantic-ui-react";
 import ResponsiveComponent from "../../components/Responsive";
 import MenuCustomStyle from "./menu.module.css";
 import ProductsComponent from "../../components/ProductsComponent";
@@ -91,7 +91,7 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
     useEffect(() => {
         setproducts(products)
         // TODO render null if products from api don't have item
-        setCategories(products[0].categories)
+        // setCategories(products[0].categories)
 
         setActiveItem(products[0].name);
     }, []);
@@ -130,7 +130,7 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
                             }
                         </Menu>
                     </Grid.Column>
-                    <Grid.Column width={8}>
+                    <Grid.Column width={9}>
                         <div >
                             <ProductsComponent categories={categories} />
                         </div>
@@ -158,7 +158,7 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
                                         <small>1 X VND 290.000</small>
                                     </Grid.Column>
                                     <Grid.Column width={6}>
-                                        <Image size="tiny" src={SrcImg1} textAlign="right" />
+                                        <Image size="tiny" src={SrcImg1} />
                                     </Grid.Column>
 
                                 </Grid>
@@ -182,9 +182,64 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
     }
     const MenusOnMobile = () => {
         return (
-            <div>
-                On mobile
-            </div>
+            <Container style={{ margin: "auto", width: "100%", padding: "0px 10px" }} fluid>
+                <Grid divided>
+                    <Grid.Row>
+                        <Grid.Column width={6} >
+                            <Visibility
+                                offset={80}
+                                once={false}
+                                onTopPassed={stickOverlay}
+                                onTopVisible={unStickOverlay}
+                            />
+                            <Menu
+                                className={MenuCustomStyle.customBorderMobile}
+                                secondary
+                                style={overlayFixed ? fixedOverlayMenuStyle : overlayMenuStyle}
+                                vertical>
+                                {
+                                    productList.map((item) => {
+                                        return (
+                                            <Menu.Item
+                                                className={MenuCustomStyle.customCorlorMobile}
+                                                key={item.id}
+                                                name={item.name}
+                                                active={activeItem === item.name}
+                                                onClick={handleItemClick}
+                                                value={item}
+                                            />
+
+                                        )
+                                    })
+                                }
+                            </Menu>
+                        </Grid.Column>
+                        <Grid.Column width={10} >
+                            {
+                                categories.map(category => {
+                                    console.log(category)
+                                    return (
+                                        <Item.Group key={category.id}>
+                                            <Divider horizontal>
+                                                <Header as='h2' className={MenuCustomStyle.customHeaderColor}>
+                                                    {category.name}
+                                                </Header>
+                                            </Divider>
+                                            <Item >
+                                                {category.categoryItem.map(categoryItem => {
+                                                    return (
+                                                        <Item.Image src={categoryItem.urlImage} size="mini" style={{ minHeight: "200px" }} />
+                                                    )
+                                                })}
+                                            </Item>
+                                        </Item.Group>
+                                    )
+                                })
+                            }
+                        </Grid.Column>
+                    </Grid.Row>
+                </Grid>
+            </Container >
         )
     }
     return (

@@ -203,7 +203,7 @@ const MobileContainer = ({ children }) => {
                     <Menu.Item as='a'>Sign Up</Menu.Item>
                     <Menu.Item as='button' onClick={hideMenuSideBar} >Close</Menu.Item> */}
 
-          <Link href="/location">
+          <Link href="/location" forwardRef>
             <MenuItemLink
               name="Locations"
               active={router1.pathname == "/location"}
@@ -253,7 +253,7 @@ const MobileContainer = ({ children }) => {
             vertical
           >
             <Menu inverted pointing secondary size="large">
-              <Menu.Item style={{ maxHeight: "55px", paddingTop: "22px" }}>
+              <MenuItemLink1 style={{ maxHeight: "55px", paddingTop: "22px" }}>
                 <Link href="/home" forwardRef>
                   <MenuItemLinkImage
                     src={Logo}
@@ -261,16 +261,11 @@ const MobileContainer = ({ children }) => {
                     size="tiny"
                   />
                 </Link>
-              </Menu.Item>
-              <Menu.Item onClick={handleToggle} position="right">
+              </MenuItemLink1>
+              <MenuItemLink1 onClick={handleToggle} position="right">
                 <Icon name="sidebar" size="large" color="black" />
-
-                <Link href="/" forwardRef>
-                  <MenuItemLink1>
-                    <Icon name="shopping cart" size="small" color="red" />
-                  </MenuItemLink1>
-                </Link>
-              </Menu.Item>
+                <Icon name="shopping cart" size="small" color="red" />
+              </MenuItemLink1>
 
               {/* <Menu.Item >
                                 <CustomButton as='a' >

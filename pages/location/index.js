@@ -6,7 +6,7 @@ import SrcImg4 from "../../public/static/img/IMG1jpg.jpg"
 import SrcImg5 from "../../public/static/img/IMG2.jpg"
 import SrcImg6 from "../../public/static/img/IMG3jpg.jpg"
 import SrcImg7 from "../../public/static/img/IMG4jpg.jpg"
-import { Button, Container, Header, Icon,Grid } from "semantic-ui-react";
+import { Button, Container, Header, Icon, Grid } from "semantic-ui-react";
 import SliderComponent from "../../components/SliderComponent";
 import LocationSectionGGMap from "../../components/LocationSectionGGMap";
 import ButtonCustomComponent from "../../components/ButtonCustomComponent";
@@ -90,11 +90,22 @@ const Location = () => {
     })
     return (
         <Layout>
-
+            <style jsx global>{`
+        #__next {
+          height: 100%;
+        }
+        .slick-initialized .slick-slide.slick-active {
+          z-index: 1;
+        }
+        .slick-slide div{
+          outline: none;
+        }
+      `}</style>
             {<SliderComponent
                 Images={Images}
                 height="92vh"
                 backgroundOpacity={true}
+                backgroundAttachment="fixed"
                 fromLocationPage={true}
                 angleDown={true}
                 gotomainsection={gotomainSection}
@@ -137,12 +148,12 @@ const Location = () => {
                 </Container>
 
                 <Container >
-                <Grid centered columns={1}>
-              <Grid.Column computer={9} tablet={16} mobile={16}>
-              <SliderComponent Images={Images2} height="70vh" fromPrivateDiningEventPages={true} />
-              </Grid.Column>
-            </Grid>
-                  
+                    <Grid centered columns={1}>
+                        <Grid.Column computer={12} tablet={16} mobile={16}>
+                            <SliderComponent slide={true} Images={Images2} height="60vh" fromPrivateDiningEventPages={true} />
+                        </Grid.Column>
+                    </Grid>
+
                 </Container>
 
                 <Container textAlign="center" style={{ marginBottom: "30px" }}>
@@ -179,26 +190,26 @@ const Location = () => {
                 </Container>
 
                 <Container>
-                <Grid centered columns={1}>
-              <Grid.Column computer={9} tablet={16} mobile={16}>
-              <SliderComponent Images={Images2} height="70vh" fromPrivateDiningEventPages={true} />
-              </Grid.Column>
-            </Grid>
-                    
+                    <Grid centered columns={1}>
+                        <Grid.Column computer={12} tablet={16} mobile={16}>
+                            <SliderComponent slide={true} Images={Images2} height="60vh" fromPrivateDiningEventPages={true} />
+                        </Grid.Column>
+                    </Grid>
+
                 </Container>
 
                 <Container textAlign="center" style={{ marginBottom: "30px" }}>
                     <CustomButton name="Reverse Now" href="https://www.google.com/maps/place/Saigon+Pearl,+Ph%C6%B0%E1%BB%9Dng+22,+B%C3%ACnh+Th%E1%BA%A1nh,+Ho+Chi+Minh+City,+Vietnam/@10.78954,106.7177957,17z/data=!3m1!4b1!4m5!3m4!1s0x317528ab19e39189:0x66e1081c51e6c084!8m2!3d10.7901079!4d106.7197782?shorturl=1"><Icon name="map marker alternate" /> Get Directions</CustomButton>
                     <ButtonCustomComponent icon={true} iconName="list ul" name="View Menus" url="/menu" />
                     <Container>
-                    <Grid centered columns={1}>
-                        <Grid.Column computer={9} tablet={16} mobile={16}>
-                        <div style={{ height: "600px"}}>
-                            <LocationSectionGGMap></LocationSectionGGMap>
-                        </div>
-                        </Grid.Column>
-                    </Grid>
-                  
+                        <Grid centered columns={1}>
+                            <Grid.Column computer={9} tablet={16} mobile={16}>
+                                <div style={{ height: "600px" }}>
+                                    <LocationSectionGGMap></LocationSectionGGMap>
+                                </div>
+                            </Grid.Column>
+                        </Grid>
+
                     </Container>
                 </Container>
 
@@ -208,7 +219,7 @@ const Location = () => {
                     <p>
                         Our location at 74/1 Hai Ba Trung is opposite the Park Hyatt Hotel and offers a four-floor open space building with floor to ceiling windows and partial balcony. The ground floor with its open kitchen and bar area, is not only the pulse of the restaurant, but also the welcome and lingering area.</p>
                     <p>
-                        With a rooftop having a stunning view of Saigon, this location is a preferred place for couples, families, business occasions and larger celebrating groups alike. In addition, the location offers private dining rooms as well as an exclusive event floor, for further details please visit our 
+                        With a rooftop having a stunning view of Saigon, this location is a preferred place for couples, families, business occasions and larger celebrating groups alike. In addition, the location offers private dining rooms as well as an exclusive event floor, for further details please visit our
                         <strong><Link href="/private-dining-events"> Private Dining | Events</Link></strong>      page.
 
             </p>
