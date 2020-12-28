@@ -105,6 +105,7 @@ const Location = () => {
                 Images={Images}
                 height="92vh"
                 backgroundOpacity={true}
+                backgroundAttachment="fixed"
                 fromLocationPage={true}
                 angleDown={true}
                 gotomainsection={gotomainSection}
