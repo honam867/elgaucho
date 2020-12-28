@@ -4,11 +4,11 @@ import styled from "styled-components"
 const AddToCartButton = styled(Button)`
 color: #fff  !important;
 background: #cf1b15 !important;
-font-weight:900 !important;
 `;
 const PriceCustomFromHeader = styled(Item.Header)`
 color: #cf1b15 !important;
-font-weight: 30px !important;
+font-weight: 300 !important;
+font-size: 20px !important;
 margin-top: 10px !important;
 `
 const ItemHeaderCustom = styled(Item.Header)`
@@ -33,7 +33,7 @@ const ProductItem = ({ categoriesItem }) => {
                                 <Item.Description className={MenuItemCustom.customHeightDescription}>
                                     {categoryItem.description}
                                 </Item.Description>
-                                <PriceCustomFromHeader floated="right">
+                                <PriceCustomFromHeader as="h4" floated="right">
                                     {categoryItem.prices}
                                 </PriceCustomFromHeader>
                                 <AddToCartButton floated='right'>
