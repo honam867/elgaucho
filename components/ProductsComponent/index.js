@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Divider, Header } from "semantic-ui-react";
 import ProductItem from "../ProductItemComponent";
 import CustomHeader from "./product.module.css";

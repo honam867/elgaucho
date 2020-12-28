@@ -140,7 +140,6 @@ const SliderComponent = ({ Images, height, ...props }) => {
         autoplay: true,
         speed: 500,
         slidesToShow: 1,
-        lazyLoad: 'ondemand',
         arrows: true,
         adaptiveHeight: true,
         beforeChange: (current, next) => { setActiveSlide(next) },

@@ -184,8 +184,6 @@ const MobileContainer = ({ children }) => {
                 <Sidebar.Pusher dimmed={sidebarOpened}>
                     <Segment
                         inverted
-                        textAlign='center'
-                        style={{ minHeight: 350, padding: '1em 0em' }}
                         vertical
                     >
                         <Menu inverted pointing secondary size='large'>
