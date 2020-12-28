@@ -90,7 +90,17 @@ const Location = () => {
     })
     return (
         <Layout>
-
+            <style jsx global>{`
+        #__next {
+          height: 100%;
+        }
+        .slick-initialized .slick-slide.slick-active {
+          z-index: 1;
+        }
+        .slick-slide div{
+          outline: none;
+        }
+      `}</style>
             {<SliderComponent
                 Images={Images}
                 height="92vh"
