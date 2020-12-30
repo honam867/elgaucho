@@ -65,6 +65,7 @@ animation: fadeInTopSubTitle 2s  !important;
 
 const CustomSubTitleLocations = styled.p`
 font-size: 18px !important;
+font-weight: lighter !important;
 color: white !important;
 animation: fadeInTopSubTitle 2s  !important;
 @keyframes fadeInTopSubTitle {
@@ -94,6 +95,7 @@ animation: fadeInTopSubTitle 2s  !important;
 `
 const CustomHeaderLocations = styled(Header)`
 font-size: 40px !important;
+font-weight: bold !important;
 color: white !important;
 animation: fadeInDownLocations 2s  !important;
 @keyframes fadeInDownLocations {
@@ -162,6 +164,9 @@ animation-timing-function: ease-in-out !important;
 const AngleDowButtonPosition = styled.div`
 position: relative !important;
 top: 180px !important;
+@media only screen and (min-width:320px) and (max-width:767px)  {
+    top: 120px !important;
+  }
 `
 
 const CustomHeaderPrivateDining = styled(Header)`
@@ -349,6 +354,7 @@ const SliderComponent = ({ Images, height, ...props }) => {
                                     backgroundPosition: "center center",
                                     backgroundRepeat: 'no-repeat',
                                     backgroundImage: `url(${item.imgUrl})`,
+                                    backgroundAttachment: `${props.backgroundAttachment}`,
                                     width: '100%',
                                     height: height,
                                     opacity: `${item.opacity}`,
