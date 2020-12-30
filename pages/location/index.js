@@ -196,7 +196,7 @@ const Location = () => {
                 <Container>
                     <Grid centered columns={1}>
                         <Grid.Column computer={15} tablet={16} mobile={16}>
-                            <SliderComponent slide={true} Images={Images2} height="60vh" fromPrivateDiningEventPages={true} />
+                            <SliderComponent slide={true} Images={Images2} height="70vh" fromPrivateDiningEventPages={true} />
                         </Grid.Column>
                     </Grid>
 

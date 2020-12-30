@@ -349,7 +349,6 @@ const SliderComponent = ({ Images, height, ...props }) => {
                                     backgroundPosition: "center center",
                                     backgroundRepeat: 'no-repeat',
                                     backgroundImage: `url(${item.imgUrl})`,
-                                    backgroundAttachment: `${props.backgroundAttachment}`,
                                     width: '100%',
                                     height: height,
                                     opacity: `${item.opacity}`,
