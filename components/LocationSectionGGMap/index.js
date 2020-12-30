@@ -7,7 +7,7 @@ const LocationSectionGGMap = () => {
             defaultCenter={center}
             defaultZoom={zomm}
             bootstrapURLKeys={{
-                key: 'AIzaSyB_7xhxZ7CvVJeHB464NRJM_32_I9EtV_c',
+                key: "AIzaSyCP0PjMa80DJiUo2zdFCbw09XV1dcK4aIE",
                 language: 'en'
             }}
         >
