@@ -134,6 +134,7 @@ const SliderComponent = ({ Images, height, ...props }) => {
     const settings = {
         dots: true,
         fade: !props.slide,
+        lazyLoad: true,
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -244,6 +245,11 @@ const SliderComponent = ({ Images, height, ...props }) => {
         <div style={props.backgroundOpacity ? CustomBackgroundOpacity : CustomBackground}>
             <Slider   {...settings} style={{ width: "100%", height: "100%" }}>
                 {Images.map((item, i) => {
+                    // if (item.imgUrl) {
+                    //     console.log('hiện');
+                    // } else {
+                    //     console.log('không hiện');
+                    // }
                     return (
                         <div key={item.id}>
                             <div

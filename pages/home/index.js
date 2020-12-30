@@ -70,6 +70,12 @@ const HomeFullSlider = () => {
     })
     const captionTitle = "EL GAUCHO ARGENTINIAN STEAKHOUSE";
     const captionContent = "Please choose the country below to dine with us";
+    console.log(Images);
+    if (!Images[0].imgUrl) {
+        console.log('hien')
+    } else {
+        console.log('chua hien')
+    }
     return (
         <>
             <SliderComponent
