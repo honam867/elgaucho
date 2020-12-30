@@ -16,8 +16,12 @@ import Link from "next/link";
 const CustomButton = styled(Button)`
 color: #fff  !important;
 background: #cf1b15 !important;
-font-weight:900 !important;
+font-weight:lighter !important;
 margin: 10px !important;
+@media only screen and (min-width:320px) and (max-width:767px)  {
+  color: white !important;
+  font-size: 10px !important;
+}
 `;
 const Location = () => {
 
@@ -112,12 +116,12 @@ const Location = () => {
             />
             }
 
-            <Container fluid style={{ padding: "30px" }}>
-                <Header textAlign='center' as='h3' style={{ marginTop: "30px" }}>
+            <Container style={{ padding: "0px 40px" }}>
+                <Header textAlign='center' as='h3' style={{ marginTop: "30px" }} >
 
                     OUR EL GAUCHO STEAKHOUSE – CONTEMPORARY AND SPECIALISED
                     </Header>
-                <Container fluid textAlign='left'>
+                <Container textAlign='left'>
                     <p>
                         Food is our passion and it is our aim to establish the benchmark in Southeast Asia and beyond for a contemporary, specialised steakhouse concept. We opened our first restaurant in Vietnam in 2011 and went our way from Saigon to Hanoi and Danang; onward to Thailand to Bangkok, Koh Samui and Phuket; hopping to Slovakia and now recently opened in Manila, Phillipines; Hamburg, Germany and Hong Kong to expand our number of locations to seventeen restaurants and it is still the same joy.
                     </p>
@@ -149,7 +153,7 @@ const Location = () => {
 
                 <Container >
                     <Grid centered columns={1}>
-                        <Grid.Column computer={12} tablet={16} mobile={16}>
+                        <Grid.Column computer={15} tablet={16} mobile={16}>
                             <SliderComponent slide={true} Images={Images2} height="60vh" fromPrivateDiningEventPages={true} />
                         </Grid.Column>
                     </Grid>
@@ -161,7 +165,7 @@ const Location = () => {
                     <ButtonCustomComponent icon={true} iconName="list ul" name="View Menus" url="/menu" />
                 </Container>
 
-                <Container fluid textAlign='left' style={{ padding: "0px 40px" }}>
+                <Container textAlign='left' style={{ padding: "0px 40px" }}>
                     <p>
                         Our venue can be found on the ground floor of the Saigon Pearl urban development area less than 10 min away from District 1 featuring a corner location,
                         outside seating and a great view of the never-ending flow of motorbikes and cars passing you by on Nguyen Huu Canh street.
@@ -173,7 +177,7 @@ const Location = () => {
                     <ButtonCustomComponent name="Private Dining | Event Request" url="/private-dining-events" />
                 </Container>
             </Container>
-            <Container style={{ marginTop: "15px", paddingTop: "20px" }} fluid>
+            <Container style={{ marginTop: "15px", paddingTop: "20px" }} >
                 <Header textAlign='center' as='h3' >
                     74/1 HAI BA TRUNG, BEN NGHE WARD, DIST. 1, HCMC
             </Header>
@@ -191,7 +195,7 @@ const Location = () => {
 
                 <Container>
                     <Grid centered columns={1}>
-                        <Grid.Column computer={12} tablet={16} mobile={16}>
+                        <Grid.Column computer={15} tablet={16} mobile={16}>
                             <SliderComponent slide={true} Images={Images2} height="60vh" fromPrivateDiningEventPages={true} />
                         </Grid.Column>
                     </Grid>
@@ -203,7 +207,7 @@ const Location = () => {
                     <ButtonCustomComponent icon={true} iconName="list ul" name="View Menus" url="/menu" />
                     <Container>
                         <Grid centered columns={1}>
-                            <Grid.Column computer={9} tablet={16} mobile={16}>
+                            <Grid.Column computer={15} tablet={16} mobile={16}>
                                 <div style={{ height: "600px" }}>
                                     <LocationSectionGGMap></LocationSectionGGMap>
                                 </div>
@@ -213,7 +217,7 @@ const Location = () => {
                     </Container>
                 </Container>
 
-                <Container fluid textAlign='left' style={{ padding: "0px 40px" }}>
+                <Container textAlign='left' style={{ padding: "0px 40px" }}>
                     <p>
                         District 1 in Ho Chi Minh City is the true heart of the city and still shows the architectural influence of the French. It does not only  include most of the city’s administrative offices and consulates, but also some of the most famous buildings, such as the Saigon Notre-Dame Basilica and the Opera House.        </p>
                     <p>
@@ -222,10 +226,10 @@ const Location = () => {
                         With a rooftop having a stunning view of Saigon, this location is a preferred place for couples, families, business occasions and larger celebrating groups alike. In addition, the location offers private dining rooms as well as an exclusive event floor, for further details please visit our
                         <strong><Link href="/private-dining-events"> Private Dining | Events</Link></strong>      page.
 
-            </p>
+                    </p>
                     <p>
                         Please note that this location has a smoking area on the ground floor, all other floors are non-smoking areas. Parking of motorbikes in front of the restaurant is allowed, car parking is available at Park Hyatt.
-            </p>
+                    </p>
                 </Container>
                 <Container textAlign="center" style={{ paddingBottom: "20px" }}>
                     <ButtonCustomComponent name="Private Dining | Event Request" url="/private-dining-events" />
