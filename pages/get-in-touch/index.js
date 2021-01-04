@@ -1,6 +1,6 @@
 import { Button, Container, Form, Header, TextArea } from "semantic-ui-react";
 import styled from "styled-components";
-import Layout from "../../components/Layout";
+import Layout from "../../components/ResponsiveHeader/index";
 import styleGetInTouch from "./getintouch.module.css";
 const CustomButton = styled(Button)`
  &:hover {

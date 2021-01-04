@@ -1,4 +1,4 @@
-import Layout from "../../components/Layout";
+import Layout from "../../components/ResponsiveHeader/index";
 import { useState, useEffect } from "react";
 import SliderComponent from "../../components/SliderComponent";
 import SrcImg1 from "../../public/static/img/El-Gaucho-Dine-With-Us.jpg"
@@ -9,8 +9,6 @@ import ResponsiveComponent from "../../components/Responsive";
 import MenuCustomStyle from "./menu.module.css";
 import ProductsComponent from "../../components/ProductsComponent";
 import styled from "styled-components";
-import ButtonCustomComponent from "../../components/ButtonCustomComponent";
-import Link from "next/link";
 const Images = [
     {
         id: 1,
@@ -62,18 +60,14 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
         position: "relative"
     }
 
-    const fixedMenuStyle = {
+    const overlayMenuMobileStyle = {
+
+    }
+    const fixedOverlayMenuMobileStyle = {
         backgroundColor: '#fff',
         border: '1px solid #ddd',
+        padding: "20px",
         boxShadow: '0px 3px 5px rgba(0, 0, 0, 0.2)',
-    }
-    const menuStyle = {
-        border: 'none',
-        borderRadius: 0,
-        boxShadow: 'none',
-        marginBottom: '1em',
-        marginTop: '4em',
-        transition: 'box-shadow 0.5s ease, padding 0.5s ease',
     }
 
 
@@ -175,44 +169,33 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
             </Container >
         )
     }
-    const [menuFixed, setFixedMenu] = useState(false);
-    const stickTopMenu = () => {
-        setFixedMenu(true);
-    }
-
-    const unStickTopMenu = () => {
-        setFixedMenu(false);
-    }
     const MenusOnMobile = () => {
         return (
             <>
                 <Visibility
-                    onTopPassed={stickTopMenu}
-                    onBottomVisible={unStickTopMenu}
                     once={false}
-                >
-                    <Menu
-                        size="small"
-                        secondary
-                        fixed={menuFixed ? 'top' : undefined}
-                        style={menuFixed ? fixedMenuStyle : menuStyle}
-                    >
-                        {products.map((item) => {
-                            return (
-                                <Menu.Item
-                                    active={activeItem === item.name}
-                                    key={item.id}
-                                    name={item.name}
-                                    className={MenuCustomStyle.customCorlorMobile}
-                                    onClick={handleItemClick}
-                                    value={item}>
-                                </Menu.Item>
-                            )
-                        })
-                        }
-                    </Menu>
-                </Visibility>
+                    onBottomPassed={stickOverlay}
+                    onBottomVisible={unStickOverlay}
+                    once={false}
+                />
+
+                <Menu fixed={overlayFixed ? "top" : undefined} style={overlayFixed ? fixedOverlayMenuMobileStyle : overlayMenuMobileStyle} size="small" secondary>
+                    {products.map((item) => {
+                        return (
+                            <Menu.Item
+                                active={activeItem === item.name}
+                                key={item.id}
+                                name={item.name}
+                                className={MenuCustomStyle.customCorlor}
+                                onClick={handleItemClick}
+                                value={item}>
+                            </Menu.Item>
+                        )
+                    })
+                    }
+                </Menu>
                 <ProductsComponent categories={categories} />
+
             </>
         )
     }

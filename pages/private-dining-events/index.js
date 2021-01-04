@@ -1,6 +1,6 @@
 import { Button, Container, Form, Grid, Header, List, Segment, TextArea } from "semantic-ui-react"
 import styled from "styled-components"
-import Layout from "../../components/Layout"
+import Layout from "../../components/ResponsiveHeader/index";
 import SliderComponent from "../../components/SliderComponent"
 import SrcImg1 from "../../public/static/img/El-Gaucho-Argentinian-Steakhouse-Restaurant-Private-Dining-Event-2.jpg"
 import SrcImgLocation1 from "../../public/static/img/Estellla.jpg"

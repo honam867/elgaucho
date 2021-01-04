@@ -1,4 +1,4 @@
-import Layout from "../../components/Layout";
+import Layout from "../../components/ResponsiveHeader/index";
 import SrcImg1 from "../../public/static/img/El-Gaucho-Dine-With-Us.jpg"
 import SrcImg2 from "../../public/static/img/El-Gaucho-Argentinian-Steakhouse-Restaurant-Homepage-Welcome-1920-x-800.jpg"
 import SrcImg3 from "../../public/static/img/VN04-2017_1036_37_38_39_40.jpg";
@@ -151,7 +151,7 @@ const Location = () => {
             </Container>
 
             <Container style={{ background: "#eaeaea", marginTop: "15px", paddingTop: "20px" }} fluid>
-                <Header textAlign='center' as='h3' style={{fontWeight: "400"}}>
+                <Header textAlign='center' as='h3' style={{ fontWeight: "400" }}>
                     GF, SAIGON PEARL, 92A NGUYEN HUU CANH, WARD 22, BINH THANH DIST., HCMC
             </Header>
 
@@ -201,7 +201,7 @@ const Location = () => {
                 </Container>
             </Container>
             <Container style={{ marginTop: "15px", paddingTop: "20px", textAlign: "center" }} >
-                <Header textAlign='center' as='h3' style={{fontWeight: "400"}}>
+                <Header textAlign='center' as='h3' style={{ fontWeight: "400" }}>
                     74/1 HAI BA TRUNG, BEN NGHE WARD, DIST. 1, HCMC
             </Header>
                 <p as='h5' >
