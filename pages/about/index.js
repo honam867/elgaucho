@@ -10,9 +10,9 @@ const onMobile = () => {
 
 
 const About = () => {
-    return (<Layout>
+    return (
         <Responsive onDesktop={onDesktop} onMobile={onMobile}>
         </Responsive>
-    </Layout>)
+    )
 }
 export default About;
