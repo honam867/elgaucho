@@ -22,9 +22,6 @@ const MenuItemLink = styled(Menu.Item)`
   border-radius: 0px !important;
   font-weight: bold !important;
 `;
-const CustomMenu = styled(Menu)`
-  margin: 0px !important;
-`
 const MenuItemLinkImage = React.forwardRef(function MenuItemLinkImage(
   props,
   ref
@@ -166,7 +163,23 @@ const ResponsiveHeader = ({ children }) => {
       onMobile={() => {
         return (
           <>
-
+            <Menu
+              secondary
+              style={noFixedMenuStyleOnMobile}
+            >
+              <Menu.Item style={{ paddingTop: "20px" }}>
+                <Link href="/home" forwardRef>
+                  <MenuItemLinkImage
+                    src={Logo}
+                    alt="website logo"
+                    size="tiny"
+                  />
+                </Link>
+              </Menu.Item>
+              <Menu.Item position="right" onClick={handleToggle}>
+                <Icon name="bars" />
+              </Menu.Item>
+            </Menu>
             <Sidebar
               as={Menu}
               animation="overlay"
@@ -191,7 +204,7 @@ const ResponsiveHeader = ({ children }) => {
                     active={router.pathname == "/delivery"}
                   >
                     EL Delivery & Take out
-              </MenuItemLink>
+          </MenuItemLink>
                 </Link>
                 <Link href="/menu" forwardRef>
                   <MenuItemLink
@@ -205,7 +218,7 @@ const ResponsiveHeader = ({ children }) => {
                     active={router.pathname == "/private-dining-events"}
                   >
                     Private | Dining Events
-              </MenuItemLink>
+          </MenuItemLink>
                 </Link>
                 <Link href="/gift-card" forwardRef>
                   <MenuItemLink
@@ -221,23 +234,6 @@ const ResponsiveHeader = ({ children }) => {
                 </Link>
               </Sidebar.Pusher>
             </Sidebar>
-            <CustomMenu
-              secondary
-              style={noFixedMenuStyleOnMobile}
-            >
-              <Menu.Item style={{ paddingTop: "20px" }}>
-                <Link href="/home" forwardRef>
-                  <MenuItemLinkImage
-                    src={Logo}
-                    alt="website logo"
-                    size="tiny"
-                  />
-                </Link>
-              </Menu.Item>
-              <Menu.Item position="right" onClick={handleToggle}>
-                <Icon name="bars" />
-              </Menu.Item>
-            </CustomMenu>
             {children}
             <Footer />
           </>
