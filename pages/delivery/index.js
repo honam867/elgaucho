@@ -62,18 +62,18 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
         position: "relative"
     }
 
-    const overlayMenuMobileStyle = {
+    const fixedMenuStyle = {
+        backgroundColor: '#fff',
+        border: '1px solid #ddd',
+        boxShadow: '0px 3px 5px rgba(0, 0, 0, 0.2)',
+    }
+    const menuStyle = {
         border: 'none',
         borderRadius: 0,
         boxShadow: 'none',
         marginBottom: '1em',
         marginTop: '4em',
         transition: 'box-shadow 0.5s ease, padding 0.5s ease',
-    }
-    const fixedOverlayMenuMobileStyle = {
-        backgroundColor: '#fff',
-        border: '1px solid #ddd',
-        boxShadow: '0px 3px 5px rgba(0, 0, 0, 0.2)',
     }
 
 
@@ -175,31 +175,42 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
             </Container >
         )
     }
+    const [menuFixed, setFixedMenu] = useState(false);
+    const stickTopMenu = () => {
+        setFixedMenu(true);
+    }
+
+    const unStickTopMenu = () => {
+        setFixedMenu(false);
+    }
     const MenusOnMobile = () => {
         return (
             <>
                 <Visibility
+                    onTopPassed={stickTopMenu}
+                    onBottomVisible={unStickTopMenu}
                     once={false}
-                    onTopPassed={stickOverlay}
-                    onTopVisible={unStickOverlay}
                 >
-                    <div style={overlayFixed ? fixedOverlayMenuMobileStyle : overlayMenuMobileStyle} className={MenuCustomStyle.customOverFlow}>
-                        <Menu size="small" secondary>
-                            {products.map((item) => {
-                                return (
-                                    <Menu.Item
-                                        active={activeItem === item.name}
-                                        key={item.id}
-                                        name={item.name}
-                                        className={MenuCustomStyle.customCorlorMobile}
-                                        onClick={handleItemClick}
-                                        value={item}>
-                                    </Menu.Item>
-                                )
-                            })
-                            }
-                        </Menu>
-                    </div>
+                    <Menu
+                        size="small"
+                        secondary
+                        fixed={menuFixed ? 'top' : undefined}
+                        style={menuFixed ? fixedMenuStyle : menuStyle}
+                    >
+                        {products.map((item) => {
+                            return (
+                                <Menu.Item
+                                    active={activeItem === item.name}
+                                    key={item.id}
+                                    name={item.name}
+                                    className={MenuCustomStyle.customCorlorMobile}
+                                    onClick={handleItemClick}
+                                    value={item}>
+                                </Menu.Item>
+                            )
+                        })
+                        }
+                    </Menu>
                 </Visibility>
                 <ProductsComponent categories={categories} />
             </>
