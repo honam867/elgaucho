@@ -1,5 +1,5 @@
 import { Container, Header, Image } from "semantic-ui-react";
-import Layout from "../../components/Layout";
+import Layout from "../../components/ResponsiveHeader/index";
 import styleMenuPage from "./menupage.module.css";
 import ImageMenuPageData from "../../datafake/menuimage";
 import SliderComponent from "../../components/SliderComponent";
@@ -18,11 +18,11 @@ const MenuPage = () => {
                     slide={true}
                     captionTitle="MENU"
                     height="50vh" />
-                <Container  textAlign='center' style={{ padding: "10px" }}>
+                <Container textAlign='center' style={{ padding: "10px" }}>
                     <CustomHeader as='h2'>
                         OUR MENUS
                         </CustomHeader>
-                    <Container  textAlign='left'>
+                    <Container textAlign='left'>
                         <p>
                             Let your sense of taste be awoken with an aperitif, let the juicy meat melt in your mouth, dive into the latest wine treasures and find in a selection of cigars a peaceful retreat from the bustling world around.
                         </p>
@@ -42,7 +42,7 @@ const MenuPage = () => {
                     </Container>
 
                 </Container>
-                <Container  textAlign='center' style={{ padding: "10px" }}>
+                <Container textAlign='center' style={{ padding: "10px" }}>
                     <CustomHeader as='h2'>
                         ENJOY THE TASTE OF OUR ARGENTINA
                     </CustomHeader>
@@ -51,18 +51,18 @@ const MenuPage = () => {
                         return <Image key={item.id} src={item.imgUrl} fluid style={{ margin: "auto", width: "50%" }} />
                     })}
                 </Container>
-                <Container  textAlign='center' style={{ padding: "10px" }}>
+                <Container textAlign='center' style={{ padding: "10px" }}>
                     <CustomHeader as='h2'>
                         ALL DAY DINING MENU
                     </CustomHeader>
 
                     <Image src={ImageMenuPageData.ImageDiningMenu.imgUrl} fluid style={{ margin: "auto", width: "60%" }} />
                 </Container>
-                <Container  textAlign='center' style={{ padding: "10px" }}>
+                <Container textAlign='center' style={{ padding: "10px" }}>
                     <CustomHeader as='h2'>
                         ALL DAY DINING MENU
                     </CustomHeader>
-                    <Container  textAlign='left'>
+                    <Container textAlign='left'>
                         <p>
                             We constantly strive to update and expand our wine list with the latest treasures by selecting the best quality wines.
                             Our restaurant aims to satisfy its guests with outstanding options from international wineries, from Argentina to Chile, France to Spain, and Australia to USA.

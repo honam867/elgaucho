@@ -12,7 +12,7 @@ import {
   Label,
 } from "semantic-ui-react";
 import styled from "styled-components";
-import Layout from "../../components/Layout";
+import Layout from "../../components/ResponsiveHeader/index";
 import styleGiftCard from "./giftcard.module.css";
 import React, { useState, useEffect, useRef } from "react";
 const CustomButton = styled(Button)`
@@ -152,8 +152,8 @@ const GiftCard = () => {
                         tablet={8}
                         mobile={16}
                       >
-                        <CustomHeader as = "h3">
-                        Choose an amount…
+                        <CustomHeader as="h3">
+                          Choose an amount…
                         </CustomHeader>
                       </Grid.Column>
                       <Grid.Column
@@ -177,11 +177,11 @@ const GiftCard = () => {
                       </Grid.Column>
                     </Grid>
                   </Card.Content>
-                  <Card.Content textAlign = "center" >
-                    <p style = {{color: 'black'}}>To redeem your Gift Card please present it to your Waitstaff  to scan. 
-                  You can simply show the card from the email you received. Please note your card will expire 6 months after the issued date. 
+                  <Card.Content textAlign="center" >
+                    <p style={{ color: 'black' }}>To redeem your Gift Card please present it to your Waitstaff  to scan.
+                    You can simply show the card from the email you received. Please note your card will expire 6 months after the issued date.
                   Please redeem your card before the valid until date. All Gift Card purchases are final and there are no refunds for unused Gift Cards.</p>
-                    <p style = {{color: 'red'}}> <u>Check your gift card balance</u></p>
+                    <p style={{ color: 'red' }}> <u>Check your gift card balance</u></p>
                   </Card.Content>
                   {/* <Card.Content extra>
                     <Icon name="user" />4 Friends

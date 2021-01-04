@@ -1,16 +1,14 @@
-import Layout from "../../components/Layout";
+import Layout from "../../components/ResponsiveHeader/index";
 import { useState, useEffect } from "react";
 import SliderComponent from "../../components/SliderComponent";
 import SrcImg1 from "../../public/static/img/El-Gaucho-Dine-With-Us.jpg"
 import SrcImg2 from "../../public/static/img/El-Gaucho-Argentinian-Steakhouse-Restaurant-Homepage-Welcome-1920-x-800.jpg"
 import SrcImg3 from "../../public/static/img/VN04-2017_1036_37_38_39_40.jpg";
-import { Button, Card, Container, Divider, Grid, GridColumn, Header, Icon, Image, Item, Menu, Reveal, Visibility } from "semantic-ui-react";
+import { Button, Card, Container, Grid, Header, Image, Menu, Visibility } from "semantic-ui-react";
 import ResponsiveComponent from "../../components/Responsive";
 import MenuCustomStyle from "./menu.module.css";
 import ProductsComponent from "../../components/ProductsComponent";
 import styled from "styled-components";
-import ButtonCustomComponent from "../../components/ButtonCustomComponent";
-import Link from "next/link";
 const Images = [
     {
         id: 1,
@@ -62,16 +60,16 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
         position: "relative"
     }
 
-    const overlayCardStyle = {
-        top: 0,
-        transition: 'top 2s ease',
-        width: "100%"
+    const overlayMenuMobileStyle = {
+
+    }
+    const fixedOverlayMenuMobileStyle = {
+        backgroundColor: '#fff',
+        border: '1px solid #ddd',
+        padding: "20px",
+        boxShadow: '0px 3px 5px rgba(0, 0, 0, 0.2)',
     }
 
-    const fixedOverlayCardStyle = {
-        ...overlayCardStyle,
-        top: '300px',
-    }
 
     const handleItemClick = (e, { name, value }) => {
         // NOTE When click menu item, find by id to render categories of that item
@@ -137,13 +135,7 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
                     </Grid.Column>
 
                     <Grid.Column width={4} >
-                        <Visibility
-                            offset={80}
-                            once={false}
-                            onTopPassed={stickOverlay}
-                            onTopVisible={unStickOverlay}
-                        />
-                        <Card style={overlayFixed ? fixedOverlayCardStyle : overlayCardStyle}>
+                        <Card style={{ width: "100%" }}>
                             <Card.Content textAlign="center">
                                 <Header as="h3">
                                     Cart
@@ -160,10 +152,7 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
                                     <Grid.Column width={6}>
                                         <Image size="tiny" src={SrcImg1} />
                                     </Grid.Column>
-
                                 </Grid>
-
-
                             </Card.Content>
                             <Card.Content>
                                 <CustomStrong>Subtotal:</CustomStrong> VND 220.000
@@ -182,64 +171,32 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
     }
     const MenusOnMobile = () => {
         return (
-            <Container style={{ margin: "auto", width: "100%", padding: "0px 10px" }} fluid>
-                <Grid divided>
-                    <Grid.Row>
-                        <Grid.Column width={6} >
-                            <Visibility
-                                offset={80}
-                                once={false}
-                                onTopPassed={stickOverlay}
-                                onTopVisible={unStickOverlay}
-                            />
-                            <Menu
-                                className={MenuCustomStyle.customBorderMobile}
-                                secondary
-                                style={overlayFixed ? fixedOverlayMenuStyle : overlayMenuStyle}
-                                vertical>
-                                {
-                                    productList.map((item) => {
-                                        return (
-                                            <Menu.Item
-                                                className={MenuCustomStyle.customCorlorMobile}
-                                                key={item.id}
-                                                name={item.name}
-                                                active={activeItem === item.name}
-                                                onClick={handleItemClick}
-                                                value={item}
-                                            />
+            <>
+                <Visibility
+                    once={false}
+                    onBottomPassed={stickOverlay}
+                    onBottomVisible={unStickOverlay}
+                    once={false}
+                />
 
-                                        )
-                                    })
-                                }
-                            </Menu>
-                        </Grid.Column>
-                        <Grid.Column width={10} >
-                            {
-                                categories.map(category => {
-                                    console.log(category)
-                                    return (
-                                        <Item.Group key={category.id}>
-                                            <Divider horizontal>
-                                                <Header as='h2' className={MenuCustomStyle.customHeaderColor}>
-                                                    {category.name}
-                                                </Header>
-                                            </Divider>
-                                            <Item >
-                                                {category.categoryItem.map(categoryItem => {
-                                                    return (
-                                                        <Item.Image src={categoryItem.urlImage} size="mini" style={{ minHeight: "200px" }} />
-                                                    )
-                                                })}
-                                            </Item>
-                                        </Item.Group>
-                                    )
-                                })
-                            }
-                        </Grid.Column>
-                    </Grid.Row>
-                </Grid>
-            </Container >
+                <Menu fixed={overlayFixed ? "top" : undefined} style={overlayFixed ? fixedOverlayMenuMobileStyle : overlayMenuMobileStyle} size="small" secondary>
+                    {products.map((item) => {
+                        return (
+                            <Menu.Item
+                                active={activeItem === item.name}
+                                key={item.id}
+                                name={item.name}
+                                className={MenuCustomStyle.customCorlor}
+                                onClick={handleItemClick}
+                                value={item}>
+                            </Menu.Item>
+                        )
+                    })
+                    }
+                </Menu>
+                <ProductsComponent categories={categories} />
+
+            </>
         )
     }
     return (

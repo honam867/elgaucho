@@ -1,40 +1,24 @@
-import { createMedia } from "@artsy/fresnel";
 import Link from "next/link";
 import React, { useState } from "react";
 import {
-  Button,
   Icon,
   Menu,
-  Segment,
   Sidebar,
   Visibility,
   Image,
+  Ref,
 } from "semantic-ui-react";
 import Logo from "../../public/static/img/elgauchologo.png";
 import styled from "styled-components";
-const { MediaContextProvider, Media } = createMedia({
-  breakpoints: {
-    mobile: 0,
-    tablet: 768,
-    computer: 1024,
-  },
-});
+import Responsive from "../../components/Responsive";
 import { useRouter } from "next/router";
+import Footer from "../Footer/index"
 const MenuItemLink = styled(Menu.Item)`
   &:hover {
     color: #cf1b15 !important;
     background: none !important;
   }
   border-right: 1px solid #c0c0c0 !important;
-  border-radius: 0px !important;
-  font-weight: bold !important;
-`;
-
-const MenuItemLink1 = styled(Menu.Item)`
-  &:hover {
-    color: #cf1b15 !important;
-    background: none !important;
-  }
   border-radius: 0px !important;
   font-weight: bold !important;
 `;
@@ -61,199 +45,130 @@ const noFixedMenuStyle = {
   maxHeight: "600px",
   overflow: "hidden",
 };
+const noFixedMenuStyleOnMobile = {
+  backgroundColor: "#fff",
+  transition: "height 0.1s",
+  height: "60px",
+  maxHeight: "600px",
+  overflow: "hidden",
+  margin: "0px !important"
 
-const CustomButton = styled(Button)`
-  &:hover {
-    color: #cf1b15 !important;
-    background: #fff !important;
-    border: 1px solid #cf1b15;
-  }
-  background: #cf1b15 !important;
-  color: #fff !important;
-  text-align: left !important;
-`;
+};
 
-const DesktopContainer = ({ children }) => {
+const ResponsiveHeader = ({ children }) => {
   const router = useRouter();
   const [menuFixed, setFixedMenu] = useState(false);
   const hideFixedMenu = () => {
+    console.log('hide')
     setFixedMenu(false);
   };
   const showFixedMenu = () => {
-    console.log("show");
+    console.log('show')
     setFixedMenu(true);
-  };
-  return (
-    <Media greaterThan="mobile">
-      <Visibility
-        once={false}
-        onTopPassed={showFixedMenu}
-        onBottomPassedReverse={hideFixedMenu}
-      >
-        <Menu
-          secondary
-          fixed={menuFixed ? "top" : undefined}
-          style={menuFixed ? fixedMenuStyle : noFixedMenuStyle}
-        >
-          <Menu.Item>
-            <Link href="/home" forwardRef>
-              <MenuItemLinkImage
-                src={Logo}
-                alt="website logo"
-                size={menuFixed ? "mini" : "tiny"}
-              />
-            </Link>
-          </Menu.Item>
-
-          <Link href="/location">
-            <MenuItemLink
-              name="Locations"
-              active={router.pathname == "/location"}
-              position="right"
-            ></MenuItemLink>
-          </Link>
-          <Link href="/delivery" forwardRef>
-            <MenuItemLink
-              name="EL Delivery & Take out"
-              active={router.pathname == "/delivery"}
-            >
-              EL Delivery & Take out
-            </MenuItemLink>
-          </Link>
-          <Link href="/menu" forwardRef>
-            <MenuItemLink
-              name="Menus"
-              active={router.pathname == "/menu"}
-            ></MenuItemLink>
-          </Link>
-          <Link href="/private-dining-events" forwardRef>
-            <MenuItemLink
-              name="Private Dining Events"
-              active={router.pathname == "/private-dining-events"}
-            >
-              Private | Dining Events
-            </MenuItemLink>
-          </Link>
-          <Link href="/gift-card" forwardRef>
-            <MenuItemLink
-              name="Gift Card"
-              active={router.pathname == "/gift-card"}
-            ></MenuItemLink>
-          </Link>
-          <Link href="/get-in-touch" forwardRef>
-            <MenuItemLink
-              name="Contact Us"
-              active={router.pathname == "/get-in-touch"}
-            ></MenuItemLink>
-          </Link>
-          <Link href="/" forwardRef>
-            <MenuItemLink>
-              <Icon name="cart" />
-            </MenuItemLink>
-          </Link>
-          <Link href="/" forwardRef>
-            <MenuItemLink>
-              <Icon name="facebook" color="blue" />
-            </MenuItemLink>
-          </Link>
-          <Link href="/" forwardRef>
-            <MenuItemLink>
-              <Icon name="instagram" color="violet" />
-            </MenuItemLink>
-          </Link>
-        </Menu>
-      </Visibility>
-      {children}
-    </Media>
-  );
-};
-
-const MobileContainer = ({ children }) => {
-  const [sidebarOpened, setSidebarOpened] = useState(false);
-  const router1 = useRouter();
-  const handleSidebarHide = () => {
-    setSidebarOpened(false);
   };
   const handleToggle = () => {
     setSidebarOpened(true);
   };
-  const hideMenuSideBar = () => {
+  const [sidebarOpened, setSidebarOpened] = useState(false);
+  const handleSidebarHide = () => {
     setSidebarOpened(false);
   };
+  const segmentRef = React.useRef()
   return (
-    <Media at="mobile">
-      <Sidebar.Pushable>
-        <Sidebar
-          as={Menu}
-          animation="overlay"
-          inverted
-          onHide={handleSidebarHide}
-          vertical
-          visible={sidebarOpened}
-          direction="right"
-          color="red"
-        >
-          {/* <Menu.Item as='a' active >
-                        Home
-                </Menu.Item> */}
-          {/* <Menu.Item as='a'>Work</Menu.Item>
-                    <Menu.Item as='a'>Company</Menu.Item>
-                    <Menu.Item as='a'>Careers</Menu.Item>
-                    <Menu.Item as='a'>Log in</Menu.Item>
-                    <Menu.Item as='a'>Sign Up</Menu.Item>
-                    <Menu.Item as='button' onClick={hideMenuSideBar} >Close</Menu.Item> */}
-
-          <Link href="/location" forwardRef>
-            <MenuItemLink
-              name="Locations"
-              active={router1.pathname == "/location"}
-              position="right"
-            ></MenuItemLink>
-          </Link>
-          <Link href="/delivery" forwardRef>
-            <MenuItemLink
-              name="EL Delivery & Take out"
-              active={router1.pathname == "/delivery"}
+    <Responsive
+      onDesktop={() => {
+        return (
+          <>
+            <Visibility
+              once={false}
+              onTopPassed={showFixedMenu}
+              onBottomPassedReverse={hideFixedMenu}
             >
-              EL Delivery & Take out
-            </MenuItemLink>
-          </Link>
-          <Link href="/menu" forwardRef>
-            <MenuItemLink
-              name="Menus"
-              active={router1.pathname == "/menu"}
-            ></MenuItemLink>
-          </Link>
-          <Link href="/private-dining-events" forwardRef>
-            <MenuItemLink
-              name="Private Dining Events"
-              active={router1.pathname == "/private-dining-events"}
-            >
-              Private | Dining Events
-            </MenuItemLink>
-          </Link>
-          <Link href="/gift-card" forwardRef>
-            <MenuItemLink
-              name="Gift Card"
-              active={router1.pathname == "/gift-card"}
-            ></MenuItemLink>
-          </Link>
-          <Link href="/get-in-touch" forwardRef>
-            <MenuItemLink
-              name="Contact Us"
-              active={router1.pathname == "/get-in-touch"}
-            ></MenuItemLink>
-          </Link>
-        </Sidebar>
+              <Menu
+                secondary
+                fixed={menuFixed ? "top" : undefined}
+                style={menuFixed ? fixedMenuStyle : noFixedMenuStyle}
+              >
+                <Menu.Item>
+                  <Link href="/home" forwardRef>
+                    <MenuItemLinkImage
+                      src={Logo}
+                      alt="website logo"
+                      size={menuFixed ? "mini" : "tiny"}
+                    />
+                  </Link>
+                </Menu.Item>
 
-        <Sidebar.Pusher dimmed={sidebarOpened}>
-          <Segment
-            inverted
-            style={{ padding: "0px", backgroundColor: "white" }}
-            vertical
-          >
-            <Menu inverted pointing secondary size="large">
-              <MenuItemLink1 style={{ maxHeight: "55px", paddingTop: "22px" }}>
+                <Link href="/location">
+                  <MenuItemLink
+                    name="Locations"
+                    active={router.pathname == "/location"}
+                    position="right"
+                  ></MenuItemLink>
+                </Link>
+                <Link href="/delivery" forwardRef>
+                  <MenuItemLink
+                    name="EL Delivery & Take out"
+                    active={router.pathname == "/delivery"}
+                  >
+                    EL Delivery & Take out
+            </MenuItemLink>
+                </Link>
+                <Link href="/menu" forwardRef>
+                  <MenuItemLink
+                    name="Menus"
+                    active={router.pathname == "/menu"}
+                  ></MenuItemLink>
+                </Link>
+                <Link href="/private-dining-events" forwardRef>
+                  <MenuItemLink
+                    name="Private Dining Events"
+                    active={router.pathname == "/private-dining-events"}
+                  >
+                    Private | Dining Events
+            </MenuItemLink>
+                </Link>
+                <Link href="/gift-card" forwardRef>
+                  <MenuItemLink
+                    name="Gift Card"
+                    active={router.pathname == "/gift-card"}
+                  ></MenuItemLink>
+                </Link>
+                <Link href="/get-in-touch" forwardRef>
+                  <MenuItemLink
+                    name="Contact Us"
+                    active={router.pathname == "/get-in-touch"}
+                  ></MenuItemLink>
+                </Link>
+                <Link href="/" forwardRef>
+                  <MenuItemLink>
+                    <Icon name="cart" />
+                  </MenuItemLink>
+                </Link>
+                <Link href="/" forwardRef>
+                  <MenuItemLink>
+                    <Icon name="facebook" color="blue" />
+                  </MenuItemLink>
+                </Link>
+                <Link href="/" forwardRef>
+                  <MenuItemLink>
+                    <Icon name="instagram" color="violet" />
+                  </MenuItemLink>
+                </Link>
+              </Menu>
+            </Visibility>
+            {children}
+          </>
+        )
+      }}
+      onMobile={() => {
+        return (
+          <>
+            <Menu
+              secondary
+              style={noFixedMenuStyleOnMobile}
+            >
+              <Menu.Item style={{ paddingTop: "20px" }}>
                 <Link href="/home" forwardRef>
                   <MenuItemLinkImage
                     src={Logo}
@@ -261,33 +176,37 @@ const MobileContainer = ({ children }) => {
                     size="tiny"
                   />
                 </Link>
-              </MenuItemLink1>
-              <MenuItemLink1 onClick={handleToggle} position="right">
-                <Icon name="sidebar" size="large" color="black" />
-                <Icon name="shopping cart" size="small" color="red" />
-              </MenuItemLink1>
-
-              {/* <Menu.Item >
-                                <CustomButton as='a' >
-                                    Log in
-                        </CustomButton>
-                                <CustomButton as='a' style={{ marginLeft: '0.5em' }}>
-                                    Sign Up
-                        </CustomButton>
-                            </Menu.Item> */}
+              </Menu.Item>
+              <Menu.Item position="right" onClick={handleToggle}>
+                <Icon name="bars" />
+              </Menu.Item>
             </Menu>
-          </Segment>
-          {children}
-        </Sidebar.Pusher>
-      </Sidebar.Pushable>
-    </Media>
-  );
+            <Sidebar
+              as={Menu}
+              animation="overlay"
+              inverted
+              onHide={handleSidebarHide}
+              vertical
+              visible={sidebarOpened}
+              direction="right"
+              color="red"
+            >
+              <Sidebar.Pusher dimmed={sidebarOpened}>
+                <Menu.Item as='a'>Home</Menu.Item>
+                <Menu.Item as='a'>Games</Menu.Item>
+                <Menu.Item as='a'>Channels</Menu.Item>
+              </Sidebar.Pusher>
+            </Sidebar>
+            <Ref innerRef={segmentRef}>
+              <main style={{ overflow: "none" }}>
+                {children}
+              </main>
+            </Ref>
+            <Footer />
+          </>
+        )
+      }}
+    />
+  )
 };
-
-const ResponsiveHeader = ({ children }) => (
-  <MediaContextProvider>
-    <DesktopContainer>{children}</DesktopContainer>
-    <MobileContainer>{children}</MobileContainer>
-  </MediaContextProvider>
-);
 export default ResponsiveHeader;
