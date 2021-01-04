@@ -166,6 +166,61 @@ const ResponsiveHeader = ({ children }) => {
       onMobile={() => {
         return (
           <>
+
+            <Sidebar
+              as={Menu}
+              animation="overlay"
+              inverted
+              onHide={handleSidebarHide}
+              vertical
+              visible={sidebarOpened}
+              direction="right"
+              color="red"
+            >
+              <Sidebar.Pusher dimmed={sidebarOpened}>
+                <Link href="/location" forwardRef>
+                  <MenuItemLink
+                    name="Locations"
+                    active={router.pathname == "/location"}
+                    position="right"
+                  ></MenuItemLink>
+                </Link>
+                <Link href="/delivery" forwardRef>
+                  <MenuItemLink
+                    name="EL Delivery & Take out"
+                    active={router.pathname == "/delivery"}
+                  >
+                    EL Delivery & Take out
+              </MenuItemLink>
+                </Link>
+                <Link href="/menu" forwardRef>
+                  <MenuItemLink
+                    name="Menus"
+                    active={router.pathname == "/menu"}
+                  ></MenuItemLink>
+                </Link>
+                <Link href="/private-dining-events" forwardRef>
+                  <MenuItemLink
+                    name="Private Dining Events"
+                    active={router.pathname == "/private-dining-events"}
+                  >
+                    Private | Dining Events
+              </MenuItemLink>
+                </Link>
+                <Link href="/gift-card" forwardRef>
+                  <MenuItemLink
+                    name="Gift Card"
+                    active={router.pathname == "/gift-card"}
+                  ></MenuItemLink>
+                </Link>
+                <Link href="/get-in-touch" forwardRef>
+                  <MenuItemLink
+                    name="Contact Us"
+                    active={router.pathname == "/get-in-touch"}
+                  ></MenuItemLink>
+                </Link>
+              </Sidebar.Pusher>
+            </Sidebar>
             <CustomMenu
               secondary
               style={noFixedMenuStyleOnMobile}
@@ -183,22 +238,6 @@ const ResponsiveHeader = ({ children }) => {
                 <Icon name="bars" />
               </Menu.Item>
             </CustomMenu>
-            <Sidebar
-              as={Menu}
-              animation="overlay"
-              inverted
-              onHide={handleSidebarHide}
-              vertical
-              visible={sidebarOpened}
-              direction="right"
-              color="red"
-            >
-              <Sidebar.Pusher dimmed={sidebarOpened}>
-                <Menu.Item as='a'>Home</Menu.Item>
-                <Menu.Item as='a'>Games</Menu.Item>
-                <Menu.Item as='a'>Channels</Menu.Item>
-              </Sidebar.Pusher>
-            </Sidebar>
             {children}
             <Footer />
           </>
