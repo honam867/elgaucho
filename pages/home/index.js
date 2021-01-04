@@ -5,6 +5,7 @@ import SrcImg2 from "../../public/static/img/home-3.jpg"
 import SrcImg3 from "../../public/static/img/home-4.jpg";
 import ButtonCustomComponent from "../../components/ButtonCustomComponent";
 import { useRef } from "react";
+import Responsive from "../../components/Responsive";
 const Images = [
     {
         id: 1,
@@ -72,15 +73,31 @@ const HomeFullSlider = () => {
     const captionContent = "Please choose the country below to dine with us";
     return (
         <>
-            <SliderComponent
-                Images={Images}
-                height="100vh"
-                captionTitle={captionTitle}
-                captionContent={captionContent}
-                backgroundOpacity={true}
-                backgroundAttachment="fixed"
-                gotomainsection={gotomainSection}
-                angleDown={true} />
+            <Responsive onDesktop={() => {
+                return (
+                    <SliderComponent
+                    Images={Images}
+                    height="100vh"
+                    captionTitle={captionTitle}
+                    captionContent={captionContent}
+                    backgroundOpacity={true}
+                    backgroundAttachment="fixed"
+                    gotomainsection={gotomainSection}
+                    angleDown={true} />
+                )
+            }} onMobile={() => {
+                return (
+                    <SliderComponent
+                    Images={Images}
+                    height="100vh"
+                    captionTitle={captionTitle}
+                    captionContent={captionContent}
+                    backgroundOpacity={true}
+                    gotomainsection={gotomainSection}
+                    angleDown={true} />
+                )
+            }}>
+            </Responsive>
             <div style={{ background: "#fcfcfc", paddingTop: "50px", paddingBottom: "50px" }}>
                 <Container textAlign="center">
                     {ButtonData.map(button => {
@@ -114,11 +131,22 @@ const HomeFullSlider = () => {
                     </p>
                 </Container>
             </Container>
-            <Container style={{ background: "#FFFFFF", paddingTop: "50px", paddingBottom: "50px" }} fluid>
-                <Header textAlign='center' as='h2' >
-                    OUR EL GAUCHO STEAKHOUSE – CONTEMPORARY AND SPECIALISED
-                </Header>
-                <Container textAlign='center' >
+            <Container style={{ background: "#FFFFFF", paddingTop: "20px", paddingBottom: "20px" }} fluid>
+                <Responsive onDesktop={() => {
+                    return (
+                        <Header textAlign='center' as='h2' style={{ fontWeight: 300 }}>
+                            OUR EL GAUCHO STEAKHOUSE – CONTEMPORARY AND SPECIALISED
+                        </Header>
+                    )
+                }} onMobile={() => {
+                    return (
+                        <Header textAlign='center' as='h3' style={{ fontWeight: 300 }}>
+                            OUR EL GAUCHO STEAKHOUSE – CONTEMPORARY AND SPECIALISED
+                        </Header>
+                    )
+                }}>
+                </Responsive>
+                <Container textAlign='left' style={{ marginTop: "15px" }}>
                     <p>
                         Food is our passion and it is our aim to establish the benchmark in Southeast Asia and beyond for a contemporary, specialised steakhouse concept. We opened our first restaurant in Vietnam in 2011 and went our way from Saigon to Hanoi and Danang; onward to Thailand to Bangkok and Koh Samui; hopping to Slovakia and now recently opened in Manila, Phillipines; Langsuan, Bangkok; Hamburg, Germany and now Hong Kong to expand our number of locations to sixteen restaurants and it is still the same joy.                    </p>
                     <p>
