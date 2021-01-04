@@ -22,7 +22,9 @@ const MenuItemLink = styled(Menu.Item)`
   border-radius: 0px !important;
   font-weight: bold !important;
 `;
-
+const CustomMenu = styled(Menu)`
+  margin: 0px !important;
+`
 const MenuItemLinkImage = React.forwardRef(function MenuItemLinkImage(
   props,
   ref
@@ -49,8 +51,8 @@ const noFixedMenuStyleOnMobile = {
   backgroundColor: "#fff",
   transition: "height 0.1s",
   height: "60px",
+  margin: "0px !important",
   maxHeight: "600px",
-  overflow: "hidden",
   margin: "0px !important"
 
 };
@@ -164,7 +166,7 @@ const ResponsiveHeader = ({ children }) => {
       onMobile={() => {
         return (
           <>
-            <Menu
+            <CustomMenu
               secondary
               style={noFixedMenuStyleOnMobile}
             >
@@ -180,7 +182,7 @@ const ResponsiveHeader = ({ children }) => {
               <Menu.Item position="right" onClick={handleToggle}>
                 <Icon name="bars" />
               </Menu.Item>
-            </Menu>
+            </CustomMenu>
             <Sidebar
               as={Menu}
               animation="overlay"
@@ -197,11 +199,7 @@ const ResponsiveHeader = ({ children }) => {
                 <Menu.Item as='a'>Channels</Menu.Item>
               </Sidebar.Pusher>
             </Sidebar>
-            <Ref innerRef={segmentRef}>
-              <main style={{ overflow: "none" }}>
-                {children}
-              </main>
-            </Ref>
+            {children}
             <Footer />
           </>
         )
