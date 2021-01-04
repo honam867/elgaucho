@@ -203,7 +203,7 @@ const Location = () => {
             <Container style={{ marginTop: "15px", paddingTop: "20px", textAlign: "center" }} >
                 <Header textAlign='center' as='h3' style={{ fontWeight: "400" }}>
                     74/1 HAI BA TRUNG, BEN NGHE WARD, DIST. 1, HCMC
-            </Header>
+                </Header>
                 <p as='h5' >
                     Open Daily from 11AM to 10PM
                     </p>
