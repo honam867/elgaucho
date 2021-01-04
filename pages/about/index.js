@@ -1,4 +1,3 @@
-import Layout from "../../components/Layout"
 import Responsive from "../../components/Responsive";
 import style from "./about.module.css";
 
