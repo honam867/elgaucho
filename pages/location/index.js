@@ -35,7 +35,6 @@ const Location = () => {
             size: "450px",
             title: "WELCOME",
             subTitle: "Finest Steakhouse-Style Food",
-            buttonTitle: "Finest Steakhouse-Style Food",
             opacity: "0.8",
             buttonName: "EL DELIVERY | TAKE OUT",
             url: "delivery"
