@@ -118,6 +118,18 @@ const Location = () => {
                             gotomainsection={gotomainSection}
                         />
                     )
+                }} onTablet={() => {
+                    return (
+                        <SliderComponent
+                            Images={Images}
+                            height="92vh"
+                            backgroundOpacity={true}
+                            backgroundAttachment="fixed"
+                            fromLocationPage={true}
+                            angleDown={true}
+                            gotomainsection={gotomainSection}
+                        />
+                    )
                 }} onMobile={() => {
                     return (
                         <SliderComponent
@@ -172,6 +184,10 @@ const Location = () => {
                                 return <div style={{ margin: "0px 80px" }}>
                                     <SliderComponent slide={true} Images={Images2} height="80vh" fromPrivateDiningEventPages={true} />
                                 </div>
+                            }} onTablet={() => {
+                                return <div style={{ margin: "0px 80px" }}>
+                                    <SliderComponent slide={true} Images={Images2} height="50vh" fromPrivateDiningEventPages={true} />
+                                </div>
                             }} onMobile={() => {
                                 return <SliderComponent slide={true} Images={Images2} height="30vh" fromPrivateDiningEventPages={true} />
                             }}>
@@ -220,6 +236,10 @@ const Location = () => {
                             return <div style={{ margin: "0px 80px" }}>
                                 <SliderComponent slide={true} Images={Images2} height="80vh" fromPrivateDiningEventPages={true} />
                             </div>
+                        }} onTablet={() => {
+                            return <div style={{ margin: "0px 80px" }}>
+                                <SliderComponent slide={true} Images={Images2} height="50vh" fromPrivateDiningEventPages={true} />
+                            </div>
                         }} onMobile={() => {
                             return <SliderComponent slide={true} Images={Images2} height="30vh" fromPrivateDiningEventPages={true} />
                         }}>
@@ -231,6 +251,10 @@ const Location = () => {
                     <ButtonCustomComponent icon={true} iconName="list ul" name="View Menus" url="/menu" />
                     <Responsive onDesktop={() => {
                         return <div style={{ height: "600px", margin: "0px 115px" }}>
+                            <LocationSectionGGMap></LocationSectionGGMap>
+                        </div>
+                    }} onTablet={() => {
+                        return <div style={{ height: "580px", margin: "0px 40px" }}>
                             <LocationSectionGGMap></LocationSectionGGMap>
                         </div>
                     }} onMobile={() => {
