@@ -85,6 +85,18 @@ const HomeFullSlider = () => {
                     gotomainsection={gotomainSection}
                     angleDown={true} />
                 )
+            }} onTablet={() => {
+                return (
+                    <SliderComponent
+                    Images={Images}
+                    height="100vh"
+                    captionTitle={captionTitle}
+                    captionContent={captionContent}
+                    backgroundOpacity={true}
+                    backgroundAttachment="fixed"
+                    gotomainsection={gotomainSection}
+                    angleDown={true} />
+                )
             }} onMobile={() => {
                 return (
                     <SliderComponent
