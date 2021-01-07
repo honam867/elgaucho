@@ -17,10 +17,55 @@ animation: HeaderFullSlider 2s  !important;
        transform: translateY(0);
     }
  }
+ @media only screen and (min-width:320px) and (max-width:767px)  {
+  color: white !important;
+  font-size: 20px !important;
+  @keyframes HeaderFullSlider {
+    0% {
+       opacity: 0;
+       transform: translateY(-70px);
+    }
+    100% {
+       opacity: 1;
+       transform: translateY(0);
+    }
+ }
+}
 `
+const CustomHeaderFullSliderSubTitle = styled.p`
+font-size: 18px !important;
+color: white !important;
+animation: fadeInTopSubTitle 2s  !important;
+@keyframes fadeInTopSubTitle {
+    100% {
+       opacity: 1;
+       transform: translateY(0px);
+    }
+    0% {
+       opacity: 0;
+       transform: translateY(30px);
+    }
+ }
+ @media only screen and (min-width:320px) and (max-width:767px)  {
+  color: white !important;
+  font-size: 12px !important;
+  @keyframes HeaderFullSlider {
+    0% {
+       opacity: 0;
+       transform: translateY(-70px);
+    }
+    100% {
+       opacity: 1;
+       transform: translateY(0);
+    }
+ }
+}
+`
+
+
 const CustomSubTitleLocations = styled.p`
 font-size: 18px !important;
-font-weight: bold !important;
+font-weight: lighter !important;
 color: white !important;
 animation: fadeInTopSubTitle 2s  !important;
 @keyframes fadeInTopSubTitle {
@@ -33,9 +78,24 @@ animation: fadeInTopSubTitle 2s  !important;
        transform: translateY(30px);
     }
  } 
+ @media only screen and (min-width:320px) and (max-width:767px)  {
+  color: white !important;
+  font-size: 12px !important;
+  @keyframes HeaderFullSlider {
+    0% {
+       opacity: 0;
+       transform: translateY(-70px);
+    }
+    100% {
+       opacity: 1;
+       transform: translateY(0);
+    }
+ }
+}
 `
 const CustomHeaderLocations = styled(Header)`
 font-size: 40px !important;
+font-weight: bold !important;
 color: white !important;
 animation: fadeInDownLocations 2s  !important;
 @keyframes fadeInDownLocations {
@@ -48,6 +108,20 @@ animation: fadeInDownLocations 2s  !important;
        transform: translateY(0);
     }
  }
+ @media only screen and (min-width:320px) and (max-width:767px)  {
+  color: white !important;
+  font-size: 20px !important;
+  @keyframes HeaderFullSlider {
+    0% {
+       opacity: 0;
+       transform: translateY(-70px);
+    }
+    100% {
+       opacity: 1;
+       transform: translateY(0);
+    }
+ }
+}
 `
 
 const CustomButtonAtLocationPage = styled.div`
@@ -90,10 +164,13 @@ animation-timing-function: ease-in-out !important;
 const AngleDowButtonPosition = styled.div`
 position: relative !important;
 top: 180px !important;
+@media only screen and (min-width:320px) and (max-width:767px)  {
+    top: 120px !important;
+  }
 `
 
 const CustomHeaderPrivateDining = styled(Header)`
-font-size: 30px !important;
+font-size: 40px !important;
 color: white !important;
 position: absolute !important;
 width: 100% !important;
@@ -110,12 +187,26 @@ animation: PrivateDiningFullSlider 1s  !important;
        transform: translateX(0);
     }
  }
+ @media only screen and (min-width:320px) and (max-width:767px)  {
+  color: white !important;
+  font-size: 20px !important;
+  @keyframes HeaderFullSlider {
+    0% {
+       opacity: 0;
+       transform: translateY(-70px);
+    }
+    100% {
+       opacity: 1;
+       transform: translateY(0);
+    }
+ }
+}
 `
 const NameLocationFromDiningPages = styled.div`
     position: absolute;
-    bottom: 10px;
+    bottom: 10%;
     background-color: #000000;
-    padding: 30px;
+    padding: 15px;
     opacity: 0.8;
     animation: PrivateDiningFullSliderLocationSection 1s  !important;
     @keyframes PrivateDiningFullSliderLocationSection {
@@ -129,18 +220,27 @@ const NameLocationFromDiningPages = styled.div`
     }
  }
 `
+
+const SlideShowAlignCaptionFullSlider = styled.div`
+    color: white !important;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 45%;
+`
+
+
 const SliderComponent = ({ Images, height, ...props }) => {
     const [activeSlide, setActiveSlide] = useState(0);
     const settings = {
         dots: true,
-        fade: true,
+        fade: !props.slide,
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
         speed: 500,
         slidesToShow: 1,
-        lazyLoad: 'ondemand',
         arrows: true,
         adaptiveHeight: true,
         beforeChange: (current, next) => { setActiveSlide(next) },
@@ -188,6 +288,7 @@ const SliderComponent = ({ Images, height, ...props }) => {
                 style={{
                     ...style,
                     display: "block",
+                    zIndex: 1,
                     right: "0px",
                     fontSize: "50px"
                 }}
@@ -227,13 +328,14 @@ const SliderComponent = ({ Images, height, ...props }) => {
         width: "100%",
         textAlign: "center"
     }
-    const SlideShowAlignCaptionFullSlider = {
-        color: "white !important",
-        position: "absolute",
-        top: "40%",
-        width: "100%",
-        textAlign: "center"
-    }
+    // const SlideShowAlignCaptionFullSlider = {
+    //     color: "white !important",
+    //     position: "absolute",
+    //     top: "40%",
+    //     width: "100%",
+    //     textAlign: "center",
+    // }
+
     const gotoMainSection = () => {
         props.gotomainsection();
     }
@@ -252,6 +354,7 @@ const SliderComponent = ({ Images, height, ...props }) => {
                                     backgroundPosition: "center center",
                                     backgroundRepeat: 'no-repeat',
                                     backgroundImage: `url(${item.imgUrl})`,
+                                    backgroundAttachment: `${props.backgroundAttachment}`,
                                     width: '100%',
                                     height: height,
                                     opacity: `${item.opacity}`,
@@ -288,9 +391,9 @@ const SliderComponent = ({ Images, height, ...props }) => {
                 }
                 )}
             </Slider>
-            <div style={SlideShowAlignCaptionFullSlider}>
+            <SlideShowAlignCaptionFullSlider>
                 <CustomHeaderFullSlider as="h1">{props.captionTitle}</CustomHeaderFullSlider>
-                <p style={{ fontSize: "18px", color: "white" }}>{props.captionContent}</p>
+                <CustomHeaderFullSliderSubTitle>{props.captionContent}</CustomHeaderFullSliderSubTitle>
                 {props.angleDown ?
                     <AngleDowButtonPosition>
                         <AngleDownButton onClick={gotoMainSection} >
@@ -299,7 +402,7 @@ const SliderComponent = ({ Images, height, ...props }) => {
                     </AngleDowButtonPosition>
                     : null
                 }
-            </div>
+            </SlideShowAlignCaptionFullSlider>
         </div >
 
     )

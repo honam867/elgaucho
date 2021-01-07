@@ -6,3 +6,27 @@
   padding: 10px !important;
   border-left: 2px solid #cf1b15 !important;
 }
+.customCorlorMobile:hover {
+  color: #cf1b15 !important;
+  background: none !important;
+}
+.customCorlorMobile {
+  font-size: 10px !important;
+  font-weight: 600 !important;
+}
+.customBorderMobile {
+  border-left: 2px solid #cf1b15 !important;
+  width: 100% !important;
+}
+.customHeaderColor {
+  font-weight: bold;
+  color: #cf1b15 !important;
+}
+.customCorlorMobile:hover {
+  color: #cf1b15 !important;
+  background: none !important;
+}
+.customOverFlow:hover {
+  width: 100%;
+  overflow: auto;
+}

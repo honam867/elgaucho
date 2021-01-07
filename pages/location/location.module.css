@@ -6,3 +6,6 @@
   padding: 10px !important;
   border-left: 2px solid #cf1b15 !important;
 }
+.customHeightResponsive {
+  height: 60vh !important;
+}

@@ -16,17 +16,7 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <style jsx global>{`
-            #__next {
-              height: 100%;
-            }
-            .slick-initialized .slick-slide.slick-active {
-              z-index: 1;
-            }
-            .slick-slide div{
-              outline: none;
-            }
-          `}</style>
+
         </body>
       </Html>
     )

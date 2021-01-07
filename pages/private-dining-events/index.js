@@ -1,6 +1,6 @@
 import { Button, Container, Form, Grid, Header, List, Segment, TextArea } from "semantic-ui-react"
 import styled from "styled-components"
-import Layout from "../../components/Layout"
+import Layout from "../../components/ResponsiveHeader/index";
 import SliderComponent from "../../components/SliderComponent"
 import SrcImg1 from "../../public/static/img/El-Gaucho-Argentinian-Steakhouse-Restaurant-Private-Dining-Event-2.jpg"
 import SrcImgLocation1 from "../../public/static/img/Estellla.jpg"
@@ -114,24 +114,24 @@ const PrivateDiningEvent = () => {
                 <Container fluid style={{ padding: "15px" }}>
                     <Grid columns={2} stackable>
 
-                        <Grid.Column width={9}>
+                        <Grid.Column width={10}>
                             <ContentAnimationLeft>
                                 <Header textAlign='center' >
                                     We are offering three options for private dining and larger event groups:
                     </Header>
                                 <Container textAlign="left">
-                                    <List bulleted>
-                                        <List.Item>
+                                    <List bulleted >
+                                        <List.Item style={{ lineHeight: "1.65em" }}>
                                             The first option is that your group dines based on our a la carte menu.
                                             This option is not only the recommended option by our restaurant, but also the preferred option of all larger groups we are hosting,
                                             as it allows the full dining experience and the uniqueness of what our restaurant stands for.
                             </List.Item>
-                                        <List.Item>
+                                        <List.Item style={{ lineHeight: "1.65em" }}>
                                             As a second option, we can offer you a set menu containing of a variety of our bestsellers with a fixed sum per person on the food.
                                             In this case, we can order for you in advance, all to share, that you can fully concentrate on your dining,
                                             enjoying the company of your guests, while having a clear pricing in your mind.
                             </List.Item>
-                                        <List.Item>
+                                        <List.Item style={{ lineHeight: "1.65em" }}>
                                             Furthermore, casual and standing events with pass-around food
                                             are possible as well and we would discuss this with you to find the individual approach you wish for.
                             </List.Item>

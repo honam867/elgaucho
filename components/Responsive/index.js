@@ -1,6 +1,7 @@
 import { createMedia } from '@artsy/fresnel'
 import OnDesktop from '../OnDesktop';
 import OnMobile from '../OnMobile';
+import OnTablet from '../OnTablet';
 const { MediaContextProvider, Media } = createMedia({
     breakpoints: {
         sm: 0,
@@ -10,13 +11,13 @@ const { MediaContextProvider, Media } = createMedia({
     },
 })
 
-const ResponsiveComponent = ({ onDesktop, onMobile }) => (
+const ResponsiveComponent = ({ onDesktop, onMobile, onTablet }) => (
     <MediaContextProvider>
         <Media at="sm">
             <OnMobile children={onMobile} />
         </Media>
         <Media at="md">
-            <h1>Tablet</h1>
+        <OnTablet children={onTablet} />
         </Media>
         <Media greaterThanOrEqual="lg" >
             <OnDesktop children={onDesktop} />

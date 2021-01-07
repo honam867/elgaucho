@@ -1,4 +1,3 @@
-import Layout from "../../components/Layout"
 import Responsive from "../../components/Responsive";
 import style from "./about.module.css";
 
@@ -11,9 +10,9 @@ const onMobile = () => {
 
 
 const About = () => {
-    return (<Layout>
+    return (
         <Responsive onDesktop={onDesktop} onMobile={onMobile}>
         </Responsive>
-    </Layout>)
+    )
 }
 export default About;
