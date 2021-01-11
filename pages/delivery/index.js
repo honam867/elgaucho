@@ -18,6 +18,7 @@ import ResponsiveComponent from "../../components/Responsive";
 import MenuCustomStyle from "./menu.module.css";
 import ProductsComponent from "../../components/ProductsComponent";
 import styled from "styled-components";
+import ViewCartComponent from "../../components/ViewCart";
 const Images = [
   {
     id: 1,
@@ -143,31 +144,7 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
           </Grid.Column>
 
           <Grid.Column width={4}>
-            <Card style={{ width: "100%" }}>
-              <Card.Content textAlign="center">
-                <Header as="h3">Cart</Header>
-              </Card.Content>
-              <Card.Content>
-                <Grid columns={2}>
-                  <Grid.Column width={10}>
-                    <p>29-HOMEMADE BLUE CHEESE BURGER</p>
-                    <small>1 X VND 290.000</small>
-                  </Grid.Column>
-                  <Grid.Column width={6}>
-                    <Image size="tiny" src={SrcImg1} />
-                  </Grid.Column>
-                </Grid>
-              </Card.Content>
-              <Card.Content>
-                <CustomStrong>Subtotal:</CustomStrong> VND 220.000
-              </Card.Content>
-              <Card.Content extra>
-                <div className="ui two buttons">
-                  <CustomButton>View Cart</CustomButton>
-                  <CustomButton>Checkout</CustomButton>
-                </div>
-              </Card.Content>
-            </Card>
+            <ViewCartComponent></ViewCartComponent>
           </Grid.Column>
         </Grid>
       </Container>
@@ -219,31 +196,7 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
           </Grid.Column>
 
           <Grid.Column width={6}>
-            <Card style={{ width: "100%" }}>
-              <Card.Content textAlign="center">
-                <Header as="h3">Cart</Header>
-              </Card.Content>
-              <Card.Content>
-                <Grid columns={2}>
-                  <Grid.Column width={10}>
-                    <p>29-HOMEMADE BLUE CHEESE BURGER</p>
-                    <small>1 X VND 290.000</small>
-                  </Grid.Column>
-                  <Grid.Column width={6}>
-                    <Image size="small" src={SrcImg1} />
-                  </Grid.Column>
-                </Grid>
-              </Card.Content>
-              <Card.Content>
-                <CustomStrong>Subtotal:</CustomStrong> VND 220.000
-              </Card.Content>
-              <Card.Content extra>
-                <div className="ui two buttons">
-                  <CustomButton>View Cart</CustomButton>
-                  <CustomButton>Checkout</CustomButton>
-                </div>
-              </Card.Content>
-            </Card>
+            <ViewCartComponent></ViewCartComponent>
           </Grid.Column>
         </Grid>
       </Container>
@@ -267,16 +220,22 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
           size="small"
           secondary
         >
+          <div>
+
+          </div>
           {products.map((item) => {
             return (
-              <Menu.Item
-                active={activeItem === item.name}
-                key={item.id}
-                name={item.name}
-                className={MenuCustomStyle.customCorlor}
-                onClick={handleItemClick}
-                value={item}
-              ></Menu.Item>
+              <>
+                <Menu.Item
+                  active={activeItem === item.name}
+                  key={item.id}
+                  name={item.name}
+                  className={MenuCustomStyle.customCorlorMobile}
+                  onClick={handleItemClick}
+                  value={item}
+                ></Menu.Item>
+
+              </>
             );
           })}
         </Menu>
