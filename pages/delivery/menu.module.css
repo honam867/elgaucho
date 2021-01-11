@@ -13,6 +13,7 @@
 .customCorlorMobile {
   font-size: 10px !important;
   font-weight: 600 !important;
+  overflow: auto !important;
 }
 .customBorderMobile {
   border-left: 2px solid #cf1b15 !important;

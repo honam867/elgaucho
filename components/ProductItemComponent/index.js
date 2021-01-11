@@ -2,14 +2,17 @@ import { Button, Card, Grid, Header, Icon, Image, Item } from 'semantic-ui-react
 import MenuItemCustom from "./productitem.module.css";
 import styled from "styled-components";
 import Responsive from "../Responsive/index"
+import { bindActionCreators } from 'redux';
+import { AddCart, DecreaseQuantity, IncreaseQuantity } from '../../redux/cart/cart.actions';
+import { connect } from 'react-redux';
 const AddToCartButton = styled(Button)`
 color: #fff  !important;
 background: #cf1b15 !important;
 `;
 const PriceCustomFromHeader = styled(Item.Header)`
 color: #cf1b15 !important;
-font-weight: 300 !important;
-font-size: 20px !important;
+font-weight: 600 !important;
+font-size: 18px !important;
 margin-top: 10px !important;
 @media only screen and (min-width:320px) and (max-width:767px)  {
     font-weight: bold !important;
@@ -29,10 +32,73 @@ const CustomButton = styled(Button)`
  color: #ffffff  !important;
  background-color: #cf1b15 !important;
  `;
-const ProductItem = ({ categoriesItem }) => {
+const ProductItem = ({ categoriesItem, addCart }) => {
     return (
         <>
             <Responsive
+                onDesktop={() => {
+                    return (
+                        <>
+                            <Item.Group divided>
+                                {categoriesItem.map(categoryItem => {
+                                    return (
+                                        <Item key={categoryItem.id}>
+                                            <Item.Image size='small' src={categoryItem.urlImage} />
+                                            <Item.Content>
+                                                <ItemHeaderCustom as='a'>{categoryItem.name}</ItemHeaderCustom>
+                                                <Item.Description className={MenuItemCustom.customHeightDescription}>
+                                                    {categoryItem.description}
+                                                </Item.Description>
+                                                <Grid>
+                                                    <Grid.Column floated='left' width={10}>
+                                                        <PriceCustomFromHeader floated="right">
+                                                            {categoryItem.prices}
+                                                        </PriceCustomFromHeader>
+                                                    </Grid.Column>
+                                                    <Grid.Column floated='right' width={6}>
+                                                        <AddToCartButton onClick={() => addCart(categoryItem)} floated='right'>
+                                                            Add To Cart
+                                                        </AddToCartButton>
+                                                    </Grid.Column>
+                                                </Grid>
+                                            </Item.Content>
+                                        </Item>
+                                    )
+                                })}
+                            </Item.Group>
+                        </>
+                    )
+                }}
+                onTablet={() => {
+                    return (
+                        <>
+                            <Item.Group divided>
+                                {categoriesItem.map(categoryItem => {
+                                    return (
+                                        <Item key={categoryItem.id}>
+                                            <Item.Image size='small' src={categoryItem.urlImage} />
+                                            <Item.Content>
+                                                <ItemHeaderCustom as='a'>{categoryItem.name}</ItemHeaderCustom>
+                                                <Item.Description className={MenuItemCustom.customHeightDescription}>
+                                                    {categoryItem.description}
+                                                </Item.Description>
+                                                <PriceCustomFromHeader as="h4" floated="right">
+                                                    {categoryItem.prices}
+                                                </PriceCustomFromHeader>
+                                                <AddToCartButton floated='right'>
+                                                    Add To Cart
+                                <Icon name='right chevron' />
+                                                </AddToCartButton>
+                                            </Item.Content>
+                                        </Item>
+                                    )
+                                })}
+                            </Item.Group>
+                        </>
+                    )
+                }}
+
+
                 onMobile={() => {
                     return (
                         <>
@@ -71,4 +137,11 @@ const ProductItem = ({ categoriesItem }) => {
         </>
     )
 }
-export default ProductItem;
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addCart: item => dispatch(AddCart(item)),
+    }
+}
+
+export default connect(null, mapDispatchToProps)(ProductItem)

@@ -7,12 +7,14 @@ import {
   Visibility,
   Image,
   Ref,
+  Label,
 } from "semantic-ui-react";
 import Logo from "../../public/static/img/elgauchologo.png";
 import styled from "styled-components";
 import Responsive from "../../components/Responsive";
 import { useRouter } from "next/router";
 import Footer from "../Footer/index"
+import { connect } from "react-redux";
 const MenuItemLink = styled(Menu.Item)`
   &:hover {
     color: #cf1b15 !important;
@@ -63,7 +65,7 @@ const noFixedMenuStyleOnTable = {
 
 };
 
-const ResponsiveHeader = ({ children }) => {
+const ResponsiveHeader = ({ children, numberCart }) => {
   const router = useRouter();
   const [menuFixed, setFixedMenu] = useState(false);
   const hideFixedMenu = () => {
@@ -151,6 +153,9 @@ const ResponsiveHeader = ({ children }) => {
                 <Link href="/" forwardRef>
                   <MenuItemLink>
                     <Icon name="cart" />
+                    <Label style={{ borderRadius: "50%", padding: "4px 7px", margin: "10px" }} color='red' floating>
+                      {numberCart}
+                    </Label>
                   </MenuItemLink>
                 </Link>
                 <Link href="/" forwardRef>
@@ -166,6 +171,7 @@ const ResponsiveHeader = ({ children }) => {
               </Menu>
             </Visibility>
             {children}
+            <Footer />
           </>
         )
       }}
@@ -189,20 +195,20 @@ const ResponsiveHeader = ({ children }) => {
                 <Icon size="large" name="bars" />
               </Menu.Item>
               <Link href="/" forwardRef>
-                  <MenuItemLink>
-                    <Icon size="large" name="cart" />
-                  </MenuItemLink>
-                </Link>
-                <Link href="/" forwardRef>
-                  <MenuItemLink>
-                    <Icon size="large" name="facebook" color="blue" />
-                  </MenuItemLink>
-                </Link>
-                <Link href="/" forwardRef>
-                  <MenuItemLink>
-                    <Icon size="large" name="instagram" color="violet" />
-                  </MenuItemLink>
-                </Link>
+                <MenuItemLink>
+                  <Icon size="large" name="cart" />
+                </MenuItemLink>
+              </Link>
+              <Link href="/" forwardRef>
+                <MenuItemLink>
+                  <Icon size="large" name="facebook" color="blue" />
+                </MenuItemLink>
+              </Link>
+              <Link href="/" forwardRef>
+                <MenuItemLink>
+                  <Icon size="large" name="instagram" color="violet" />
+                </MenuItemLink>
+              </Link>
             </Menu>
             <Sidebar
               as={Menu}
@@ -430,4 +436,7 @@ const ResponsiveHeader = ({ children }) => {
     />
   )
 };
-export default ResponsiveHeader;
+const mapStateToProps = (state) => ({
+  numberCart: state.cart.numberCart,
+})
+export default connect(mapStateToProps, null)(ResponsiveHeader)

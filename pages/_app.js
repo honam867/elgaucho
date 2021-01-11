@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import NProgress from 'nprogress'; //nprogress module
 import 'nprogress/nprogress.css';
 import Router from 'next/router';
+import { wrapper } from '../redux/store'
 NProgress.configure(
   {
     template: '<div id="nprogress"><div class="bar" role="bar" style="background: #cf1b15; height: 3px"></div>',
@@ -19,7 +20,7 @@ NProgress.configure(
 Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
-export default class MyApp extends App {
+export class MyApp extends App {
   componentDidMount() {
     if (process.env.NODE_ENV !== 'production') {
       const axe = require('react-axe')
@@ -42,4 +43,4 @@ export default class MyApp extends App {
     )
   }
 }
-
+export default wrapper.withRedux(MyApp)
