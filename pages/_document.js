@@ -8,10 +8,10 @@ export default class MyDocument extends Document {
           <meta name="theme-color" content="#673ab7" />
           <meta
             name="Description"
-            content="an example of NextJS app with 100% accessible lighthouse score"
+            content="OUR EL GAUCHO STEAKHOUSE – CONTEMPORARY AND SPECIALISED. Food is our passion and it is our aim to establish the benchmark in Southeast Asia ..."
           />
+          <meta property="og:image" content="https://thue.today/media/images/section/brand/facebook/1525948033_el.jpg" />
           <link rel="icon" href="static/img/elgauchologo.png" />
-
         </Head>
         <body>
           <Main />
