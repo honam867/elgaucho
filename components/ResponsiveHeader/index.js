@@ -69,11 +69,9 @@ const ResponsiveHeader = ({ children, numberCart }) => {
   const router = useRouter();
   const [menuFixed, setFixedMenu] = useState(false);
   const hideFixedMenu = () => {
-    console.log('hide')
     setFixedMenu(false);
   };
   const showFixedMenu = () => {
-    console.log('show')
     setFixedMenu(true);
   };
   const handleToggle = () => {
