@@ -24,11 +24,11 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         if (item.menusId === action.payload.menusId) {
           if (item.id === action.payload.id) {
             state.Carts[key].quantity++
+            state.Carts[key].totalPriceOfProduct = state.Carts[key].quantity * Number(action.payload.prices.replace(/[^0-9]/g, ""))
             if (item.categoryId === action.payload.categoryId) {
               check = true;
             }
           }
-
         }
       });
       if (!check) {
@@ -40,7 +40,9 @@ const cartReducer = (state = INITIAL_STATE, action) => {
           urlImage: action.payload.urlImage,
           categoryId: action.payload.categoryId,
           menusId: action.payload.menusId,
-          quantity: 1
+          quantity: 1,
+          totalPriceOfProduct: action.payload.quantity === 0 ? Number(action.payload.prices.replace(/[^0-9]/g, "")) : 0
+
         }
         state.Carts.push(_Cart);
       }
@@ -51,7 +53,7 @@ const cartReducer = (state = INITIAL_STATE, action) => {
     case CartActionsType.INCREASE_QUANTITY:
       state.numberCart++
       state.Carts[action.payload].quantity++;
-
+      state.Carts[action.payload].totalPriceOfProduct = state.Carts[action.payload].quantity * Number(state.Carts[action.payload].prices.replace(/[^0-9]/g, ""))
       return {
         ...state
       }
@@ -60,6 +62,7 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       if (quantity > 1) {
         state.numberCart--;
         state.Carts[action.payload].quantity--;
+        state.Carts[action.payload].totalPriceOfProduct = state.Carts[action.payload].quantity * Number(state.Carts[action.payload].prices.replace(/[^0-9]/g, ""))
       }
 
       return {
