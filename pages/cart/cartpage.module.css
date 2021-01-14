@@ -1,0 +1,32 @@
+.outsideBg {
+  height: 1120px;
+  background-color: whitesmoke;
+  position: relative !important;
+}
+
+@media only screen and (min-width: 460px) {
+  .outsideBg {
+    height: 950px;
+    background-color: whitesmoke;
+    position: relative !important;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .outsideBg {
+    height: 900px;
+    background-color: whitesmoke;
+    position: relative !important;
+  }
+}
+
+.alignItem {
+  position: absolute !important;
+  z-index: 1;
+  width: 100%;
+  top: 5%;
+  height: 399px;
+  color: black;
+}
+.label {
+  color: white;
+}
