@@ -148,8 +148,9 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                     active={router.pathname == "/get-in-touch"}
                   ></MenuItemLink>
                 </Link>
-                <Link href="/" forwardRef>
-                  <MenuItemLink>
+                <Link href="/cart" forwardRef>
+                  <MenuItemLink
+                   active={router.pathname == "/cart"}>
                     <Icon name="cart" />
                     <Label style={{ borderRadius: "50%", padding: "4px 7px", margin: "10px" }} color='red' floating>
                       {numberCart}
@@ -192,9 +193,12 @@ const ResponsiveHeader = ({ children, numberCart }) => {
               <Menu.Item position="right" onClick={handleToggle}>
                 <Icon size="large" name="bars" />
               </Menu.Item>
-              <Link href="/" forwardRef>
-                <MenuItemLink>
+              <Link href="/cart" forwardRef>
+                <MenuItemLink active={router.pathname == "/cart"}>
                   <Icon size="large" name="cart" />
+                  <Label style={{ borderRadius: "50%", padding: "4px 7px", margin: "10px" }} color='red' floating>
+                      {numberCart}
+                  </Label>
                 </MenuItemLink>
               </Link>
               <Link href="/" forwardRef>
@@ -267,91 +271,6 @@ const ResponsiveHeader = ({ children, numberCart }) => {
           </>
         )
       }}
-      // onTablet={() => {
-      //   return (
-      //     <>
-      //       <Visibility
-      //         once={false}
-      //         onTopPassed={showFixedMenu}
-      //         onBottomPassedReverse={hideFixedMenu}
-      //       >
-      //         <Menu
-      //           secondary
-      //           fixed={menuFixed ? "top" : undefined}
-      //           style={menuFixed ? fixedMenuStyle : noFixedMenuStyle}
-      //         >
-      //           <Menu.Item>
-      //             <Link href="/home" forwardRef>
-      //               <MenuItemLinkImage
-      //                 src={Logo}
-      //                 alt="website logo"
-      //                 size={menuFixed ? "mini" : "tiny"}
-      //               />
-      //             </Link>
-      //           </Menu.Item>
-
-      //           <Link href="/location">
-      //             <MenuItemLink
-      //               name="Locations"
-      //               active={router.pathname == "/location"}
-      //               position="right"
-      //             ></MenuItemLink>
-      //           </Link>
-      //           <Link href="/delivery" forwardRef>
-      //             <MenuItemLink
-      //               name="EL Delivery & Take out"
-      //               active={router.pathname == "/delivery"}
-      //             >
-      //               EL Delivery & Take out
-      //       </MenuItemLink>
-      //           </Link>
-      //           <Link href="/menu" forwardRef>
-      //             <MenuItemLink
-      //               name="Menus"
-      //               active={router.pathname == "/menu"}
-      //             ></MenuItemLink>
-      //           </Link>
-      //           <Link href="/private-dining-events" forwardRef>
-      //             <MenuItemLink
-      //               name="Private Dining Events"
-      //               active={router.pathname == "/private-dining-events"}
-      //             >
-      //               Private | Dining Events
-      //       </MenuItemLink>
-      //           </Link>
-      //           <Link href="/gift-card" forwardRef>
-      //             <MenuItemLink
-      //               name="Gift Card"
-      //               active={router.pathname == "/gift-card"}
-      //             ></MenuItemLink>
-      //           </Link>
-      //           <Link href="/get-in-touch" forwardRef>
-      //             <MenuItemLink
-      //               name="Contact Us"
-      //               active={router.pathname == "/get-in-touch"}
-      //             ></MenuItemLink>
-      //           </Link>
-      //           <Link href="/" forwardRef>
-      //             <MenuItemLink>
-      //               <Icon name="cart" />
-      //             </MenuItemLink>
-      //           </Link>
-      //           <Link href="/" forwardRef>
-      //             <MenuItemLink>
-      //               <Icon name="facebook" color="blue" />
-      //             </MenuItemLink>
-      //           </Link>
-      //           <Link href="/" forwardRef>
-      //             <MenuItemLink>
-      //               <Icon name="instagram" color="violet" />
-      //             </MenuItemLink>
-      //           </Link>
-      //         </Menu>
-      //       </Visibility>
-      //       {children}
-      //     </>
-      //   )
-      // }}
       onMobile={() => {
         return (
           <>
@@ -371,6 +290,14 @@ const ResponsiveHeader = ({ children, numberCart }) => {
               <Menu.Item position="right" onClick={handleToggle}>
                 <Icon name="bars" />
               </Menu.Item>
+              <Link href="/cart" forwardRef>
+                <MenuItemLink active={router.pathname == "/cart"}>
+                  <Icon size="large" name="cart" />
+                  <Label style={{ borderRadius: "50%", padding: "4px 7px", margin: "10px" }} color='red' floating>
+                      {numberCart}
+                    </Label>
+                </MenuItemLink>
+              </Link>
             </Menu>
             <Sidebar
               as={Menu}
