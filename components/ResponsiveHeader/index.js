@@ -186,7 +186,7 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                   <MenuItemLinkImage
                     src={Logo}
                     alt="website logo"
-                    size="tiny"
+                    style = {{width : "70px"}}
                   />
                 </Link>
               </Menu.Item>
@@ -283,7 +283,8 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                   <MenuItemLinkImage
                     src={Logo}
                     alt="website logo"
-                    size="tiny"
+                    // size="tiny"
+                    style = {{width : "51px"}}
                   />
                 </Link>
               </Menu.Item>
