@@ -9,10 +9,10 @@ import {
 } from "semantic-ui-react";
 import styled from "styled-components";
 import Layout from "../../components/ResponsiveHeader/index";
-import styleCart from "./cartpage.module.css";
 import Responsive from "../../components/Responsive";
 import { connect } from "react-redux";
 import { IncreaseQuantity, DecreaseQuantity, DeleteCart } from "../../redux/cart/cart.actions";
+import ButtonCustomComponent from "../../components/ButtonCustomComponent";
 const CustomHeader = styled(Header)`
   color: black !important;
   font-weight: 900 !important;
@@ -41,10 +41,9 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
     listCart.push(items.Carts[item])
   })
   return (
-    <Layout>
-      <div className={styleCart.outsideBg}>
-        <div className={styleCart.alignItem}>
-          <Container textAlign="center">
+    <Layout >
+      <div style = {{backgroundColor: "whitesmoke", paddingTop: "5%" }}>
+      <Container  textAlign="center">
             <p style={{ color: "#cf1b15", fontWeight: "bold" }}>
               NOTE: If your prefer to pick up your order please note that when
               you check out in the “comments – message” area of the check-out
@@ -80,10 +79,14 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
 
             <p>Không lấy dụng cụ ăn uống nhựa | No plastic cutlery provided</p>
           </Container>
+      </div>
+      {/* <div className={styleCart.outsideBg}>
+        <div className={styleCart.alignItem}> */}
+
           <Responsive
             onDesktop={() => {
               return (
-                <div>
+                <div style = {{backgroundColor: "whitesmoke", paddingBottom: "3%"}}>
                   <Container textAlign="center">
                     <Table celled padded>
                       <Table.Header>
@@ -96,7 +99,7 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                           <Table.HeaderCell textAlign="center">
                             PRICE
                         </Table.HeaderCell>
-                          <Table.HeaderCell textAlign="center">
+                          <Table.HeaderCell  textAlign="center">
                             QUANTITY
                         </Table.HeaderCell>
                           <Table.HeaderCell textAlign="center">
@@ -114,36 +117,36 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                                   <Table.Cell width="1" textAlign="center">
                                     <Icon onClick={() => DeleteCart(i)} style={{ cursor: "pointer" }} name="times" size="small" color="red" />
                                   </Table.Cell>
-                                  <Table.Cell width="1">
+                                  <Table.Cell width="2">
                                     <Image
                                       size="tiny"
                                       src={item.urlImage}
                                     />
                                   </Table.Cell>
-                                  <Table.Cell width="4">
+                                  <Table.Cell width="6">
                                     <a style={{ fontSize: "12px" }}>
                                       {item.name}
                                     </a>
                                   </Table.Cell>
-                                  <Table.Cell width="2" textAlign="center">
+                                  <Table.Cell width="3" textAlign="center">
                                     <span className="woocommerce-Price-amount amount">
                                       <bdi>
                                         &nbsp;{item.prices}
                                       </bdi>
                                     </span>
                                   </Table.Cell>
-                                  <Table.Cell textAlign="center" width="1">
-                                    <Input size="mini" type="text">
+                                  <Table.Cell  width ="1"  >
+                                    <Input style = {{width: "40%", marginLeft: "15%"}} size="mini" type="text">
                                       <Button onClick={() => IncreaseQuantity(i)} icon>
                                         <Icon name="plus" />
                                       </Button>
                                       <input value={item.quantity} style={{ textAlign: "center" }} />
-                                      <Button size='mini' onClick={() => DecreaseQuantity(i)} icon>
+                                      <Button style ={{marginLeft: "3px"}} size='mini' onClick={() => DecreaseQuantity(i)} icon>
                                         <Icon name="minus" />
                                       </Button>
                                     </Input>
                                   </Table.Cell>
-                                  <Table.Cell textAlign="center" width="2">
+                                  <Table.Cell textAlign="center" width="3">
                                     <span className="woocommerce-Price-amount amount">
                                       <bdi>
                                         <span className="woocommerce-Price-currencySymbol">
@@ -161,25 +164,7 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                             <div>No item</div>
                         }
 
-                      </Table.Body>  {/* 
-                      <Table.Footer fullWidth>
-                        <Table.Row>
-                          <Table.HeaderCell colSpan="6">
-                            <Button
-                              style={{ color: "#fff", background: "#cf1b15" }}
-                              floated="right"
-                              icon
-                              labelPosition="left"
-                              primary
-                              size="small"
-                            >
-                              <Icon name="undo" /> Update cart
-                          </Button>
-                          </Table.HeaderCell>
-                        </Table.Row>
-                      </Table.Footer>
-                      */}
-
+                      </Table.Body>  
                     </Table>
                     <CustomHeader as="h3">CART TOTALS</CustomHeader>
                     <div
@@ -215,14 +200,17 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                       </Table>
                     </div>
 
-                    <CustomButton>Proceed to checkout</CustomButton>
+                    {
+                    listCart.length > 0 ?  <ButtonCustomComponent name="Proceed to checkout" url="/checkout" /> :
+                    <CustomButton style ={{display: 'none'}}>Proceed to checkout</CustomButton>
+                    }
                   </Container>
                 </div>
               );
             }}
             onTablet={() => {
               return (
-                <div>
+                <div style = {{backgroundColor: "whitesmoke", paddingBottom: "3%"}}>
                   <Container textAlign="center">
                     <Table celled padded>
                       <Table.Header>
@@ -244,53 +232,61 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                         </Table.Row>
                       </Table.Header>
                       <Table.Body>
-                        <Table.Row>
-                          <Table.Cell width="1" textAlign="center">
-                            <Icon name="times" size="small" color="red" />
-                          </Table.Cell>
-                          <Table.Cell width="1">
-                            <Image
-                              size="tiny"
-                              src="https://vn.elgaucho.asia/wp-content/uploads/2020/04/Cover-Delivery-Menu.jpg"
-                            />
-                          </Table.Cell>
-                          <Table.Cell width="4">
-                            <a style={{ fontSize: "12px" }}>
-                              72-GRILLED SPRING CHICKEN{" "}
-                            </a>
-                          </Table.Cell>
-                          <Table.Cell width="2" textAlign="center">
-                            <span class="woocommerce-Price-amount amount">
-                              <bdi>
-                                <span class="woocommerce-Price-currencySymbol">
-                                  VNĐ
-                                </span>
-                                &nbsp;490,000
-                              </bdi>
-                            </span>
-                          </Table.Cell>
-                          <Table.Cell textAlign="center" width="1">
-                            <Input size="mini" type="text">
-                              <Button icon>
-                                <Icon name="plus" />
-                              </Button>
-                              <input />
-                              <Button style={{ marginLeft: "3px" }} icon>
-                                <Icon name="minus" />
-                              </Button>
-                            </Input>
-                          </Table.Cell>
-                          <Table.Cell textAlign="center" width="2">
-                            <span class="woocommerce-Price-amount amount">
-                              <bdi>
-                                <span class="woocommerce-Price-currencySymbol">
-                                  VNĐ
-                                </span>
-                                &nbsp;490,000
-                              </bdi>
-                            </span>
-                          </Table.Cell>
-                        </Table.Row>
+                          {/* TODO loop product here ! */}
+                          {
+                          listCart.length > 0 ?
+                            listCart.map((item, i) => {
+                              return (
+                                <Table.Row key={i}>
+                                  <Table.Cell width="1" textAlign="center">
+                                    <Icon onClick={() => DeleteCart(i)} style={{ cursor: "pointer" }} name="times" size="small" color="red" />
+                                  </Table.Cell>
+                                  <Table.Cell width="2">
+                                    <Image
+                                      size="tiny"
+                                      src={item.urlImage}
+                                    />
+                                  </Table.Cell>
+                                  <Table.Cell width="6">
+                                    <a style={{ fontSize: "12px" }}>
+                                      {item.name}
+                                    </a>
+                                  </Table.Cell>
+                                  <Table.Cell width="3" textAlign="center">
+                                    <span className="woocommerce-Price-amount amount">
+                                      <bdi>
+                                        &nbsp;{item.prices}
+                                      </bdi>
+                                    </span>
+                                  </Table.Cell>
+                                  <Table.Cell  width="1">
+                                    <Input style = {{width: "40%", marginLeft: "15%"}} size="mini" type="text">
+                                      <Button onClick={() => IncreaseQuantity(i)} icon>
+                                        <Icon name="plus" />
+                                      </Button>
+                                      <input value={item.quantity} style={{ textAlign: "center" }} />
+                                      <Button style ={{marginLeft: "3px"}} size='mini' onClick={() => DecreaseQuantity(i)} icon>
+                                        <Icon name="minus" />
+                                      </Button>
+                                    </Input>
+                                  </Table.Cell>
+                                  <Table.Cell textAlign="center" width="3">
+                                    <span className="woocommerce-Price-amount amount">
+                                      <bdi>
+                                        <span className="woocommerce-Price-currencySymbol">
+                                          VND
+                                      </span>
+                                      &nbsp;{item.totalPriceOfProduct.toLocaleString('en-US')}
+                                      </bdi>
+                                    </span>
+                                  </Table.Cell>
+                                </Table.Row>
+                              )
+                            })
+
+                            :
+                            <div>No item</div>
+                        }
                       </Table.Body>
                       <Table.Footer fullWidth>
                         <Table.Row>
@@ -320,36 +316,39 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                     >
                       <Table size="small" definition collapsing>
                         <Table.Body>
-                          <Table.Row>
+                        <Table.Row>
                             <Table.Cell>SUBTOTAL</Table.Cell>
-                            <Table.Cell>Giá</Table.Cell>
+                            <Table.Cell>VND {totalCart.toLocaleString('en-US')}</Table.Cell>
                           </Table.Row>
                           <Table.Row>
                             <Table.Cell>SHIPPING</Table.Cell>
                             <Table.Cell>
                               Free shipping Shipping options will be updated
                               during checkout.
-                            </Table.Cell>
+                          </Table.Cell>
                           </Table.Row>
                           <Table.Row>
                             <Table.Cell>VAT</Table.Cell>
-                            <Table.Cell>Giá</Table.Cell>
+                            <Table.Cell>VND {VAT.toLocaleString('en-US')}</Table.Cell>
                           </Table.Row>
                           <Table.Row>
                             <Table.Cell>TOTAL</Table.Cell>
-                            <Table.Cell>Giá</Table.Cell>
+                            <Table.Cell> <CustomStrong>VND {cartTotal.toLocaleString('en-US')}</CustomStrong></Table.Cell>
                           </Table.Row>
                         </Table.Body>
                       </Table>
                     </div>
-                    <CustomButton>Proceed to checkout</CustomButton>
+                    {
+                    listCart.length > 0 ? <CustomButton>Proceed to checkout</CustomButton> :
+                    <CustomButton style ={{display: 'none'}}>Proceed to checkout</CustomButton>
+                  }
                   </Container>
                 </div>
               );
             }}
             onMobile={() => {
               return (
-                <div>
+                <div style = {{backgroundColor: "whitesmoke", paddingBottom: "3%"}}>
                   <Container fluid textAlign="center">
                     <Table celled unstackable>
                       <Table.Header>
@@ -364,26 +363,34 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                         </Table.Row>
                       </Table.Header>
                       <Table.Body>
-                        <Table.Row>
-                          <Table.Cell textAlign="center">
-                            <Icon name="times" size="small" color="red" />
-                          </Table.Cell>
-                          <Table.Cell >
-                            <a style={{ fontSize: "12px" }}>
-                              72-GRILLED SPRING CHICKEN{" "}
-                            </a>
-                          </Table.Cell>
-                          <Table.Cell textAlign="center">
-                            <span class="woocommerce-Price-amount amount">
-                              <bdi>
-                                <span class="woocommerce-Price-currencySymbol">
-                                  VNĐ
-                              </span>
-                              &nbsp;490,000
-                            </bdi>
-                            </span>
-                          </Table.Cell>
-                        </Table.Row>
+                      {
+                          listCart.length > 0 ?
+                            listCart.map((item, i) => {
+                              return (
+                                <Table.Row key={i}>
+                                  <Table.Cell width="1" textAlign="center">
+                                    <Icon onClick={() => DeleteCart(i)} style={{ cursor: "pointer" }} name="times" size="small" color="red" />
+                                  </Table.Cell>
+                          
+                                  <Table.Cell width="4">
+                                    <a style={{ fontSize: "12px" }}>
+                                      {item.name}
+                                    </a>
+                                  </Table.Cell>
+                                  <Table.Cell width="2" textAlign="center">
+                                    <span className="woocommerce-Price-amount amount">
+                                      <bdi>
+                                        &nbsp;{item.prices}
+                                      </bdi>
+                                    </span>
+                                  </Table.Cell>
+                                </Table.Row>
+                              )
+                            })
+
+                            :
+                            <div>No item</div>
+                        }
                       </Table.Body>
                       <Table.Footer fullWidth>
                         <Table.Row>
@@ -410,9 +417,9 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                     >
                       <Table size="small" definition unstackable>
                         <Table.Body>
-                          <Table.Row>
+                        <Table.Row>
                             <Table.Cell>SUBTOTAL</Table.Cell>
-                            <Table.Cell>Giá</Table.Cell>
+                            <Table.Cell>VND {totalCart.toLocaleString('en-US')}</Table.Cell>
                           </Table.Row>
                           <Table.Row>
                             <Table.Cell>SHIPPING</Table.Cell>
@@ -423,23 +430,26 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                           </Table.Row>
                           <Table.Row>
                             <Table.Cell>VAT</Table.Cell>
-                            <Table.Cell>Giá</Table.Cell>
+                            <Table.Cell>VND {VAT.toLocaleString('en-US')}</Table.Cell>
                           </Table.Row>
                           <Table.Row>
                             <Table.Cell>TOTAL</Table.Cell>
-                            <Table.Cell>Giá</Table.Cell>
+                            <Table.Cell> <CustomStrong>VND {cartTotal.toLocaleString('en-US')}</CustomStrong></Table.Cell>
                           </Table.Row>
                         </Table.Body>
                       </Table>
                     </div>
-                    <CustomButton>Proceed to checkout</CustomButton>
+                    {
+                    listCart.length > 0 ? <CustomButton>Proceed to checkout</CustomButton> :
+                    <CustomButton style ={{display: 'none'}}>Proceed to checkout</CustomButton>
+                    }
                   </Container>
                 </div>
               );
             }}
           ></Responsive>
-        </div>
-      </div>
+        {/* </div>
+      </div> */}
     </Layout>
   );
 };
