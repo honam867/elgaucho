@@ -19,6 +19,7 @@ import MenuCustomStyle from "./menu.module.css";
 import ProductsComponent from "../../components/ProductsComponent";
 import styled from "styled-components";
 import ViewCartComponent from "../../components/ViewCart";
+import ProductItemComponent from "../../components/ProductItemComponent";
 const Images = [
   {
     id: 1,
@@ -39,15 +40,6 @@ const Images = [
     size: "450px",
   },
 ];
-
-const CustomStrong = styled.strong`
-  color: #cf1b15 !important;
-  font-weight: bold !important;
-`;
-const CustomButton = styled(Button)`
-  color: #cf1b15 !important;
-  background-color: #ffffff !important;
-`;
 const ElDeliveryTakeOutComponent = ({ products }) => {
   const [activeItem, setActiveItem] = useState("");
 
@@ -56,7 +48,7 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
   // TODO change productlist to MenuList
   const [productList, setproducts] = useState(products);
   // NOTE Set first categories to render
-  const [categories, setCategories] = useState(products[0].categories);
+  const [categories, setCategories] = useState(products[0].products);
 
   const overlayMenuStyle = {
     position: "relative",
@@ -79,11 +71,7 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
   };
 
   const handleItemClick = (e, { name, value }) => {
-    // NOTE When click menu item, find by id to render categories of that item
-    const findCatecoriesWhenClickProductItemValue = productList.find(
-      (product) => product.id === value.id
-    );
-    setCategories(findCatecoriesWhenClickProductItemValue.categories);
+    setCategories(value.products);
     setActiveItem(name);
   };
 
@@ -98,8 +86,9 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
   useEffect(() => {
     setproducts(products);
     // TODO render null if products from api don't have item
-    // setCategories(products[0].categories)
-
+    // setCategories(products[0].products)
+    // console.log(products[1].products);
+    console.log(categories.length);
     setActiveItem(products[0].name);
   }, []);
 
@@ -123,7 +112,7 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
               secondary
               vertical
             >
-              {productList.map((item) => {
+              {productList.length > 0 ? productList.map((item) => {
                 return (
                   <Menu.Item
                     className={MenuCustomStyle.customCorlor}
@@ -134,12 +123,20 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
                     value={item}
                   />
                 );
-              })}
+              })
+                :
+                <div>No data</div>
+              }
             </Menu>
           </Grid.Column>
           <Grid.Column width={9}>
             <div>
-              <ProductsComponent categories={categories} />
+              {
+                categories.length > 0 ?
+                  <ProductItemComponent categories={categories} />
+                  : <div>no data</div>
+              }
+
             </div>
           </Grid.Column>
 
@@ -191,7 +188,11 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
           </Grid.Column>
           <Grid.Column width={10}>
             <div>
-              <ProductsComponent categories={categories} />
+              {
+                categories.length > 0 ?
+                  <ProductItemComponent categories={categories} />
+                  : <div>no data</div>
+              }
             </div>
           </Grid.Column>
 
@@ -239,7 +240,11 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
             );
           })}
         </Menu>
-        <ProductsComponent categories={categories} />
+        {
+          categories.length > 0 ?
+            <ProductItemComponent categories={categories} />
+            : <div>no data</div>
+        }
       </>
     );
   };
@@ -258,7 +263,7 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
 export async function getServerSideProps(context) {
   // NOTE fetch menu list from api
   const res = await fetch(
-    "https://my-json-server.typicode.com/honam867/apiserver/menus"
+    "https://my-json-server.typicode.com/honam867/apiserver/products"
   );
   const products = await res.json();
   if (!products) {

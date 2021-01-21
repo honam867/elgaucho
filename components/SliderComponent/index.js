@@ -77,7 +77,7 @@ animation: fadeInTopSubTitle 2s  !important;
        opacity: 0;
        transform: translateY(30px);
     }
- } 
+ }
  @media only screen and (min-width:320px) and (max-width:767px)  {
   color: white !important;
   font-size: 12px !important;
@@ -163,7 +163,7 @@ animation-timing-function: ease-in-out !important;
 
 const AngleDowButtonPosition = styled.div`
 position: relative !important;
-top: 180px !important;
+top: 150px !important;
 @media only screen and (min-width:320px) and (max-width:767px)  {
     top: 120px !important;
   }
@@ -231,180 +231,180 @@ const SlideShowAlignCaptionFullSlider = styled.div`
 
 
 const SliderComponent = ({ Images, height, ...props }) => {
-    const [activeSlide, setActiveSlide] = useState(0);
-    const settings = {
-        dots: true,
-        fade: !props.slide,
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        speed: 500,
-        slidesToShow: 1,
-        arrows: true,
-        adaptiveHeight: true,
-        beforeChange: (current, next) => { setActiveSlide(next) },
-        appendDots: dots => (
-            <div
-                style={{
-                    paddingBottom: "30px"
-                }}
-            >
-                <ul style={{ paddingLeft: "0px" }}> {dots} </ul>
-            </div>
-        ),
-        customPaging: (i) => {
-            const style = {
-                width: "20px",
-                height: "20px",
-                color: "black",
-                border: "1px solid #FFFFFF",
-                borderRadius: "50%",
-                margin: "2px",
-            }
-            const activeStyle = {
-                width: "20px",
-                height: "20px",
-                border: "1px solid #FFFFFF",
-                borderRadius: "50%",
-                margin: "2px",
-                background: "#cf1b15"
-            };
-            return (
-                <div
-                    style={i === activeSlide ? activeStyle : style}
-                >
-                </div>
-            )
-        },
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />
-    };
-    function SampleNextArrow(props) {
-        const { className, style, onClick } = props;
-        return (
-            <div
-                className={className}
-                style={{
-                    ...style,
-                    display: "block",
-                    zIndex: 1,
-                    right: "0px",
-                    fontSize: "50px"
-                }}
-                onClick={onClick}
-            />
-        );
-    }
-
-    function SamplePrevArrow(props) {
-        const { className, style, onClick } = props;
-        return (
-            <div
-                className={className}
-                style={{
-                    ...style,
-                    display: "block",
-                    left: "0px",
-                    zIndex: "100"
-                }}
-                onClick={onClick}
-            />
-        );
-    }
-    const CustomBackground = {
-        position: 'relative'
-    }
-    const CustomBackgroundOpacity = {
-        position: 'relative',
-        backgroundColor: "black",
-        borderLeft: "0.5px solid #CF1315",
-        borderRight: "0.5px solid #CF1315"
-    }
-    const SlideShowAlignCaption = {
-        color: "white !important",
-        position: "absolute",
-        top: "40%",
-        width: "100%",
-        textAlign: "center"
-    }
-    // const SlideShowAlignCaptionFullSlider = {
-    //     color: "white !important",
-    //     position: "absolute",
-    //     top: "40%",
-    //     width: "100%",
-    //     textAlign: "center",
-    // }
-
-    const gotoMainSection = () => {
-        props.gotomainsection();
-    }
-    // `onClick`, `href`, and `ref` need to be passed to the DOM element
-    // for proper handling
-
+  const [activeSlide, setActiveSlide] = useState(0);
+  const settings = {
+    dots: true,
+    fade: !props.slide,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 500,
+    slidesToShow: 1,
+    arrows: true,
+    adaptiveHeight: true,
+    beforeChange: (current, next) => { setActiveSlide(next) },
+    appendDots: dots => (
+      <div
+        style={{
+          paddingBottom: "30px"
+        }}
+      >
+        <ul style={{ paddingLeft: "0px" }}> {dots} </ul>
+      </div>
+    ),
+    customPaging: (i) => {
+      const style = {
+        width: "20px",
+        height: "20px",
+        color: "black",
+        border: "1px solid #FFFFFF",
+        borderRadius: "50%",
+        margin: "2px",
+      }
+      const activeStyle = {
+        width: "20px",
+        height: "20px",
+        border: "1px solid #FFFFFF",
+        borderRadius: "50%",
+        margin: "2px",
+        background: "#cf1b15"
+      };
+      return (
+        <div
+          style={i === activeSlide ? activeStyle : style}
+        >
+        </div>
+      )
+    },
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />
+  };
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
     return (
-        <div style={props.backgroundOpacity ? CustomBackgroundOpacity : CustomBackground}>
-            <Slider   {...settings} style={{ width: "100%", height: "100%" }}>
-                {Images.map((item, i) => {
-                    return (
-                        <div key={item.id}>
-                            <div
-                                style={{
-                                    backgroundSize: "cover",
-                                    backgroundPosition: "center center",
-                                    backgroundRepeat: 'no-repeat',
-                                    backgroundImage: `url(${item.imgUrl})`,
-                                    backgroundAttachment: `${props.backgroundAttachment}`,
-                                    width: '100%',
-                                    height: height,
-                                    opacity: `${item.opacity}`,
-                                }}
-                            >
-                            </div>
-                            {
-                                props.fromLocationPage ?
-                                    <div style={SlideShowAlignCaption}>
-                                        <CustomHeaderLocations>{item.title}</CustomHeaderLocations>
-                                        <CustomSubTitleLocations>{item.subTitle}</CustomSubTitleLocations>
-                                        <CustomButtonAtLocationPage>
-                                            <ButtonCustomComponent name={item.buttonName} url={item.url} />
-                                        </CustomButtonAtLocationPage>
-                                    </div>
-                                    : null
-                            }
-                            {
-                                props.fromPrivateDiningEventPages ?
-                                    <CustomHeaderPrivateDining>{Images[0].title}</CustomHeaderPrivateDining>
-                                    : null
-                            }
-                            {
-                                props.fromPrivateDiningEventPagesSection ?
-                                    <NameLocationFromDiningPages>
-                                        <Header style={{ color: "white" }}>
-                                            {item.name}
-                                        </Header>
-                                    </NameLocationFromDiningPages>
-                                    : null
-                            }
-                        </div>
-                    )
-                }
-                )}
-            </Slider>
-            <SlideShowAlignCaptionFullSlider>
-                <CustomHeaderFullSlider as="h1">{props.captionTitle}</CustomHeaderFullSlider>
-                <CustomHeaderFullSliderSubTitle>{props.captionContent}</CustomHeaderFullSliderSubTitle>
-                {props.angleDown ?
-                    <AngleDowButtonPosition>
-                        <AngleDownButton onClick={gotoMainSection} >
-                            <Icon name="angle down" />
-                        </AngleDownButton>
-                    </AngleDowButtonPosition>
-                    : null
-                }
-            </SlideShowAlignCaptionFullSlider>
-        </div >
+      <div
+        className={className}
+        style={{
+          ...style,
+          display: "block",
+          zIndex: 1,
+          right: "0px",
+          fontSize: "50px"
+        }}
+        onClick={onClick}
+      />
+    );
+  }
 
-    )
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{
+          ...style,
+          display: "block",
+          left: "0px",
+          zIndex: "100"
+        }}
+        onClick={onClick}
+      />
+    );
+  }
+  const CustomBackground = {
+    position: 'relative'
+  }
+  const CustomBackgroundOpacity = {
+    position: 'relative',
+    backgroundColor: "black",
+    borderLeft: "0.5px solid #CF1315",
+    borderRight: "0.5px solid #CF1315"
+  }
+  const SlideShowAlignCaption = {
+    color: "white !important",
+    position: "absolute",
+    top: "40%",
+    width: "100%",
+    textAlign: "center"
+  }
+  // const SlideShowAlignCaptionFullSlider = {
+  //     color: "white !important",
+  //     position: "absolute",
+  //     top: "40%",
+  //     width: "100%",
+  //     textAlign: "center",
+  // }
+
+  const gotoMainSection = () => {
+    props.gotomainsection();
+  }
+  // `onClick`, `href`, and `ref` need to be passed to the DOM element
+  // for proper handling
+
+  return (
+    <div style={props.backgroundOpacity ? CustomBackgroundOpacity : CustomBackground}>
+      <Slider   {...settings} style={{ width: "100%", height: "100%" }}>
+        {Images.map((item, i) => {
+          return (
+            <div key={item.id}>
+              <div
+                style={{
+                  backgroundSize: "cover",
+                  backgroundPosition: "center center",
+                  backgroundRepeat: 'no-repeat',
+                  backgroundImage: `url(${item.imgUrl})`,
+                  backgroundAttachment: `${props.backgroundAttachment}`,
+                  width: '100%',
+                  height: height,
+                  opacity: `${item.opacity}`,
+                }}
+              >
+              </div>
+              {
+                props.fromLocationPage ?
+                  <div style={SlideShowAlignCaption}>
+                    <CustomHeaderLocations>{item.title}</CustomHeaderLocations>
+                    <CustomSubTitleLocations>{item.subTitle}</CustomSubTitleLocations>
+                    <CustomButtonAtLocationPage>
+                      <ButtonCustomComponent name={item.buttonName} url={item.url} />
+                    </CustomButtonAtLocationPage>
+                  </div>
+                  : null
+              }
+              {
+                props.fromPrivateDiningEventPages ?
+                  <CustomHeaderPrivateDining>{Images[0].title}</CustomHeaderPrivateDining>
+                  : null
+              }
+              {
+                props.fromPrivateDiningEventPagesSection ?
+                  <NameLocationFromDiningPages>
+                    <Header style={{ color: "white" }}>
+                      {item.name}
+                    </Header>
+                  </NameLocationFromDiningPages>
+                  : null
+              }
+            </div>
+          )
+        }
+        )}
+      </Slider>
+      <SlideShowAlignCaptionFullSlider>
+        <CustomHeaderFullSlider as="h1">{props.captionTitle}</CustomHeaderFullSlider>
+        <CustomHeaderFullSliderSubTitle>{props.captionContent}</CustomHeaderFullSliderSubTitle>
+        {props.angleDown ?
+          <AngleDowButtonPosition>
+            <AngleDownButton onClick={gotoMainSection} >
+              <Icon name="angle down" />
+            </AngleDownButton>
+          </AngleDowButtonPosition>
+          : null
+        }
+      </SlideShowAlignCaptionFullSlider>
+    </div >
+
+  )
 }
 export default SliderComponent;

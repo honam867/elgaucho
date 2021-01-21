@@ -43,9 +43,7 @@ const CheckOut = ({
   let VAT = 0;
   let cartTotal = 0;
   Object.keys(items.Carts).forEach((item) => {
-    let priceAfterParse = items.Carts[item].prices.replace(/[^0-9]/g, "");
-    let priceOfProduct = Number(priceAfterParse);
-    totalCart += items.Carts[item].quantity * priceOfProduct;
+    totalCart += items.Carts[item].quantity * items.Carts[item].price;
     VAT = (totalCart * 10) / 100;
     cartTotal = totalCart + VAT;
     listCart.push(items.Carts[item]);
@@ -132,80 +130,80 @@ const CheckOut = ({
         </Container>
       </div>
       <div style={{ backgroundColor: "whitesmoke", paddingBottom: "3%" }}>
-              <Container>
-                <Form>
-                  <Grid columns={2} stackable>
-                    <Grid.Column width={8}>
-                      <CustomHeader as="h3"> Billing details</CustomHeader>
-                      <Form.Group widths="equal">
-                        <Form.Input fluid label="First name *" />
-                        <Form.Input fluid label="Last name  *" />
-                      </Form.Group>
-                      <Form.Input fluid label="Country / Region *" />
-                      <Form.Field>
-                        <label>Street address *</label>
-                        <input placeholder="House number and street name" />
-                      </Form.Field>
-                      <Form.Field>
-                        <label>Postcode / ZIP (optional)</label>
-                        <input />
-                      </Form.Field>
-                      <Form.Field>
-                        <label>Town / City *</label>
-                        <input />
-                      </Form.Field>
-                      <Form.Field>
-                        <label>Phone *</label>
-                        <input />
-                      </Form.Field>
-                      <Form.Field>
-                        <label>Email address *</label>
-                        <input />
-                      </Form.Field>
-                      <Form.Checkbox label="Create an account?" />
-                    </Grid.Column>
-                    <Grid.Column width={8}>
-                      <Form.Checkbox
-                        onClick={toggleVisibilityShip}
-                        label="Ship to a different address?"
-                      />
-                      <Divider style={{ margin: "0px" }} hidden />
-                      <Transition
-                        visible={visibleShip}
-                        animation="slide down"
-                        duration={300}
-                      >
-                        <div>
-                          <Form.Group widths="equal">
-                            <Form.Input fluid label="First name *" />
-                            <Form.Input fluid label="Last name  *" />
-                          </Form.Group>
-                          <Form.Input fluid label="Country / Region *" />
-                          <Form.Field>
-                            <label>Street address *</label>
-                            <input placeholder="House number and street name" />
-                          </Form.Field>
-                          <Form.Field>
-                            <label>Postcode / ZIP (optional)</label>
-                            <input />
-                          </Form.Field>
-                          <Form.Field>
-                            <label>Town / City *</label>
-                            <input />
-                          </Form.Field>
-                          <Form.Field
-                            style={{ minHeight: 116 }}
-                            control={TextArea}
-                            label="Order notes (optional)"
-                            placeholder="Notes about your order, e.g. special notes for delivery."
-                          />
-                        </div>
-                      </Transition>
-                    </Grid.Column>
-                  </Grid>
-                </Form>
-              </Container>
-            </div>
+        <Container>
+          <Form>
+            <Grid columns={2} stackable>
+              <Grid.Column width={8}>
+                <CustomHeader as="h3"> Billing details</CustomHeader>
+                <Form.Group widths="equal">
+                  <Form.Input fluid label="First name *" />
+                  <Form.Input fluid label="Last name  *" />
+                </Form.Group>
+                <Form.Input fluid label="Country / Region *" />
+                <Form.Field>
+                  <label>Street address *</label>
+                  <input placeholder="House number and street name" />
+                </Form.Field>
+                <Form.Field>
+                  <label>Postcode / ZIP (optional)</label>
+                  <input />
+                </Form.Field>
+                <Form.Field>
+                  <label>Town / City *</label>
+                  <input />
+                </Form.Field>
+                <Form.Field>
+                  <label>Phone *</label>
+                  <input />
+                </Form.Field>
+                <Form.Field>
+                  <label>Email address *</label>
+                  <input />
+                </Form.Field>
+                <Form.Checkbox label="Create an account?" />
+              </Grid.Column>
+              <Grid.Column width={8}>
+                <Form.Checkbox
+                  onClick={toggleVisibilityShip}
+                  label="Ship to a different address?"
+                />
+                <Divider style={{ margin: "0px" }} hidden />
+                <Transition
+                  visible={visibleShip}
+                  animation="slide down"
+                  duration={300}
+                >
+                  <div>
+                    <Form.Group widths="equal">
+                      <Form.Input fluid label="First name *" />
+                      <Form.Input fluid label="Last name  *" />
+                    </Form.Group>
+                    <Form.Input fluid label="Country / Region *" />
+                    <Form.Field>
+                      <label>Street address *</label>
+                      <input placeholder="House number and street name" />
+                    </Form.Field>
+                    <Form.Field>
+                      <label>Postcode / ZIP (optional)</label>
+                      <input />
+                    </Form.Field>
+                    <Form.Field>
+                      <label>Town / City *</label>
+                      <input />
+                    </Form.Field>
+                    <Form.Field
+                      style={{ minHeight: 116 }}
+                      control={TextArea}
+                      label="Order notes (optional)"
+                      placeholder="Notes about your order, e.g. special notes for delivery."
+                    />
+                  </div>
+                </Transition>
+              </Grid.Column>
+            </Grid>
+          </Form>
+        </Container>
+      </div>
       <div style={{ backgroundColor: "whitesmoke", paddingBottom: "2%" }}>
         <Container>
           <CustomHeader as="h3"> Your order</CustomHeader>
@@ -282,9 +280,9 @@ const CheckOut = ({
                     src="https://vn.elgaucho.asia/wp-content/plugins/woocommerce/includes/gateways/paypal/assets/images/paypal.png"
                     alt="PayPal acceptance mark"
                   ></img> <a href="https://www.paypal.com/vn/webapps/mpp/paypal-popup" ><b> What is PayPal?</b></a>
-                  <p style = {{padding: "10px"}}>
+                  <p style={{ padding: "10px" }}>
                     Pay via PayPal; You can pay with your credit card if you
-                    don’t have a PayPal account. <br/>
+                    don’t have a PayPal account. <br />
                     The prices will be converted to
                     USD in the PayPal pages with the exchange rate USD / VND =
                     23000.
@@ -295,10 +293,10 @@ const CheckOut = ({
               <p>
                 Your personal data will be used to process your order, support
                 your experience throughout this website, and for other purposes
-                described in our <a>privacy policy.</a> 
+                described in our <a>privacy policy.</a>
               </p>
               <Checkbox label=' I have read and agree to the website terms and conditions *' />
-              <br/>
+              <br />
               <ButtonCustomComponent name="Proceed to PayPal" url="/checkout" />
             </Card.Content>
           </Card>
