@@ -5,21 +5,17 @@ import SrcImg1 from "../../public/static/img/El-Gaucho-Dine-With-Us.jpg";
 import SrcImg2 from "../../public/static/img/El-Gaucho-Argentinian-Steakhouse-Restaurant-Homepage-Welcome-1920-x-800.jpg";
 import SrcImg3 from "../../public/static/img/VN04-2017_1036_37_38_39_40.jpg";
 import {
-  Button,
-  Card,
   Container,
   Grid,
-  Header,
-  Image,
   Menu,
   Visibility,
 } from "semantic-ui-react";
 import ResponsiveComponent from "../../components/Responsive";
 import MenuCustomStyle from "./menu.module.css";
 import ProductsComponent from "../../components/ProductsComponent";
-import styled from "styled-components";
 import ViewCartComponent from "../../components/ViewCart";
-import ProductItemComponent from "../../components/ProductItemComponent";
+import Categories from "../../datafake/categories";
+import SubCategories from "../../datafake/subcategories";
 const Images = [
   {
     id: 1,
@@ -42,14 +38,9 @@ const Images = [
 ];
 const ElDeliveryTakeOutComponent = ({ products }) => {
   const [activeItem, setActiveItem] = useState("");
-
   const [overlayFixed, setStickOverlay] = useState(false);
-
-  // TODO change productlist to MenuList
-  const [productList, setproducts] = useState(products);
-  // NOTE Set first categories to render
-  const [categories, setCategories] = useState(products[0].products);
-
+  // NOTE new logic here:
+  const [subcategoryId, setSubCategoyId] = useState(1);
   const overlayMenuStyle = {
     position: "relative",
     top: 0,
@@ -71,8 +62,8 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
   };
 
   const handleItemClick = (e, { name, value }) => {
-    setCategories(value.products);
     setActiveItem(name);
+    setSubCategoyId(value.id);
   };
 
   const stickOverlay = () => {
@@ -83,13 +74,9 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
     setStickOverlay(false);
   };
 
+
   useEffect(() => {
-    setproducts(products);
-    // TODO render null if products from api don't have item
-    // setCategories(products[0].products)
-    // console.log(products[1].products);
-    console.log(categories.length);
-    setActiveItem(products[0].name);
+    setActiveItem(Categories[0].name);
   }, []);
 
   const MenusOnDesktop = () => {
@@ -112,7 +99,7 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
               secondary
               vertical
             >
-              {productList.length > 0 ? productList.map((item) => {
+              {Categories.length > 0 ? Categories.map((item) => {
                 return (
                   <Menu.Item
                     className={MenuCustomStyle.customCorlor}
@@ -121,22 +108,20 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
                     active={activeItem === item.name}
                     onClick={handleItemClick}
                     value={item}
-                  />
+                  >
+                    {item.name}
+                  </Menu.Item>
                 );
               })
                 :
                 <div>No data</div>
               }
+
             </Menu>
           </Grid.Column>
           <Grid.Column width={9}>
             <div>
-              {
-                categories.length > 0 ?
-                  <ProductItemComponent categories={categories} />
-                  : <div>no data</div>
-              }
-
+              <ProductsComponent subcategories={SubCategories.filter(sub => sub.categoryId === subcategoryId)} products={products} ></ProductsComponent>
             </div>
           </Grid.Column>
 
@@ -172,7 +157,7 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
               size="small"
               secondary
             >
-              {products.map((item) => {
+              {Categories.map((item) => {
                 return (
                   <Menu.Item
                     active={activeItem === item.name}
@@ -188,11 +173,8 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
           </Grid.Column>
           <Grid.Column width={10}>
             <div>
-              {
-                categories.length > 0 ?
-                  <ProductItemComponent categories={categories} />
-                  : <div>no data</div>
-              }
+              <ProductsComponent subcategories={SubCategories.filter(sub => sub.categoryId === subcategoryId)} products={products} ></ProductsComponent>
+
             </div>
           </Grid.Column>
 
@@ -220,31 +202,22 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
           }
           size="small"
           secondary
+          className={MenuCustomStyle.customMobile}
         >
-          <div>
-
-          </div>
-          {products.map((item) => {
+          {Categories.map((item) => {
             return (
-              <>
-                <Menu.Item
-                  active={activeItem === item.name}
-                  key={item.id}
-                  name={item.name}
-                  className={MenuCustomStyle.customCorlorMobile}
-                  onClick={handleItemClick}
-                  value={item}
-                ></Menu.Item>
-
-              </>
+              <Menu.Item
+                active={activeItem === item.name}
+                key={item.id}
+                name={item.name}
+                className={MenuCustomStyle.customCorlorMobile}
+                onClick={handleItemClick}
+                value={item}
+              ></Menu.Item>
             );
           })}
         </Menu>
-        {
-          categories.length > 0 ?
-            <ProductItemComponent categories={categories} />
-            : <div>no data</div>
-        }
+        <ProductsComponent subcategories={SubCategories.filter(sub => sub.categoryId === subcategoryId)} products={products} ></ProductsComponent>
       </>
     );
   };
@@ -260,21 +233,20 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
   );
 };
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   // NOTE fetch menu list from api
-  const res = await fetch(
+  const res3 = await fetch(
     "https://my-json-server.typicode.com/honam867/apiserver/products"
   );
-  const products = await res.json();
-  if (!products) {
-    return {
-      notFound: true,
-    };
-  }
-
+  const products = await res3.json();
+  // if (!category) {
+  //   return {
+  //     notFound: true,
+  //   };
+  // }
   return {
     props: {
-      products,
+      products
     },
   };
 }

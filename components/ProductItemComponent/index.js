@@ -32,7 +32,7 @@ const CustomButton = styled(Button)`
  color: #ffffff  !important;
  background-color: #cf1b15 !important;
  `;
-const ProductItem = ({ categories, addCart }) => {
+const ProductItem = ({ products, addCart }) => {
   return (
     <>
       <Responsive
@@ -40,25 +40,25 @@ const ProductItem = ({ categories, addCart }) => {
           return (
             <>
               <Item.Group divided>
-                {categories.length > 0 ? categories.map(categoryItem => {
+                {products.length > 0 ? products.map(productItem => {
                   return (
-                    <Item key={categoryItem.id}>
-                      <Item.Image size='small' src={categoryItem.imageUrl} />
+                    <Item key={productItem.id}>
+                      <Item.Image size='small' src={productItem.imageUrl} />
                       <Item.Content>
-                        <ItemHeaderCustom as='a'>{categoryItem.name}</ItemHeaderCustom>
+                        <ItemHeaderCustom as='a'>{productItem.name}</ItemHeaderCustom>
                         <Item.Description className={MenuItemCustom.customHeightDescription}>
-                          {categoryItem.description}
+                          {productItem.description}
                         </Item.Description>
                         <Grid>
                           <Grid.Column floated='left' width={10}>
                             <PriceCustomFromHeader floated="right">
-                              VND {categoryItem.price.toLocaleString("en-US")}
+                              VND {productItem.price.toLocaleString("en-US")}
                             </PriceCustomFromHeader>
                           </Grid.Column>
                           <Grid.Column floated='right' width={6}>
-                            <AddToCartButton onClick={() => addCart(categoryItem)} floated='right'>
+                            <AddToCartButton onClick={() => addCart(productItem)} floated='right'>
                               Add To Cart
-                            </AddToCartButton>
+                        </AddToCartButton>
                           </Grid.Column>
                         </Grid>
                       </Item.Content>
@@ -74,17 +74,17 @@ const ProductItem = ({ categories, addCart }) => {
           return (
             <>
               <Item.Group divided>
-                {categories.map(categoryItem => {
+                {products.map(productItem => {
                   return (
-                    <Item key={categoryItem.id}>
-                      <Item.Image size='small' src={categoryItem.imageUrl} />
+                    <Item key={productItem.id}>
+                      <Item.Image size='small' src={productItem.imageUrl} />
                       <Item.Content>
-                        <ItemHeaderCustom as='a'>{categoryItem.name}</ItemHeaderCustom>
+                        <ItemHeaderCustom as='a'>{productItem.name}</ItemHeaderCustom>
                         <Item.Description className={MenuItemCustom.customHeightDescription}>
-                          {categoryItem.description}
+                          {productItem.description}
                         </Item.Description>
                         <PriceCustomFromHeader as="h4" floated="right">
-                          VND {categoryItem.price.toLocaleString("es-US")}
+                          VND {productItem.price.toLocaleString("es-US")}
                         </PriceCustomFromHeader>
                         <AddToCartButton floated='right'>
                           Add To Cart
@@ -103,22 +103,22 @@ const ProductItem = ({ categories, addCart }) => {
         onMobile={() => {
           return (
             <>
-              {categories.map(categoryItem => {
+              {products.map(productItem => {
                 return (
-                  <Card style={{ margin: "10px auto" }}>
-                    <Image src={categoryItem.imageUrl} size="tiny" wrapped ui={false} />
+                  <Card key={productItem.id} style={{ margin: "10px auto" }}>
+                    <Image src={productItem.imageUrl} size="tiny" wrapped ui={false} />
                     <Card.Content textAlign="center">
                       <Header as="h4">
-                        {categoryItem.name}
+                        {productItem.name}
                       </Header>
                     </Card.Content>
                     <Card.Content >
                       <p>
-                        {categoryItem.description}
+                        {productItem.description}
                       </p>
                     </Card.Content>
                     <Card.Content textAlign="center">
-                      <PriceCustomFromHeader>VND {categoryItem.price.toLocaleString("es-US")}</PriceCustomFromHeader>
+                      <PriceCustomFromHeader>VND {productItem.price.toLocaleString("es-US")}</PriceCustomFromHeader>
                     </Card.Content>
                     <Card.Content extra>
                       <div className='ui two buttons'>
