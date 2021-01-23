@@ -11,9 +11,8 @@
   background: none !important;
 }
 .customCorlorMobile {
-  font-size: 10px !important;
-  font-weight: 600 !important;
-  overflow: auto !important;
+  font-size: 15px !important;
+  font-weight: 300 !important;
 }
 .customBorderMobile {
   border-left: 2px solid #cf1b15 !important;
@@ -30,4 +29,8 @@
 .customOverFlow:hover {
   width: 100%;
   overflow: auto;
+}
+.customMobile {
+  overflow: auto !important;
+  width: 100%;
 }
