@@ -227,6 +227,10 @@ const SlideShowAlignCaptionFullSlider = styled.div`
     width: 100%;
     text-align: center;
     top: 45%;
+    @media only screen and (min-width:320px) and (max-width:767px)  {
+  top: 30%;
+  font-size: 20px !important;
+}
 `
 
 
@@ -358,6 +362,7 @@ const SliderComponent = ({ Images, height, ...props }) => {
                   width: '100%',
                   height: height,
                   opacity: `${item.opacity}`,
+
                 }}
               >
               </div>

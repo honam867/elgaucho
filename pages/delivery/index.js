@@ -1,9 +1,6 @@
 import Layout from "../../components/ResponsiveHeader/index";
 import { useState, useEffect } from "react";
 import SliderComponent from "../../components/SliderComponent";
-import SrcImg1 from "../../public/static/img/El-Gaucho-Dine-With-Us.jpg";
-import SrcImg2 from "../../public/static/img/El-Gaucho-Argentinian-Steakhouse-Restaurant-Homepage-Welcome-1920-x-800.jpg";
-import SrcImg3 from "../../public/static/img/VN04-2017_1036_37_38_39_40.jpg";
 import {
   Container,
   Grid,
@@ -20,19 +17,19 @@ const Images = [
   {
     id: 1,
     name: "Img 1",
-    imgUrl: SrcImg1,
+    imgUrl: "https://vn.elgaucho.asia/wp-content/uploads/2016/04/El-Gaucho-Argentinian-Steakhouse-Restaurant-Homepage-Welcome-1920-x-800.jpg",
     size: "450px",
   },
   {
     id: 2,
     name: "Img 2",
-    imgUrl: SrcImg2,
+    imgUrl: "https://vn.elgaucho.asia/wp-content/uploads/2019/06/El-Gaucho-Dine-With-Us.jpg",
     size: "450px",
   },
   {
     id: 3,
     name: "Img 3",
-    imgUrl: SrcImg3,
+    imgUrl: "https://vn.elgaucho.asia/wp-content/uploads/2016/04/VN04-2017_1036_37_38_39_40.jpg",
     size: "450px",
   },
 ];
