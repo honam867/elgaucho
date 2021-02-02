@@ -107,6 +107,7 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
                     value={item}
                   >
                     {item.name}
+
                   </Menu.Item>
                 );
               })

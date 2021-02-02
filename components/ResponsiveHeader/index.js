@@ -23,6 +23,8 @@ const MenuItemLink = styled(Menu.Item)`
   border-right: 1px solid #c0c0c0 !important;
   border-radius: 0px !important;
   font-weight: bold !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
 `;
 const MenuItemLinkImage = React.forwardRef(function MenuItemLinkImage(
   props,
@@ -45,6 +47,8 @@ const noFixedMenuStyle = {
   height: "76px",
   maxHeight: "600px",
   overflow: "hidden",
+  position: "relative",
+  zIndex: "1"
 };
 const noFixedMenuStyleOnMobile = {
   backgroundColor: "#fff",
@@ -52,8 +56,9 @@ const noFixedMenuStyleOnMobile = {
   height: "60px",
   margin: "0px !important",
   maxHeight: "600px",
-  margin: "0px !important"
-
+  margin: "0px !important",
+  position: "relative",
+  zIndex: "1"
 };
 const noFixedMenuStyleOnTable = {
   backgroundColor: "#fff",
@@ -119,7 +124,15 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                     name="EL Delivery & Take out"
                     active={router.pathname == "/delivery"}
                   >
-                    EL Delivery & Take out
+                    EL Delivery
+            </MenuItemLink>
+                </Link>
+                <Link href="/butchershop" forwardRef>
+                  <MenuItemLink
+                    name="Butcher Shop"
+                    active={router.pathname == "/butchershop"}
+                  >
+                    Butcher Shop
             </MenuItemLink>
                 </Link>
                 <Link href="/menu" forwardRef>
@@ -150,9 +163,9 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                 </Link>
                 <Link href="/cart" forwardRef>
                   <MenuItemLink
-                   active={router.pathname == "/cart"}>
+                    active={router.pathname == "/cart"}>
                     <Icon name="cart" />
-                    <Label style={{ borderRadius: "50%", padding: "4px 7px", margin: "10px" }} color='red' floating>
+                    <Label style={{ borderRadius: "50%", padding: "3px 5px", margin: "2px 9px" }} color='red' floating>
                       {numberCart}
                     </Label>
                   </MenuItemLink>
@@ -186,7 +199,7 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                   <MenuItemLinkImage
                     src={Logo}
                     alt="website logo"
-                    style = {{width : "70px"}}
+                    style={{ width: "70px" }}
                   />
                 </Link>
               </Menu.Item>
@@ -197,7 +210,7 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                 <MenuItemLink active={router.pathname == "/cart"}>
                   <Icon size="large" name="cart" />
                   <Label style={{ borderRadius: "50%", padding: "4px 7px", margin: "10px" }} color='red' floating>
-                      {numberCart}
+                    {numberCart}
                   </Label>
                 </MenuItemLink>
               </Link>
@@ -284,7 +297,7 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                     src={Logo}
                     alt="website logo"
                     // size="tiny"
-                    style = {{width : "51px"}}
+                    style={{ width: "51px" }}
                   />
                 </Link>
               </Menu.Item>
@@ -295,8 +308,8 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                 <MenuItemLink active={router.pathname == "/cart"}>
                   <Icon size="large" name="cart" />
                   <Label style={{ borderRadius: "50%", padding: "4px 7px", margin: "10px" }} color='red' floating>
-                      {numberCart}
-                    </Label>
+                    {numberCart}
+                  </Label>
                 </MenuItemLink>
               </Link>
             </Menu>

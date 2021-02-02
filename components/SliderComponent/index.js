@@ -19,7 +19,7 @@ animation: HeaderFullSlider 2s  !important;
  }
  @media only screen and (min-width:320px) and (max-width:767px)  {
   color: white !important;
-  font-size: 20px !important;
+  font-size: 15px !important;
   @keyframes HeaderFullSlider {
     0% {
        opacity: 0;
@@ -65,7 +65,7 @@ animation: fadeInTopSubTitle 2s  !important;
 
 const CustomSubTitleLocations = styled.p`
 font-size: 18px !important;
-font-weight: lighter !important;
+font-weight: 300 !important;
 color: white !important;
 animation: fadeInTopSubTitle 2s  !important;
 @keyframes fadeInTopSubTitle {
@@ -79,7 +79,6 @@ animation: fadeInTopSubTitle 2s  !important;
     }
  }
  @media only screen and (min-width:320px) and (max-width:767px)  {
-  color: white !important;
   font-size: 12px !important;
   @keyframes HeaderFullSlider {
     0% {
@@ -136,6 +135,12 @@ animation: fadeInDownButtonLocations 2s  !important;
        transform: translateY(0);
     }
  }
+ @media only screen and (min-width:320px) and (max-width:767px)  {
+  color: white !important;
+  font-size: 20px !important;
+  position: relative;
+  bottom: 10px;
+}
 `
 const AngleDownButton = styled.div`
 cursor: pointer !important;
@@ -157,6 +162,7 @@ animation-timing-function: ease-in-out !important;
        transform: translateY(0);
     }
  }
+
 `
 
 
@@ -222,14 +228,12 @@ const NameLocationFromDiningPages = styled.div`
 `
 
 const SlideShowAlignCaptionFullSlider = styled.div`
-    color: white !important;
     position: absolute;
     width: 100%;
     text-align: center;
     top: 45%;
     @media only screen and (min-width:320px) and (max-width:767px)  {
-  top: 30%;
-  font-size: 20px !important;
+      top: 40%;
 }
 `
 
@@ -322,8 +326,9 @@ const SliderComponent = ({ Images, height, ...props }) => {
   const CustomBackgroundOpacity = {
     position: 'relative',
     backgroundColor: "black",
+    top: "-7px",
     borderLeft: "0.5px solid #CF1315",
-    borderRight: "0.5px solid #CF1315"
+    borderRight: "0.5px solid #CF1315",
   }
   const SlideShowAlignCaption = {
     color: "white !important",
@@ -348,7 +353,7 @@ const SliderComponent = ({ Images, height, ...props }) => {
 
   return (
     <div style={props.backgroundOpacity ? CustomBackgroundOpacity : CustomBackground}>
-      <Slider   {...settings} style={{ width: "100%", height: "100%" }}>
+      <Slider   {...settings} style={{ width: "100%", height: "100%", top: "7px" }}>
         {Images.map((item, i) => {
           return (
             <div key={item.id}>

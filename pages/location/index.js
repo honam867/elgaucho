@@ -1,8 +1,4 @@
 import Layout from "../../components/ResponsiveHeader/index";
-import SrcImg4 from "../../public/static/img/IMG1jpg.jpg"
-import SrcImg5 from "../../public/static/img/IMG2.jpg"
-import SrcImg6 from "../../public/static/img/IMG3jpg.jpg"
-import SrcImg7 from "../../public/static/img/IMG4jpg.jpg"
 import { Button, Container, Header, Icon, Grid } from "semantic-ui-react";
 import SliderComponent from "../../components/SliderComponent";
 import LocationSectionGGMap from "../../components/LocationSectionGGMap";
@@ -14,7 +10,7 @@ import Responsive from "../../components/Responsive";
 const CustomButton = styled(Button)`
 color: #fff  !important;
 background: #cf1b15 !important;
-font-weight:lighter !important;
+font-weight: 300px !important;
 margin: 10px !important;
 @media only screen and (min-width:320px) and (max-width:767px)  {
   color: white !important;
@@ -131,10 +127,9 @@ const Location = () => {
           return (
             <SliderComponent
               Images={Images}
-              height="92vh"
+              height="30vh"
               backgroundOpacity={true}
               fromLocationPage={true}
-              angleDown={true}
               gotomainsection={gotomainSection}
             />
           )
@@ -252,11 +247,11 @@ const Location = () => {
             </div>
           }} onTablet={() => {
             return <div style={{ height: "580px", margin: "0px 40px" }}>
-              <LocationSectionGGMap></LocationSectionGGMap>
+              <LocationSectionGGMap lat={10.790045841510906} lng={106.71802615681743}></LocationSectionGGMap>
             </div>
           }} onMobile={() => {
             return <div style={{ height: "300px" }}>
-              <LocationSectionGGMap></LocationSectionGGMap>
+              <LocationSectionGGMap lat={10.790045841510906} lng={106.71802615681743}></LocationSectionGGMap>
             </div>
           }}>
           </Responsive>

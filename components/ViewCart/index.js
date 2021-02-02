@@ -50,7 +50,9 @@ const ViewCartComponent = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCa
             )
           })
           :
-          <div>No item</div>
+          <Card.Content textAlign="center" style={{ height: "100px" }}>
+            No item
+          </Card.Content>
       }
       <Card.Content>
         <CustomStrong>Subtotal:</CustomStrong> VND {totalCart.toLocaleString('en-US')}
