@@ -66,8 +66,9 @@ const noFixedMenuStyleOnTable = {
   height: "80px",
   margin: "0px !important",
   maxHeight: "600px",
-  margin: "0px !important"
-
+  margin: "0px !important",
+  position: "relative",
+  zIndex: "1"
 };
 
 const ResponsiveHeader = ({ children, numberCart }) => {

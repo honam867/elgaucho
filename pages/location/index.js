@@ -81,6 +81,14 @@ const Location = () => {
       size: "450px"
     }
   ];
+  const Images3 = [
+    {
+      id: 1,
+      name: "Img 1",
+      imgUrl: "https://vn.elgaucho.asia/wp-content/uploads/2021/01/NOWOPEN_XT_640PX-01-01-01.png",
+      size: "450px"
+    }
+  ]
   const gotomainSection = () => window.scrollTo({
     top: 400,
     behavior: "smooth"
@@ -152,49 +160,42 @@ const Location = () => {
                     </p>
 
       </Container>
-
-      <Container style={{ background: "#eaeaea", marginTop: "15px", paddingTop: "20px" }} fluid>
+      {/* NOTE Xuân Thủy */}
+      <Container style={{ background: "#eaeaea", paddingTop: "20px" }} fluid>
         <Header textAlign='center' as='h3' style={{ fontWeight: "400" }}>
-          GF, SAIGON PEARL, 92A NGUYEN HUU CANH, WARD 22, BINH THANH DIST., HCMC
-            </Header>
-
+          77 XUAN THUY, THAO DIEN WARD, DISTRICT 2, HCMC
+        </Header>
         <Container textAlign="center">
           <p as='h5'>
             Open Daily from 11AM to 10PM
-                    </p>
-
+          </p>
           <p as='h5'>
             Call Us: <a href="/" style={{ color: "#CF1315" }}> +84 972 697 654</a>
           </p>
           <CustomButton name="Reverse Now" href="https://widget.guestplan.com/?i=9a12b86df5ecbae4b281ca66076eeab9c05a19c5">Reverse Now</CustomButton>
         </Container>
-
         <Container >
           <Grid centered columns={1}>
             <Grid.Column computer={15} tablet={16}>
               <Responsive onDesktop={() => {
                 return <div style={{ margin: "0px 80px" }}>
-                  <SliderComponent slide={true} Images={Images2} height="80vh" fromPrivateDiningEventPages={true} />
+                  <SliderComponent Images={Images3} height="60vh" />
                 </div>
               }} onTablet={() => {
                 return <div style={{ margin: "0px 80px" }}>
-                  <SliderComponent slide={true} Images={Images2} height="50vh" fromPrivateDiningEventPages={true} />
+                  <SliderComponent slide={true} Images={Images3} height="30vh" />
                 </div>
               }} onMobile={() => {
-                return <SliderComponent slide={true} Images={Images2} height="30vh" fromPrivateDiningEventPages={true} />
+                return <SliderComponent slide={true} Images={Images3} height="30vh" />
               }}>
               </Responsive>
-
             </Grid.Column>
           </Grid>
-
         </Container>
-
         <Container textAlign="center" style={{ marginBottom: "30px" }}>
           <CustomButton name="Reverse Now" href="https://www.google.com/maps/place/Saigon+Pearl,+Ph%C6%B0%E1%BB%9Dng+22,+B%C3%ACnh+Th%E1%BA%A1nh,+Ho+Chi+Minh+City,+Vietnam/@10.78954,106.7177957,17z/data=!3m1!4b1!4m5!3m4!1s0x317528ab19e39189:0x66e1081c51e6c084!8m2!3d10.7901079!4d106.7197782?shorturl=1"><Icon name="map marker alternate" /> Get Directions</CustomButton>
           <ButtonCustomComponent icon={true} iconName="list ul" name="View Menus" url="/menu" />
         </Container>
-
         <Container textAlign='left'  >
           <p>
             Our venue can be found on the ground floor of the Saigon Pearl urban development area less than 10 min away from District 1 featuring a corner location,
@@ -207,7 +208,57 @@ const Location = () => {
           <ButtonCustomComponent name="Private Dining | Event Request" url="/private-dining-events" />
         </Container>
       </Container>
-      <Container style={{ marginTop: "15px", paddingTop: "20px", textAlign: "center" }} >
+      {/* NOTE SaiGon Pearl */}
+      <Container style={{ paddingTop: "20px" }} fluid>
+        <Header textAlign='center' as='h3' style={{ fontWeight: "400" }}>
+          GF, SAIGON PEARL, 92A NGUYEN HUU CANH, WARD 22, BINH THANH DIST., HCMC
+        </Header>
+        <Container textAlign="center">
+          <p as='h5'>
+            Open Daily from 11AM to 10PM
+          </p>
+          <p as='h5'>
+            Call Us: <a href="/" style={{ color: "#CF1315" }}> +84 972 697 654</a>
+          </p>
+          <CustomButton name="Reverse Now" href="https://widget.guestplan.com/?i=9a12b86df5ecbae4b281ca66076eeab9c05a19c5">Reverse Now</CustomButton>
+        </Container>
+        <Container >
+          <Grid centered columns={1}>
+            <Grid.Column computer={15} tablet={16}>
+              <Responsive onDesktop={() => {
+                return <div style={{ margin: "0px 80px" }}>
+                  <SliderComponent slide={true} Images={Images2} height="80vh" fromPrivateDiningEventPages={true} />
+                </div>
+              }} onTablet={() => {
+                return <div style={{ margin: "0px 80px" }}>
+                  <SliderComponent slide={true} Images={Images2} height="30vh" fromPrivateDiningEventPages={true} />
+                </div>
+              }} onMobile={() => {
+                return <SliderComponent slide={true} Images={Images2} height="30vh" fromPrivateDiningEventPages={true} />
+              }}>
+              </Responsive>
+            </Grid.Column>
+          </Grid>
+        </Container>
+        <Container textAlign="center" style={{ marginBottom: "30px" }}>
+          <CustomButton name="Reverse Now" href="https://www.google.com/maps/place/Saigon+Pearl,+Ph%C6%B0%E1%BB%9Dng+22,+B%C3%ACnh+Th%E1%BA%A1nh,+Ho+Chi+Minh+City,+Vietnam/@10.78954,106.7177957,17z/data=!3m1!4b1!4m5!3m4!1s0x317528ab19e39189:0x66e1081c51e6c084!8m2!3d10.7901079!4d106.7197782?shorturl=1"><Icon name="map marker alternate" /> Get Directions</CustomButton>
+          <ButtonCustomComponent icon={true} iconName="list ul" name="View Menus" url="/menu" />
+        </Container>
+        <Container textAlign='left'  >
+          <p>
+            Our venue can be found on the ground floor of the Saigon Pearl urban development area less than 10 min away from District 1 featuring a corner location,
+            outside seating and a great view of the never-ending flow of motorbikes and cars passing you by on Nguyen Huu Canh street.
+                      Saigon Pearl is nestled away from the hustle and bustle of the city while still offering the convenience of an urban lifestyle with great amenities all around including coffee shops, supermarkets, convenience stores and the like.                </p>
+          <p>
+            This new addition will bring you all El Gaucho has to offer, from our signature design elements, extensive menus, stellar service and of course Premium Steak cuts.                </p>
+        </Container>
+        <Container textAlign="center" style={{ paddingBottom: "20px" }}>
+          <ButtonCustomComponent name="Private Dining | Event Request" url="/private-dining-events" />
+        </Container>
+      </Container>
+
+      {/* NOTE HAI BA TRUNG*/}
+      <Container style={{ background: "#eaeaea", marginTop: "15px", paddingTop: "20px", textAlign: "center" }} fluid>
         <Header textAlign='center' as='h3' style={{ fontWeight: "400" }}>
           74/1 HAI BA TRUNG, BEN NGHE WARD, DIST. 1, HCMC
                 </Header>
@@ -222,22 +273,24 @@ const Location = () => {
         <Container textAlign="center">
           <CustomButton name="Reverse Now" href="https://widget.guestplan.com/?i=9a12b86df5ecbae4b281ca66076eeab9c05a19c5">Reverse Now</CustomButton>
         </Container>
-        <Grid centered columns={1}>
-          <Grid.Column computer={15} tablet={16} mobile={16}>
-            <Responsive onDesktop={() => {
-              return <div style={{ margin: "0px 80px" }}>
-                <SliderComponent slide={true} Images={Images2} height="80vh" fromPrivateDiningEventPages={true} />
-              </div>
-            }} onTablet={() => {
-              return <div style={{ margin: "0px 80px" }}>
-                <SliderComponent slide={true} Images={Images2} height="50vh" fromPrivateDiningEventPages={true} />
-              </div>
-            }} onMobile={() => {
-              return <SliderComponent slide={true} Images={Images2} height="30vh" fromPrivateDiningEventPages={true} />
-            }}>
-            </Responsive>
-          </Grid.Column>
-        </Grid>
+        <Container >
+          <Grid centered columns={1}>
+            <Grid.Column computer={15} tablet={16}>
+              <Responsive onDesktop={() => {
+                return <div style={{ margin: "0px 80px" }}>
+                  <SliderComponent slide={true} Images={Images2} height="80vh" fromPrivateDiningEventPages={true} />
+                </div>
+              }} onTablet={() => {
+                return <div style={{ margin: "0px 80px" }}>
+                  <SliderComponent slide={true} Images={Images2} height="30vh" fromPrivateDiningEventPages={true} />
+                </div>
+              }} onMobile={() => {
+                return <SliderComponent slide={true} Images={Images2} height="30vh" fromPrivateDiningEventPages={true} />
+              }}>
+              </Responsive>
+            </Grid.Column>
+          </Grid>
+        </Container>
         <Container textAlign="center" style={{ marginBottom: "30px" }}>
           <CustomButton name="Reverse Now" href="https://www.google.com/maps/place/Saigon+Pearl,+Ph%C6%B0%E1%BB%9Dng+22,+B%C3%ACnh+Th%E1%BA%A1nh,+Ho+Chi+Minh+City,+Vietnam/@10.78954,106.7177957,17z/data=!3m1!4b1!4m5!3m4!1s0x317528ab19e39189:0x66e1081c51e6c084!8m2!3d10.7901079!4d106.7197782?shorturl=1"><Icon name="map marker alternate" /> Get Directions</CustomButton>
           <ButtonCustomComponent icon={true} iconName="list ul" name="View Menus" url="/menu" />
@@ -275,8 +328,6 @@ const Location = () => {
           <ButtonCustomComponent name="Private Dining | Event Request" url="/private-dining-events" />
         </Container>
       </Container>
-      <div>
-      </div>
     </Layout >
   )
 }
