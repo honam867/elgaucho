@@ -1,13 +1,15 @@
 import Layout from "../../components/ResponsiveHeader/index";
 import { useState, useEffect } from "react";
 import SliderComponent from "../../components/SliderComponent";
-import SrcImg1 from "../../public/static/img/El-Gaucho-Dine-With-Us.jpg";
-import SrcImg2 from "../../public/static/img/El-Gaucho-Argentinian-Steakhouse-Restaurant-Homepage-Welcome-1920-x-800.jpg";
-import SrcImg3 from "../../public/static/img/VN04-2017_1036_37_38_39_40.jpg";
 import {
+  Button,
   Container,
+  Divider,
+  Dropdown,
   Grid,
+  Icon,
   Menu,
+  Transition,
   Visibility,
 } from "semantic-ui-react";
 import ResponsiveComponent from "../../components/Responsive";
@@ -16,27 +18,40 @@ import ProductsComponent from "../../components/ProductsComponent";
 import ViewCartComponent from "../../components/ViewCart";
 import Categories from "../../datafake/categories";
 import SubCategories from "../../datafake/subcategories";
+import styled from "styled-components";
+import NationData from "../../datafake/nation";
 const Images = [
   {
     id: 1,
     name: "Img 1",
-    imgUrl: SrcImg1,
+    imgUrl: "https://vn.elgaucho.asia/wp-content/uploads/2016/04/El-Gaucho-Argentinian-Steakhouse-Restaurant-Homepage-Welcome-1920-x-800.jpg",
     size: "450px",
   },
   {
     id: 2,
     name: "Img 2",
-    imgUrl: SrcImg2,
+    imgUrl: "https://vn.elgaucho.asia/wp-content/uploads/2019/06/El-Gaucho-Dine-With-Us.jpg",
     size: "450px",
   },
   {
     id: 3,
     name: "Img 3",
-    imgUrl: SrcImg3,
+    imgUrl: "https://vn.elgaucho.asia/wp-content/uploads/2016/04/VN04-2017_1036_37_38_39_40.jpg",
     size: "450px",
   },
 ];
 const ElDeliveryTakeOutComponent = ({ products }) => {
+  // const fetchData = async () => {
+  //   const req = await fetch('https://randomuser.me/api/?gender=male&results=100');
+  //   const newData = await req.json();
+  //   console.log("🚀 ~ file: index.js ~ line 41 ~ fetchData ~ newData", newData)
+
+  // };
+  // const handleClick = (event) => {
+  //   console.log('test here');
+  //   event.preventDefault();
+  //   fetchData();
+  // };
   const [activeItem, setActiveItem] = useState("");
   const [overlayFixed, setStickOverlay] = useState(false);
   // NOTE new logic here:
@@ -85,8 +100,25 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
         style={{ margin: "auto", width: "100%", padding: "0px 30px" }}
         fluid
       >
+
         <Grid divided doubling columns={3} style={{ marginTop: "30px" }}>
+
           <Grid.Column width={3}>
+            <Menu secondary vertical>
+              <Dropdown item text='Choosing a location' >
+                <Dropdown.Menu >
+                  <Dropdown.Header>Location</Dropdown.Header>
+                  {
+                    NationData.map(item => {
+                      return (
+                        <Dropdown.Item  >{item.name}</Dropdown.Item>
+                      )
+                    })
+                  }
+                </Dropdown.Menu>
+              </Dropdown>
+            </Menu>
+
             <Visibility
               offset={80}
               once={false}
@@ -99,6 +131,7 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
               secondary
               vertical
             >
+
               {Categories.length > 0 ? Categories.map((item) => {
                 return (
                   <Menu.Item
@@ -110,7 +143,9 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
                     value={item}
                   >
                     {item.name}
+
                   </Menu.Item>
+
                 );
               })
                 :
@@ -157,6 +192,7 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
               size="small"
               secondary
             >
+
               {Categories.map((item) => {
                 return (
                   <Menu.Item
@@ -223,7 +259,7 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
   };
   return (
     <Layout>
-      <SliderComponent Images={Images} height="30vh" />
+      <SliderComponent Images={Images} height="50vh" />
       <ResponsiveComponent
         onTablet={MenusOnTablet}
         onDesktop={MenusOnDesktop}

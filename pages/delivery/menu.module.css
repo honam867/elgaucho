@@ -2,6 +2,10 @@
   color: white !important;
   background: #cf1b15 !important;
 }
+.test:hover {
+  color: white !important;
+  background: #cf1b15 !important;
+}
 .customBorder {
   padding: 10px !important;
   border-left: 2px solid #cf1b15 !important;
