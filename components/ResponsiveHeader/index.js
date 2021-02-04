@@ -8,12 +8,13 @@ import {
   Image,
   Ref,
   Label,
+  Dropdown,
 } from "semantic-ui-react";
 import Logo from "../../public/static/img/elgauchologo.png";
 import styled from "styled-components";
 import Responsive from "../../components/Responsive";
 import { useRouter } from "next/router";
-import Footer from "../Footer/index"
+import Footer from "../Footer/index";
 import { connect } from "react-redux";
 const MenuItemLink = styled(Menu.Item)`
   &:hover {
@@ -26,6 +27,36 @@ const MenuItemLink = styled(Menu.Item)`
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 `;
+const DropdowItemLink = styled(Dropdown)`
+  &:hover {
+    color: #cf1b15 !important;
+    background: none !important;
+    .menuhide {
+      opacity: 1 !important;
+    }
+  }
+  // border-right: 1px solid #c0c0c0 !important;
+  border-radius: 0px !important;
+  font-weight: bold !important;
+  padding: 0px !important;
+  // padding-right: 0px !important;
+  // padding-bottom: 0px !important;
+`;
+const DropdowMenu = styled(Dropdown.Menu)`
+  opacity: 0 !important;
+`;
+
+const MenuItemMobileTablet = styled(Menu.Item)`
+  &:hover {
+    // color: #cf1b15 !important;
+    background: none !important;
+  }
+  // border-bottom: 1px solid #c0c0c0 !important;
+  // border-radius: 0px !important;
+  font-weight: bold !important;
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+`;
 const MenuItemLinkImage = React.forwardRef(function MenuItemLinkImage(
   props,
   ref
@@ -37,7 +68,7 @@ const fixedMenuStyle = {
   backgroundColor: "#fff",
   height: "10px",
   maxHeight: "600px",
-  overflow: "hidden",
+  // overflow: "hidden",
   transition: "height 0.2s",
   borderBottom: "1px solid #cf1b15",
 };
@@ -46,9 +77,9 @@ const noFixedMenuStyle = {
   transition: "height 0.1s",
   height: "76px",
   maxHeight: "600px",
-  overflow: "hidden",
+  // overflow: "auto",
   position: "relative",
-  zIndex: "1"
+  zIndex: "1",
 };
 const noFixedMenuStyleOnMobile = {
   backgroundColor: "#fff",
@@ -58,7 +89,7 @@ const noFixedMenuStyleOnMobile = {
   maxHeight: "600px",
   margin: "0px !important",
   position: "relative",
-  zIndex: "1"
+  zIndex: "1",
 };
 const noFixedMenuStyleOnTable = {
   backgroundColor: "#fff",
@@ -68,7 +99,7 @@ const noFixedMenuStyleOnTable = {
   maxHeight: "600px",
   margin: "0px !important",
   position: "relative",
-  zIndex: "1"
+  zIndex: "1",
 };
 
 const ResponsiveHeader = ({ children, numberCart }) => {
@@ -87,7 +118,7 @@ const ResponsiveHeader = ({ children, numberCart }) => {
   const handleSidebarHide = () => {
     setSidebarOpened(false);
   };
-  const segmentRef = React.useRef()
+  const segmentRef = React.useRef();
   return (
     <Responsive
       onDesktop={() => {
@@ -108,47 +139,73 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                     <MenuItemLinkImage
                       src={Logo}
                       alt="website logo"
-                      size={menuFixed ? "mini" : "tiny"}
+                      style={menuFixed ? { width: "39px" } : { width: "68px" }}
                     />
                   </Link>
                 </Menu.Item>
 
-                <Link href="/location">
-                  <MenuItemLink
-                    name="Locations"
-                    active={router.pathname == "/location"}
-                    position="right"
-                  ></MenuItemLink>
-                </Link>
+                <MenuItemLink position="right"  active={router.pathname == "/location"}>
+                  <Link href="/location">
+                    <DropdowItemLink open={router.pathname == "/location"} text="Locations" simple item>
+                      <DropdowMenu className = "menuhide">
+                        <Dropdown.Item>Xuan Thuy | HCMC</Dropdown.Item>
+                        <Dropdown.Item>Saigon Pearl | HCMC</Dropdown.Item>
+                        <Dropdown.Item>Hai Ba Trung | HCMC</Dropdown.Item>
+                        <Dropdown.Item>An Phu | HCMC</Dropdown.Item>
+                        <Dropdown.Item>Phu My Hung | HCMC</Dropdown.Item>
+                        <Dropdown.Item>Bach Dang | Da Nang</Dropdown.Item>
+                        <Dropdown.Item>Ba Dinh | Hanoi</Dropdown.Item>
+                        <Dropdown.Item>Tay Ho | Hanoi</Dropdown.Item>
+                        <Dropdown.Item>Trang Tien | Hanoi</Dropdown.Item>
+                      </DropdowMenu>
+                    </DropdowItemLink>
+                  </Link>
+                </MenuItemLink>
+
                 <Link href="/delivery" forwardRef>
                   <MenuItemLink
                     name="EL Delivery & Take out"
                     active={router.pathname == "/delivery"}
                   >
                     EL Delivery
-            </MenuItemLink>
+                  </MenuItemLink>
                 </Link>
-                <Link href="/butchershop" forwardRef>
+                <Link href="/butcher-shop" forwardRef>
                   <MenuItemLink
                     name="Butcher Shop"
-                    active={router.pathname == "/butchershop"}
+                    active={router.pathname == "/butcher-shop"}
                   >
                     Butcher Shop
-            </MenuItemLink>
+                  </MenuItemLink>
                 </Link>
-                <Link href="/menu" forwardRef>
+                {/* <Link href="/menu" forwardRef>
                   <MenuItemLink
                     name="Menus"
                     active={router.pathname == "/menu"}
                   ></MenuItemLink>
-                </Link>
+                </Link> */}
+
+                <MenuItemLink>
+                  <Link href="/menu" forwardRef>
+                    <DropdowItemLink open={router.pathname == "/menu"} text="Menus" simple item>
+                      <DropdowMenu className = "menuhide">
+                        <Dropdown.Item>Deal Of The Week | Steak o’clock</Dropdown.Item>
+                        <Dropdown.Item>Lunch</Dropdown.Item>
+                        <Dropdown.Item>All Day Dining & Drinks</Dropdown.Item>
+                        <Dropdown.Item>Wine</Dropdown.Item>
+                        <Dropdown.Item>Cigars & Butcher</Dropdown.Item>
+                      </DropdowMenu>
+                    </DropdowItemLink>
+                  </Link>
+                </MenuItemLink>
+
                 <Link href="/private-dining-events" forwardRef>
                   <MenuItemLink
                     name="Private Dining Events"
                     active={router.pathname == "/private-dining-events"}
                   >
                     Private | Dining Events
-            </MenuItemLink>
+                  </MenuItemLink>
                 </Link>
                 <Link href="/gift-card" forwardRef>
                   <MenuItemLink
@@ -156,17 +213,37 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                     active={router.pathname == "/gift-card"}
                   ></MenuItemLink>
                 </Link>
-                <Link href="/get-in-touch" forwardRef>
+                {/* <Link href="/get-in-touch" forwardRef>
                   <MenuItemLink
                     name="Contact Us"
                     active={router.pathname == "/get-in-touch"}
                   ></MenuItemLink>
-                </Link>
+                </Link> */}
+               <MenuItemLink>
+                  <Link href="/get-in-touch" forwardRef>
+                    <DropdowItemLink open={router.pathname == "/get-in-touch"} text="Contact Us" simple item>
+                      <DropdowMenu className = "menuhide">
+                        <Dropdown.Item>Get In Touch</Dropdown.Item>
+                        <Dropdown.Item>Careers</Dropdown.Item>
+                        <Dropdown.Item>Privacy & Cookie Policy</Dropdown.Item>
+                        <Dropdown.Item>Magazine</Dropdown.Item>
+                      </DropdowMenu>
+                    </DropdowItemLink>
+                  </Link>
+                </MenuItemLink>
+
                 <Link href="/cart" forwardRef>
-                  <MenuItemLink
-                    active={router.pathname == "/cart"}>
+                  <MenuItemLink active={router.pathname == "/cart"}>
                     <Icon name="cart" />
-                    <Label style={{ borderRadius: "50%", padding: "3px 5px", margin: "2px 9px" }} color='red' floating>
+                    <Label
+                      style={{
+                        borderRadius: "50%",
+                        padding: "3px 5px",
+                        margin: "2px 9px",
+                      }}
+                      color="red"
+                      floating
+                    >
                       {numberCart}
                     </Label>
                   </MenuItemLink>
@@ -186,15 +263,12 @@ const ResponsiveHeader = ({ children, numberCart }) => {
             {children}
             <Footer />
           </>
-        )
+        );
       }}
       onTablet={() => {
         return (
           <>
-            <Menu
-              secondary
-              style={noFixedMenuStyleOnTable}
-            >
+            <Menu secondary style={noFixedMenuStyleOnTable}>
               <Menu.Item style={{ paddingTop: "20px" }}>
                 <Link href="/home" forwardRef>
                   <MenuItemLinkImage
@@ -210,7 +284,15 @@ const ResponsiveHeader = ({ children, numberCart }) => {
               <Link href="/cart" forwardRef>
                 <MenuItemLink active={router.pathname == "/cart"}>
                   <Icon size="large" name="cart" />
-                  <Label style={{ borderRadius: "50%", padding: "4px 7px", margin: "10px" }} color='red' floating>
+                  <Label
+                    style={{
+                      borderRadius: "50%",
+                      padding: "4px 7px",
+                      margin: "10px",
+                    }}
+                    color="red"
+                    floating
+                  >
                     {numberCart}
                   </Label>
                 </MenuItemLink>
@@ -238,60 +320,65 @@ const ResponsiveHeader = ({ children, numberCart }) => {
             >
               <Sidebar.Pusher dimmed={sidebarOpened}>
                 <Link href="/location" forwardRef>
-                  <MenuItemLink
+                  <MenuItemMobileTablet
                     name="Locations"
                     active={router.pathname == "/location"}
                     position="right"
-                  ></MenuItemLink>
+                  ></MenuItemMobileTablet>
                 </Link>
                 <Link href="/delivery" forwardRef>
-                  <MenuItemLink
+                  <MenuItemMobileTablet
                     name="EL Delivery & Take out"
                     active={router.pathname == "/delivery"}
                   >
                     EL Delivery & Take out
-          </MenuItemLink>
+                  </MenuItemMobileTablet>
+                </Link>
+                <Link href="/butcher-shop" forwardRef>
+                  <MenuItemMobileTablet
+                    name="Butcher Shop"
+                    active={router.pathname == "/butcher-shop"}
+                  >
+                    Butcher Shop
+                  </MenuItemMobileTablet>
                 </Link>
                 <Link href="/menu" forwardRef>
-                  <MenuItemLink
+                  <MenuItemMobileTablet
                     name="Menus"
                     active={router.pathname == "/menu"}
-                  ></MenuItemLink>
+                  ></MenuItemMobileTablet>
                 </Link>
                 <Link href="/private-dining-events" forwardRef>
-                  <MenuItemLink
+                  <MenuItemMobileTablet
                     name="Private Dining Events"
                     active={router.pathname == "/private-dining-events"}
                   >
                     Private | Dining Events
-          </MenuItemLink>
+                  </MenuItemMobileTablet>
                 </Link>
                 <Link href="/gift-card" forwardRef>
-                  <MenuItemLink
+                  <MenuItemMobileTablet
                     name="Gift Card"
                     active={router.pathname == "/gift-card"}
-                  ></MenuItemLink>
+                  ></MenuItemMobileTablet>
                 </Link>
                 <Link href="/get-in-touch" forwardRef>
-                  <MenuItemLink
+                  <MenuItemMobileTablet
                     name="Contact Us"
                     active={router.pathname == "/get-in-touch"}
-                  ></MenuItemLink>
+                  ></MenuItemMobileTablet>
                 </Link>
               </Sidebar.Pusher>
             </Sidebar>
             {children}
             <Footer />
           </>
-        )
+        );
       }}
       onMobile={() => {
         return (
           <>
-            <Menu
-              secondary
-              style={noFixedMenuStyleOnMobile}
-            >
+            <Menu secondary style={noFixedMenuStyleOnMobile}>
               <Menu.Item style={{ paddingTop: "20px" }}>
                 <Link href="/home" forwardRef>
                   <MenuItemLinkImage
@@ -308,7 +395,15 @@ const ResponsiveHeader = ({ children, numberCart }) => {
               <Link href="/cart" forwardRef>
                 <MenuItemLink active={router.pathname == "/cart"}>
                   <Icon size="large" name="cart" />
-                  <Label style={{ borderRadius: "50%", padding: "4px 7px", margin: "10px" }} color='red' floating>
+                  <Label
+                    style={{
+                      borderRadius: "50%",
+                      padding: "4px 7px",
+                      margin: "10px",
+                    }}
+                    color="red"
+                    floating
+                  >
                     {numberCart}
                   </Label>
                 </MenuItemLink>
@@ -326,57 +421,65 @@ const ResponsiveHeader = ({ children, numberCart }) => {
             >
               <Sidebar.Pusher dimmed={sidebarOpened}>
                 <Link href="/location" forwardRef>
-                  <MenuItemLink
+                  <MenuItemMobileTablet
                     name="Locations"
                     active={router.pathname == "/location"}
                     position="right"
-                  ></MenuItemLink>
+                  ></MenuItemMobileTablet>
                 </Link>
                 <Link href="/delivery" forwardRef>
-                  <MenuItemLink
+                  <MenuItemMobileTablet
                     name="EL Delivery & Take out"
                     active={router.pathname == "/delivery"}
                   >
                     EL Delivery & Take out
-          </MenuItemLink>
+                  </MenuItemMobileTablet>
+                </Link>
+                <Link href="/butcher-shop" forwardRef>
+                  <MenuItemMobileTablet
+                    name="Butcher Shop"
+                    active={router.pathname == "/butcher-shop"}
+                  >
+                    Butcher Shop
+                  </MenuItemMobileTablet>
                 </Link>
                 <Link href="/menu" forwardRef>
-                  <MenuItemLink
+                  <MenuItemMobileTablet
                     name="Menus"
                     active={router.pathname == "/menu"}
-                  ></MenuItemLink>
+                  ></MenuItemMobileTablet>
                 </Link>
                 <Link href="/private-dining-events" forwardRef>
-                  <MenuItemLink
+                  <MenuItemMobileTablet
                     name="Private Dining Events"
                     active={router.pathname == "/private-dining-events"}
                   >
                     Private | Dining Events
-          </MenuItemLink>
+                  </MenuItemMobileTablet>
                 </Link>
                 <Link href="/gift-card" forwardRef>
-                  <MenuItemLink
+                  <MenuItemMobileTablet
                     name="Gift Card"
                     active={router.pathname == "/gift-card"}
-                  ></MenuItemLink>
+                  ></MenuItemMobileTablet>
                 </Link>
                 <Link href="/get-in-touch" forwardRef>
-                  <MenuItemLink
+                  <MenuItemMobileTablet
                     name="Contact Us"
                     active={router.pathname == "/get-in-touch"}
-                  ></MenuItemLink>
+                  ></MenuItemMobileTablet>
                 </Link>
               </Sidebar.Pusher>
             </Sidebar>
             {children}
             <Footer />
           </>
-        )
+        );
       }}
     />
-  )
+  );
 };
 const mapStateToProps = (state) => ({
   numberCart: state.cart.numberCart,
-})
-export default connect(mapStateToProps, null)(ResponsiveHeader)
+});
+export default connect(mapStateToProps, null)(ResponsiveHeader);
