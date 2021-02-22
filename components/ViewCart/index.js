@@ -14,7 +14,7 @@ const ViewCartComponent = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCa
   let listCart = [];
   let totalCart = 0;
   Object.keys(items.Carts).forEach((item) => {
-    totalCart += items.Carts[item].quantity * items.Carts[item].price;
+    totalCart += items.Carts[item].quantity * items.Carts[item].prices;
     console.log("🚀 ~ file: index.js ~ line 19 ~ Object.keys ~ items.Carts[item]", items.Carts[item])
     listCart.push(items.Carts[item])
   })
@@ -32,7 +32,7 @@ const ViewCartComponent = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCa
                   <Grid.Column width={10}>
 
                     <p>{item.name}</p>
-                    <small>{item.quantity} X VND {item.price.toLocaleString("es-US")}</small>
+                    <small>{item.quantity} X  {item.prices.toLocaleString("es-US")}</small>
                   </Grid.Column>
                   <Grid.Column width={6}>
                     <Label onClick={() => DeleteCart(i)} style={{ cursor: "pointer" }} color="red" attached='top right'>
