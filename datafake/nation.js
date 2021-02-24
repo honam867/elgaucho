@@ -3,40 +3,31 @@ const NationData =
   [
     {
       id: 1,
-      name: "Xuan Thuy"
+      name: "Thành phố Hồ Chí Minh"
     },
     {
       id: 2,
-      name: "Saigon Pearl"
+      name: "Đà Nẵng"
     },
     {
       id: 3,
-      name: "Hai Ba Trung"
+      name: "Taguig"
     },
     {
       id: 4,
-      name: "An Phu"
+      name: "Makati"
     },
     {
       id: 5,
-      name: "Phu My Hung"
+      name: "Bangkok"
     },
     {
       id: 6,
-      name: "Bach Dang"
+      name: "Koh Samui"
     },
     {
       id: 7,
-      name: "Ba Dinh"
+      name: "Phuket"
     },
-    {
-      id: 8,
-      name: "Tay Ho"
-    },
-    {
-      id: 9,
-      name: "Trang Tien"
-    },
-    
   ]
 export default NationData;

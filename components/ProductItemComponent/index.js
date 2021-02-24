@@ -10,7 +10,6 @@ import {
 import MenuItemCustom from "./productitem.module.css";
 import styled from "styled-components";
 import Responsive from "../Responsive/index";
-import { bindActionCreators } from "redux";
 import {
   AddCart,
   DecreaseQuantity,
@@ -65,17 +64,17 @@ const ProductItem = ({ products, addCart }) => {
                           <Item.Description
                             className={MenuItemCustom.customHeightDescription}
                           >
-                          <ShowMoreText
-                            lines={3}
-                            more="Show more"
-                            less="Show less"
-                            className="content-css1"
-                            anchorClass="my-anchor-css-class1"
-                            expanded={false}
-                            width={0}
-                          >
-                            {productItem.description}
-                          </ShowMoreText>
+                            <ShowMoreText
+                              lines={3}
+                              more="Show more"
+                              less="Show less"
+                              className="content-css1"
+                              anchorClass="my-anchor-css-class1"
+                              expanded={false}
+                              width={0}
+                            >
+                              {productItem.description}
+                            </ShowMoreText>
                             {/* {productItem.description} */}
                           </Item.Description>
                           <Grid>
@@ -98,8 +97,8 @@ const ProductItem = ({ products, addCart }) => {
                     );
                   })
                 ) : (
-                  <div>No data</div>
-                )}
+                    <div>No data</div>
+                  )}
               </Item.Group>
             </>
           );
