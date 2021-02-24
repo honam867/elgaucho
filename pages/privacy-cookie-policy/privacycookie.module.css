@@ -1,0 +1,13 @@
+.bg {
+    padding: 60px 0px;
+    background: linear-gradient(0deg, rgba(233, 230, 230, 0.5), rgba(238, 234, 234, 0.9)) repeat;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    color: black;
+  }
+  
+  .label {
+    color: black;
+  }

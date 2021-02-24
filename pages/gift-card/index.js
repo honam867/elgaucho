@@ -43,8 +43,7 @@ const GiftCard = () => {
 
   return (
     <Layout>
-      <div className={styleGiftCard.outsideBg}>
-        <div className={styleGiftCard.alignItem}>
+      <div className={styleGiftCard.bg}>
           <CustomHeader
             as="h2"
             style={{ margin: "auto", width: "50%", color: "white" }}
@@ -183,15 +182,11 @@ const GiftCard = () => {
                   Please redeem your card before the valid until date. All Gift Card purchases are final and there are no refunds for unused Gift Cards.</p>
                     <p style={{ color: 'red' }}> <u>Check your gift card balance</u></p>
                   </Card.Content>
-                  {/* <Card.Content extra>
-                    <Icon name="user" />4 Friends
-                  </Card.Content> */}
                 </Card>
               </Grid.Column>
             </Grid>
           </Container>
         </div>
-      </div>
     </Layout>
   );
 };
