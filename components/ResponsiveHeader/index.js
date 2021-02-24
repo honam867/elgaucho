@@ -31,21 +31,18 @@ const DropdowItemLink = styled(Dropdown)`
   &:hover {
     color: #cf1b15 !important;
     background: none !important;
-    .menuhide {
-      opacity: 1 !important;
-    }
   }
-  // border-right: 1px solid #c0c0c0 !important;
   border-radius: 0px !important;
   font-weight: bold !important;
   padding: 0px !important;
-  // padding-right: 0px !important;
-  // padding-bottom: 0px !important;
-`;
-const DropdowMenu = styled(Dropdown.Menu)`
-  opacity: 0 !important;
 `;
 
+const active = {
+  color: "#cf1b15",
+};
+const unactive = {
+  color: "#222222",
+};
 const MenuItemMobileTablet = styled(Menu.Item)`
   &:hover {
     // color: #cf1b15 !important;
@@ -102,6 +99,32 @@ const noFixedMenuStyleOnTable = {
   zIndex: "1",
 };
 
+const locationOptions = [
+  { key: 1, text: "Xuan Thuy | HCMC", value: 1 },
+  { key: 2, text: "Saigon Pearl | HCMC", value: 2 },
+  { key: 3, text: "Hai Ba Trung | HCMC", value: 3 },
+  { key: 4, text: "An Phu | HCMC", value: 4 },
+  { key: 5, text: "Phu My Hung | HCMC", value: 5 },
+  { key: 6, text: "Bach Dang | Da Nang", value: 6 },
+  { key: 7, text: "Ba Dinh | Hanoi", value: 7 },
+  { key: 8, text: "Tay Ho | Hanoi", value: 8 },
+  { key: 9, text: "Trang Tien | Hanoi", value: 9 },
+];
+
+const menuOptions = [
+  { key: 1, text: "Lunch", value: 1 },
+  { key: 2, text: "All Day Dining & Drinks", value: 2 },
+  { key: 3, text: "Wine", value: 3 },
+  { key: 4, text: "Cigars & Butcher", value: 4 },
+];
+
+const contactOptions = [
+  { key: 1, text: "Get In Touch", value: 1 },
+  { key: 2, text: "Careers", value: 2 },
+  { key: 3, text: "Privacy & Cookie Policy", value: 3 },
+  { key: 4, text: "Magazine", value: 4 },
+];
+
 const ResponsiveHeader = ({ children, numberCart }) => {
   const router = useRouter();
   const [menuFixed, setFixedMenu] = useState(false);
@@ -144,21 +167,18 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                   </Link>
                 </Menu.Item>
 
-                <MenuItemLink position="right"  active={router.pathname == "/location"}>
+                <MenuItemLink
+                  position="right"
+                  active={router.pathname == "/location"}
+                >
                   <Link href="/location">
-                    <DropdowItemLink open={router.pathname == "/location"} text="Locations" simple item>
-                      <DropdowMenu className = "menuhide">
-                        <Dropdown.Item>Xuan Thuy | HCMC</Dropdown.Item>
-                        <Dropdown.Item>Saigon Pearl | HCMC</Dropdown.Item>
-                        <Dropdown.Item>Hai Ba Trung | HCMC</Dropdown.Item>
-                        <Dropdown.Item>An Phu | HCMC</Dropdown.Item>
-                        <Dropdown.Item>Phu My Hung | HCMC</Dropdown.Item>
-                        <Dropdown.Item>Bach Dang | Da Nang</Dropdown.Item>
-                        <Dropdown.Item>Ba Dinh | Hanoi</Dropdown.Item>
-                        <Dropdown.Item>Tay Ho | Hanoi</Dropdown.Item>
-                        <Dropdown.Item>Trang Tien | Hanoi</Dropdown.Item>
-                      </DropdowMenu>
-                    </DropdowItemLink>
+                    <DropdowItemLink
+                      item
+                      simple
+                      text="Locations"
+                      style={router.pathname == "/location" ? active : unactive}
+                      options={locationOptions}
+                    ></DropdowItemLink>
                   </Link>
                 </MenuItemLink>
 
@@ -178,24 +198,16 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                     Butcher Shop
                   </MenuItemLink>
                 </Link>
-                {/* <Link href="/menu" forwardRef>
-                  <MenuItemLink
-                    name="Menus"
-                    active={router.pathname == "/menu"}
-                  ></MenuItemLink>
-                </Link> */}
 
                 <MenuItemLink>
-                  <Link href="/menu" forwardRef>
-                    <DropdowItemLink open={router.pathname == "/menu"} text="Menus" simple item>
-                      <DropdowMenu className = "menuhide">
-                        <Dropdown.Item>Deal Of The Week | Steak o’clock</Dropdown.Item>
-                        <Dropdown.Item>Lunch</Dropdown.Item>
-                        <Dropdown.Item>All Day Dining & Drinks</Dropdown.Item>
-                        <Dropdown.Item>Wine</Dropdown.Item>
-                        <Dropdown.Item>Cigars & Butcher</Dropdown.Item>
-                      </DropdowMenu>
-                    </DropdowItemLink>
+                  <Link href="/menu">
+                    <DropdowItemLink
+                      item
+                      simple
+                      text="Menus"
+                      style={router.pathname == "/menu" ? active : unactive}
+                      options={menuOptions}
+                    ></DropdowItemLink>
                   </Link>
                 </MenuItemLink>
 
@@ -213,21 +225,28 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                     active={router.pathname == "/gift-card"}
                   ></MenuItemLink>
                 </Link>
-                {/* <Link href="/get-in-touch" forwardRef>
-                  <MenuItemLink
-                    name="Contact Us"
-                    active={router.pathname == "/get-in-touch"}
-                  ></MenuItemLink>
-                </Link> */}
-               <MenuItemLink>
-                  <Link href="/get-in-touch" forwardRef>
-                    <DropdowItemLink open={router.pathname == "/get-in-touch"} text="Contact Us" simple item>
-                      <DropdowMenu className = "menuhide">
-                        <Dropdown.Item>Get In Touch</Dropdown.Item>
-                        <Dropdown.Item>Careers</Dropdown.Item>
-                        <Dropdown.Item>Privacy & Cookie Policy</Dropdown.Item>
-                        <Dropdown.Item>Magazine</Dropdown.Item>
-                      </DropdowMenu>
+                <MenuItemLink className="link">
+                  <Link href="/get-in-touch">
+                    <DropdowItemLink
+                      item
+                      simple
+                      text="Contact Us"
+                      style={
+                        router.pathname == "/get-in-touch" ? active : unactive
+                      }
+                    >
+                      <Dropdown.Menu>
+                        <Dropdown.Item text="Get In Touch" />
+                        <Link href="/careers">
+                        <Dropdown.Item text="Careers" />
+                        </Link>
+                        <Link href="/privacy-cookie-policy">
+                        <Dropdown.Item text="Privacy & Cookie Policy" />
+                        </Link>
+                        <Link href="/magazine">
+                        <Dropdown.Item text="Magazine" />
+                        </Link>
+                      </Dropdown.Menu>
                     </DropdowItemLink>
                   </Link>
                 </MenuItemLink>
