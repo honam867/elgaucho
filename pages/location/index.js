@@ -1,7 +1,6 @@
 import Layout from "../../components/ResponsiveHeader/index";
-import { Button, Container, Header, Icon, Grid } from "semantic-ui-react";
+import { Button, Container, Header, Icon, Grid, Card, Image } from "semantic-ui-react";
 import SliderComponent from "../../components/SliderComponent";
-import LocationSectionGGMap from "../../components/LocationSectionGGMap";
 import ButtonCustomComponent from "../../components/ButtonCustomComponent";
 import styled from "styled-components";
 import Link from "next/link";
@@ -195,6 +194,26 @@ const Location = () => {
         <Container textAlign="center" style={{ marginBottom: "30px" }}>
           <CustomButton name="Reverse Now" href="https://www.google.com/maps/place/Saigon+Pearl,+Ph%C6%B0%E1%BB%9Dng+22,+B%C3%ACnh+Th%E1%BA%A1nh,+Ho+Chi+Minh+City,+Vietnam/@10.78954,106.7177957,17z/data=!3m1!4b1!4m5!3m4!1s0x317528ab19e39189:0x66e1081c51e6c084!8m2!3d10.7901079!4d106.7197782?shorturl=1"><Icon name="map marker alternate" /> Get Directions</CustomButton>
           <ButtonCustomComponent icon={true} iconName="list ul" name="View Menus" url="/menu" />
+
+        </Container>
+        {/* NOTE Googlemap xuan thuy */}
+        <Container textAlign="center">
+          {
+            <Responsive onDesktop={() =>
+              <iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJOz1wUBcndTERFhYDmiHnSSg&key=AIzaSyCP0PjMa80DJiUo2zdFCbw09XV1dcK4aIE" width="600" height="450" style={{ border: 0 }} allowFullScreen loading="lazy"  ></iframe>
+            }
+              onMobile={() =>
+                <iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJOz1wUBcndTERFhYDmiHnSSg&key=AIzaSyCP0PjMa80DJiUo2zdFCbw09XV1dcK4aIE" height="450" style={{ border: 0 }} allowFullScreen loading="lazy"  ></iframe>
+              }
+
+              onTablet={() =>
+                <iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJOz1wUBcndTERFhYDmiHnSSg&key=AIzaSyCP0PjMa80DJiUo2zdFCbw09XV1dcK4aIE" height="450" style={{ border: 0 }} allowFullScreen loading="lazy"  ></iframe>
+              }
+            >
+
+            </Responsive>
+          }
+
         </Container>
         <Container textAlign='left'  >
           <p>
@@ -243,6 +262,25 @@ const Location = () => {
         <Container textAlign="center" style={{ marginBottom: "30px" }}>
           <CustomButton name="Reverse Now" href="https://www.google.com/maps/place/Saigon+Pearl,+Ph%C6%B0%E1%BB%9Dng+22,+B%C3%ACnh+Th%E1%BA%A1nh,+Ho+Chi+Minh+City,+Vietnam/@10.78954,106.7177957,17z/data=!3m1!4b1!4m5!3m4!1s0x317528ab19e39189:0x66e1081c51e6c084!8m2!3d10.7901079!4d106.7197782?shorturl=1"><Icon name="map marker alternate" /> Get Directions</CustomButton>
           <ButtonCustomComponent icon={true} iconName="list ul" name="View Menus" url="/menu" />
+        </Container>
+        {/* NOTE Googlemap Saigon Pearl */}
+        <Container textAlign="center">
+          <Responsive onDesktop={() =>
+            <iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJPa_Z7QopdTER-nh338bZ2B8&key=AIzaSyCP0PjMa80DJiUo2zdFCbw09XV1dcK4aIE" width="600" height="450" style={{ border: 0 }} allowFullScreen loading="lazy"  ></iframe>
+
+          }
+            onMobile={() =>
+              <iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJPa_Z7QopdTER-nh338bZ2B8&key=AIzaSyCP0PjMa80DJiUo2zdFCbw09XV1dcK4aIE" height="450" style={{ border: 0 }} allowFullScreen loading="lazy"  ></iframe>
+
+            }
+
+            onTablet={() =>
+              <iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJPa_Z7QopdTER-nh338bZ2B8&key=AIzaSyCP0PjMa80DJiUo2zdFCbw09XV1dcK4aIE" width="600" height="450" style={{ border: 0 }} allowFullScreen loading="lazy"  ></iframe>
+
+            }
+          >
+
+          </Responsive>
         </Container>
         <Container textAlign='left'  >
           <p>
@@ -293,20 +331,24 @@ const Location = () => {
         </Container>
         <Container textAlign="center" style={{ marginBottom: "30px" }}>
           <CustomButton name="Reverse Now" href="https://www.google.com/maps/place/Saigon+Pearl,+Ph%C6%B0%E1%BB%9Dng+22,+B%C3%ACnh+Th%E1%BA%A1nh,+Ho+Chi+Minh+City,+Vietnam/@10.78954,106.7177957,17z/data=!3m1!4b1!4m5!3m4!1s0x317528ab19e39189:0x66e1081c51e6c084!8m2!3d10.7901079!4d106.7197782?shorturl=1"><Icon name="map marker alternate" /> Get Directions</CustomButton>
-          <ButtonCustomComponent icon={true} iconName="list ul" name="View Menus" url="/menu" />
-          <Responsive onDesktop={() => {
-            return <div style={{ height: "600px", margin: "0px 115px" }}>
-              <LocationSectionGGMap lat={10.790045841510906} lng={106.71802615681743}></LocationSectionGGMap>
-            </div>
-          }} onTablet={() => {
-            return <div style={{ height: "580px", margin: "0px 40px" }}>
-              <LocationSectionGGMap lat={10.790045841510906} lng={106.71802615681743}></LocationSectionGGMap>
-            </div>
-          }} onMobile={() => {
-            return <div style={{ height: "300px" }}>
-              <LocationSectionGGMap lat={10.790045841510906} lng={106.71802615681743}></LocationSectionGGMap>
-            </div>
-          }}>
+          <ButtonCustomComponent icon={true} iconName="list ul" name="View Menus" url="/menu" /></Container>
+        {/* NOTE Googlemap Hai Ba Trung  */}
+        <Container textAlign="center">
+          <Responsive onDesktop={() =>
+            <iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJz3aWGUYvdTEReMy6X00mKhU&key=AIzaSyCP0PjMa80DJiUo2zdFCbw09XV1dcK4aIE" width="600" height="450" style={{ border: 0 }} allowFullScreen loading="lazy"  ></iframe>
+
+          }
+            onMobile={() =>
+              <iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJz3aWGUYvdTEReMy6X00mKhU&key=AIzaSyCP0PjMa80DJiUo2zdFCbw09XV1dcK4aIE" height="450" style={{ border: 0 }} allowFullScreen loading="lazy"  ></iframe>
+
+            }
+
+            onTablet={() =>
+              <iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJz3aWGUYvdTEReMy6X00mKhU&key=AIzaSyCP0PjMa80DJiUo2zdFCbw09XV1dcK4aIE" width="600" height="450" style={{ border: 0 }} allowFullScreen loading="lazy"  ></iframe>
+
+            }
+          >
+
           </Responsive>
         </Container>
 
