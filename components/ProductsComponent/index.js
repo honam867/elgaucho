@@ -1,10 +1,10 @@
-import { Divider, Header } from "semantic-ui-react";
+import { Container, Divider, Header } from "semantic-ui-react";
 import ProductItem from "../ProductItemComponent";
 import CustomHeader from "./product.module.css";
 const ProductsComponent = ({ subcategories, products }) => {
   // const test = subcategories.map(item => );
   return (
-    <div>
+    <Container >
       {subcategories.map(item => {
         return (
           <div key={item.id}>
@@ -17,7 +17,7 @@ const ProductsComponent = ({ subcategories, products }) => {
           </div>
         )
       })}
-    </div>
+    </Container>
   )
 }
 export default ProductsComponent;

@@ -198,7 +198,22 @@ const Location = () => {
         </Container>
         {/* NOTE Googlemap xuan thuy */}
         <Container textAlign="center">
-          <iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJOz1wUBcndTERFhYDmiHnSSg&key=AIzaSyCP0PjMa80DJiUo2zdFCbw09XV1dcK4aIE" width="600" height="450" style={{ border: 0 }} allowFullScreen loading="lazy"  ></iframe>
+          {
+            <Responsive onDesktop={() =>
+              <iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJOz1wUBcndTERFhYDmiHnSSg&key=AIzaSyCP0PjMa80DJiUo2zdFCbw09XV1dcK4aIE" width="600" height="450" style={{ border: 0 }} allowFullScreen loading="lazy"  ></iframe>
+            }
+              onMobile={() =>
+                <iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJOz1wUBcndTERFhYDmiHnSSg&key=AIzaSyCP0PjMa80DJiUo2zdFCbw09XV1dcK4aIE" height="450" style={{ border: 0 }} allowFullScreen loading="lazy"  ></iframe>
+              }
+
+              onTablet={() =>
+                <iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJOz1wUBcndTERFhYDmiHnSSg&key=AIzaSyCP0PjMa80DJiUo2zdFCbw09XV1dcK4aIE" height="450" style={{ border: 0 }} allowFullScreen loading="lazy"  ></iframe>
+              }
+            >
+
+            </Responsive>
+          }
+
         </Container>
         <Container textAlign='left'  >
           <p>
@@ -250,7 +265,22 @@ const Location = () => {
         </Container>
         {/* NOTE Googlemap Saigon Pearl */}
         <Container textAlign="center">
-          <iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJPa_Z7QopdTER-nh338bZ2B8&key=AIzaSyCP0PjMa80DJiUo2zdFCbw09XV1dcK4aIE" width="600" height="450" style={{ border: 0 }} allowFullScreen loading="lazy"  ></iframe>
+          <Responsive onDesktop={() =>
+            <iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJPa_Z7QopdTER-nh338bZ2B8&key=AIzaSyCP0PjMa80DJiUo2zdFCbw09XV1dcK4aIE" width="600" height="450" style={{ border: 0 }} allowFullScreen loading="lazy"  ></iframe>
+
+          }
+            onMobile={() =>
+              <iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJPa_Z7QopdTER-nh338bZ2B8&key=AIzaSyCP0PjMa80DJiUo2zdFCbw09XV1dcK4aIE" height="450" style={{ border: 0 }} allowFullScreen loading="lazy"  ></iframe>
+
+            }
+
+            onTablet={() =>
+              <iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJPa_Z7QopdTER-nh338bZ2B8&key=AIzaSyCP0PjMa80DJiUo2zdFCbw09XV1dcK4aIE" width="600" height="450" style={{ border: 0 }} allowFullScreen loading="lazy"  ></iframe>
+
+            }
+          >
+
+          </Responsive>
         </Container>
         <Container textAlign='left'  >
           <p>
@@ -304,7 +334,22 @@ const Location = () => {
           <ButtonCustomComponent icon={true} iconName="list ul" name="View Menus" url="/menu" /></Container>
         {/* NOTE Googlemap Hai Ba Trung  */}
         <Container textAlign="center">
-          <iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJz3aWGUYvdTEReMy6X00mKhU&key=AIzaSyCP0PjMa80DJiUo2zdFCbw09XV1dcK4aIE" width="600" height="450" style={{ border: 0 }} allowFullScreen loading="lazy"  ></iframe>
+          <Responsive onDesktop={() =>
+            <iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJz3aWGUYvdTEReMy6X00mKhU&key=AIzaSyCP0PjMa80DJiUo2zdFCbw09XV1dcK4aIE" width="600" height="450" style={{ border: 0 }} allowFullScreen loading="lazy"  ></iframe>
+
+          }
+            onMobile={() =>
+              <iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJz3aWGUYvdTEReMy6X00mKhU&key=AIzaSyCP0PjMa80DJiUo2zdFCbw09XV1dcK4aIE" height="450" style={{ border: 0 }} allowFullScreen loading="lazy"  ></iframe>
+
+            }
+
+            onTablet={() =>
+              <iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJz3aWGUYvdTEReMy6X00mKhU&key=AIzaSyCP0PjMa80DJiUo2zdFCbw09XV1dcK4aIE" width="600" height="450" style={{ border: 0 }} allowFullScreen loading="lazy"  ></iframe>
+
+            }
+          >
+
+          </Responsive>
         </Container>
 
         <Container textAlign='left'  >

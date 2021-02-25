@@ -6,14 +6,13 @@ import {
   Icon,
   Image,
   Item,
+  Container
 } from "semantic-ui-react";
 import MenuItemCustom from "./productitem.module.css";
 import styled from "styled-components";
 import Responsive from "../Responsive/index";
 import {
   AddCart,
-  DecreaseQuantity,
-  IncreaseQuantity,
 } from "../../redux/cart/cart.actions";
 import { connect } from "react-redux";
 import ShowMoreText from "react-show-more-text";
@@ -147,48 +146,87 @@ const ProductItem = ({ products, addCart }) => {
         }}
         onMobile={() => {
           return (
+
             <>
-              {products.map((productItem) => {
-                return (
-                  <Card key={productItem.id} style={{ margin: "10px auto" }}>
-                    <Image
-                      src={productItem.imageUrl}
-                      size="tiny"
-                      wrapped
-                      ui={false}
-                    />
-                    <Card.Content textAlign="center">
-                      <Header as="h4">{productItem.name}</Header>
-                    </Card.Content>
-                    <Card.Content>
-                      <ShowMoreText
-                        lines={5}
-                        more="Show more"
-                        less="Show less"
-                        className="content-css"
-                        anchorClass="my-anchor-css-class"
-                        expanded={false}
-                        width={0}
-                      >
-                        {productItem.description}
-                      </ShowMoreText>
-                    </Card.Content>
-                    <Card.Content textAlign="center">
-                      <PriceCustomFromHeader>
-                        VND {productItem.price.toLocaleString("es-US")}
-                      </PriceCustomFromHeader>
-                    </Card.Content>
-                    <Card.Content extra>
-                      <div className="ui two buttons">
-                        <Button size="tiny">View Cart</Button>
-                        <CustomButton size="tiny">
-                          Checkout <Icon name="right chevron" />{" "}
-                        </CustomButton>
-                      </div>
-                    </Card.Content>
-                  </Card>
-                );
-              })}
+              <Grid columns={2} textAlign="center" >
+                {products.map((productItem) => {
+                  return (
+                    <>
+                      <Grid.Column>
+                        <Card key={productItem.id} style={{ margin: "10px auto", }}>
+                          <Image
+                            src={productItem.imageUrl}
+                            size="tiny"
+                            wrapped
+                            ui={false}
+                          />
+                          <Card.Content>
+                            <Card.Header>Matthew</Card.Header>
+                            <Card.Meta>
+                              <span className='date'>Joined in 2015</span>
+                            </Card.Meta>
+                            <Card.Description>
+                              <ShowMoreText
+                                lines={5}
+                                more="Show more"
+                                less="Show less"
+                                className="content-css"
+                                anchorClass="my-anchor-css-class"
+                                expanded={false}
+                                width={0}
+                              >
+                                {productItem.description}
+                              </ShowMoreText>
+                            </Card.Description>
+                          </Card.Content>
+                          <Card.Content extra>
+                            <a>
+                              <Icon name='user' />
+                        22 Friends
+                      </a>
+                          </Card.Content>
+                        </Card>
+                      </Grid.Column>
+                      <Grid.Column>
+                        <Card key={productItem.id} style={{ margin: "10px auto", }}>
+                          <Image
+                            src={productItem.imageUrl}
+                            size="tiny"
+                            wrapped
+                            ui={false}
+                          />
+                          <Card.Content>
+                            <Card.Header>Matthew</Card.Header>
+                            <Card.Meta>
+                              <span className='date'>Joined in 2015</span>
+                            </Card.Meta>
+                            <Card.Description>
+                              <ShowMoreText
+                                lines={5}
+                                more="Show more"
+                                less="Show less"
+                                className="content-css"
+                                anchorClass="my-anchor-css-class"
+                                expanded={false}
+                                width={0}
+                              >
+                                {productItem.description}
+                              </ShowMoreText>
+                            </Card.Description>
+                          </Card.Content>
+                          <Card.Content extra>
+                            <a>
+                              <Icon name='user' />
+                        22 Friends
+                      </a>
+                          </Card.Content>
+                        </Card>
+                      </Grid.Column>
+
+                    </>
+                  );
+                })}
+              </Grid>
             </>
           );
         }}

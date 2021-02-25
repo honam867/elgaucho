@@ -15,7 +15,6 @@ const ViewCartComponent = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCa
   let totalCart = 0;
   Object.keys(items.Carts).forEach((item) => {
     totalCart += items.Carts[item].quantity * items.Carts[item].prices;
-    console.log("🚀 ~ file: index.js ~ line 19 ~ Object.keys ~ items.Carts[item]", items.Carts[item])
     listCart.push(items.Carts[item])
   })
   return (

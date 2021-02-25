@@ -89,19 +89,18 @@ const HomeFullSlider = () => {
         return (
           <SliderComponent
             Images={Images}
-            height="100vh"
+            height="40vh"
             captionTitle={captionTitle}
             captionContent={captionContent}
             backgroundOpacity={true}
-            backgroundAttachment="fixed"
             gotomainsection={gotomainSection}
-            angleDown={true} />
+          />
         )
       }} onMobile={() => {
         return (
           <SliderComponent
             Images={Images}
-            height="100vh"
+            height="28vh"
             captionTitle={captionTitle}
             captionContent={captionContent}
             backgroundOpacity={true}
