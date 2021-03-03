@@ -10,7 +10,7 @@ import {
   Label,
   Dropdown,
 } from "semantic-ui-react";
-import Logo from "../../public/static/img/elgauchologo.png";
+import Logo from "../../public/static/img/elgauchologonobg.png";
 import styled from "styled-components";
 import Responsive from "../../components/Responsive";
 import { useRouter } from "next/router";
@@ -31,6 +31,9 @@ const DropdowItemLink = styled(Dropdown)`
   &:hover {
     color: #cf1b15 !important;
     background: none !important;
+  }
+  .none {
+    display: none !important;
   }
   border-radius: 0px !important;
   font-weight: bold !important;
@@ -54,6 +57,7 @@ const MenuItemMobileTablet = styled(Menu.Item)`
   padding-top: 16px !important;
   padding-bottom: 16px !important;
 `;
+
 const MenuItemLinkImage = React.forwardRef(function MenuItemLinkImage(
   props,
   ref
@@ -72,7 +76,7 @@ const fixedMenuStyle = {
 const noFixedMenuStyle = {
   backgroundColor: "#fff",
   transition: "height 0.1s",
-  height: "76px",
+  height: "60px",
   maxHeight: "600px",
   // overflow: "auto",
   position: "relative",
@@ -162,7 +166,7 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                     <MenuItemLinkImage
                       src={Logo}
                       alt="website logo"
-                      style={menuFixed ? { width: "39px" } : { width: "68px" }}
+                      style={menuFixed ? { width: "52px" } : { width: "72px" }}
                     />
                   </Link>
                 </Menu.Item>
@@ -173,6 +177,7 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                 >
                   <Link href="/location">
                     <DropdowItemLink
+                      icon= "none"
                       item
                       simple
                       text="Locations"
@@ -202,6 +207,7 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                 <MenuItemLink>
                   <Link href="/menu">
                     <DropdowItemLink
+                      icon= "none"
                       item
                       simple
                       text="Menus"
@@ -228,6 +234,7 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                 <MenuItemLink className="link">
                   <Link href="/get-in-touch">
                     <DropdowItemLink
+                      icon= "none"
                       item
                       simple
                       text="Contact Us"
@@ -341,9 +348,10 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                 <Link href="/location" forwardRef>
                   <MenuItemMobileTablet
                     name="Locations"
-                    active={router.pathname == "/location"}
-                    position="right"
-                  ></MenuItemMobileTablet>
+                    active={router.pathname == "/delivery"}
+                  >
+                    Locations
+                  </MenuItemMobileTablet>
                 </Link>
                 <Link href="/delivery" forwardRef>
                   <MenuItemMobileTablet

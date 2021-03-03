@@ -9,6 +9,7 @@
   -moz-animation: my 3s infinite;
   -o-animation: my 3s infinite;
   animation: my 3s infinite;
+  text-align: justify;
 }
 @-webkit-keyframes my {
   0% {
