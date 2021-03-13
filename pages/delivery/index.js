@@ -100,9 +100,7 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
         style={{ margin: "auto", width: "100%", padding: "0px 30px" }}
         fluid
       >
-
         <Grid divided doubling columns={3} style={{ marginTop: "30px" }}>
-
           <Grid.Column width={3}>
             <Menu secondary vertical>
               <Dropdown item text='Choosing a location' >
@@ -151,7 +149,6 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
                 :
                 <div>No data</div>
               }
-
             </Menu>
           </Grid.Column>
           <Grid.Column width={9}>
@@ -161,7 +158,9 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
           </Grid.Column>
 
           <Grid.Column width={4}>
-            <ViewCartComponent></ViewCartComponent>
+            <div style={overlayFixed ? fixedOverlayMenuStyle : overlayMenuStyle} >
+              <ViewCartComponent ></ViewCartComponent>
+            </div>
           </Grid.Column>
         </Grid>
       </Container>
