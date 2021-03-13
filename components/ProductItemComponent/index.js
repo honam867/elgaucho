@@ -79,7 +79,7 @@ const ProductItem = ({ products, addCart }) => {
                           <Grid>
                             <Grid.Column floated="left" width={10}>
                               <PriceCustomFromHeader floated="right">
-                                VND {productItem.price.toLocaleString("en-US")}
+                                {productItem.price.toLocaleString("en-US")} VND
                               </PriceCustomFromHeader>
                             </Grid.Column>
                             <Grid.Column floated="right" width={6}>

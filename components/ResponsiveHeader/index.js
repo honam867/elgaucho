@@ -186,6 +186,14 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                     ></DropdowItemLink>
                   </Link>
                 </MenuItemLink>
+                <Link href="/news" forwardRef>
+                  <MenuItemLink
+                    name="News"
+                    active={router.pathname == "/news"}
+                  >
+                    News
+                  </MenuItemLink>
+                </Link>
 
                 <Link href="/delivery" forwardRef>
                   <MenuItemLink
@@ -245,13 +253,13 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                       <Dropdown.Menu>
                         <Dropdown.Item text="Get In Touch" />
                         <Link href="/careers">
-                        <Dropdown.Item text="Careers" />
+                          <Dropdown.Item text="Careers" />
                         </Link>
                         <Link href="/privacy-cookie-policy">
-                        <Dropdown.Item text="Privacy & Cookie Policy" />
+                          <Dropdown.Item text="Privacy & Cookie Policy" />
                         </Link>
                         <Link href="/magazine">
-                        <Dropdown.Item text="Magazine" />
+                          <Dropdown.Item text="Magazine" />
                         </Link>
                       </Dropdown.Menu>
                     </DropdowItemLink>
