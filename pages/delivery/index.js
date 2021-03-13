@@ -2,14 +2,10 @@ import Layout from "../../components/ResponsiveHeader/index";
 import { useState, useEffect } from "react";
 import SliderComponent from "../../components/SliderComponent";
 import {
-  Button,
   Container,
-  Divider,
   Dropdown,
   Grid,
-  Icon,
   Menu,
-  Transition,
   Visibility,
 } from "semantic-ui-react";
 import ResponsiveComponent from "../../components/Responsive";

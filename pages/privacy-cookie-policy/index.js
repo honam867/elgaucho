@@ -21,11 +21,11 @@ const PrivacyCookiePolicy = () => {
   return (
     <Layout>
       <div className={stylePrivacyCookie.bg}>
-        <Container fluid>
+        <Container>
           <CustomHeader as="h2">
             Privacy <span style={{ color: "#cf1b15" }}>&</span> Cookie Policy
           </CustomHeader>
-          <p>
+          <p style = {{textAlign: 'justify'}}>
             El Gaucho Argentinian Steakhouse is committed to ensuring that your
             privacy on any information that you give to us is protected.
             Depending on your usage of our website or services, we might collect
@@ -40,7 +40,7 @@ const PrivacyCookiePolicy = () => {
             managerial procedures to safeguard and secure the information we
             collect online.
           </p>
-          <p>
+          <p style = {{textAlign: 'justify'}}>
             We use traffic log cookies to identify which pages are being used.
             This helps us analyse data about web page traffic and improve our
             website in order to tailor it to customer needs. We only use this
@@ -56,7 +56,7 @@ const PrivacyCookiePolicy = () => {
             about you, other than the data you choose to share with us. You can
             choose to accept or decline cookies.
           </p>
-          <p>
+          <p style = {{textAlign: 'justify'}}>
             If you have previously agreed to us using your personal information
             for direct marketing purposes, you may change your mind at any time
             by writing to or emailing us at{" "}

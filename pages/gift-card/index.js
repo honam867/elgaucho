@@ -46,7 +46,7 @@ const GiftCard = () => {
       <div className={styleGiftCard.bg}>
           <CustomHeader
             as="h2"
-            style={{ margin: "auto", width: "50%", color: "white" }}
+            style={{ margin: "auto", width: "80%", color: "white" }}
           >
             Send Friends, Associates or Loved Ones the Gift of Dining with a few
             taps!
@@ -55,7 +55,7 @@ const GiftCard = () => {
             as="h3"
             style={{
               margin: "auto",
-              width: "50%",
+              width: "80%",
               color: "white",
               margin: "30px auto",
             }}
@@ -177,7 +177,7 @@ const GiftCard = () => {
                     </Grid>
                   </Card.Content>
                   <Card.Content textAlign="center" >
-                    <p style={{ color: 'black' }}>To redeem your Gift Card please present it to your Waitstaff  to scan.
+                    <p style={{ color: 'black', textAlign: 'justify' }}>To redeem your Gift Card please present it to your Waitstaff  to scan.
                     You can simply show the card from the email you received. Please note your card will expire 6 months after the issued date.
                   Please redeem your card before the valid until date. All Gift Card purchases are final and there are no refunds for unused Gift Cards.</p>
                     <p style={{ color: 'red' }}> <u>Check your gift card balance</u></p>

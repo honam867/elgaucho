@@ -49,7 +49,7 @@ const Careers = () => {
       <div className={styleCareers.bg}>
         <Container className={styleCareers.background}>
           <CustomHeader as="h4">EMPLOYMENT APPLICATION</CustomHeader>
-          <p>
+          <p style = {{textAlign: 'justify'}}>
             With our continuous expansion, we always appreciate the application
             of potential new staff on all levels. Whether you have years of
             experience or have never worked in the food and beverage business
@@ -141,7 +141,7 @@ const Careers = () => {
                 <CustomButton type="button">browse for file</CustomButton>
               </Input>
             </Form.Field>
-            <p>
+            <p style = {{textAlign: 'justify'}}>
               Please submit your request by selecting the button below. In a few
               seconds you will receive a notification on successful submission.
               NOTE: Please do not click the button more than once to prevent
