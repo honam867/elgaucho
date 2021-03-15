@@ -15,7 +15,7 @@ import ViewCartComponent from "../../components/ViewCart";
 import Categories from "../../datafake/categories";
 import SubCategories from "../../datafake/subcategories";
 import styled from "styled-components";
-import NationData from "../../datafake/nation";
+import AreaData from "../../datafake/nation";
 const Images = [
   {
     id: 1,
@@ -105,7 +105,7 @@ const ButcherShopComponent = ({ products }) => {
                 <Dropdown.Menu >
                   <Dropdown.Header>Location</Dropdown.Header>
                   {
-                    NationData.map(item => {
+                    AreaData.map(item => {
                       return (
                         <Dropdown.Item  >{item.name}</Dropdown.Item>
                       )

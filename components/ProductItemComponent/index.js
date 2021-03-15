@@ -43,7 +43,9 @@ const CustomButton = styled(Button)`
   color: #ffffff !important;
   background-color: #cf1b15 !important;
 `;
-const ProductItem = ({ products, addCart }) => {
+const ProductItem = ({ products, addCart, areaId }) => {
+  const productList = products.filter(item => item.areaId === areaId);
+  // console.log("🚀 ~ file: index.js ~ line 48 ~ ProductItem ~ productList", productList)
   return (
     <>
       <Responsive
@@ -51,8 +53,8 @@ const ProductItem = ({ products, addCart }) => {
           return (
             <>
               <Item.Group divided>
-                {products.length > 0 ? (
-                  products.map((productItem) => {
+                {productList.length > 0 ? (
+                  productList.map((productItem) => {
                     return (
                       <Item key={productItem.id}>
                         <Item.Image size="small" src={productItem.imageUrl} />
@@ -96,8 +98,8 @@ const ProductItem = ({ products, addCart }) => {
                     );
                   })
                 ) : (
-                    <div>No data</div>
-                  )}
+                  <div>No data</div>
+                )}
               </Item.Group>
             </>
           );

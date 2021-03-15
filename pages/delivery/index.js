@@ -14,8 +14,9 @@ import ProductsComponent from "../../components/ProductsComponent";
 import ViewCartComponent from "../../components/ViewCart";
 import Categories from "../../datafake/categories";
 import SubCategories from "../../datafake/subcategories";
-import styled from "styled-components";
-import NationData from "../../datafake/nation";
+import AreaData from "../../datafake/area";
+import Products from "../../datafake/products";
+
 const Images = [
   {
     id: 1,
@@ -36,7 +37,7 @@ const Images = [
     size: "450px",
   },
 ];
-const ElDeliveryTakeOutComponent = ({ products }) => {
+const ElDeliveryTakeOutComponent = () => {
   // const fetchData = async () => {
   //   const req = await fetch('https://randomuser.me/api/?gender=male&results=100');
   //   const newData = await req.json();
@@ -51,7 +52,8 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
   const [activeItem, setActiveItem] = useState("");
   const [overlayFixed, setStickOverlay] = useState(false);
   // NOTE new logic here:
-  const [subcategoryId, setSubCategoyId] = useState(1);
+  const [subcategoryId, setSubCategoyId] = useState(0);
+  const [areaId, setAreaId] = useState(7);
   const overlayMenuStyle = {
     position: "relative",
     top: 0,
@@ -85,6 +87,10 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
     setStickOverlay(false);
   };
 
+  const choosingArea = (e, { value }) => {
+    setAreaId(value.id)
+  }
+
 
   useEffect(() => {
     setActiveItem(Categories[0].name);
@@ -103,9 +109,9 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
                 <Dropdown.Menu >
                   <Dropdown.Header>Location</Dropdown.Header>
                   {
-                    NationData.map(item => {
+                    AreaData.map(item => {
                       return (
-                        <Dropdown.Item  >{item.name}</Dropdown.Item>
+                        <Dropdown.Item key={item.id} onClick={choosingArea} value={item}>{item.name}</Dropdown.Item>
                       )
                     })
                   }
@@ -149,7 +155,7 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
           </Grid.Column>
           <Grid.Column width={9}>
             <div>
-              <ProductsComponent subcategories={SubCategories.filter(sub => sub.categoryId === subcategoryId)} products={products} ></ProductsComponent>
+              <ProductsComponent subcategories={SubCategories.filter(sub => sub.categoryId === subcategoryId)} products={Products} areaId={areaId}></ProductsComponent>
             </div>
           </Grid.Column>
 
@@ -264,22 +270,22 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
   );
 };
 
-export async function getStaticProps(context) {
-  // NOTE fetch menu list from api
-  const res3 = await fetch(
-    "https://my-json-server.typicode.com/honam867/apiserver/products"
-  );
-  const products = await res3.json();
-  // if (!category) {
-  //   return {
-  //     notFound: true,
-  //   };
-  // }
-  return {
-    props: {
-      products
-    },
-  };
-}
+// export async function getStaticProps(context) {
+//   // NOTE fetch menu list from api
+//   const res3 = await fetch(
+//     "https://my-json-server.typicode.com/honam867/apiserver/products"
+//   );
+//   const products = await res3.json();
+//   // if (!category) {
+//   //   return {
+//   //     notFound: true,
+//   //   };
+//   // }
+//   return {
+//     props: {
+//       products
+//     },
+//   };
+// }
 
 export default ElDeliveryTakeOutComponent;
