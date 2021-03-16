@@ -161,6 +161,9 @@ const Location = () => {
       </Container>
       {/* NOTE Xuân Thủy */}
       <Container style={{ background: "#eaeaea", paddingTop: "20px" }} fluid>
+        <section id="XuanThuy">
+          Xuan thuy
+        </section>
         <Header textAlign='center' as='h3' style={{ fontWeight: "400" }}>
           77 XUAN THUY, THAO DIEN WARD, DISTRICT 2, HCMC
         </Header>
