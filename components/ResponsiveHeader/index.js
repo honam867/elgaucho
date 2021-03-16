@@ -6,7 +6,8 @@ import {
   Sidebar,
   Visibility,
   Image,
-  Ref,
+  Transition,
+  Divider,
   Label,
   Dropdown,
 } from "semantic-ui-react";
@@ -47,13 +48,11 @@ const unactive = {
   color: "#222222",
 };
 const MenuItemMobileTablet = styled(Menu.Item)`
-  &:hover {
-    // color: #cf1b15 !important;
-    background: none !important;
-  }
-  // border-bottom: 1px solid #c0c0c0 !important;
-  // border-radius: 0px !important;
-  font-weight: bold !important;
+  border-bottom: 1px solid #c0c0c0 !important;
+  color: #cf1b15 !important;
+  font-size: 16px;
+  font-family: "playfair display", "HelveticaNeue", "Helvetica Neue",
+    "Helvetica-Neue", Helvetica, Arial, sans-serif !important;
   padding-top: 16px !important;
   padding-bottom: 16px !important;
 `;
@@ -116,10 +115,11 @@ const locationOptions = [
 ];
 
 const menuOptions = [
-  { key: 1, text: "Lunch", value: 1 },
-  { key: 2, text: "All Day Dining & Drinks", value: 2 },
-  { key: 3, text: "Wine", value: 3 },
-  { key: 4, text: "Cigars & Butcher", value: 4 },
+  { key: 1, text: "Deal Of The Week | Steak o’clock", value: 1 },
+  { key: 2, text: "Lunch", value: 2 },
+  { key: 3, text: "All Day Dining & Drinks", value: 3 },
+  { key: 4, text: "Wine", value: 4 },
+  { key: 5, text: "Cigars & Butcher", value: 5 },
 ];
 
 const contactOptions = [
@@ -130,6 +130,13 @@ const contactOptions = [
 ];
 
 const ResponsiveHeader = ({ children, numberCart }) => {
+  // const [activeIndex, setActiceIndex] = useState(0);
+  // const handleClick = (e, titleProps) => {
+  //   const { index } = titleProps;
+  //   const newIndex = activeIndex === index ? -1 : index;
+  //   setActiceIndex(newIndex);
+  // };
+
   const router = useRouter();
   const [menuFixed, setFixedMenu] = useState(false);
   const hideFixedMenu = () => {
@@ -145,6 +152,23 @@ const ResponsiveHeader = ({ children, numberCart }) => {
   const handleSidebarHide = () => {
     setSidebarOpened(false);
   };
+  //toggle  child menu tablet
+  // location
+  const [visible, setVisible] = useState(false);
+  const toggleVisibility = () => {
+    setVisible(!visible);
+  };
+  //menu
+  const [visibleMenu, setVisibleMenu] = useState(false);
+  const toggleMenu = () => {
+    setVisibleMenu(!visibleMenu);
+  };
+  //contact
+  const [visibleContact, setVisibleContact] = useState(false);
+  const toggleContact = () => {
+    setVisibleContact(!visibleContact);
+  };
+
   const segmentRef = React.useRef();
   return (
     <Responsive
@@ -177,7 +201,7 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                 >
                   <Link href="/location">
                     <DropdowItemLink
-                      icon= "none"
+                      icon="none"
                       item
                       simple
                       text="Locations"
@@ -187,10 +211,7 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                   </Link>
                 </MenuItemLink>
                 <Link href="/news" forwardRef>
-                  <MenuItemLink
-                    name="News"
-                    active={router.pathname == "/news"}
-                  >
+                  <MenuItemLink name="News" active={router.pathname == "/news"}>
                     News
                   </MenuItemLink>
                 </Link>
@@ -215,7 +236,7 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                 <MenuItemLink>
                   <Link href="/menu">
                     <DropdowItemLink
-                      icon= "none"
+                      icon="none"
                       item
                       simple
                       text="Menus"
@@ -242,7 +263,7 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                 <MenuItemLink className="link">
                   <Link href="/get-in-touch">
                     <DropdowItemLink
-                      icon= "none"
+                      icon="none"
                       item
                       simple
                       text="Contact Us"
@@ -350,59 +371,123 @@ const ResponsiveHeader = ({ children, numberCart }) => {
               vertical
               visible={sidebarOpened}
               direction="right"
-              color="red"
+              width="wide"
+              style={{ backgroundColor: "white" }}
             >
               <Sidebar.Pusher dimmed={sidebarOpened}>
-                <Link href="/location" forwardRef>
+              <Icon onClick={handleSidebarHide} color ="red" name='close' size='huge' />
+                <div style={{ padding: "90px 0px" }}>
                   <MenuItemMobileTablet
-                    name="Locations"
-                    active={router.pathname == "/delivery"}
+                    name="Location"
+                    color="red"
+                    onClick={toggleVisibility}
+                    icon={visible ? "angle down" : "angle right"}
+                  ></MenuItemMobileTablet>
+
+                  <Divider style={{ margin: "0px" }} hidden />
+                  <Transition
+                    visible={visible}
+                    animation="fade down"
+                    duration={50}
                   >
-                    Locations
-                  </MenuItemMobileTablet>
-                </Link>
-                <Link href="/delivery" forwardRef>
-                  <MenuItemMobileTablet
-                    name="EL Delivery & Take out"
-                    active={router.pathname == "/delivery"}
-                  >
-                    EL Delivery & Take out
-                  </MenuItemMobileTablet>
-                </Link>
-                <Link href="/butcher-shop" forwardRef>
-                  <MenuItemMobileTablet
-                    name="Butcher Shop"
-                    active={router.pathname == "/butcher-shop"}
-                  >
-                    Butcher Shop
-                  </MenuItemMobileTablet>
-                </Link>
-                <Link href="/menu" forwardRef>
+                    <div>
+                      {locationOptions.map((item) => (
+                        <MenuItemMobileTablet style={{ paddingLeft: "20px" }}>
+                          - {item.text}
+                        </MenuItemMobileTablet>
+                      ))}
+                    </div>
+                  </Transition>
+
+                  <Link href="/delivery" forwardRef>
+                    <MenuItemMobileTablet
+                      name="EL Delivery & Take out"
+                      active={router.pathname == "/delivery"}
+                      color="red"
+                    >
+                      EL Delivery & Take out
+                    </MenuItemMobileTablet>
+                  </Link>
+                  <Link href="/butcher-shop" forwardRef>
+                    <MenuItemMobileTablet
+                      name="Butcher Shop"
+                      active={router.pathname == "/butcher-shop"}
+                    >
+                      Butcher Shop
+                    </MenuItemMobileTablet>
+                  </Link>
                   <MenuItemMobileTablet
                     name="Menus"
-                    active={router.pathname == "/menu"}
+                    onClick={toggleMenu}
+                    icon={visibleMenu ? "angle down" : "angle right"}
                   ></MenuItemMobileTablet>
-                </Link>
-                <Link href="/private-dining-events" forwardRef>
-                  <MenuItemMobileTablet
-                    name="Private Dining Events"
-                    active={router.pathname == "/private-dining-events"}
+
+                  <Divider style={{ margin: "0px" }} hidden />
+                  <Transition
+                    visible={visibleMenu}
+                    animation="fade down"
+                    duration={50}
                   >
-                    Private | Dining Events
-                  </MenuItemMobileTablet>
-                </Link>
-                <Link href="/gift-card" forwardRef>
-                  <MenuItemMobileTablet
-                    name="Gift Card"
-                    active={router.pathname == "/gift-card"}
-                  ></MenuItemMobileTablet>
-                </Link>
-                <Link href="/get-in-touch" forwardRef>
+                    <div>
+                      {menuOptions.map((item) => (
+                        <MenuItemMobileTablet style={{ paddingLeft: "20px" }}>
+                          - {item.text}
+                        </MenuItemMobileTablet>
+                      ))}
+                    </div>
+                  </Transition>
+
+                  <Link href="/private-dining-events" forwardRef>
+                    <MenuItemMobileTablet
+                      name="Private Dining Events"
+                      active={router.pathname == "/private-dining-events"}
+                    >
+                      Private | Dining Events
+                    </MenuItemMobileTablet>
+                  </Link>
+                  <Link href="/gift-card" forwardRef>
+                    <MenuItemMobileTablet
+                      name="Gift Card"
+                      active={router.pathname == "/gift-card"}
+                    ></MenuItemMobileTablet>
+                  </Link>
+
                   <MenuItemMobileTablet
                     name="Contact Us"
-                    active={router.pathname == "/get-in-touch"}
+                    onClick={toggleContact}
+                    icon={visibleContact ? "angle down" : "angle right"}
                   ></MenuItemMobileTablet>
-                </Link>
+
+                  <Divider style={{ margin: "0px" }} hidden />
+                  <Transition
+                    visible={visibleContact}
+                    animation="fade down"
+                    duration={50}
+                  >
+                    <div>
+                      <Link href="/privacy-cookie-policy">
+                        <MenuItemMobileTablet style={{ paddingLeft: "20px" }}>
+                        - Privacy & Cookie Policy
+                      </MenuItemMobileTablet>
+                      </Link>
+                      <Link href="/magazine">
+                        <MenuItemMobileTablet style={{ paddingLeft: "20px" }}>
+                        - Magazine
+                      </MenuItemMobileTablet>
+                      </Link>
+                      <Link href="/get-in-touch">
+                      <MenuItemMobileTablet style={{ paddingLeft: "20px" }}>
+                        - Get In Touch
+                      </MenuItemMobileTablet>
+                      </Link>
+                      <Link href="/careers">
+                        <MenuItemMobileTablet style={{ paddingLeft: "20px" }}>
+                        - Careers
+                      </MenuItemMobileTablet>
+                      </Link>
+                    </div>
+                  </Transition>
+                </div>
               </Sidebar.Pusher>
             </Sidebar>
             {children}
@@ -452,58 +537,123 @@ const ResponsiveHeader = ({ children, numberCart }) => {
               vertical
               visible={sidebarOpened}
               direction="right"
-              color="red"
+              width="wide"
+              style={{ backgroundColor: "white" }}
             >
               <Sidebar.Pusher dimmed={sidebarOpened}>
-                <Link href="/location" forwardRef>
+              <Icon onClick={handleSidebarHide} color ="red" name='close' size='huge' />
+                <div style={{ padding: "90px 0px" }}>
                   <MenuItemMobileTablet
-                    name="Locations"
-                    active={router.pathname == "/location"}
-                    position="right"
+                    name="Location"
+                    color="red"
+                    onClick={toggleVisibility}
+                    icon={visible ? "angle down" : "angle right"}
                   ></MenuItemMobileTablet>
-                </Link>
-                <Link href="/delivery" forwardRef>
-                  <MenuItemMobileTablet
-                    name="EL Delivery & Take out"
-                    active={router.pathname == "/delivery"}
+
+                  <Divider style={{ margin: "0px" }} hidden />
+                  <Transition
+                    visible={visible}
+                    animation="fade down"
+                    duration={50}
                   >
-                    EL Delivery & Take out
-                  </MenuItemMobileTablet>
-                </Link>
-                <Link href="/butcher-shop" forwardRef>
-                  <MenuItemMobileTablet
-                    name="Butcher Shop"
-                    active={router.pathname == "/butcher-shop"}
-                  >
-                    Butcher Shop
-                  </MenuItemMobileTablet>
-                </Link>
-                <Link href="/menu" forwardRef>
+                    <div>
+                      {locationOptions.map((item) => (
+                        <MenuItemMobileTablet style={{ paddingLeft: "20px" }}>
+                          - {item.text}
+                        </MenuItemMobileTablet>
+                      ))}
+                    </div>
+                  </Transition>
+
+                  <Link href="/delivery" forwardRef>
+                    <MenuItemMobileTablet
+                      name="EL Delivery & Take out"
+                      active={router.pathname == "/delivery"}
+                      color="red"
+                    >
+                      EL Delivery & Take out
+                    </MenuItemMobileTablet>
+                  </Link>
+                  <Link href="/butcher-shop" forwardRef>
+                    <MenuItemMobileTablet
+                      name="Butcher Shop"
+                      active={router.pathname == "/butcher-shop"}
+                    >
+                      Butcher Shop
+                    </MenuItemMobileTablet>
+                  </Link>
                   <MenuItemMobileTablet
                     name="Menus"
-                    active={router.pathname == "/menu"}
+                    onClick={toggleMenu}
+                    icon={visibleMenu ? "angle down" : "angle right"}
                   ></MenuItemMobileTablet>
-                </Link>
-                <Link href="/private-dining-events" forwardRef>
-                  <MenuItemMobileTablet
-                    name="Private Dining Events"
-                    active={router.pathname == "/private-dining-events"}
+
+                  <Divider style={{ margin: "0px" }} hidden />
+                  <Transition
+                    visible={visibleMenu}
+                    animation="fade down"
+                    duration={50}
                   >
-                    Private | Dining Events
-                  </MenuItemMobileTablet>
-                </Link>
-                <Link href="/gift-card" forwardRef>
-                  <MenuItemMobileTablet
-                    name="Gift Card"
-                    active={router.pathname == "/gift-card"}
-                  ></MenuItemMobileTablet>
-                </Link>
-                <Link href="/get-in-touch" forwardRef>
+                    <div>
+                      {menuOptions.map((item) => (
+                        <MenuItemMobileTablet style={{ paddingLeft: "20px" }}>
+                          - {item.text}
+                        </MenuItemMobileTablet>
+                      ))}
+                    </div>
+                  </Transition>
+
+                  <Link href="/private-dining-events" forwardRef>
+                    <MenuItemMobileTablet
+                      name="Private Dining Events"
+                      active={router.pathname == "/private-dining-events"}
+                    >
+                      Private | Dining Events
+                    </MenuItemMobileTablet>
+                  </Link>
+                  <Link href="/gift-card" forwardRef>
+                    <MenuItemMobileTablet
+                      name="Gift Card"
+                      active={router.pathname == "/gift-card"}
+                    ></MenuItemMobileTablet>
+                  </Link>
+
                   <MenuItemMobileTablet
                     name="Contact Us"
-                    active={router.pathname == "/get-in-touch"}
+                    onClick={toggleContact}
+                    icon={visibleContact ? "angle down" : "angle right"}
                   ></MenuItemMobileTablet>
-                </Link>
+
+                  <Divider style={{ margin: "0px" }} hidden />
+                  <Transition
+                    visible={visibleContact}
+                    animation="fade down"
+                    duration={50}
+                  >
+                    <div>
+                      <Link href="/privacy-cookie-policy">
+                        <MenuItemMobileTablet style={{ paddingLeft: "20px" }}>
+                        - Privacy & Cookie Policy
+                      </MenuItemMobileTablet>
+                      </Link>
+                      <Link href="/magazine">
+                        <MenuItemMobileTablet style={{ paddingLeft: "20px" }}>
+                        - Magazine
+                      </MenuItemMobileTablet>
+                      </Link>
+                      <Link href="/get-in-touch">
+                      <MenuItemMobileTablet style={{ paddingLeft: "20px" }}>
+                        - Get In Touch
+                      </MenuItemMobileTablet>
+                      </Link>
+                      <Link href="/careers">
+                        <MenuItemMobileTablet style={{ paddingLeft: "20px" }}>
+                        - Careers
+                      </MenuItemMobileTablet>
+                      </Link>
+                    </div>
+                  </Transition>
+                </div>
               </Sidebar.Pusher>
             </Sidebar>
             {children}
