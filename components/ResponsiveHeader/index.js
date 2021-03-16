@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, createRef } from "react";
 import {
   Icon,
   Menu,
@@ -74,6 +74,7 @@ const fixedMenuStyle = {
   borderBottom: "1px solid #cf1b15",
 };
 const noFixedMenuStyle = {
+  borderBottom: "1px solid #cf1b15",
   backgroundColor: "#fff",
   transition: "height 0.1s",
   height: "60px",
@@ -83,6 +84,7 @@ const noFixedMenuStyle = {
   zIndex: "1",
 };
 const noFixedMenuStyleOnMobile = {
+  borderBottom: "1px solid #cf1b15",
   backgroundColor: "#fff",
   transition: "height 0.1s",
   height: "60px",
@@ -93,6 +95,7 @@ const noFixedMenuStyleOnMobile = {
   zIndex: "1",
 };
 const noFixedMenuStyleOnTable = {
+  borderBottom: "1px solid #cf1b15",
   backgroundColor: "#fff",
   transition: "height 0.1s",
   height: "80px",
@@ -104,51 +107,71 @@ const noFixedMenuStyleOnTable = {
 };
 
 const menuOptions = [
-  { key: 1, text: "Deal Of The Week | Steak o’clock", value: 1 },
-  { key: 2, text: "Lunch", value: 2 },
-  { key: 3, text: "All Day Dining & Drinks", value: 3 },
-  { key: 4, text: "Wine", value: 4 },
-  { key: 5, text: "Cigars & Butcher", value: 5 },
-];
-
-const contactOptions = [
-  { key: 1, text: "Get In Touch", value: 1 },
-  { key: 2, text: "Careers", value: 2 },
-  { key: 3, text: "Privacy & Cookie Policy", value: 3 },
-  { key: 4, text: "Magazine", value: 4 },
+  {
+    key: 1,
+    text: "Deal Of The Week | Steak o’clock",
+    value: 1,
+    pathname: "/menu#DealOfTheWeek",
+  },
+  { key: 2, text: "Lunch", value: 2, pathname: "/menu#AllDayDining" },
+  {
+    key: 3,
+    text: "All Day Dining & Drinks",
+    value: 3,
+    pathname: "/menu#AllDayDining",
+  },
+  { key: 4, text: "Wine", value: 4, pathname: "/menu#Wine" },
+  { key: 5, text: "Cigars & Butcher", value: 5, pathname: "/menu#Cigars" },
 ];
 
 const ResponsiveHeader = ({ children, numberCart }) => {
-  const [activeItem, setActiveItem] = useState("");
+  // const [activeItem, setActiveItem] = useState("");
   const router = useRouter();
   const navigateToLocation = (e, value) => {
-    console.log(value);
     e.preventDefault();
     router.push(value.pathname);
-    // windown.location
   };
   const locationOptions = [
     {
       key: 1,
       text: "Xuan Thuy | HCMC",
-      active: activeItem === "Xuan Thuy | HCMC" ? true : false,
+      // active: activeItem === "Xuan Thuy | HCMC" ? true : false,
       value: 1,
       pathname: "/location#XuanThuy",
-      // href: "/location#XuanThuy"
     },
     {
       key: 2,
       text: "Saigon Pearl | HCMC",
       value: 2,
-      pathname: "/location#XuanThuy",
+      pathname: "/location#SaigonPearl",
     },
-    { key: 3, text: "Hai Ba Trung | HCMC", value: 3 },
-    { key: 4, text: "An Phu | HCMC", value: 4 },
-    { key: 5, text: "Phu My Hung | HCMC", value: 5 },
-    { key: 6, text: "Bach Dang | Da Nang", value: 6 },
-    { key: 7, text: "Ba Dinh | Hanoi", value: 7 },
-    { key: 8, text: "Tay Ho | Hanoi", value: 8 },
-    { key: 9, text: "Trang Tien | Hanoi", value: 9 },
+    {
+      key: 3,
+      text: "Hai Ba Trung | HCMC",
+      value: 3,
+      pathname: "/location#HaiBaTrung",
+    },
+    { key: 4, text: "An Phu | HCMC", value: 4, pathname: "/location#AnPhu" },
+    {
+      key: 5,
+      text: "Phu My Hung | HCMC",
+      value: 5,
+      pathname: "/location#PhuMyHung",
+    },
+    {
+      key: 6,
+      text: "Bach Dang | Da Nang",
+      value: 6,
+      pathname: "/location#BachDang",
+    },
+    { key: 7, text: "Ba Dinh | Hanoi", value: 7, pathname: "/location#BaDinh" },
+    { key: 8, text: "Tay Ho | Hanoi", value: 8, pathname: "/location#TayHo" },
+    {
+      key: 9,
+      text: "Trang Tien | Hanoi",
+      value: 9,
+      pathname: "/location#TrangTien",
+    },
   ];
 
   const newsOptions = [
@@ -248,7 +271,7 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                           {locationOptions.map((item, i) => {
                             return (
                               <Dropdown.Item
-                                pathname="/location#XuanThuy"
+                                pathname={item.pathname}
                                 onClick={navigateToLocation}
                               >
                                 {item.text}
@@ -297,8 +320,20 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                         simple
                         text="Menus"
                         style={router.pathname == "/menu" ? active : unactive}
-                        options={menuOptions}
-                      ></DropdowItemLink>
+                      >
+                        <Dropdown.Menu>
+                          {menuOptions.map((item, i) => {
+                            return (
+                              <Dropdown.Item
+                                pathname={item.pathname}
+                                onClick={navigateToLocation}
+                              >
+                                {item.text}
+                              </Dropdown.Item>
+                            );
+                          })}
+                        </Dropdown.Menu>
+                      </DropdowItemLink>
                     </Link>
                   </MenuItemLink>
 
@@ -453,7 +488,11 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                     >
                       <div>
                         {locationOptions.map((item) => (
-                          <MenuItemMobileTablet style={{ paddingLeft: "20px" }}>
+                          <MenuItemMobileTablet
+                            pathname={item.pathname}
+                            onClick={navigateToLocation}
+                            style={{ paddingLeft: "20px" }}
+                          >
                             - {item.text}
                           </MenuItemMobileTablet>
                         ))}
@@ -491,7 +530,11 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                     >
                       <div>
                         {menuOptions.map((item) => (
-                          <MenuItemMobileTablet style={{ paddingLeft: "20px" }}>
+                          <MenuItemMobileTablet
+                            pathname={item.pathname}
+                            onClick={navigateToLocation}
+                            style={{ paddingLeft: "20px" }}
+                          >
                             - {item.text}
                           </MenuItemMobileTablet>
                         ))}
@@ -624,7 +667,11 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                     >
                       <div>
                         {locationOptions.map((item) => (
-                          <MenuItemMobileTablet style={{ paddingLeft: "20px" }}>
+                          <MenuItemMobileTablet
+                            pathname={item.pathname}
+                            onClick={navigateToLocation}
+                            style={{ paddingLeft: "20px" }}
+                          >
                             - {item.text}
                           </MenuItemMobileTablet>
                         ))}
@@ -662,7 +709,11 @@ const ResponsiveHeader = ({ children, numberCart }) => {
                     >
                       <div>
                         {menuOptions.map((item) => (
-                          <MenuItemMobileTablet style={{ paddingLeft: "20px" }}>
+                          <MenuItemMobileTablet
+                            pathname={item.pathname}
+                            onClick={navigateToLocation}
+                            style={{ paddingLeft: "20px" }}
+                          >
                             - {item.text}
                           </MenuItemMobileTablet>
                         ))}

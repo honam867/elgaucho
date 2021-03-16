@@ -160,10 +160,9 @@ const Location = () => {
 
       </Container>
       {/* NOTE Xuân Thủy */}
-      <Container style={{ background: "#eaeaea", paddingTop: "20px" }} fluid>
-        <section id="XuanThuy">
-          Xuan thuy
+      <section id="XuanThuy">
         </section>
+      <Container style={{ background: "#eaeaea", paddingTop: "42px" }} fluid>
         <Header textAlign='center' as='h3' style={{ fontWeight: "400" }}>
           77 XUAN THUY, THAO DIEN WARD, DISTRICT 2, HCMC
         </Header>
@@ -234,7 +233,9 @@ const Location = () => {
         </Container>
       </Container>
       {/* NOTE SaiGon Pearl */}
-      <Container style={{ paddingTop: "20px" }} fluid>
+      <section id="SaigonPearl">
+        </section>
+      <Container style={{ paddingTop: "40px" }} fluid>
         <Header textAlign='center' as='h3' style={{ fontWeight: "400" }}>
           GF, SAIGON PEARL, 92A NGUYEN HUU CANH, WARD 22, BINH THANH DIST., HCMC
         </Header>
@@ -303,10 +304,13 @@ const Location = () => {
         <Container textAlign="center" style={{ paddingBottom: "20px" }}>
           <ButtonCustomComponent name="Private Dining | Event Request" url="/private-dining-events" />
         </Container>
+   
       </Container>
-
+      <section id="HaiBaTrung">
+        </section>
       {/* NOTE HAI BA TRUNG*/}
-      <Container style={{ background: "#eaeaea", marginTop: "15px", paddingTop: "20px", textAlign: "center" }} fluid>
+      
+      <Container  style={{ background: "#eaeaea", marginTop: "15px", paddingTop: "40px", textAlign: "center" }} fluid>
         <Header textAlign='center' as='h3' style={{ fontWeight: "400" }}>
           74/1 HAI BA TRUNG, BEN NGHE WARD, DIST. 1, HCMC
                 </Header>

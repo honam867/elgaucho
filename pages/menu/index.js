@@ -45,10 +45,13 @@ const MenuPage = () => {
 
         </Container>
         <Container textAlign='center' style={{ padding: "10px" }}>
+    
           <CustomHeader as='h2'>
             ENJOY THE TASTE OF OUR ARGENTINA
                     </CustomHeader>
           <ButtonCustomComponent name="Order Now | El Delivery | Take Away" url="/delivery" />
+          <section id="DealOfTheWeek">
+          </section>
               <Responsive onDesktop={
                 ImageMenuPageData.ImageMenuBigSize.map(item => {
                   return  <Image key={item.id} src={item.imgUrl} fluid style={{ margin: "auto", width: "60%" }} />
@@ -62,7 +65,10 @@ const MenuPage = () => {
                   return  <Image key={item.id} src={item.imgUrl} fluid style={{ margin: "auto", width: "90%" }} />
                 })
               }>
+         
               </Responsive>
+              <section id="AllDayDining">
+                </section>
         </Container>
         <Container textAlign='center' style={{ padding: "10px" }}>
           <CustomHeader as='h2'>
@@ -120,6 +126,7 @@ const MenuPage = () => {
               Please note that our drink list might slightly vary by availability and location, this applies especially to our coastal and island locations. If you are visiting us with having a very specific drink in mind, we are recommending contacting the restaurant location in advance to enquire the drink’s availability.
                         </p>
           </Container>
+    
           <Responsive onDesktop={() => {
                return <Image src={ImageMenuPageData.Drink.imgUrl} fluid style={{ margin: "auto", width: "60%" }} />
               }} onTablet={() => {
@@ -128,8 +135,12 @@ const MenuPage = () => {
                 return  <Image src={ImageMenuPageData.Drink.imgUrl} fluid style={{ margin: "auto", width: "90%" }} />
               }}>
               </Responsive>
+         
         </Container>
+
         <Container textAlign='center' style={{ padding: "10px" }}>
+        <section id="Wine">
+                </section>
           <CustomHeader as='h2'>
             WINE TREASURES
                     </CustomHeader>
@@ -156,6 +167,8 @@ const MenuPage = () => {
               }}>
               </Responsive>
         </Container>
+        <section id="Cigars">
+                </section>
         <Container textAlign='center' style={{ padding: "10px" }}>
           <CustomHeader as='h2'>
             FINEST IMPORTED CIGARS

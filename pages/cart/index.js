@@ -6,12 +6,19 @@ import {
   Table,
   Icon,
   Input,
+  Item,
+  Modal,
+  Label,
 } from "semantic-ui-react";
 import styled from "styled-components";
 import Layout from "../../components/ResponsiveHeader/index";
 import Responsive from "../../components/Responsive";
 import { connect } from "react-redux";
-import { IncreaseQuantity, DecreaseQuantity, DeleteCart } from "../../redux/cart/cart.actions";
+import {
+  IncreaseQuantity,
+  DecreaseQuantity,
+  DeleteCart,
+} from "../../redux/cart/cart.actions";
 import ButtonCustomComponent from "../../components/ButtonCustomComponent";
 const CustomHeader = styled(Header)`
   color: black !important;
@@ -31,32 +38,40 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
   let listCart = [];
   let totalCart = 0;
   let VAT = 0;
-  let cartTotal = 0
+  let priceDiscount = 0;
+  let cartTotal = 0;
+  let cartTolalDiscount = 0 ;
   Object.keys(items.Carts).forEach((item) => {
     // let priceAfterParse = items.Carts[item].prices.replace(/[^0-9]/g, "");
     // let priceOfProduct = Number(priceAfterParse)
     totalCart += items.Carts[item].quantity * items.Carts[item].price;
     VAT = (totalCart * 10) / 100;
+    priceDiscount = (totalCart * 50) / 100;
     cartTotal = totalCart + VAT;
-    listCart.push(items.Carts[item])
-  })
+    cartTolalDiscount = totalCart - priceDiscount + VAT;
+    listCart.push(items.Carts[item]);
+  }); 
+  const [open, setOpen] = React.useState(false);
+  const [isActiveCode, setActive] = React.useState(false);
+  function applyCode() {
+    setOpen(false);
+    setActive(true);
+  }
   return (
-    <Layout >
+    <Layout>
       <div style={{ backgroundColor: "whitesmoke", paddingTop: "5%" }}>
         <Container textAlign="center">
           <p style={{ color: "#cf1b15", fontWeight: "bold" }}>
-            NOTE: If your prefer to pick up your order please note that when
-            you check out in the “comments – message” area of the check-out
-            process. We will call you to confirm your preference of pick-up
-            time.
-            </p>
+            NOTE: If your prefer to pick up your order please note that when you
+            check out in the “comments – message” area of the check-out process.
+            We will call you to confirm your preference of pick-up time.
+          </p>
           <CustomHeader as="h2">
-            Please note that the minimum order for El Delivery is 1,000,000
-            VND.
-            </CustomHeader>
+            Please note that the minimum order for El Delivery is 1,000,000 VND.
+          </CustomHeader>
           <p style={{ color: "#cf1b15", fontWeight: "bold" }}>
             Place your order between 11:00 and 22:00 Daily for Delivery
-            </p>
+          </p>
           <p>Questions?</p>
           <p>
             Call Us HCMC:{" "}
@@ -95,75 +110,91 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                       <Table.HeaderCell></Table.HeaderCell>
                       <Table.HeaderCell textAlign="center">
                         PRODUCT
-                        </Table.HeaderCell>
+                      </Table.HeaderCell>
                       <Table.HeaderCell textAlign="center">
                         PRICE
-                        </Table.HeaderCell>
+                      </Table.HeaderCell>
                       <Table.HeaderCell textAlign="center">
                         QUANTITY
-                        </Table.HeaderCell>
+                      </Table.HeaderCell>
                       <Table.HeaderCell textAlign="center">
                         SUBTOTAL
-                        </Table.HeaderCell>
+                      </Table.HeaderCell>
                     </Table.Row>
                   </Table.Header>
                   <Table.Body>
                     {/* TODO loop product here ! */}
-                    {
-                      listCart.length > 0 ?
-                        listCart.map((item, i) => {
-                          return (
-                            <Table.Row key={i}>
-                              <Table.Cell width="1" textAlign="center">
-                                <Icon onClick={() => DeleteCart(i)} style={{ cursor: "pointer" }} name="times" size="small" color="red" />
-                              </Table.Cell>
-                              <Table.Cell width="2">
-                                <Image
-                                  size="tiny"
-                                  src={item.imageUrl}
+                    {listCart.length > 0 ? (
+                      listCart.map((item, i) => {
+                        return (
+                          <Table.Row key={i}>
+                            <Table.Cell width="1" textAlign="center">
+                              <Icon
+                                onClick={() => DeleteCart(i)}
+                                style={{ cursor: "pointer" }}
+                                name="times"
+                                size="small"
+                                color="red"
+                              />
+                            </Table.Cell>
+                            <Table.Cell width="2">
+                              <Image size="tiny" src={item.imageUrl} />
+                            </Table.Cell>
+                            <Table.Cell width="6">
+                              <a style={{ fontSize: "12px" }}>{item.name}</a>
+                            </Table.Cell>
+                            <Table.Cell width="3" textAlign="center">
+                              <span className="woocommerce-Price-amount amount">
+                                <bdi>
+                                  &nbsp;VND {item.price.toLocaleString("es-US")}
+                                </bdi>
+                              </span>
+                            </Table.Cell>
+                            <Table.Cell width="1">
+                              <Input
+                                style={{ width: "40%", marginLeft: "15%" }}
+                                size="mini"
+                                type="text"
+                              >
+                                <Button
+                                  onClick={() => IncreaseQuantity(i)}
+                                  icon
+                                >
+                                  <Icon name="plus" />
+                                </Button>
+                                <input
+                                  value={item.quantity}
+                                  style={{ textAlign: "center" }}
                                 />
-                              </Table.Cell>
-                              <Table.Cell width="6">
-                                <a style={{ fontSize: "12px" }}>
-                                  {item.name}
-                                </a>
-                              </Table.Cell>
-                              <Table.Cell width="3" textAlign="center">
-                                <span className="woocommerce-Price-amount amount">
-                                  <bdi>
-                                    &nbsp;VND {item.price.toLocaleString("es-US")}
-                                  </bdi>
-                                </span>
-                              </Table.Cell>
-                              <Table.Cell width="1"  >
-                                <Input style={{ width: "40%", marginLeft: "15%" }} size="mini" type="text">
-                                  <Button onClick={() => IncreaseQuantity(i)} icon>
-                                    <Icon name="plus" />
-                                  </Button>
-                                  <input value={item.quantity} style={{ textAlign: "center" }} />
-                                  <Button style={{ marginLeft: "3px" }} size='mini' onClick={() => DecreaseQuantity(i)} icon>
-                                    <Icon name="minus" />
-                                  </Button>
-                                </Input>
-                              </Table.Cell>
-                              <Table.Cell textAlign="center" width="3">
-                                <span className="woocommerce-Price-amount amount">
-                                  <bdi>
-                                    <span className="woocommerce-Price-currencySymbol">
-                                      VND
-                                      </span>
-                                      &nbsp;{item.totalPriceOfProduct.toLocaleString("es-US")}
-                                  </bdi>
-                                </span>
-                              </Table.Cell>
-                            </Table.Row>
-                          )
-                        })
-
-                        :
-                        <div>No item</div>
-                    }
-
+                                <Button
+                                  style={{ marginLeft: "3px" }}
+                                  size="mini"
+                                  onClick={() => DecreaseQuantity(i)}
+                                  icon
+                                >
+                                  <Icon name="minus" />
+                                </Button>
+                              </Input>
+                            </Table.Cell>
+                            <Table.Cell textAlign="center" width="3">
+                              <span className="woocommerce-Price-amount amount">
+                                <bdi>
+                                  <span className="woocommerce-Price-currencySymbol">
+                                    VND
+                                  </span>
+                                  &nbsp;
+                                  {item.totalPriceOfProduct.toLocaleString(
+                                    "es-US"
+                                  )}
+                                </bdi>
+                              </span>
+                            </Table.Cell>
+                          </Table.Row>
+                        );
+                      })
+                    ) : (
+                      <div>No item</div>
+                    )}
                   </Table.Body>
                 </Table>
                 <CustomHeader as="h3">CART TOTALS</CustomHeader>
@@ -179,31 +210,177 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                     <Table.Body>
                       <Table.Row>
                         <Table.Cell>SUBTOTAL</Table.Cell>
-                        <Table.Cell>VND {totalCart.toLocaleString('en-US')}</Table.Cell>
+                        <Table.Cell>
+                          VND {totalCart.toLocaleString("en-US")}
+                        </Table.Cell>
                       </Table.Row>
                       <Table.Row>
                         <Table.Cell>SHIPPING</Table.Cell>
                         <Table.Cell>
-                          Free shipping Shipping options will be updated
-                          during checkout.
-                          </Table.Cell>
+                          Free shipping Shipping options will be updated during
+                          checkout.
+                        </Table.Cell>
                       </Table.Row>
                       <Table.Row>
                         <Table.Cell>VAT</Table.Cell>
-                        <Table.Cell>VND {VAT.toLocaleString('en-US')}</Table.Cell>
+                        <Table.Cell>
+                          VND {VAT.toLocaleString("en-US")}
+                        </Table.Cell>
+                      </Table.Row>
+                      <Table.Row>
+                        <Table.Cell>Voucher</Table.Cell>
+                        <Table.Cell>
+                          {isActiveCode ? (
+                            <div>
+                              <Label color = 'teal' size = "large">
+                                 XQW12
+                              </Label>
+                              <Button onClick = {() => setActive(false)} floated="right" compact>
+                                Cancel
+                              </Button>
+                            </div>
+                          ) : (
+                            <Modal
+                              onClose={() => setOpen(false)}
+                              onOpen={() => setOpen(true)}
+                              open={open}
+                              trigger={
+                                <Button floated="right" compact>
+                                  Choice Voucher
+                                </Button>
+                              }
+                              size="tiny"
+                            >
+                              <Modal.Content scrolling>
+                                <Item.Group divided>
+                                  <Item>
+                                    <Item.Image
+                                      size="small"
+                                      src="https://react.semantic-ui.com/images/wireframe/image.png"
+                                    />
+                                    <Item.Content>
+                                      <Item.Header as="a">
+                                        Discount 50%
+                                      </Item.Header>
+                                      <Item.Meta>
+                                        <span className="cinema">
+                                          Date: 20/3/2021
+                                        </span>
+                                      </Item.Meta>
+                                      <Item.Description>
+                                        <p>Apply all</p>
+                                      </Item.Description>
+                                      <Item.Extra>
+                                        <Button
+                                          onClick={applyCode}
+                                          primary
+                                          floated="right"
+                                        >
+                                          Apply
+                                        </Button>
+                                        <Label>X2</Label>
+                                      </Item.Extra>
+                                    </Item.Content>
+                                  </Item>
+
+                                  <Item>
+                                    <Item.Image
+                                      size="small"
+                                      src="https://react.semantic-ui.com/images/wireframe/image.png"
+                                    />
+                                    <Item.Content>
+                                      <Item.Header as="a">
+                                        Discount 50%
+                                      </Item.Header>
+                                      <Item.Meta>
+                                        <span className="cinema">
+                                          Date: 20/3/2021
+                                        </span>
+                                      </Item.Meta>
+                                      <Item.Description>
+                                        <p>Apply all</p>
+                                      </Item.Description>
+                                      <Item.Extra>
+                                        <Button onClick={applyCode} primary floated="right">
+                                          Apply
+                                        </Button>
+                                        <Label>X2</Label>
+                                      </Item.Extra>
+                                    </Item.Content>
+                                  </Item>
+                                  <Item>
+                                    <Item.Image
+                                      size="small"
+                                      src="https://react.semantic-ui.com/images/wireframe/image.png"
+                                    />
+                                    <Item.Content>
+                                      <Item.Header as="a">
+                                        Discount 50%
+                                      </Item.Header>
+                                      <Item.Meta>
+                                        <span className="cinema">
+                                          Date: 20/3/2021
+                                        </span>
+                                      </Item.Meta>
+                                      <Item.Description>
+                                        <p>Apply all</p>
+                                      </Item.Description>
+                                      <Item.Extra>
+                                        <Button onClick={applyCode} primary floated="right">
+                                          Apply
+                                        </Button>
+                                        <Label>X2</Label>
+                                      </Item.Extra>
+                                    </Item.Content>
+                                  </Item>
+                                </Item.Group>
+                              </Modal.Content>
+                              <Modal.Actions>
+                                <Button
+                                  color="red"
+                                  onClick={() => setOpen(false)}
+                                >
+                                  Cancel
+                                </Button>
+                              </Modal.Actions>
+                            </Modal>
+                          )}
+                        </Table.Cell>
                       </Table.Row>
                       <Table.Row>
                         <Table.Cell>TOTAL</Table.Cell>
-                        <Table.Cell> <CustomStrong>VND {cartTotal.toLocaleString('en-US')}</CustomStrong></Table.Cell>
+                        <Table.Cell>
+                          {
+                            isActiveCode ? 
+                          <div>
+                          <CustomStrong>
+                          <strike>{cartTotal.toLocaleString("en-US")} VND</strike>
+                          </CustomStrong>
+                          <CustomStrong>
+                          &nbsp; {priceDiscount.toLocaleString("en-US")} VND
+                          </CustomStrong>
+                          </div>
+                            :
+                            <CustomStrong>
+                           {cartTotal.toLocaleString("en-US")} VND
+                            </CustomStrong>
+                          }
+                        </Table.Cell>
                       </Table.Row>
                     </Table.Body>
                   </Table>
                 </div>
 
-                {
-                  listCart.length > 0 ? <ButtonCustomComponent name="Proceed to checkout" url="/checkout" /> :
-                    <CustomButton style={{ display: 'none' }}>Proceed to checkout</CustomButton>
-                }
+                {listCart.length > 0 ? (
+                  <ButtonCustomComponent
+                    name="Proceed to checkout"
+                    url="/checkout"
+                  />
+                ) : (
+                  <CustomButton style={{ display: "none" }}>
+                    Proceed to checkout
+                  </CustomButton>
+                )}
               </Container>
             </div>
           );
@@ -219,74 +396,89 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                       <Table.HeaderCell></Table.HeaderCell>
                       <Table.HeaderCell textAlign="center">
                         PRODUCT
-                          </Table.HeaderCell>
+                      </Table.HeaderCell>
                       <Table.HeaderCell textAlign="center">
                         PRICE
-                          </Table.HeaderCell>
+                      </Table.HeaderCell>
                       <Table.HeaderCell textAlign="center">
                         QUANTITY
-                          </Table.HeaderCell>
+                      </Table.HeaderCell>
                       <Table.HeaderCell textAlign="center">
                         SUBTOTAL
-                          </Table.HeaderCell>
+                      </Table.HeaderCell>
                     </Table.Row>
                   </Table.Header>
                   <Table.Body>
                     {/* TODO loop product here ! */}
-                    {
-                      listCart.length > 0 ?
-                        listCart.map((item, i) => {
-                          return (
-                            <Table.Row key={i}>
-                              <Table.Cell width="1" textAlign="center">
-                                <Icon onClick={() => DeleteCart(i)} style={{ cursor: "pointer" }} name="times" size="small" color="red" />
-                              </Table.Cell>
-                              <Table.Cell width="2">
-                                <Image
-                                  size="tiny"
-                                  src={item.urlImage}
+                    {listCart.length > 0 ? (
+                      listCart.map((item, i) => {
+                        return (
+                          <Table.Row key={i}>
+                            <Table.Cell width="1" textAlign="center">
+                              <Icon
+                                onClick={() => DeleteCart(i)}
+                                style={{ cursor: "pointer" }}
+                                name="times"
+                                size="small"
+                                color="red"
+                              />
+                            </Table.Cell>
+                            <Table.Cell width="2">
+                              <Image size="tiny" src={item.urlImage} />
+                            </Table.Cell>
+                            <Table.Cell width="6">
+                              <a style={{ fontSize: "12px" }}>{item.name}</a>
+                            </Table.Cell>
+                            <Table.Cell width="3" textAlign="center">
+                              <span className="woocommerce-Price-amount amount">
+                                <bdi>&nbsp;{item.prices}</bdi>
+                              </span>
+                            </Table.Cell>
+                            <Table.Cell width="1">
+                              <Input
+                                style={{ width: "40%", marginLeft: "15%" }}
+                                size="mini"
+                                type="text"
+                              >
+                                <Button
+                                  onClick={() => IncreaseQuantity(i)}
+                                  icon
+                                >
+                                  <Icon name="plus" />
+                                </Button>
+                                <input
+                                  value={item.quantity}
+                                  style={{ textAlign: "center" }}
                                 />
-                              </Table.Cell>
-                              <Table.Cell width="6">
-                                <a style={{ fontSize: "12px" }}>
-                                  {item.name}
-                                </a>
-                              </Table.Cell>
-                              <Table.Cell width="3" textAlign="center">
-                                <span className="woocommerce-Price-amount amount">
-                                  <bdi>
-                                    &nbsp;{item.prices}
-                                  </bdi>
-                                </span>
-                              </Table.Cell>
-                              <Table.Cell width="1">
-                                <Input style={{ width: "40%", marginLeft: "15%" }} size="mini" type="text">
-                                  <Button onClick={() => IncreaseQuantity(i)} icon>
-                                    <Icon name="plus" />
-                                  </Button>
-                                  <input value={item.quantity} style={{ textAlign: "center" }} />
-                                  <Button style={{ marginLeft: "3px" }} size='mini' onClick={() => DecreaseQuantity(i)} icon>
-                                    <Icon name="minus" />
-                                  </Button>
-                                </Input>
-                              </Table.Cell>
-                              <Table.Cell textAlign="center" width="3">
-                                <span className="woocommerce-Price-amount amount">
-                                  <bdi>
-                                    <span className="woocommerce-Price-currencySymbol">
-                                      VND
-                                      </span>
-                                      &nbsp;{item.totalPriceOfProduct.toLocaleString('en-US')}
-                                  </bdi>
-                                </span>
-                              </Table.Cell>
-                            </Table.Row>
-                          )
-                        })
-
-                        :
-                        <div>No item</div>
-                    }
+                                <Button
+                                  style={{ marginLeft: "3px" }}
+                                  size="mini"
+                                  onClick={() => DecreaseQuantity(i)}
+                                  icon
+                                >
+                                  <Icon name="minus" />
+                                </Button>
+                              </Input>
+                            </Table.Cell>
+                            <Table.Cell textAlign="center" width="3">
+                              <span className="woocommerce-Price-amount amount">
+                                <bdi>
+                                  <span className="woocommerce-Price-currencySymbol">
+                                    VND
+                                  </span>
+                                  &nbsp;
+                                  {item.totalPriceOfProduct.toLocaleString(
+                                    "en-US"
+                                  )}
+                                </bdi>
+                              </span>
+                            </Table.Cell>
+                          </Table.Row>
+                        );
+                      })
+                    ) : (
+                      <div>No item</div>
+                    )}
                   </Table.Body>
                   <Table.Footer fullWidth>
                     <Table.Row>
@@ -300,7 +492,7 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                           size="small"
                         >
                           <Icon name="undo" /> Update cart
-                            </Button>
+                        </Button>
                       </Table.HeaderCell>
                     </Table.Row>
                   </Table.Footer>
@@ -318,30 +510,173 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                     <Table.Body>
                       <Table.Row>
                         <Table.Cell>SUBTOTAL</Table.Cell>
-                        <Table.Cell>VND {totalCart.toLocaleString('en-US')}</Table.Cell>
+                        <Table.Cell>
+                          VND {totalCart.toLocaleString("en-US")}
+                        </Table.Cell>
                       </Table.Row>
                       <Table.Row>
                         <Table.Cell>SHIPPING</Table.Cell>
                         <Table.Cell>
-                          Free shipping Shipping options will be updated
-                          during checkout.
-                          </Table.Cell>
+                          Free shipping Shipping options will be updated during
+                          checkout.
+                        </Table.Cell>
                       </Table.Row>
                       <Table.Row>
                         <Table.Cell>VAT</Table.Cell>
-                        <Table.Cell>VND {VAT.toLocaleString('en-US')}</Table.Cell>
+                        <Table.Cell>
+                          VND {VAT.toLocaleString("en-US")}
+                        </Table.Cell>
+                      </Table.Row>
+                      <Table.Row>
+                        <Table.Cell>Voucher</Table.Cell>
+                        <Table.Cell>
+                          {isActiveCode ? (
+                            <div>
+                              <Label color = 'teal' size = "large">
+                                 XQW12
+                              </Label>
+                              <Button onClick = {() => setActive(false)} floated="right" compact>
+                                Cancel
+                              </Button>
+                            </div>
+                          ) : (
+                            <Modal
+                              onClose={() => setOpen(false)}
+                              onOpen={() => setOpen(true)}
+                              open={open}
+                              trigger={
+                                <Button floated="right" compact>
+                                  Choice Voucher
+                                </Button>
+                              }
+                              size="tiny"
+                            >
+                              <Modal.Content scrolling>
+                                <Item.Group divided>
+                                  <Item>
+                                    <Item.Image
+                                      size="small"
+                                      src="https://react.semantic-ui.com/images/wireframe/image.png"
+                                    />
+                                    <Item.Content>
+                                      <Item.Header as="a">
+                                        Discount 50%
+                                      </Item.Header>
+                                      <Item.Meta>
+                                        <span className="cinema">
+                                          Date: 20/3/2021
+                                        </span>
+                                      </Item.Meta>
+                                      <Item.Description>
+                                        <p>Apply all</p>
+                                      </Item.Description>
+                                      <Item.Extra>
+                                        <Button
+                                          onClick={applyCode}
+                                          primary
+                                          floated="right"
+                                        >
+                                          Apply
+                                        </Button>
+                                        <Label>X2</Label>
+                                      </Item.Extra>
+                                    </Item.Content>
+                                  </Item>
+
+                                  <Item>
+                                    <Item.Image
+                                      size="small"
+                                      src="https://react.semantic-ui.com/images/wireframe/image.png"
+                                    />
+                                    <Item.Content>
+                                      <Item.Header as="a">
+                                        Discount 50%
+                                      </Item.Header>
+                                      <Item.Meta>
+                                        <span className="cinema">
+                                          Date: 20/3/2021
+                                        </span>
+                                      </Item.Meta>
+                                      <Item.Description>
+                                        <p>Apply all</p>
+                                      </Item.Description>
+                                      <Item.Extra>
+                                        <Button onClick={applyCode} primary floated="right">
+                                          Apply
+                                        </Button>
+                                        <Label>X2</Label>
+                                      </Item.Extra>
+                                    </Item.Content>
+                                  </Item>
+                                  <Item>
+                                    <Item.Image
+                                      size="small"
+                                      src="https://react.semantic-ui.com/images/wireframe/image.png"
+                                    />
+                                    <Item.Content>
+                                      <Item.Header as="a">
+                                        Discount 50%
+                                      </Item.Header>
+                                      <Item.Meta>
+                                        <span className="cinema">
+                                          Date: 20/3/2021
+                                        </span>
+                                      </Item.Meta>
+                                      <Item.Description>
+                                        <p>Apply all</p>
+                                      </Item.Description>
+                                      <Item.Extra>
+                                        <Button onClick={applyCode} primary floated="right">
+                                          Apply
+                                        </Button>
+                                        <Label>X2</Label>
+                                      </Item.Extra>
+                                    </Item.Content>
+                                  </Item>
+                                </Item.Group>
+                              </Modal.Content>
+                              <Modal.Actions>
+                                <Button
+                                  color="red"
+                                  onClick={() => setOpen(false)}
+                                >
+                                  Cancel
+                                </Button>
+                              </Modal.Actions>
+                            </Modal>
+                          )}
+                        </Table.Cell>
                       </Table.Row>
                       <Table.Row>
                         <Table.Cell>TOTAL</Table.Cell>
-                        <Table.Cell> <CustomStrong>VND {cartTotal.toLocaleString('en-US')}</CustomStrong></Table.Cell>
+                        <Table.Cell>
+                          {
+                            isActiveCode ? 
+                          <div>
+                          <CustomStrong>
+                          <strike>{cartTotal.toLocaleString("en-US")} VND</strike>
+                          </CustomStrong>
+                          <CustomStrong>
+                          &nbsp; {priceDiscount.toLocaleString("en-US")} VND
+                          </CustomStrong>
+                          </div>
+                            :
+                            <CustomStrong>
+                           {cartTotal.toLocaleString("en-US")} VND
+                            </CustomStrong>
+                          }
+                        </Table.Cell>
                       </Table.Row>
                     </Table.Body>
                   </Table>
                 </div>
-                {
-                  listCart.length > 0 ? <CustomButton>Proceed to checkout</CustomButton> :
-                    <CustomButton style={{ display: 'none' }}>Proceed to checkout</CustomButton>
-                }
+                {listCart.length > 0 ? (
+                  <CustomButton>Proceed to checkout</CustomButton>
+                ) : (
+                  <CustomButton style={{ display: "none" }}>
+                    Proceed to checkout
+                  </CustomButton>
+                )}
               </Container>
             </div>
           );
@@ -356,41 +691,41 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                       <Table.HeaderCell singleLine></Table.HeaderCell>
                       <Table.HeaderCell textAlign="center">
                         PRODUCT
-                        </Table.HeaderCell>
+                      </Table.HeaderCell>
                       <Table.HeaderCell textAlign="center">
                         PRICE
-                        </Table.HeaderCell>
+                      </Table.HeaderCell>
                     </Table.Row>
                   </Table.Header>
                   <Table.Body>
-                    {
-                      listCart.length > 0 ?
-                        listCart.map((item, i) => {
-                          return (
-                            <Table.Row key={i}>
-                              <Table.Cell width="1" textAlign="center">
-                                <Icon onClick={() => DeleteCart(i)} style={{ cursor: "pointer" }} name="times" size="small" color="red" />
-                              </Table.Cell>
+                    {listCart.length > 0 ? (
+                      listCart.map((item, i) => {
+                        return (
+                          <Table.Row key={i}>
+                            <Table.Cell width="1" textAlign="center">
+                              <Icon
+                                onClick={() => DeleteCart(i)}
+                                style={{ cursor: "pointer" }}
+                                name="times"
+                                size="small"
+                                color="red"
+                              />
+                            </Table.Cell>
 
-                              <Table.Cell width="4">
-                                <a style={{ fontSize: "12px" }}>
-                                  {item.name}
-                                </a>
-                              </Table.Cell>
-                              <Table.Cell width="2" textAlign="center">
-                                <span className="woocommerce-Price-amount amount">
-                                  <bdi>
-                                    &nbsp;{item.prices}
-                                  </bdi>
-                                </span>
-                              </Table.Cell>
-                            </Table.Row>
-                          )
-                        })
-
-                        :
-                        <div>No item</div>
-                    }
+                            <Table.Cell width="4">
+                              <a style={{ fontSize: "12px" }}>{item.name}</a>
+                            </Table.Cell>
+                            <Table.Cell width="2" textAlign="center">
+                              <span className="woocommerce-Price-amount amount">
+                                <bdi>&nbsp;{item.prices}</bdi>
+                              </span>
+                            </Table.Cell>
+                          </Table.Row>
+                        );
+                      })
+                    ) : (
+                      <div>No item</div>
+                    )}
                   </Table.Body>
                   <Table.Footer fullWidth>
                     <Table.Row>
@@ -404,7 +739,7 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                           size="small"
                         >
                           <Icon name="undo" /> Update cart
-                          </Button>
+                        </Button>
                       </Table.HeaderCell>
                     </Table.Row>
                   </Table.Footer>
@@ -419,30 +754,173 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                     <Table.Body>
                       <Table.Row>
                         <Table.Cell>SUBTOTAL</Table.Cell>
-                        <Table.Cell>VND {totalCart.toLocaleString('en-US')}</Table.Cell>
+                        <Table.Cell>
+                          VND {totalCart.toLocaleString("en-US")}
+                        </Table.Cell>
                       </Table.Row>
                       <Table.Row>
                         <Table.Cell>SHIPPING</Table.Cell>
                         <Table.Cell>
-                          Free shipping Shipping options will be updated
-                          during checkout.
-                          </Table.Cell>
+                          Free shipping Shipping options will be updated during
+                          checkout.
+                        </Table.Cell>
                       </Table.Row>
                       <Table.Row>
                         <Table.Cell>VAT</Table.Cell>
-                        <Table.Cell>VND {VAT.toLocaleString('en-US')}</Table.Cell>
+                        <Table.Cell>
+                          VND {VAT.toLocaleString("en-US")}
+                        </Table.Cell>
+                      </Table.Row>
+                      <Table.Row>
+                        <Table.Cell>Voucher</Table.Cell>
+                        <Table.Cell>
+                          {isActiveCode ? (
+                            <div>
+                              <Label color = 'teal' size = "large">
+                                 XQW12
+                              </Label>
+                              <Button onClick = {() => setActive(false)} floated="right" compact>
+                                Cancel
+                              </Button>
+                            </div>
+                          ) : (
+                            <Modal
+                              onClose={() => setOpen(false)}
+                              onOpen={() => setOpen(true)}
+                              open={open}
+                              trigger={
+                                <Button floated="right" compact>
+                                  Voucher
+                                </Button>
+                              }
+                              size="tiny"
+                            >
+                              <Modal.Content scrolling>
+                                <Item.Group divided>
+                                  <Item>
+                                    <Item.Image
+                                      size="tiny"
+                                      src="https://react.semantic-ui.com/images/wireframe/image.png"
+                                    />
+                                    <Item.Content style = {{width: "270px"}} verticalAlign='middle'>
+                                      <Item.Header as="a">
+                                        Discount 50%
+                                      </Item.Header>
+                                      <Item.Meta>
+                                        <span className="cinema">
+                                          Date: 20/3/2021
+                                        </span>
+                                      </Item.Meta>
+                                      <Item.Description>
+                                        <p>Apply all</p>
+                                      </Item.Description>
+                                      <Item.Extra>
+                                        <Button
+                                          onClick={applyCode}
+                                          primary
+                                          floated="right"
+                                        >
+                                          Apply
+                                        </Button>
+                                        <Label>X2</Label>
+                                      </Item.Extra>
+                                    </Item.Content>
+                                  </Item>
+
+                                  <Item>
+                                    <Item.Image
+                                      size="small"
+                                      src="https://react.semantic-ui.com/images/wireframe/image.png"
+                                    />
+                                     <Item.Content style = {{width: "270px"}} verticalAlign='middle'>
+                                      <Item.Header as="a">
+                                        Discount 50%
+                                      </Item.Header>
+                                      <Item.Meta>
+                                        <span className="cinema">
+                                          Date: 20/3/2021
+                                        </span>
+                                      </Item.Meta>
+                                      <Item.Description>
+                                        <p>Apply all</p>
+                                      </Item.Description>
+                                      <Item.Extra>
+                                        <Button onClick={applyCode} primary floated="right">
+                                          Apply
+                                        </Button>
+                                        <Label>X2</Label>
+                                      </Item.Extra>
+                                    </Item.Content>
+                                  </Item>
+                                  <Item>
+                                    <Item.Image
+                                      size="small"
+                                      src="https://react.semantic-ui.com/images/wireframe/image.png"
+                                    />
+                                   <Item.Content style = {{width: "270px"}} verticalAlign='middle'>
+                                      <Item.Header as="a">
+                                        Discount 50%
+                                      </Item.Header>
+                                      <Item.Meta>
+                                        <span className="cinema">
+                                          Date: 20/3/2021
+                                        </span>
+                                      </Item.Meta>
+                                      <Item.Description>
+                                        <p>Apply all</p>
+                                      </Item.Description>
+                                      <Item.Extra>
+                                        <Button onClick={applyCode} primary floated="right">
+                                          Apply
+                                        </Button>
+                                        <Label>X2</Label>
+                                      </Item.Extra>
+                                    </Item.Content>
+                                  </Item>
+                                </Item.Group>
+                              </Modal.Content>
+                              <Modal.Actions>
+                                <Button
+                                  color="red"
+                                  onClick={() => setOpen(false)}
+                                >
+                                  Cancel
+                                </Button>
+                              </Modal.Actions>
+                            </Modal>
+                          )}
+                        </Table.Cell>
                       </Table.Row>
                       <Table.Row>
                         <Table.Cell>TOTAL</Table.Cell>
-                        <Table.Cell> <CustomStrong>VND {cartTotal.toLocaleString('en-US')}</CustomStrong></Table.Cell>
+                        <Table.Cell>
+                          {
+                            isActiveCode ? 
+                          <div>
+                          <CustomStrong>
+                          <strike>{cartTotal.toLocaleString("en-US")} VND</strike>
+                          </CustomStrong>
+                          <CustomStrong>
+                          &nbsp; {priceDiscount.toLocaleString("en-US")} VND
+                          </CustomStrong>
+                          </div>
+                            :
+                            <CustomStrong>
+                           {cartTotal.toLocaleString("en-US")} VND
+                            </CustomStrong>
+                          }
+                        </Table.Cell>
                       </Table.Row>
                     </Table.Body>
                   </Table>
                 </div>
-                {
-                  listCart.length > 0 ? <CustomButton>Proceed to checkout</CustomButton> :
-                    <CustomButton style={{ display: 'none' }}>Proceed to checkout</CustomButton>
-                }
+                {listCart.length > 0 ? (
+                  <CustomButton>Proceed to checkout</CustomButton>
+                ) : (
+                  <CustomButton style={{ display: "none" }}>
+                    Proceed to checkout
+                  </CustomButton>
+                )}
               </Container>
             </div>
           );
@@ -455,7 +933,11 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
 };
 const mapStateToProps = (state) => {
   return {
-    items: state.cart
-  }
-}
-export default connect(mapStateToProps, { IncreaseQuantity, DecreaseQuantity, DeleteCart })(Cart);
+    items: state.cart,
+  };
+};
+export default connect(mapStateToProps, {
+  IncreaseQuantity,
+  DecreaseQuantity,
+  DeleteCart,
+})(Cart);
