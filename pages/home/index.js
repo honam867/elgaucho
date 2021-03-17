@@ -100,7 +100,7 @@ const HomeFullSlider = () => {
         return (
           <SliderComponent
             Images={Images}
-            height="28vh"
+            height="100vh"
             captionTitle={captionTitle}
             captionContent={captionContent}
             backgroundOpacity={true}

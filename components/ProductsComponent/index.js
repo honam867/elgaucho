@@ -2,8 +2,6 @@ import { Container, Divider, Header } from "semantic-ui-react";
 import ProductItem from "../ProductItemComponent";
 import CustomHeader from "./product.module.css";
 const ProductsComponent = ({ subcategories, products, areaId }) => {
-  console.log("🚀 ~ file: index.js ~ line 5 ~ ProductsComponent ~ products", products)
-  // const test = subcategories.map(item => );
   return (
     <Container >
       {subcategories.map(item => {

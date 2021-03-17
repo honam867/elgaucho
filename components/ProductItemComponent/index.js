@@ -45,7 +45,6 @@ const CustomButton = styled(Button)`
 `;
 const ProductItem = ({ products, addCart, areaId }) => {
   const productList = products.filter(item => item.areaId === areaId);
-  // console.log("🚀 ~ file: index.js ~ line 48 ~ ProductItem ~ productList", productList)
   return (
     <>
       <Responsive
@@ -76,13 +75,19 @@ const ProductItem = ({ products, addCart, areaId }) => {
                             >
                               {productItem.description}
                             </ShowMoreText>
-                            {/* {productItem.description} */}
                           </Item.Description>
                           <Grid>
                             <Grid.Column floated="left" width={10}>
-                              <PriceCustomFromHeader floated="right">
-                                {productItem.price.toLocaleString("en-US")} VND
+                              {productItem.promotedPrice > 0 ?
+
+                                <PriceCustomFromHeader floated="right">
+                                  <del> {productItem.promotedPrice.toLocaleString("en-US")} VND</del>  {productItem.price.toLocaleString("en-US")} VND
+                                </PriceCustomFromHeader>
+                                :
+                                <PriceCustomFromHeader floated="right">
+                                  {productItem.price.toLocaleString("en-US")} VND
                               </PriceCustomFromHeader>
+                              }
                             </Grid.Column>
                             <Grid.Column floated="right" width={6}>
                               <AddToCartButton

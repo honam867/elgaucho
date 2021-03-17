@@ -62,8 +62,8 @@ const ElDeliveryTakeOutComponent = () => {
 
   const fixedOverlayMenuStyle = {
     ...overlayMenuStyle,
-    top: "300px",
-    position: "relative",
+    position: "fixed",
+    top: "200px",
   };
 
   const overlayMenuMobileStyle = {};
@@ -211,7 +211,6 @@ const ElDeliveryTakeOutComponent = () => {
           <Grid.Column width={10}>
             <div>
               <ProductsComponent subcategories={SubCategories.filter(sub => sub.categoryId === subcategoryId)} products={products} ></ProductsComponent>
-
             </div>
           </Grid.Column>
 

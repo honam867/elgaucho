@@ -14,8 +14,7 @@ import ProductsComponent from "../../components/ProductsComponent";
 import ViewCartComponent from "../../components/ViewCart";
 import Categories from "../../datafake/categories";
 import SubCategories from "../../datafake/subcategories";
-import styled from "styled-components";
-import AreaData from "../../datafake/nation";
+import AreaData from "../../datafake/area";
 const Images = [
   {
     id: 1,
@@ -37,17 +36,6 @@ const Images = [
   },
 ];
 const ButcherShopComponent = ({ products }) => {
-  // const fetchData = async () => {
-  //   const req = await fetch('https://randomuser.me/api/?gender=male&results=100');
-  //   const newData = await req.json();
-  //   console.log("🚀 ~ file: index.js ~ line 41 ~ fetchData ~ newData", newData)
-
-  // };
-  // const handleClick = (event) => {
-  //   console.log('test here');
-  //   event.preventDefault();
-  //   fetchData();
-  // };
   const [activeItem, setActiveItem] = useState("");
   const [overlayFixed, setStickOverlay] = useState(false);
   // NOTE new logic here:
