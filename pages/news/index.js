@@ -5,7 +5,7 @@ const News = () => {
   return (
     <Layout>
       <Container>
-        <Grid divided='vertically'>
+        {/* <Grid divided='vertically'>
           <Grid.Row columns={2}>
             <Grid.Column width={10}>
               <video className={NewsCss.MyVideo} autoPlay muted loop id="myVideo">
@@ -53,7 +53,7 @@ const News = () => {
               </Item.Group>
             </Grid.Column>
           </Grid.Row>
-        </Grid>
+        </Grid> */}
 
       </Container>
     </Layout>
