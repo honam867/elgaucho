@@ -16,6 +16,7 @@ import Categories from "../../datafake/categories";
 import SubCategories from "../../datafake/subcategories";
 import AreaData from "../../datafake/area";
 import Products from "../../datafake/products";
+import styled from "styled-components";
 
 const Images = [
   {
@@ -53,7 +54,7 @@ const ElDeliveryTakeOutComponent = () => {
   const [overlayFixed, setStickOverlay] = useState(false);
   // NOTE new logic here:
   const [subcategoryId, setSubCategoyId] = useState(0);
-  const [areaId, setAreaId] = useState(7);
+  const [areaId, setAreaId] = useState(8);
   const overlayMenuStyle = {
     position: "relative",
     top: 0,
@@ -64,6 +65,7 @@ const ElDeliveryTakeOutComponent = () => {
     ...overlayMenuStyle,
     position: "fixed",
     top: "200px",
+    width: "340px"
   };
 
   const overlayMenuMobileStyle = {};
@@ -90,6 +92,14 @@ const ElDeliveryTakeOutComponent = () => {
   const choosingArea = (e, { value }) => {
     setAreaId(value.id)
   }
+
+  const MenuCustom = styled(Menu)`
+ .active.item{
+   border-bottom: 2px solid red !important;
+   border-radius: 0px !important;
+ }
+
+  `
 
 
   useEffect(() => {
@@ -210,7 +220,7 @@ const ElDeliveryTakeOutComponent = () => {
           </Grid.Column>
           <Grid.Column width={10}>
             <div>
-              <ProductsComponent subcategories={SubCategories.filter(sub => sub.categoryId === subcategoryId)} products={products} ></ProductsComponent>
+              <ProductsComponent subcategories={SubCategories.filter(sub => sub.categoryId === subcategoryId)} products={Products} areaId={areaId}></ProductsComponent>
             </div>
           </Grid.Column>
 
@@ -223,7 +233,7 @@ const ElDeliveryTakeOutComponent = () => {
   };
   const MenusOnMobile = () => {
     return (
-      <>
+      <div>
         <Visibility
           once={false}
           onBottomPassed={stickOverlay}
@@ -231,7 +241,7 @@ const ElDeliveryTakeOutComponent = () => {
           once={false}
         />
 
-        <Menu
+        <MenuCustom
           fixed={overlayFixed ? "top" : undefined}
           style={
             overlayFixed ? fixedOverlayMenuMobileStyle : overlayMenuMobileStyle
@@ -252,9 +262,9 @@ const ElDeliveryTakeOutComponent = () => {
               ></Menu.Item>
             );
           })}
-        </Menu>
-        <ProductsComponent subcategories={SubCategories.filter(sub => sub.categoryId === subcategoryId)} products={products} ></ProductsComponent>
-      </>
+        </MenuCustom>
+        <ProductsComponent subcategories={SubCategories.filter(sub => sub.categoryId === subcategoryId)} products={Products} areaId={areaId}></ProductsComponent>
+      </div>
     );
   };
   return (

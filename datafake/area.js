@@ -2,11 +2,11 @@
 const AreaData =
   [
     {
-      id: 7,
+      id: 8,
       name: "Thành phố Hồ Chí Minh"
     },
     {
-      id: 8,
+      id: 7,
       name: "Đà Nẵng"
     },
     {
