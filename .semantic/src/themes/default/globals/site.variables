@@ -1462,3 +1462,6 @@
 --------------------*/
 @secondaryActiveItemBackgroundColorElgaucho: #FFFFFF;
 @secondaryActiveItemColorTextElgaucho: #cf1b15;
+@dropdownHoveredItemColorElgaucho: #cf1b15;
+@dropdownActiveItemColorElgaucho: #cf1b15;
+@dropdownHoveredItemBackgroundElgaucho: #FFF;

@@ -151,8 +151,9 @@
 @dropdownItemIconFontSize: @relativeMedium;
 @dropdownItemIconMargin: 0 0.75em 0 0;
 
-@dropdownHoveredItemBackground: @transparentBlack;
-@dropdownHoveredItemColor: @selectedTextColor;
+// NOTE dropdownHoveredItemBackgroundElgaucho
+@dropdownHoveredItemBackground: @dropdownHoveredItemBackgroundElgaucho;
+@dropdownHoveredItemColor: @dropdownHoveredItemColorElgaucho;
 
 /* Dropdown Variations */
 @dropdownVerticalMenuBoxShadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
@@ -190,7 +191,7 @@
 
 /* Active Dropdown */
 @dropdownActiveItemBackground: @subtleTransparentBlack;
-@dropdownActiveItemColor: @selectedTextColor;
+@dropdownActiveItemColor: @dropdownActiveItemColorElgaucho;
 @dropdownActiveItemFontWeight: @bold;
 
 /* Active Sub Menu */

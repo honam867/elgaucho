@@ -39,17 +39,6 @@ const Images = [
   },
 ];
 const ElDeliveryTakeOutComponent = () => {
-  // const fetchData = async () => {
-  //   const req = await fetch('https://randomuser.me/api/?gender=male&results=100');
-  //   const newData = await req.json();
-  //   console.log("🚀 ~ file: index.js ~ line 41 ~ fetchData ~ newData", newData)
-
-  // };
-  // const handleClick = (event) => {
-  //   console.log('test here');
-  //   event.preventDefault();
-  //   fetchData();
-  // };
   const [activeItem, setActiveItem] = useState("");
   const [overlayFixed, setStickOverlay] = useState(false);
   // NOTE new logic here:
@@ -63,9 +52,8 @@ const ElDeliveryTakeOutComponent = () => {
 
   const fixedOverlayMenuStyle = {
     ...overlayMenuStyle,
-    position: "fixed",
     top: "200px",
-    width: "340px"
+    width: "250px"
   };
 
   const overlayMenuMobileStyle = {};
@@ -100,8 +88,6 @@ const ElDeliveryTakeOutComponent = () => {
  }
 
   `
-
-
   useEffect(() => {
     setActiveItem(Categories[0].name);
   }, []);
@@ -128,7 +114,6 @@ const ElDeliveryTakeOutComponent = () => {
                 </Dropdown.Menu>
               </Dropdown>
             </Menu>
-
             <Visibility
               offset={80}
               once={false}
@@ -137,11 +122,9 @@ const ElDeliveryTakeOutComponent = () => {
             />
             <Menu
               className={MenuCustomStyle.customBorder}
-              style={overlayFixed ? fixedOverlayMenuStyle : overlayMenuStyle}
               secondary
               vertical
             >
-
               {Categories.length > 0 ? Categories.map((item) => {
                 return (
                   <Menu.Item
@@ -170,7 +153,7 @@ const ElDeliveryTakeOutComponent = () => {
           </Grid.Column>
 
           <Grid.Column width={4}>
-            <div style={overlayFixed ? fixedOverlayMenuStyle : overlayMenuStyle} >
+            <div  >
               <ViewCartComponent ></ViewCartComponent>
             </div>
           </Grid.Column>
@@ -269,7 +252,7 @@ const ElDeliveryTakeOutComponent = () => {
   };
   return (
     <Layout>
-      <SliderComponent Images={Images} height="50vh" />
+      <SliderComponent backgroundAttachment="fixed" Images={Images} height="40vh" />
       <ResponsiveComponent
         onTablet={MenusOnTablet}
         onDesktop={MenusOnDesktop}

@@ -1,15 +1,13 @@
 import Link from "next/link";
-import React, { useRef, useState, createRef } from "react";
+import React, { memo, useState } from "react";
 import {
   Icon,
   Menu,
   Sidebar,
-  Visibility,
   Image,
   Transition,
   Divider,
   Label,
-  Dropdown,
 } from "semantic-ui-react";
 import Logo from "../../public/static/img/elgauchologonobg.png";
 import styled from "styled-components";
@@ -18,6 +16,7 @@ import { useRouter } from "next/router";
 import Footer from "../Footer/index";
 import { connect } from "react-redux";
 import { motion } from "framer-motion";
+import HeaderOnDesktop from "./onDesktop/index";
 const MenuItemLink = styled(Menu.Item)`
   &:hover {
     color: #cf1b15 !important;
@@ -29,25 +28,7 @@ const MenuItemLink = styled(Menu.Item)`
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 `;
-const DropdowItemLink = styled(Dropdown)`
-  &:hover {
-    color: #cf1b15 !important;
-    background: none !important;
-  }
-  .none {
-    display: none !important;
-  }
-  border-radius: 0px !important;
-  font-weight: bold !important;
-  padding: 0px !important;
-`;
 
-const active = {
-  color: "#cf1b15",
-};
-const unactive = {
-  color: "#222222",
-};
 const MenuItemMobileTablet = styled(Menu.Item)`
   border-bottom: 1px solid #c0c0c0 !important;
   color: #cf1b15 !important;
@@ -64,25 +45,6 @@ const MenuItemLinkImage = React.forwardRef(function MenuItemLinkImage(
 ) {
   return <Image {...props} />;
 });
-
-const fixedMenuStyle = {
-  backgroundColor: "#fff",
-  height: "10px",
-  maxHeight: "600px",
-  // overflow: "hidden",
-  transition: "height 0.2s",
-  borderBottom: "1px solid #cf1b15",
-};
-const noFixedMenuStyle = {
-  borderBottom: "1px solid #cf1b15",
-  backgroundColor: "#fff",
-  transition: "height 0.1s",
-  height: "60px",
-  maxHeight: "600px",
-  // overflow: "auto",
-  position: "relative",
-  zIndex: "1",
-};
 const noFixedMenuStyleOnMobile = {
   borderBottom: "1px solid #cf1b15",
   backgroundColor: "#fff",
@@ -105,7 +67,6 @@ const noFixedMenuStyleOnTable = {
   position: "relative",
   zIndex: "1",
 };
-
 const menuOptions = [
   {
     key: 1,
@@ -123,27 +84,27 @@ const menuOptions = [
   { key: 4, text: "Wine", value: 4, pathname: "/menu#Wine" },
   { key: 5, text: "Cigars & Butcher", value: 5, pathname: "/menu#Cigars" },
 ];
-
 const ResponsiveHeader = ({ children, numberCart }) => {
-  // const [activeItem, setActiveItem] = useState("");
   const router = useRouter();
   const navigateToLocation = (e, value) => {
     e.preventDefault();
     router.push(value.pathname);
+    console.log(router.asPath);
   };
   const locationOptions = [
     {
       key: 1,
       text: "Xuan Thuy | HCMC",
-      // active: activeItem === "Xuan Thuy | HCMC" ? true : false,
       value: 1,
       pathname: "/location#XuanThuy",
+      tag: "#XuanThuy"
     },
     {
       key: 2,
       text: "Saigon Pearl | HCMC",
       value: 2,
       pathname: "/location#SaigonPearl",
+      tag: "#SaigonPearl"
     },
     {
       key: 3,
@@ -177,28 +138,24 @@ const ResponsiveHeader = ({ children, numberCart }) => {
   const newsOptions = [
     {
       key: 1,
-      text: "Tạp chí",
+      text: "Megazing",
       value: 1,
-      // router: "/location"
+      pathname: "/location#XuanThuy",
+
     },
     {
       key: 2,
-      text: "Bài viết",
+      text: "News",
       value: 2,
+      pathname: "/location#XuanThuy",
     },
     {
       key: 3,
-      text: "Chương trình mới",
+      text: "Promotions",
       value: 3,
+      pathname: "/location#XuanThuy",
     },
   ];
-  const [menuFixed, setFixedMenu] = useState(false);
-  const hideFixedMenu = () => {
-    setFixedMenu(false);
-  };
-  const showFixedMenu = () => {
-    setFixedMenu(true);
-  };
   const handleToggle = () => {
     setSidebarOpened(true);
   };
@@ -222,193 +179,22 @@ const ResponsiveHeader = ({ children, numberCart }) => {
   const toggleContact = () => {
     setVisibleContact(!visibleContact);
   };
-
-  const segmentRef = React.useRef();
-  // const segmentRef = React.useRef();
   return (
     <motion.div exit={{ opacity: 0 }} initial="initial" animate="animate">
       <Responsive
         onDesktop={() => {
           return (
-            <>
-              <Visibility
-                once={false}
-                onTopPassed={showFixedMenu}
-                onBottomPassedReverse={hideFixedMenu}
-              >
-                <Menu
-                  secondary
-                  fixed={menuFixed ? "top" : undefined}
-                  style={menuFixed ? fixedMenuStyle : noFixedMenuStyle}
-                >
-                  <Menu.Item>
-                    <Link href="/home" forwardRef>
-                      <MenuItemLinkImage
-                        src={Logo}
-                        alt="website logo"
-                        style={
-                          menuFixed ? { width: "52px" } : { width: "72px" }
-                        }
-                      />
-                    </Link>
-                  </Menu.Item>
-
-                  <MenuItemLink
-                    position="right"
-                    active={router.pathname == "/location"}
-                  >
-                    <Link href="/location">
-                      <DropdowItemLink
-                        icon="none"
-                        item
-                        simple
-                        text="Locations"
-                        style={
-                          router.pathname == "/location" ? active : unactive
-                        }
-                      >
-                        <Dropdown.Menu>
-                          {locationOptions.map((item, i) => {
-                            return (
-                              <Dropdown.Item
-                                pathname={item.pathname}
-                                onClick={navigateToLocation}
-                              >
-                                {item.text}
-                              </Dropdown.Item>
-                            );
-                          })}
-                        </Dropdown.Menu>
-                      </DropdowItemLink>
-                    </Link>
-                  </MenuItemLink>
-                  <MenuItemLink>
-                    <Link href="/news">
-                      <DropdowItemLink
-                        icon="none"
-                        item
-                        simple
-                        text="News"
-                        style={router.pathname == "/news" ? active : unactive}
-                        options={newsOptions}
-                      ></DropdowItemLink>
-                    </Link>
-                  </MenuItemLink>
-
-                  <Link href="/delivery" forwardRef>
-                    <MenuItemLink
-                      name="EL Delivery & Take out"
-                      active={router.pathname == "/delivery"}
-                    >
-                      EL Delivery
-                    </MenuItemLink>
-                  </Link>
-                  <Link href="/butcher-shop" forwardRef>
-                    <MenuItemLink
-                      name="Butcher Shop"
-                      active={router.pathname == "/butcher-shop"}
-                    >
-                      Butcher Shop
-                    </MenuItemLink>
-                  </Link>
-
-                  <MenuItemLink>
-                    <Link href="/menu">
-                      <DropdowItemLink
-                        icon="none"
-                        item
-                        simple
-                        text="Menus"
-                        style={router.pathname == "/menu" ? active : unactive}
-                      >
-                        <Dropdown.Menu>
-                          {menuOptions.map((item, i) => {
-                            return (
-                              <Dropdown.Item
-                                pathname={item.pathname}
-                                onClick={navigateToLocation}
-                              >
-                                {item.text}
-                              </Dropdown.Item>
-                            );
-                          })}
-                        </Dropdown.Menu>
-                      </DropdowItemLink>
-                    </Link>
-                  </MenuItemLink>
-
-                  <Link href="/private-dining-events" forwardRef>
-                    <MenuItemLink
-                      name="Private Dining Events"
-                      active={router.pathname == "/private-dining-events"}
-                    >
-                      Private | Dining Events
-                    </MenuItemLink>
-                  </Link>
-                  <Link href="/gift-card" forwardRef>
-                    <MenuItemLink
-                      name="Gift Card"
-                      active={router.pathname == "/gift-card"}
-                    ></MenuItemLink>
-                  </Link>
-                  <MenuItemLink className="link">
-                    <Link href="/get-in-touch">
-                      <DropdowItemLink
-                        icon="none"
-                        item
-                        simple
-                        text="Contact Us"
-                        style={
-                          router.pathname == "/get-in-touch" ? active : unactive
-                        }
-                      >
-                        <Dropdown.Menu>
-                          <Dropdown.Item text="Get In Touch" />
-                          <Link href="/careers">
-                            <Dropdown.Item text="Careers" />
-                          </Link>
-                          <Link href="/privacy-cookie-policy">
-                            <Dropdown.Item text="Privacy & Cookie Policy" />
-                          </Link>
-                          <Link href="/magazine">
-                            <Dropdown.Item text="Magazine" />
-                          </Link>
-                        </Dropdown.Menu>
-                      </DropdowItemLink>
-                    </Link>
-                  </MenuItemLink>
-
-                  <Link href="/cart" forwardRef>
-                    <MenuItemLink active={router.pathname == "/cart"}>
-                      <Icon name="cart" />
-                      <Label
-                        style={{
-                          borderRadius: "50%",
-                          padding: "3px 5px",
-                          margin: "2px 9px",
-                        }}
-                        color="red"
-                        floating
-                      >
-                        {numberCart}
-                      </Label>
-                    </MenuItemLink>
-                  </Link>
-                  <Link href="/" forwardRef>
-                    <MenuItemLink>
-                      <Icon name="facebook" color="blue" />
-                    </MenuItemLink>
-                  </Link>
-                  <Link href="/" forwardRef>
-                    <MenuItemLink>
-                      <Icon name="instagram" color="violet" />
-                    </MenuItemLink>
-                  </Link>
-                </Menu>
-              </Visibility>
-              {children}
-              <Footer />
-            </>
+            <HeaderOnDesktop
+              children={children}
+              Logo={Logo}
+              newsOptions={newsOptions}
+              router={router}
+              locationOptions={locationOptions}
+              newsOptions={newsOptions}
+              navigateToLocation={navigateToLocation}
+              menuOptions={menuOptions}
+              numberCart={numberCart}
+            />
           );
         }}
         onTablet={() => {
@@ -785,4 +571,4 @@ const ResponsiveHeader = ({ children, numberCart }) => {
 const mapStateToProps = (state) => ({
   numberCart: state.cart.numberCart,
 });
-export default connect(mapStateToProps, null)(ResponsiveHeader);
+export default memo(connect(mapStateToProps, null)(ResponsiveHeader));
