@@ -14,7 +14,7 @@ const ViewCartComponent = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCa
   let listCart = [];
   let totalCart = 0;
   Object.keys(items.Carts).forEach((item) => {
-    totalCart += items.Carts[item].quantity * items.Carts[item].prices;
+    totalCart += items.Carts[item].quantity * items.Carts[item].price;
     listCart.push(items.Carts[item])
   })
   return (
@@ -22,37 +22,39 @@ const ViewCartComponent = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCa
       <Card.Content textAlign="center">
         <Header as="h3">Cart</Header>
       </Card.Content>
-      {
-        listCart.length > 0 ?
-          listCart.map((item, i) => {
-            return (
-              <Card.Content key={i}>
-                <Grid columns={4}>
-                  <Grid.Column width={10}>
+      <Card.Content style={{ maxHeight: "450px", overflow: "auto", padding: "20px 20px" }}>
+        {
+          listCart.length > 0 ?
+            listCart.map((item, i) => {
+              return (
+                <Card.Content key={i}>
+                  <Grid columns={4}>
+                    <Grid.Column width={10}>
 
-                    <p>{item.name}</p>
-                    <small>{item.quantity} X  {item.price.toLocaleString("es-US")}</small>
-                  </Grid.Column>
-                  <Grid.Column width={6}>
-                    <Label onClick={() => DeleteCart(i)} style={{ cursor: "pointer" }} color="red" attached='top right'>
-                      <Icon name="delete" />
-                    </Label>
-                    <Image style={{ width: "100%" }} size="tiny" src={item.imageUrl} />
-                  </Grid.Column>
-                </Grid>
-                <div style={{ padding: "12px 0px" }}>
-                  <Button size='mini' onClick={() => DecreaseQuantity(i)}>-</Button>
-                  <Button size='mini' onClick={() => IncreaseQuantity(i)}>+</Button>
-                </div>
+                      <p>{item.name}</p>
+                      <small>{item.quantity} X  {item.price.toLocaleString("es-US")}</small>
+                    </Grid.Column>
+                    <Grid.Column width={6}>
+                      <Label onClick={() => DeleteCart(i)} style={{ cursor: "pointer" }} color="white" attached='top right'>
+                        <Icon name="delete" />
+                      </Label>
+                    </Grid.Column>
+                  </Grid>
+                  <div style={{ padding: "12px 0px" }}>
+                    <Button size='mini' onClick={() => DecreaseQuantity(i)}>-</Button>
+                    <Button size='mini' onClick={() => IncreaseQuantity(i)}>+</Button>
+                  </div>
 
-              </Card.Content>
-            )
-          })
-          :
-          <Card.Content textAlign="center" style={{ height: "100px" }}>
-            No item
+                </Card.Content>
+              )
+            })
+            :
+            <Card.Content textAlign="center" style={{ height: "100px" }}>
+              No item
           </Card.Content>
-      }
+        }
+      </Card.Content>
+
       <Card.Content>
         <CustomStrong>Subtotal:</CustomStrong> VND {totalCart.toLocaleString('en-US')}
       </Card.Content>

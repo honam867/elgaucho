@@ -17,7 +17,6 @@ margin: 10px !important;
 }
 `;
 const Location = () => {
-
   // TODO Fake data Image
   const Images = [
     {
@@ -161,7 +160,7 @@ const Location = () => {
       </Container>
       {/* NOTE Xuân Thủy */}
       <section id="XuanThuy">
-        </section>
+      </section>
       <Container style={{ background: "#eaeaea", paddingTop: "42px" }} fluid>
         <Header textAlign='center' as='h3' style={{ fontWeight: "400" }}>
           77 XUAN THUY, THAO DIEN WARD, DISTRICT 2, HCMC
@@ -234,7 +233,7 @@ const Location = () => {
       </Container>
       {/* NOTE SaiGon Pearl */}
       <section id="SaigonPearl">
-        </section>
+      </section>
       <Container style={{ paddingTop: "40px" }} fluid>
         <Header textAlign='center' as='h3' style={{ fontWeight: "400" }}>
           GF, SAIGON PEARL, 92A NGUYEN HUU CANH, WARD 22, BINH THANH DIST., HCMC
@@ -304,13 +303,13 @@ const Location = () => {
         <Container textAlign="center" style={{ paddingBottom: "20px" }}>
           <ButtonCustomComponent name="Private Dining | Event Request" url="/private-dining-events" />
         </Container>
-   
+
       </Container>
       <section id="HaiBaTrung">
-        </section>
+      </section>
       {/* NOTE HAI BA TRUNG*/}
-      
-      <Container  style={{ background: "#eaeaea", marginTop: "15px", paddingTop: "40px", textAlign: "center" }} fluid>
+
+      <Container style={{ background: "#eaeaea", marginTop: "15px", paddingTop: "40px", textAlign: "center" }} fluid>
         <Header textAlign='center' as='h3' style={{ fontWeight: "400" }}>
           74/1 HAI BA TRUNG, BEN NGHE WARD, DIST. 1, HCMC
                 </Header>
