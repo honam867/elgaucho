@@ -43,7 +43,8 @@ const CustomButton = styled(Button)`
   color: #ffffff !important;
   background-color: #cf1b15 !important;
 `;
-const ProductItem = ({ products, addCart }) => {
+const ProductItem = ({ products, addCart, areaId }) => {
+  const productList = products.filter(item => item.areaId === areaId);
   return (
     <>
       <Responsive
@@ -51,8 +52,8 @@ const ProductItem = ({ products, addCart }) => {
           return (
             <>
               <Item.Group divided>
-                {products.length > 0 ? (
-                  products.map((productItem) => {
+                {productList.length > 0 ? (
+                  productList.map((productItem) => {
                     return (
                       <Item key={productItem.id}>
                         <Item.Image size="small" src={productItem.imageUrl} />
@@ -74,13 +75,19 @@ const ProductItem = ({ products, addCart }) => {
                             >
                               {productItem.description}
                             </ShowMoreText>
-                            {/* {productItem.description} */}
                           </Item.Description>
                           <Grid>
                             <Grid.Column floated="left" width={10}>
-                              <PriceCustomFromHeader floated="right">
-                                {productItem.price.toLocaleString("en-US")} VND
+                              {productItem.promotedPrice > 0 ?
+
+                                <PriceCustomFromHeader floated="right">
+                                  <del> {productItem.promotedPrice.toLocaleString("en-US")} VND</del>  {productItem.price.toLocaleString("en-US")} VND
+                                </PriceCustomFromHeader>
+                                :
+                                <PriceCustomFromHeader floated="right">
+                                  {productItem.price.toLocaleString("en-US")} VND
                               </PriceCustomFromHeader>
+                              }
                             </Grid.Column>
                             <Grid.Column floated="right" width={6}>
                               <AddToCartButton
@@ -96,8 +103,8 @@ const ProductItem = ({ products, addCart }) => {
                     );
                   })
                 ) : (
-                    <div>No data</div>
-                  )}
+                  <div>No data</div>
+                )}
               </Item.Group>
             </>
           );
@@ -106,7 +113,7 @@ const ProductItem = ({ products, addCart }) => {
           return (
             <>
               <Item.Group divided>
-                {products.map((productItem) => {
+                {productList.map((productItem) => {
                   return (
                     <Item key={productItem.id}>
                       <Item.Image size="small" src={productItem.imageUrl} />
@@ -147,87 +154,55 @@ const ProductItem = ({ products, addCart }) => {
         onMobile={() => {
           return (
 
-            <>
-              <Grid columns={2} textAlign="center" >
-                {products.map((productItem) => {
-                  return (
-                    <>
-                      <Grid.Column>
-                        <Card key={productItem.id} style={{ margin: "10px auto", }}>
-                          <Image
-                            src={productItem.imageUrl}
-                            size="tiny"
-                            wrapped
-                            ui={false}
-                          />
-                          <Card.Content>
-                            <Card.Header>Matthew</Card.Header>
-                            <Card.Meta>
-                              <span className='date'>Joined in 2015</span>
-                            </Card.Meta>
-                            <Card.Description>
-                              <ShowMoreText
-                                lines={5}
-                                more="Show more"
-                                less="Show less"
-                                className="content-css"
-                                anchorClass="my-anchor-css-class"
-                                expanded={false}
-                                width={0}
-                              >
-                                {productItem.description}
-                              </ShowMoreText>
-                            </Card.Description>
-                          </Card.Content>
-                          <Card.Content extra>
-                            <a>
-                              <Icon name='user' />
-                        22 Friends
-                      </a>
-                          </Card.Content>
-                        </Card>
-                      </Grid.Column>
-                      <Grid.Column>
-                        <Card key={productItem.id} style={{ margin: "10px auto", }}>
-                          <Image
-                            src={productItem.imageUrl}
-                            size="tiny"
-                            wrapped
-                            ui={false}
-                          />
-                          <Card.Content>
-                            <Card.Header>Matthew</Card.Header>
-                            <Card.Meta>
-                              <span className='date'>Joined in 2015</span>
-                            </Card.Meta>
-                            <Card.Description>
-                              <ShowMoreText
-                                lines={5}
-                                more="Show more"
-                                less="Show less"
-                                className="content-css"
-                                anchorClass="my-anchor-css-class"
-                                expanded={false}
-                                width={0}
-                              >
-                                {productItem.description}
-                              </ShowMoreText>
-                            </Card.Description>
-                          </Card.Content>
-                          <Card.Content extra>
-                            <a>
-                              <Icon name='user' />
-                        22 Friends
-                      </a>
-                          </Card.Content>
-                        </Card>
-                      </Grid.Column>
+            <Grid columns={2} textAlign="center" >
+              {productList.map((productItem) => {
+                return (
+                  <>
+                    <Grid.Column>
+                      <Card key={productItem.id} style={{ margin: "10px auto", }}>
+                        <Image
+                          src={productItem.imageUrl}
+                          size="tiny"
+                          wrapped
+                          ui={false}
+                        />
+                        <Card.Content>
+                          <Card.Header> {productItem.name}</Card.Header>
+                          <Card.Meta>
+                          </Card.Meta>
+                          <Card.Description>
+                            <ShowMoreText
+                              lines={5}
+                              more="Show more"
+                              less="Show less"
+                              className="content-css"
+                              anchorClass="my-anchor-css-class"
+                              expanded={false}
+                              width={0}
+                            >
+                              {productItem.description}
+                            </ShowMoreText>
+                          </Card.Description>
+                        </Card.Content>
+                        <Card.Content extra>
+                          {productItem.promotedPrice > 0 ?
 
-                    </>
-                  );
-                })}
-              </Grid>
-            </>
+                            <PriceCustomFromHeader floated="right">
+                              <del> {productItem.promotedPrice.toLocaleString("en-US")}</del>  {productItem.price.toLocaleString("en-US")} VND
+                          </PriceCustomFromHeader>
+                            :
+                            <PriceCustomFromHeader floated="right">
+                              {productItem.price.toLocaleString("en-US")} VND
+                            </PriceCustomFromHeader>
+                          }
+                        </Card.Content>
+                      </Card>
+                    </Grid.Column>
+
+                  </>
+                );
+              })}
+            </Grid>
           );
         }}
       />

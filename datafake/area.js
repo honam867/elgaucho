@@ -1,33 +1,37 @@
 
-const NationData =
+const AreaData =
   [
     {
-      id: 1,
+      id: 8,
       name: "Thành phố Hồ Chí Minh"
     },
     {
-      id: 2,
+      id: 7,
       name: "Đà Nẵng"
     },
     {
-      id: 3,
+      id: 9,
+      name: "Hà Nội"
+    },
+    {
+      id: 10,
       name: "Taguig"
     },
     {
-      id: 4,
+      id: 11,
       name: "Makati"
     },
     {
-      id: 5,
+      id: 12,
       name: "Bangkok"
     },
     {
-      id: 6,
+      id: 13,
       name: "Koh Samui"
     },
     {
-      id: 7,
+      id: 14,
       name: "Phuket"
     },
   ]
-export default NationData;
+export default AreaData;
