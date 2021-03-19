@@ -155,7 +155,7 @@
 
 @useCustomScrollbars: true;
 
-@customScrollbarWidth: 10px;
+@customScrollbarWidth: 4px;
 @customScrollbarHeight: 5px;
 
 @trackBackground: rgba(0, 0, 0, 0.1);
@@ -1462,6 +1462,7 @@
 --------------------*/
 @secondaryActiveItemBackgroundColorElgaucho: #FFFFFF;
 @secondaryActiveItemColorTextElgaucho: #cf1b15;
-@dropdownHoveredItemColorElgaucho: #cf1b15;
-@dropdownActiveItemColorElgaucho: #cf1b15;
-@dropdownHoveredItemBackgroundElgaucho: #FFF;
+@dropdownHoveredItemColorElgaucho: #FFF;
+@dropdownActiveItemColorElgaucho: #FFF;
+@dropdownActiveItemBackgroundElgaucho: #cf1b15;
+@dropdownHoveredItemBackgroundElgaucho: #cf1b15;

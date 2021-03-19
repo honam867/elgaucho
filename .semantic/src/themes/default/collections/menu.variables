@@ -190,7 +190,7 @@
 @dropdownSelectedItemColor: @selectedTextColor;
 
 /* Active Dropdown */
-@dropdownActiveItemBackground: @subtleTransparentBlack;
+@dropdownActiveItemBackground: @dropdownActiveItemBackgroundElgaucho;
 @dropdownActiveItemColor: @dropdownActiveItemColorElgaucho;
 @dropdownActiveItemFontWeight: @bold;
 

@@ -10,7 +10,6 @@ import Router from "next/router";
 import { wrapper } from "../redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 import { useStore } from "react-redux";
-import { AnimatePresence } from "framer-motion";
 NProgress.configure({
   template:
     '<div id="nprogress"><div class="bar" role="bar" style="background: #cf1b15; height: 3px"></div>',
@@ -20,26 +19,6 @@ Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 function MyApp({ Component, pageProps }) {
-  const handExitComplete = () => {
-    if (typeof window !== "undefined") {
-      const hashId = window.location.hash;
-
-      console.log({ location: window.location, hashId });
-
-      if (hashId) {
-        const element = document.querySelector(hashId);
-        console.log({ element });
-
-        if (element) {
-          element.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-            inline: "nearest",
-          });
-        }
-      }
-    }
-  };
 
   const store = useStore((state) => state);
   useEffect(() => {
@@ -55,9 +34,7 @@ function MyApp({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <PersistGate persistor={store.__persistor}>
-        <AnimatePresence exitBeforeEnter onExitComplete={handExitComplete}>
-          <Component {...pageProps} />
-        </AnimatePresence>
+        <Component {...pageProps} />
       </PersistGate>
     </>
   );
