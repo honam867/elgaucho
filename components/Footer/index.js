@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Container, Grid, Header } from "semantic-ui-react";
 
 import {FooterWapper } from "./style";
@@ -32,4 +33,4 @@ const Footer = () => {
         </FooterWapper>
     </>
 }
-export default Footer;
+export default memo(Footer);

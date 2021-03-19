@@ -1,5 +1,5 @@
 import Slider from "react-slick";
-import { useState } from "react";
+import { memo, useState } from "react";
 import { Header, Icon } from "semantic-ui-react";
 import ButtonCustomComponent from "../ButtonCustomComponent";
 import {
@@ -189,4 +189,4 @@ const SliderComponent = ({ Images, height, ...props }) => {
 
   )
 }
-export default SliderComponent;
+export default memo(SliderComponent);

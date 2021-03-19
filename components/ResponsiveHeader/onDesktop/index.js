@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { memo, useState } from "react";
 import { Icon, Label, Menu, Visibility } from "semantic-ui-react";
-import Footer from "../../Footer";
 import { MenuItemLink, MenuItemLinkImage } from "../style";
 import { DropdownStyle, DropdownItemStyle, DropdownMenuStyle } from "./style";
 const noFixedMenuStyle = {
@@ -239,7 +238,6 @@ const HeaderOnDesktop = ({ children,
         </Menu>
       </Visibility>
       {children}
-      <  Footer />
     </>
   );
 }
