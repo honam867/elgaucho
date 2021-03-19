@@ -238,7 +238,7 @@ const HeaderOnDesktop = ({ children,
         </Menu>
       </Visibility>
       {children}
-      <Footer />
+      <  Footer />
     </>
   );
 }

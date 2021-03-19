@@ -1,7 +1,10 @@
 import { Container, Grid, Header } from "semantic-ui-react";
+
+import {FooterWapper } from "./style";
 const Footer = () => {
     return <>
-        <Container style={{ marginTop: "40px" }} textAlign="center">
+        <FooterWapper>
+        <Container fluid className = "footer" textAlign="center">
             <Grid doubling columns={4}>
                 <Grid.Column>
                     <Header as="h4">COMPANY DETAILS</Header>
@@ -26,6 +29,7 @@ const Footer = () => {
                 </Grid.Column>
             </Grid>
         </Container>
+        </FooterWapper>
     </>
 }
 export default Footer;
