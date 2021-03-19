@@ -246,7 +246,7 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                               open={open}
                               trigger={
                                 <Button floated="right" compact>
-                                  Choice Voucher
+                                  Discount
                                 </Button>
                               }
                               size="tiny"
@@ -546,7 +546,7 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                               open={open}
                               trigger={
                                 <Button floated="right" compact>
-                                  Choice Voucher
+                                  Discount
                                 </Button>
                               }
                               size="tiny"
@@ -790,7 +790,7 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                               open={open}
                               trigger={
                                 <Button floated="right" compact>
-                                  Voucher
+                                  Discount
                                 </Button>
                               }
                               size="tiny"
