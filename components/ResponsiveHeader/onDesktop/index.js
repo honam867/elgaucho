@@ -2,7 +2,8 @@ import Link from "next/link";
 import { memo, useState } from "react";
 import { Icon, Label, Menu, Visibility } from "semantic-ui-react";
 import Footer from "../../Footer";
-import { MenuItemLink, DropdownStyle, MenuItemLinkImage, DropdownItemStyle, DropdownMenuStyle } from "./style";
+import { MenuItemLink, MenuItemLinkImage } from "../style";
+import { DropdownStyle, DropdownItemStyle, DropdownMenuStyle } from "./style";
 const noFixedMenuStyle = {
   borderBottom: "1px solid #cf1b15",
   backgroundColor: "#fff",
@@ -72,7 +73,7 @@ const HeaderOnDesktop = ({ children,
           >
             <Link href="/location">
               <DropdownStyle
-                icon="none"
+                icon={false}
                 item
                 simple
                 text="Locations"
@@ -100,7 +101,7 @@ const HeaderOnDesktop = ({ children,
           <MenuItemLink active={router.pathname == "/news"}>
             <Link href="/news">
               <DropdownStyle
-                icon="none"
+                icon={false}
                 item
                 simple
                 text="News"
@@ -146,7 +147,7 @@ const HeaderOnDesktop = ({ children,
           <MenuItemLink>
             <Link href="/menu">
               <DropdownStyle
-                icon="none"
+                icon={false}
                 item
                 simple
                 text="Menus"
@@ -185,7 +186,7 @@ const HeaderOnDesktop = ({ children,
           <MenuItemLink className="link">
             <Link href="/get-in-touch">
               <DropdownStyle
-                icon="none"
+                icon={false}
                 item
                 simple
                 text="Contact Us"
