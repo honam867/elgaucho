@@ -1,23 +1,13 @@
-import Link from "next/link";
 import React, { memo, useState } from "react";
-import {
-  Icon,
-  Menu,
-  Sidebar,
-  Transition,
-  Divider,
-  Label,
-} from "semantic-ui-react";
 import Logo from "../../public/static/img/elgauchologonobg.png";
 import Responsive from "../../components/Responsive";
 import { useRouter } from "next/router";
-import Footer from "../Footer/index";
 import { connect } from "react-redux";
 import { motion } from "framer-motion";
 import HeaderOnDesktop from "./onDesktop/index";
 import HeaderOnMobile from "./onMobile/index";
 import HeaderOnTablet from "./onTablet/index";
-import { MenuItemMobileTablet, MenuItemLink, MenuItemLinkImage } from "./style";
+import Footer from "../Footer";
 
 const menuOptions = [
   {
@@ -131,7 +121,7 @@ const ResponsiveHeader = ({ children, numberCart }) => {
     setVisibleContact(!visibleContact);
   };
   return (
-    <motion.div exit={{ opacity: 0 }} initial="initial" animate="animate">
+    <div >
       <Responsive
         onDesktop={() => {
           return (
@@ -191,7 +181,9 @@ const ResponsiveHeader = ({ children, numberCart }) => {
           );
         }}
       />
-    </motion.div>
+      <Footer />
+
+    </div>
   );
 };
 const mapStateToProps = (state) => ({
