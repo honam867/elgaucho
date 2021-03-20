@@ -2,6 +2,10 @@
   color: white !important;
   background: #cf1b15 !important;
 }
+.test:hover {
+  color: white !important;
+  background: #cf1b15 !important;
+}
 .customBorder {
   padding: 10px !important;
   border-left: 2px solid #cf1b15 !important;
@@ -11,8 +15,8 @@
   background: none !important;
 }
 .customCorlorMobile {
-  font-size: 10px !important;
-  font-weight: 600 !important;
+  font-size: 15px !important;
+  font-weight: 300 !important;
 }
 .customBorderMobile {
   border-left: 2px solid #cf1b15 !important;
@@ -29,4 +33,11 @@
 .customOverFlow:hover {
   width: 100%;
   overflow: auto;
+}
+.customMobile {
+  overflow: auto;
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 5px !important;
+}
+.customMobile::-webkit-scrollbar {
+  display: none;
 }

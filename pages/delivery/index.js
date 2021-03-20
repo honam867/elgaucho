@@ -1,62 +1,49 @@
 import Layout from "../../components/ResponsiveHeader/index";
 import { useState, useEffect } from "react";
 import SliderComponent from "../../components/SliderComponent";
-import SrcImg1 from "../../public/static/img/El-Gaucho-Dine-With-Us.jpg";
-import SrcImg2 from "../../public/static/img/El-Gaucho-Argentinian-Steakhouse-Restaurant-Homepage-Welcome-1920-x-800.jpg";
-import SrcImg3 from "../../public/static/img/VN04-2017_1036_37_38_39_40.jpg";
 import {
-  Button,
-  Card,
   Container,
+  Dropdown,
   Grid,
-  Header,
-  Image,
   Menu,
   Visibility,
 } from "semantic-ui-react";
 import ResponsiveComponent from "../../components/Responsive";
 import MenuCustomStyle from "./menu.module.css";
 import ProductsComponent from "../../components/ProductsComponent";
+import ViewCartComponent from "../../components/ViewCart";
+import Categories from "../../datafake/categories";
+import SubCategories from "../../datafake/subcategories";
+import AreaData from "../../datafake/area";
+import Products from "../../datafake/products";
 import styled from "styled-components";
+
 const Images = [
   {
     id: 1,
     name: "Img 1",
-    imgUrl: SrcImg1,
+    imgUrl: "https://vn.elgaucho.asia/wp-content/uploads/2016/04/El-Gaucho-Argentinian-Steakhouse-Restaurant-Homepage-Welcome-1920-x-800.jpg",
     size: "450px",
   },
   {
     id: 2,
     name: "Img 2",
-    imgUrl: SrcImg2,
+    imgUrl: "https://vn.elgaucho.asia/wp-content/uploads/2019/06/El-Gaucho-Dine-With-Us.jpg",
     size: "450px",
   },
   {
     id: 3,
     name: "Img 3",
-    imgUrl: SrcImg3,
+    imgUrl: "https://vn.elgaucho.asia/wp-content/uploads/2016/04/VN04-2017_1036_37_38_39_40.jpg",
     size: "450px",
   },
 ];
-
-const CustomStrong = styled.strong`
-  color: #cf1b15 !important;
-  font-weight: bold !important;
-`;
-const CustomButton = styled(Button)`
-  color: #cf1b15 !important;
-  background-color: #ffffff !important;
-`;
-const ElDeliveryTakeOutComponent = ({ products }) => {
+const ElDeliveryTakeOutComponent = () => {
   const [activeItem, setActiveItem] = useState("");
-
   const [overlayFixed, setStickOverlay] = useState(false);
-
-  // TODO change productlist to MenuList
-  const [productList, setproducts] = useState(products);
-  // NOTE Set first categories to render
-  const [categories, setCategories] = useState(products[0].categories);
-
+  // NOTE new logic here:
+  const [subcategoryId, setSubCategoyId] = useState(0);
+  const [areaId, setAreaId] = useState(8);
   const overlayMenuStyle = {
     position: "relative",
     top: 0,
@@ -65,8 +52,8 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
 
   const fixedOverlayMenuStyle = {
     ...overlayMenuStyle,
-    top: "300px",
-    position: "relative",
+    top: "200px",
+    width: "250px"
   };
 
   const overlayMenuMobileStyle = {};
@@ -78,12 +65,8 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
   };
 
   const handleItemClick = (e, { name, value }) => {
-    // NOTE When click menu item, find by id to render categories of that item
-    const findCatecoriesWhenClickProductItemValue = productList.find(
-      (product) => product.id === value.id
-    );
-    setCategories(findCatecoriesWhenClickProductItemValue.categories);
     setActiveItem(name);
+    setSubCategoyId(value.id);
   };
 
   const stickOverlay = () => {
@@ -94,22 +77,43 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
     setStickOverlay(false);
   };
 
-  useEffect(() => {
-    setproducts(products);
-    // TODO render null if products from api don't have item
-    // setCategories(products[0].categories)
+  const choosingArea = (e, { value }) => {
+    setAreaId(value.id)
+  }
 
-    setActiveItem(products[0].name);
+  const MenuCustom = styled(Menu)`
+ .active.item{
+   border-bottom: 2px solid red !important;
+   border-radius: 0px !important;
+ }
+
+  `
+  useEffect(() => {
+    setActiveItem(Categories[0].name);
   }, []);
 
   const MenusOnDesktop = () => {
     return (
       <Container
-        style={{ margin: "auto", width: "100%", padding: "0px 30px" }}
+        style={{ margin: "10px 0px", width: "100%", padding: "0px 30px", background: "#F2F2F2" }}
         fluid
       >
-        <Grid divided doubling columns={3} style={{ marginTop: "30px" }}>
-          <Grid.Column width={3}>
+        <Grid doubling columns={3}  >
+          <Grid.Column width={3} >
+            <Menu style={{ background: "#FFF" }} secondary vertical>
+              <Dropdown item text='Choosing a location' >
+                <Dropdown.Menu style={{ background: "#FFF" }}>
+                  <Dropdown.Header>Location</Dropdown.Header>
+                  {
+                    AreaData.map(item => {
+                      return (
+                        <Dropdown.Item key={item.id} onClick={choosingArea} value={item}>{item.name}</Dropdown.Item>
+                      )
+                    })
+                  }
+                </Dropdown.Menu>
+              </Dropdown>
+            </Menu>
             <Visibility
               offset={80}
               once={false}
@@ -117,12 +121,11 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
               onTopVisible={unStickOverlay}
             />
             <Menu
-              className={MenuCustomStyle.customBorder}
-              style={overlayFixed ? fixedOverlayMenuStyle : overlayMenuStyle}
+              style={{ background: "#FFF" }}
               secondary
               vertical
             >
-              {productList.map((item) => {
+              {Categories.length > 0 ? Categories.map((item) => {
                 return (
                   <Menu.Item
                     className={MenuCustomStyle.customCorlor}
@@ -131,43 +134,28 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
                     active={activeItem === item.name}
                     onClick={handleItemClick}
                     value={item}
-                  />
+                  >
+                    {item.name}
+
+                  </Menu.Item>
+
                 );
-              })}
+              })
+                :
+                <div>No data</div>
+              }
             </Menu>
           </Grid.Column>
-          <Grid.Column width={9}>
+          <Grid.Column width={9} style={{ background: "#FFF", margin: "15px 0px" }}>
             <div>
-              <ProductsComponent categories={categories} />
+              <ProductsComponent subcategories={SubCategories.filter(sub => sub.categoryId === subcategoryId)} products={Products} areaId={areaId}></ProductsComponent>
             </div>
           </Grid.Column>
 
           <Grid.Column width={4}>
-            <Card style={{ width: "100%" }}>
-              <Card.Content textAlign="center">
-                <Header as="h3">Cart</Header>
-              </Card.Content>
-              <Card.Content>
-                <Grid columns={2}>
-                  <Grid.Column width={10}>
-                    <p>29-HOMEMADE BLUE CHEESE BURGER</p>
-                    <small>1 X VND 290.000</small>
-                  </Grid.Column>
-                  <Grid.Column width={6}>
-                    <Image size="tiny" src={SrcImg1} />
-                  </Grid.Column>
-                </Grid>
-              </Card.Content>
-              <Card.Content>
-                <CustomStrong>Subtotal:</CustomStrong> VND 220.000
-              </Card.Content>
-              <Card.Content extra>
-                <div className="ui two buttons">
-                  <CustomButton>View Cart</CustomButton>
-                  <CustomButton>Checkout</CustomButton>
-                </div>
-              </Card.Content>
-            </Card>
+            <div >
+              <ViewCartComponent ></ViewCartComponent>
+            </div>
           </Grid.Column>
         </Grid>
       </Container>
@@ -198,7 +186,8 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
               size="small"
               secondary
             >
-              {products.map((item) => {
+
+              {Categories.map((item) => {
                 return (
                   <Menu.Item
                     active={activeItem === item.name}
@@ -214,36 +203,12 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
           </Grid.Column>
           <Grid.Column width={10}>
             <div>
-              <ProductsComponent categories={categories} />
+              <ProductsComponent subcategories={SubCategories.filter(sub => sub.categoryId === subcategoryId)} products={Products} areaId={areaId}></ProductsComponent>
             </div>
           </Grid.Column>
 
           <Grid.Column width={6}>
-            <Card style={{ width: "100%" }}>
-              <Card.Content textAlign="center">
-                <Header as="h3">Cart</Header>
-              </Card.Content>
-              <Card.Content>
-                <Grid columns={2}>
-                  <Grid.Column width={10}>
-                    <p>29-HOMEMADE BLUE CHEESE BURGER</p>
-                    <small>1 X VND 290.000</small>
-                  </Grid.Column>
-                  <Grid.Column width={6}>
-                    <Image size="small" src={SrcImg1} />
-                  </Grid.Column>
-                </Grid>
-              </Card.Content>
-              <Card.Content>
-                <CustomStrong>Subtotal:</CustomStrong> VND 220.000
-              </Card.Content>
-              <Card.Content extra>
-                <div className="ui two buttons">
-                  <CustomButton>View Cart</CustomButton>
-                  <CustomButton>Checkout</CustomButton>
-                </div>
-              </Card.Content>
-            </Card>
+            <ViewCartComponent></ViewCartComponent>
           </Grid.Column>
         </Grid>
       </Container>
@@ -251,7 +216,7 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
   };
   const MenusOnMobile = () => {
     return (
-      <>
+      <div>
         <Visibility
           once={false}
           onBottomPassed={stickOverlay}
@@ -259,34 +224,35 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
           once={false}
         />
 
-        <Menu
+        <MenuCustom
           fixed={overlayFixed ? "top" : undefined}
           style={
             overlayFixed ? fixedOverlayMenuMobileStyle : overlayMenuMobileStyle
           }
           size="small"
           secondary
+          className={MenuCustomStyle.customMobile}
         >
-          {products.map((item) => {
+          {Categories.map((item) => {
             return (
               <Menu.Item
                 active={activeItem === item.name}
                 key={item.id}
                 name={item.name}
-                className={MenuCustomStyle.customCorlor}
+                className={MenuCustomStyle.customCorlorMobile}
                 onClick={handleItemClick}
                 value={item}
               ></Menu.Item>
             );
           })}
-        </Menu>
-        <ProductsComponent categories={categories} />
-      </>
+        </MenuCustom>
+        <ProductsComponent subcategories={SubCategories.filter(sub => sub.categoryId === subcategoryId)} products={Products} areaId={areaId}></ProductsComponent>
+      </div>
     );
   };
   return (
     <Layout>
-      <SliderComponent Images={Images} height="30vh" />
+      <SliderComponent backgroundAttachment="fixed" Images={Images} height="40vh" />
       <ResponsiveComponent
         onTablet={MenusOnTablet}
         onDesktop={MenusOnDesktop}
@@ -296,23 +262,22 @@ const ElDeliveryTakeOutComponent = ({ products }) => {
   );
 };
 
-export async function getServerSideProps(context) {
-  // NOTE fetch menu list from api
-  const res = await fetch(
-    "https://my-json-server.typicode.com/honam867/apiserver/menus"
-  );
-  const products = await res.json();
-  if (!products) {
-    return {
-      notFound: true,
-    };
-  }
-
-  return {
-    props: {
-      products,
-    },
-  };
-}
+// export async function getStaticProps(context) {
+//   // NOTE fetch menu list from api
+//   const res3 = await fetch(
+//     "https://my-json-server.typicode.com/honam867/apiserver/products"
+//   );
+//   const products = await res3.json();
+//   // if (!category) {
+//   //   return {
+//   //     notFound: true,
+//   //   };
+//   // }
+//   return {
+//     props: {
+//       products
+//     },
+//   };
+// }
 
 export default ElDeliveryTakeOutComponent;

@@ -106,7 +106,7 @@ const PrivateDiningEvent = () => {
                     <Header textAlign='center' as='h3' >
                         OUR EL GAUCHO STEAKHOUSE – CONTEMPORARY AND SPECIALISED
                     </Header>
-                    <p>
+                    <p style = {{textAlign: 'justify'}}>
                         Some of our restaurants have designated private dining rooms, event spaces or fully dedicated event floors, where we regularly host business and private lunches, dinners, functions and parties. Private rooms, event spaces and exclusive floors are based on consumption of the guests only and no additional room or floor charge is applicable.                </p>
                 </Container>
             </Container>
@@ -119,19 +119,20 @@ const PrivateDiningEvent = () => {
                                 <Header textAlign='center' >
                                     We are offering three options for private dining and larger event groups:
                     </Header>
+                
                                 <Container textAlign="left">
                                     <List bulleted >
-                                        <List.Item style={{ lineHeight: "1.65em" }}>
+                                        <List.Item style={{ lineHeight: "1.65em", textAlign: 'justify' }}>
                                             The first option is that your group dines based on our a la carte menu.
                                             This option is not only the recommended option by our restaurant, but also the preferred option of all larger groups we are hosting,
                                             as it allows the full dining experience and the uniqueness of what our restaurant stands for.
                             </List.Item>
-                                        <List.Item style={{ lineHeight: "1.65em" }}>
+                                        <List.Item style={{ lineHeight: "1.65em", textAlign: 'justify' }}>
                                             As a second option, we can offer you a set menu containing of a variety of our bestsellers with a fixed sum per person on the food.
                                             In this case, we can order for you in advance, all to share, that you can fully concentrate on your dining,
                                             enjoying the company of your guests, while having a clear pricing in your mind.
                             </List.Item>
-                                        <List.Item style={{ lineHeight: "1.65em" }}>
+                                        <List.Item style={{ lineHeight: "1.65em", textAlign: 'justify' }}>
                                             Furthermore, casual and standing events with pass-around food
                                             are possible as well and we would discuss this with you to find the individual approach you wish for.
                             </List.Item>
@@ -158,7 +159,7 @@ const PrivateDiningEvent = () => {
                                     <Header as="h5">
                                         Private Dining | Event Request
                                     </Header>
-                                    <p>
+                                    <p style = {{textAlign: 'justify'}}>
                                         Plan your special occasion or event with us. Simply fill out the form below and we will contact you promptly to organise and support you in creating a memorable experience. If you would like to check availability or special requests immediately,
                                     please feel free to call us directly at <span style={{ color: "#CF1315" }}>+84 28 38 272 090</span> .
                                     </p>

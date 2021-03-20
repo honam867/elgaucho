@@ -1,79 +1,108 @@
-import Link from "next/link";
-import React, { useState } from "react";
-import {
-  Icon,
-  Menu,
-  Sidebar,
-  Visibility,
-  Image,
-  Ref,
-} from "semantic-ui-react";
-import Logo from "../../public/static/img/elgauchologo.png";
-import styled from "styled-components";
+import React, { memo, useState } from "react";
+import Logo from "../../public/static/img/elgauchologonobg.png";
 import Responsive from "../../components/Responsive";
 import { useRouter } from "next/router";
-import Footer from "../Footer/index"
-const MenuItemLink = styled(Menu.Item)`
-  &:hover {
-    color: #cf1b15 !important;
-    background: none !important;
-  }
-  border-right: 1px solid #c0c0c0 !important;
-  border-radius: 0px !important;
-  font-weight: bold !important;
-`;
-const MenuItemLinkImage = React.forwardRef(function MenuItemLinkImage(
-  props,
-  ref
-) {
-  return <Image {...props} />;
-});
+import { connect } from "react-redux";
+import HeaderOnDesktop from "./onDesktop/index";
+import HeaderOnMobile from "./onMobile/index";
+import HeaderOnTablet from "./onTablet/index";
+import Footer from "../Footer";
 
-const fixedMenuStyle = {
-  backgroundColor: "#fff",
-  height: "10px",
-  maxHeight: "600px",
-  overflow: "hidden",
-  transition: "height 0.2s",
-  borderBottom: "1px solid #cf1b15",
-};
-const noFixedMenuStyle = {
-  backgroundColor: "#fff",
-  transition: "height 0.1s",
-  height: "76px",
-  maxHeight: "600px",
-  overflow: "hidden",
-};
-const noFixedMenuStyleOnMobile = {
-  backgroundColor: "#fff",
-  transition: "height 0.1s",
-  height: "60px",
-  margin: "0px !important",
-  maxHeight: "600px",
-  margin: "0px !important"
-
-};
-const noFixedMenuStyleOnTable = {
-  backgroundColor: "#fff",
-  transition: "height 0.1s",
-  height: "80px",
-  margin: "0px !important",
-  maxHeight: "600px",
-  margin: "0px !important"
-
-};
-
-const ResponsiveHeader = ({ children }) => {
+const menuOptions = [
+  {
+    key: 1,
+    text: "Deal Of The Week | Steak o’clock",
+    value: 1,
+    pathname: "/menu#DealOfTheWeek",
+  },
+  { key: 2, text: "Lunch", value: 2, pathname: "/menu#AllDayDining" },
+  {
+    key: 3,
+    text: "All Day Dining & Drinks",
+    value: 3,
+    pathname: "/menu#AllDayDining",
+  },
+  { key: 4, text: "Wine", value: 4, pathname: "/menu#Wine" },
+  { key: 5, text: "Cigars & Butcher", value: 5, pathname: "/menu#Cigars" },
+];
+const ResponsiveHeader = ({ children, numberCart }) => {
   const router = useRouter();
-  const [menuFixed, setFixedMenu] = useState(false);
-  const hideFixedMenu = () => {
-    console.log('hide')
-    setFixedMenu(false);
+  const navigateToLocation = (e, value) => {
+    e.preventDefault();
+    router.push(value.pathname);
   };
-  const showFixedMenu = () => {
-    console.log('show')
-    setFixedMenu(true);
-  };
+  const locationOptions = [
+    {
+      key: 1,
+      text: "Xuan Thuy | HCMC",
+      value: 1,
+      pathname: "/location#XuanThuy",
+      tag: "#XuanThuy"
+    },
+    {
+      key: 2,
+      text: "Saigon Pearl | HCMC",
+      value: 2,
+      pathname: "/location#SaigonPearl",
+      tag: "#SaigonPearl"
+    },
+    {
+      key: 3,
+      text: "Hai Ba Trung | HCMC",
+      value: 3,
+      pathname: "/location#HaiBaTrung",
+    },
+    { key: 4, text: "An Phu | HCMC", value: 4, pathname: "/location#AnPhu" },
+    {
+      key: 5,
+      text: "Phu My Hung | HCMC",
+      value: 5,
+      pathname: "/location#PhuMyHung",
+    },
+    {
+      key: 6,
+      text: "Bach Dang | Da Nang",
+      value: 6,
+      pathname: "/location#BachDang",
+    },
+    { key: 7, text: "Ba Dinh | Hanoi", value: 7, pathname: "/location#BaDinh" },
+    { key: 8, text: "Tay Ho | Hanoi", value: 8, pathname: "/location#TayHo" },
+    {
+      key: 9,
+      text: "Trang Tien | Hanoi",
+      value: 9,
+      pathname: "/location#TrangTien",
+    },
+  ];
+
+  const newsOptions = [
+    {
+      key: 1,
+      text: "Magazine",
+      value: 1,
+      pathname: "/magazine",
+
+    },
+    {
+      key: 2,
+      text: "Megazing",
+      value: 3,
+      pathname: "/location#XuanThuy",
+
+    },
+    {
+      key: 3,
+      text: "News",
+      value: 4,
+      pathname: "/location#XuanThuy",
+    },
+    {
+      key: 4,
+      text: "Promotions",
+      value: 5,
+      pathname: "/location#XuanThuy",
+    },
+  ];
   const handleToggle = () => {
     setSidebarOpened(true);
   };
@@ -81,353 +110,89 @@ const ResponsiveHeader = ({ children }) => {
   const handleSidebarHide = () => {
     setSidebarOpened(false);
   };
-  const segmentRef = React.useRef()
+  //toggle  child menu tablet
+  // location
+  const [visible, setVisible] = useState(false);
+  const toggleVisibility = () => {
+    setVisible(!visible);
+  };
+  //menu
+  const [visibleMenu, setVisibleMenu] = useState(false);
+  const toggleMenu = () => {
+    setVisibleMenu(!visibleMenu);
+  };
+  //contact
+  const [visibleContact, setVisibleContact] = useState(false);
+  const toggleContact = () => {
+    setVisibleContact(!visibleContact);
+  };
   return (
-    <Responsive
-      onDesktop={() => {
-        return (
-          <>
-            <Visibility
-              once={false}
-              onTopPassed={showFixedMenu}
-              onBottomPassedReverse={hideFixedMenu}
-            >
-              <Menu
-                secondary
-                fixed={menuFixed ? "top" : undefined}
-                style={menuFixed ? fixedMenuStyle : noFixedMenuStyle}
-              >
-                <Menu.Item>
-                  <Link href="/home" forwardRef>
-                    <MenuItemLinkImage
-                      src={Logo}
-                      alt="website logo"
-                      size={menuFixed ? "mini" : "tiny"}
-                    />
-                  </Link>
-                </Menu.Item>
+    <div >
+      <Responsive
+        onDesktop={() => {
+          return (
+            <HeaderOnDesktop
+              children={children}
+              Logo={Logo}
+              newsOptions={newsOptions}
+              router={router}
+              locationOptions={locationOptions}
+              newsOptions={newsOptions}
+              navigateToLocation={navigateToLocation}
+              menuOptions={menuOptions}
+              numberCart={numberCart}
+            />
+          );
+        }}
+        onTablet={() => {
+          return (
+            <HeaderOnTablet
+              children={children}
+              handleToggle={handleToggle}
+              numberCart={numberCart}
+              handleSidebarHide={handleSidebarHide}
+              sidebarOpened={sidebarOpened}
+              toggleVisibility={toggleVisibility}
+              visible={visible}
+              locationOptions={locationOptions}
+              toggleMenu={toggleMenu}
+              visibleMenu={visibleMenu}
+              menuOptions={menuOptions}
+              visibleContact={visibleContact}
+              toggleContact={toggleContact}
+              Logo={Logo}
+              navigateToLocation={navigateToLocation}
+            />
+          );
+        }}
+        onMobile={() => {
+          return (
+            <HeaderOnMobile
+              children={children}
+              handleSidebarHide={handleSidebarHide}
+              handleToggle={handleToggle}
+              numberCart={numberCart}
+              sidebarOpened={sidebarOpened}
+              toggleVisibility={toggleVisibility}
+              visible={visible}
+              locationOptions={locationOptions}
+              Logo={Logo}
+              navigateToLocation={navigateToLocation}
+              toggleMenu={toggleMenu}
+              visibleMenu={visibleMenu}
+              menuOptions={menuOptions}
+              toggleContact={toggleContact}
+              visibleContact={visibleContact}
+            />
+          );
+        }}
+      />
+      <Footer />
 
-                <Link href="/location">
-                  <MenuItemLink
-                    name="Locations"
-                    active={router.pathname == "/location"}
-                    position="right"
-                  ></MenuItemLink>
-                </Link>
-                <Link href="/delivery" forwardRef>
-                  <MenuItemLink
-                    name="EL Delivery & Take out"
-                    active={router.pathname == "/delivery"}
-                  >
-                    EL Delivery & Take out
-            </MenuItemLink>
-                </Link>
-                <Link href="/menu" forwardRef>
-                  <MenuItemLink
-                    name="Menus"
-                    active={router.pathname == "/menu"}
-                  ></MenuItemLink>
-                </Link>
-                <Link href="/private-dining-events" forwardRef>
-                  <MenuItemLink
-                    name="Private Dining Events"
-                    active={router.pathname == "/private-dining-events"}
-                  >
-                    Private | Dining Events
-            </MenuItemLink>
-                </Link>
-                <Link href="/gift-card" forwardRef>
-                  <MenuItemLink
-                    name="Gift Card"
-                    active={router.pathname == "/gift-card"}
-                  ></MenuItemLink>
-                </Link>
-                <Link href="/get-in-touch" forwardRef>
-                  <MenuItemLink
-                    name="Contact Us"
-                    active={router.pathname == "/get-in-touch"}
-                  ></MenuItemLink>
-                </Link>
-                <Link href="/" forwardRef>
-                  <MenuItemLink>
-                    <Icon name="cart" />
-                  </MenuItemLink>
-                </Link>
-                <Link href="/" forwardRef>
-                  <MenuItemLink>
-                    <Icon name="facebook" color="blue" />
-                  </MenuItemLink>
-                </Link>
-                <Link href="/" forwardRef>
-                  <MenuItemLink>
-                    <Icon name="instagram" color="violet" />
-                  </MenuItemLink>
-                </Link>
-              </Menu>
-            </Visibility>
-            {children}
-          </>
-        )
-      }}
-      onTablet={() => {
-        return (
-          <>
-            <Menu
-              secondary
-              style={noFixedMenuStyleOnTable}
-            >
-              <Menu.Item style={{ paddingTop: "20px" }}>
-                <Link href="/home" forwardRef>
-                  <MenuItemLinkImage
-                    src={Logo}
-                    alt="website logo"
-                    size="tiny"
-                  />
-                </Link>
-              </Menu.Item>
-              <Menu.Item position="right" onClick={handleToggle}>
-                <Icon size="large" name="bars" />
-              </Menu.Item>
-              <Link href="/" forwardRef>
-                  <MenuItemLink>
-                    <Icon size="large" name="cart" />
-                  </MenuItemLink>
-                </Link>
-                <Link href="/" forwardRef>
-                  <MenuItemLink>
-                    <Icon size="large" name="facebook" color="blue" />
-                  </MenuItemLink>
-                </Link>
-                <Link href="/" forwardRef>
-                  <MenuItemLink>
-                    <Icon size="large" name="instagram" color="violet" />
-                  </MenuItemLink>
-                </Link>
-            </Menu>
-            <Sidebar
-              as={Menu}
-              animation="overlay"
-              inverted
-              onHide={handleSidebarHide}
-              vertical
-              visible={sidebarOpened}
-              direction="right"
-              color="red"
-            >
-              <Sidebar.Pusher dimmed={sidebarOpened}>
-                <Link href="/location" forwardRef>
-                  <MenuItemLink
-                    name="Locations"
-                    active={router.pathname == "/location"}
-                    position="right"
-                  ></MenuItemLink>
-                </Link>
-                <Link href="/delivery" forwardRef>
-                  <MenuItemLink
-                    name="EL Delivery & Take out"
-                    active={router.pathname == "/delivery"}
-                  >
-                    EL Delivery & Take out
-          </MenuItemLink>
-                </Link>
-                <Link href="/menu" forwardRef>
-                  <MenuItemLink
-                    name="Menus"
-                    active={router.pathname == "/menu"}
-                  ></MenuItemLink>
-                </Link>
-                <Link href="/private-dining-events" forwardRef>
-                  <MenuItemLink
-                    name="Private Dining Events"
-                    active={router.pathname == "/private-dining-events"}
-                  >
-                    Private | Dining Events
-          </MenuItemLink>
-                </Link>
-                <Link href="/gift-card" forwardRef>
-                  <MenuItemLink
-                    name="Gift Card"
-                    active={router.pathname == "/gift-card"}
-                  ></MenuItemLink>
-                </Link>
-                <Link href="/get-in-touch" forwardRef>
-                  <MenuItemLink
-                    name="Contact Us"
-                    active={router.pathname == "/get-in-touch"}
-                  ></MenuItemLink>
-                </Link>
-              </Sidebar.Pusher>
-            </Sidebar>
-            {children}
-            <Footer />
-          </>
-        )
-      }}
-      // onTablet={() => {
-      //   return (
-      //     <>
-      //       <Visibility
-      //         once={false}
-      //         onTopPassed={showFixedMenu}
-      //         onBottomPassedReverse={hideFixedMenu}
-      //       >
-      //         <Menu
-      //           secondary
-      //           fixed={menuFixed ? "top" : undefined}
-      //           style={menuFixed ? fixedMenuStyle : noFixedMenuStyle}
-      //         >
-      //           <Menu.Item>
-      //             <Link href="/home" forwardRef>
-      //               <MenuItemLinkImage
-      //                 src={Logo}
-      //                 alt="website logo"
-      //                 size={menuFixed ? "mini" : "tiny"}
-      //               />
-      //             </Link>
-      //           </Menu.Item>
-
-      //           <Link href="/location">
-      //             <MenuItemLink
-      //               name="Locations"
-      //               active={router.pathname == "/location"}
-      //               position="right"
-      //             ></MenuItemLink>
-      //           </Link>
-      //           <Link href="/delivery" forwardRef>
-      //             <MenuItemLink
-      //               name="EL Delivery & Take out"
-      //               active={router.pathname == "/delivery"}
-      //             >
-      //               EL Delivery & Take out
-      //       </MenuItemLink>
-      //           </Link>
-      //           <Link href="/menu" forwardRef>
-      //             <MenuItemLink
-      //               name="Menus"
-      //               active={router.pathname == "/menu"}
-      //             ></MenuItemLink>
-      //           </Link>
-      //           <Link href="/private-dining-events" forwardRef>
-      //             <MenuItemLink
-      //               name="Private Dining Events"
-      //               active={router.pathname == "/private-dining-events"}
-      //             >
-      //               Private | Dining Events
-      //       </MenuItemLink>
-      //           </Link>
-      //           <Link href="/gift-card" forwardRef>
-      //             <MenuItemLink
-      //               name="Gift Card"
-      //               active={router.pathname == "/gift-card"}
-      //             ></MenuItemLink>
-      //           </Link>
-      //           <Link href="/get-in-touch" forwardRef>
-      //             <MenuItemLink
-      //               name="Contact Us"
-      //               active={router.pathname == "/get-in-touch"}
-      //             ></MenuItemLink>
-      //           </Link>
-      //           <Link href="/" forwardRef>
-      //             <MenuItemLink>
-      //               <Icon name="cart" />
-      //             </MenuItemLink>
-      //           </Link>
-      //           <Link href="/" forwardRef>
-      //             <MenuItemLink>
-      //               <Icon name="facebook" color="blue" />
-      //             </MenuItemLink>
-      //           </Link>
-      //           <Link href="/" forwardRef>
-      //             <MenuItemLink>
-      //               <Icon name="instagram" color="violet" />
-      //             </MenuItemLink>
-      //           </Link>
-      //         </Menu>
-      //       </Visibility>
-      //       {children}
-      //     </>
-      //   )
-      // }}
-      onMobile={() => {
-        return (
-          <>
-            <Menu
-              secondary
-              style={noFixedMenuStyleOnMobile}
-            >
-              <Menu.Item style={{ paddingTop: "20px" }}>
-                <Link href="/home" forwardRef>
-                  <MenuItemLinkImage
-                    src={Logo}
-                    alt="website logo"
-                    size="tiny"
-                  />
-                </Link>
-              </Menu.Item>
-              <Menu.Item position="right" onClick={handleToggle}>
-                <Icon name="bars" />
-              </Menu.Item>
-            </Menu>
-            <Sidebar
-              as={Menu}
-              animation="overlay"
-              inverted
-              onHide={handleSidebarHide}
-              vertical
-              visible={sidebarOpened}
-              direction="right"
-              color="red"
-            >
-              <Sidebar.Pusher dimmed={sidebarOpened}>
-                <Link href="/location" forwardRef>
-                  <MenuItemLink
-                    name="Locations"
-                    active={router.pathname == "/location"}
-                    position="right"
-                  ></MenuItemLink>
-                </Link>
-                <Link href="/delivery" forwardRef>
-                  <MenuItemLink
-                    name="EL Delivery & Take out"
-                    active={router.pathname == "/delivery"}
-                  >
-                    EL Delivery & Take out
-          </MenuItemLink>
-                </Link>
-                <Link href="/menu" forwardRef>
-                  <MenuItemLink
-                    name="Menus"
-                    active={router.pathname == "/menu"}
-                  ></MenuItemLink>
-                </Link>
-                <Link href="/private-dining-events" forwardRef>
-                  <MenuItemLink
-                    name="Private Dining Events"
-                    active={router.pathname == "/private-dining-events"}
-                  >
-                    Private | Dining Events
-          </MenuItemLink>
-                </Link>
-                <Link href="/gift-card" forwardRef>
-                  <MenuItemLink
-                    name="Gift Card"
-                    active={router.pathname == "/gift-card"}
-                  ></MenuItemLink>
-                </Link>
-                <Link href="/get-in-touch" forwardRef>
-                  <MenuItemLink
-                    name="Contact Us"
-                    active={router.pathname == "/get-in-touch"}
-                  ></MenuItemLink>
-                </Link>
-              </Sidebar.Pusher>
-            </Sidebar>
-            {children}
-            <Footer />
-          </>
-        )
-      }}
-    />
-  )
+    </div>
+  );
 };
-export default ResponsiveHeader;
+const mapStateToProps = (state) => ({
+  numberCart: state.cart.numberCart,
+});
+export default memo(connect(mapStateToProps, null)(ResponsiveHeader));

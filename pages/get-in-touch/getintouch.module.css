@@ -1,25 +1,13 @@
-.outsideBg {
-  height: 900px;
-  background-color: black;
-  position: relative !important;
-}
 .bg {
-  background-image: url("../../public/static/img/concrete-texture-wallpaper-2.jpg");
+  padding: 70px 0px;
+  background: linear-gradient(0deg, rgba(0,0,1,0.6), rgba(0,0,1,0.6)), url("../../public/static/img/concrete-texture-wallpaper-2.jpg") repeat;
   height: 100%;
   background-position: center;
-  background-repeat: no-repeat;
   background-size: cover;
-  opacity: 0.5;
-}
-.alignItem {
-  position: absolute !important;
-  z-index: 1;
-  width: 100%;
   text-align: center;
-  top: 10%;
-  height: 399px;
   color: white;
 }
+
 .label {
   color: white;
 }

@@ -1,22 +1,22 @@
-import { Divider, Header } from "semantic-ui-react";
+import { Container, Divider, Header } from "semantic-ui-react";
 import ProductItem from "../ProductItemComponent";
 import CustomHeader from "./product.module.css";
-const ProductsComponent = ({ categories }) => {
-    return (
-        <div>
-            {categories.map(item => {
-                return (
-                    <div key={item.id}>
-                        <Divider horizontal>
-                            <Header as='h2' className={CustomHeader.customHeaderColor}>
-                                {item.name}
-                            </Header>
-                        </Divider>
-                        <ProductItem categoriesItem={item.categoryItem} />
-                    </div>
-                )
-            })}
-        </div>
-    );
+const ProductsComponent = ({ subcategories, products, areaId }) => {
+  return (
+    <Container >
+      {subcategories.map(item => {
+        return (
+          <div key={item.id}>
+            <Divider horizontal>
+              <Header as='h2' className={CustomHeader.customHeaderColor}>
+                {item.name}
+              </Header>
+            </Divider>
+            <ProductItem products={products.filter(product => product.subCategory === item.id)} areaId={areaId} />
+          </div>
+        )
+      })}
+    </Container>
+  )
 }
 export default ProductsComponent;

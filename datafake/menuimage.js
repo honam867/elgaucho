@@ -12,74 +12,80 @@ import SrcImg11 from "../public/static/img/BKK-Wine-list.12.8FN-1_Artboard-2-cop
 import SrcImg12 from "../public/static/img/TH_Drink.png";
 import SrcImg13 from "../public/static/img/TH_CIGAR_10.10_800PX-01.png";
 const ImageMenuPages = {
-    ImageMenuSlider: [
-        {
-            "id": 1,
-            "name": "image 1",
-            "imgUrl": SrcImg1
-        },
-        {
-            "id": 2,
-            "name": "image 2",
-            "imgUrl": SrcImg2
-        },
-        {
-            "id": 3,
-            "name": "image 3",
-            "imgUrl": SrcImg3
-        },
-        {
-            "id": 4,
-            "name": "image 4",
-            "imgUrl": SrcImg4
-        },
-        {
-            "id": 5,
-            "name": "image 5",
-            "imgUrl": SrcImg5
-        },
-        {
-            "id": 6,
-            "name": "image 6",
-            "imgUrl": SrcImg6
-        },
+  ImageMenuSlider: [
+    {
+      "id": 1,
+      "name": "image 1",
+      "imgUrl": SrcImg1,
+      size: "450px",
+    },
+    {
+      "id": 2,
+      "name": "image 2",
+      "imgUrl": SrcImg2,
+      size: "450px",
+    },
+    {
+      "id": 3,
+      "name": "image 3",
+      "imgUrl": SrcImg3,
+      size: "450px",
+    },
+    {
+      "id": 4,
+      "name": "image 4",
+      "imgUrl": SrcImg4,
+      size: "450px",
+    },
+    {
+      "id": 5,
+      "name": "image 5",
+      "imgUrl": SrcImg5,
+      size: "450px",
+    },
+    {
+      "id": 6,
+      "name": "image 6",
+      "imgUrl": SrcImg6,
+      size: "450px",
+    },
 
-    ], ImageMenuBigSize: [
-        {
-            "id": 7,
-            "name": "image 7",
-            "imgUrl": SrcImg7
-        },
-        {
-            "id": 8,
-            "name": "image 8",
-            "imgUrl": SrcImg8
-        },
-        {
-            "id": 9,
-            "name": "image 9",
-            "imgUrl": SrcImg9
-        },
-    ], ImageDiningMenu: {
-        "id": 10,
-        "name": "image 10",
-        "imgUrl": SrcImg10
-    }
-    , WineTrasures: {
-        "id": 11,
-        "name": "image 11",
-        "imgUrl": SrcImg11
-    }
-    , Drink: {
-        "id": 12,
-        "name": "image 12",
-        "imgUrl": SrcImg12
-    }
-    , Cigar: {
-        "id": 13,
-        "name": "image 13",
-        "imgUrl": SrcImg13
-    }
+  ], ImageMenuBigSize: [
+    {
+      "id": 7,
+      "name": "image 7",
+      "imgUrl": SrcImg7
+    },
+    {
+      "id": 8,
+      "name": "image 8",
+      "imgUrl": SrcImg8
+    },
+    {
+      "id": 9,
+      "name": "image 9",
+      "imgUrl": SrcImg9
+    },
+  ], ImageDiningMenu: {
+    "id": 10,
+    "name": "image 10",
+    "imgUrl": SrcImg10
+  }
+  , WineTrasures: {
+    "id": 11,
+    "name": "image 11",
+    "imgUrl": SrcImg11
+  }
+  , Drink: {
+    "id": 12,
+    "name": "image 12",
+    "imgUrl": SrcImg12
+  }
+  , Cigar: {
+    "id": 13,
+    "name": "image 13",
+    "imgUrl": SrcImg13
+  }
 }
 
 export default ImageMenuPages;
