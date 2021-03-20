@@ -3,7 +3,7 @@ import SliderComponent from "../../components/SliderComponent";
 import ButtonCustomComponent from "../../components/ButtonCustomComponent";
 import { memo, useRef } from "react";
 import Responsive from "../../components/Responsive";
-import { ImageSliderDesktop, ImageSliderMobile, ImageSliderTablet } from "./imageSlider";
+import { ImageSliderDesktop, ImageSliderMobile, ImageSliderTablet } from "../../datafake/ResponsiveImage/at-home";
 
 const ButtonData = [
   {

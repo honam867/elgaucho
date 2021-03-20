@@ -137,7 +137,6 @@ const ResponsiveHeader = ({ children, numberCart }) => {
               newsOptions={newsOptions}
               router={router}
               locationOptions={locationOptions}
-              newsOptions={newsOptions}
               navigateToLocation={navigateToLocation}
               menuOptions={menuOptions}
               numberCart={numberCart}
