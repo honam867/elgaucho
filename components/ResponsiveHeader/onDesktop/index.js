@@ -154,6 +154,7 @@ const HeaderOnDesktop = ({
                   {menuOptions.map((item, i) => {
                     return (
                       <DropdownItemStyle
+                        key={i}
                         pathname={item.pathname}
                         onClick={navigateToLocation}
                       >

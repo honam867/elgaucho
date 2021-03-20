@@ -1,7 +1,8 @@
-import { connect } from "react-redux";
-import { Button, Card, Grid, Header, Icon, Image, Label } from "semantic-ui-react";
+import { connect } from 'react-redux';
+import { Button, Card, Grid, Header } from "semantic-ui-react";
 import styled from "styled-components";
 import { IncreaseQuantity, DecreaseQuantity, DeleteCart } from "../../redux/cart/cart.actions";
+import { LabelCustom, IconCustom } from "./style";
 const CustomStrong = styled.strong`
   color: #cf1b15 !important;
   font-weight: bold !important;
@@ -30,21 +31,19 @@ const ViewCartComponent = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCa
                 <Card.Content key={i}>
                   <Grid columns={4}>
                     <Grid.Column width={10}>
-
                       <p>{item.name}</p>
                       <small>{item.quantity} X  {item.price.toLocaleString("es-US")}</small>
                     </Grid.Column>
                     <Grid.Column width={6}>
-                      <Label onClick={() => DeleteCart(i)} style={{ cursor: "pointer" }} color="white" attached='top right'>
-                        <Icon name="delete" />
-                      </Label>
+                      <LabelCustom attached='top right'>
+                        <IconCustom onClick={() => DeleteCart(i)} name="delete" />
+                      </LabelCustom>
                     </Grid.Column>
                   </Grid>
                   <div style={{ padding: "12px 0px" }}>
                     <Button size='mini' onClick={() => DecreaseQuantity(i)}>-</Button>
                     <Button size='mini' onClick={() => IncreaseQuantity(i)}>+</Button>
                   </div>
-
                 </Card.Content>
               )
             })

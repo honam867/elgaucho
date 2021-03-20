@@ -1,7 +1,10 @@
-.backgroundFullScreen {
+import styled from "styled-components";
+
+export const MenuWrapper = styled.div`
+  position: relative;
+  top: -8px;
   background-color: black;
   color: white;
-}
 .textAnimtion {
   color: #ff0000;
   font-size: 15px;
@@ -43,3 +46,4 @@
     color: #ff0000;
   }
 }
+`

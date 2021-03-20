@@ -187,6 +187,7 @@ const ResponsiveHeader = ({ children, numberCart }) => {
           );
         }}
       />
+
       <Footer />
 
     </div>

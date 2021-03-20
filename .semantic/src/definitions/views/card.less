@@ -12,10 +12,10 @@
             Theme
 *******************************/
 
-@type    : 'view';
-@element : 'card';
+@type: "view";
+@element: "card";
 
-@import (multiple) '../../theme.config';
+@import (multiple) "../../theme.config";
 
 /*******************************
             Standard
@@ -27,6 +27,7 @@
 
 .ui.cards > .card,
 .ui.card {
+  // Elgaucho custom card
   max-width: 100%;
   position: relative;
   display: @display;
@@ -38,8 +39,8 @@
   padding: @padding;
 
   border: @border;
-  border-radius: @borderRadius;
-  box-shadow: @boxShadow;
+  border-radius: none;
+  box-shadow: none;
   transition: @transition;
   z-index: @zIndex;
   word-wrap: break-word;
@@ -80,19 +81,17 @@
 .ui.cards:after,
 .ui.card:after {
   display: block;
-  content: ' ';
+  content: " ";
   height: 0;
   clear: both;
   overflow: hidden;
   visibility: hidden;
 }
 
-
 /* Consecutive Card Groups Preserve Row Spacing */
 .ui.cards ~ .ui.cards {
   margin-top: @consecutiveGroupDistance;
 }
-
 
 /*--------------
   Rounded Edges
@@ -158,7 +157,7 @@
 .ui.cards > .card > .content:after,
 .ui.card > .content:after {
   display: block;
-  content: ' ';
+  content: " ";
   height: 0;
   clear: both;
   overflow: hidden;
@@ -185,7 +184,7 @@
 .ui.cards > .card > .content > .meta + .description,
 .ui.cards > .card > .content > .header + .description,
 .ui.card > .content > .meta + .description,
-.ui.card > .content > .header + .description  {
+.ui.card > .content > .header + .description {
   margin-top: @descriptionDistance;
 }
 
@@ -193,7 +192,7 @@
  Floated Content
 -----------------*/
 
-.ui.cards > .card  [class*="left floated"],
+.ui.cards > .card [class*="left floated"],
 .ui.card [class*="left floated"] {
   float: left;
 }
@@ -206,7 +205,7 @@
      Aligned
 ---------------*/
 
-.ui.cards > .card  [class*="left aligned"],
+.ui.cards > .card [class*="left aligned"],
 .ui.card [class*="left aligned"] {
   text-align: left;
 }
@@ -218,7 +217,6 @@
 .ui.card [class*="right aligned"] {
   text-align: right;
 }
-
 
 /*--------------
   Content Image
@@ -238,7 +236,6 @@
   height: @avatarSize;
   border-radius: @avatarBorderRadius;
 }
-
 
 /*--------------
    Description
@@ -419,7 +416,6 @@
   color: @extraLinkHoverColor;
 }
 
-
 /*******************************
            Variations
 *******************************/
@@ -464,10 +460,12 @@
   .ui.card.horizontal > .image:last-child > img {
     border-radius: 0 @defaultBorderRadius @defaultBorderRadius 0;
   }
-  .ui.horizontal.cards > .card > .content, .ui.horizontal.card > .content {
+  .ui.horizontal.cards > .card > .content,
+  .ui.horizontal.card > .content {
     flex-basis: 1px;
   }
-  .ui.horizontal.cards > .card > .extra, .ui.horizontal.card > .extra {
+  .ui.horizontal.cards > .card > .extra,
+  .ui.horizontal.card > .extra {
     flex-basis: 100%;
   }
 }
@@ -527,7 +525,6 @@
   .ui.link.card {
     transform: none;
   }
-
 
   .ui.cards a.card:hover,
   .ui.link.cards .card:not(.icon):hover,
@@ -699,7 +696,7 @@ each(@colors,{
   --------------------*/
 
   /* Mobile Only */
-  @media only screen and (max-width : @largestMobileScreen) {
+  @media only screen and (max-width: @largestMobileScreen) {
     .ui.two.doubling.cards {
       margin-left: @oneCardOffset;
       margin-right: @oneCardOffset;
@@ -784,7 +781,7 @@ each(@colors,{
   }
 
   /* Tablet Only */
-  @media only screen and (min-width : @tabletBreakpoint) and (max-width : @largestTabletScreen) {
+  @media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
     .ui.two.doubling.cards {
       margin-left: @oneCardOffset;
       margin-right: @oneCardOffset;
@@ -874,7 +871,7 @@ each(@colors,{
         Stackable
   --------------------*/
 
-  @media only screen and (max-width : @largestMobileScreen) {
+  @media only screen and (max-width: @largestMobileScreen) {
     .ui.stackable.cards {
       display: block !important;
     }
@@ -904,7 +901,7 @@ each(@colors,{
     .ui.@{value}.cards .card {
       font-size: @s;
     }
-  })
+  });
 }
 
 & when (@variationCardInverted) {
@@ -973,6 +970,5 @@ each(@colors,{
     background: @invertedLinkHoverBackground;
   }
 }
-
 
 .loadUIOverrides();
