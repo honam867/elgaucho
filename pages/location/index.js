@@ -1,11 +1,12 @@
 import Layout from "../../components/ResponsiveHeader/index";
-import { Button, Container, Header, Icon, Grid, Card, Image } from "semantic-ui-react";
+import { Button, Container, Header, Icon, Grid } from "semantic-ui-react";
 import SliderComponent from "../../components/SliderComponent";
 import ButtonCustomComponent from "../../components/ButtonCustomComponent";
 import styled from "styled-components";
 import Link from "next/link";
 import Responsive from "../../components/Responsive";
-import LocationCustomStyle from "./location.module.css";
+import { ImageSliderDesktop, ImageSliderMobile, ImageSliderTablet } from "./ImageSlider";
+import { memo } from "react";
 const CustomButton = styled(Button)`
 color: #fff  !important;
 background: #cf1b15 !important;
@@ -17,42 +18,6 @@ margin: 10px !important;
 }
 `;
 const Location = () => {
-  // TODO Fake data Image
-  const Images = [
-    {
-      id: 1,
-      name: "Img 1",
-      imgUrl: "https://vn.elgaucho.asia/wp-content/uploads/2016/04/El-Gaucho-Argentinian-Steakhouse-Restaurant-Homepage-Welcome-1920-x-800.jpg",
-      size: "450px",
-      title: "WELCOME",
-      subTitle: "Finest Steakhouse-Style Food",
-      opacity: "0.8",
-      buttonName: "EL DELIVERY | TAKE OUT",
-      url: "delivery"
-    },
-    {
-      id: 2,
-      name: "Img 2",
-      imgUrl: "https://vn.elgaucho.asia/wp-content/uploads/2019/06/El-Gaucho-Dine-With-Us.jpg",
-      size: "450px",
-      title: "DINE WITH US",
-      subTitle: "View Our Menus",
-      buttonName: "Menus",
-      url: "menu"
-    },
-    {
-      id: 3,
-      name: "Img 3",
-      imgUrl: "https://vn.elgaucho.asia/wp-content/uploads/2016/04/VN04-2017_1036_37_38_39_40.jpg",
-      size: "450px",
-      title: "",
-      title: "GET IN TOUCH",
-      opacity: "0.8",
-      subTitle: "Drop Us A Line On Any Question Or Note You Might Have",
-      buttonName: "CONTACT US",
-      url: "get-in-touch"
-    }
-  ];
   const Images2 = [
     {
       id: 1,
@@ -108,9 +73,9 @@ const Location = () => {
         <Responsive onDesktop={() => {
           return (
             <SliderComponent
-              Images={Images}
+              Images={ImageSliderDesktop}
               height="100vh"
-              backgroundOpacity={true}
+              opacityBlack={true}
               backgroundAttachment="fixed"
               fromLocationPage={true}
               angleDown={true}
@@ -120,9 +85,9 @@ const Location = () => {
         }} onTablet={() => {
           return (
             <SliderComponent
-              Images={Images}
+              Images={ImageSliderTablet}
               height="100vh"
-              backgroundOpacity={true}
+              opacityBlack={true}
               backgroundAttachment="fixed"
               fromLocationPage={true}
               angleDown={true}
@@ -132,9 +97,9 @@ const Location = () => {
         }} onMobile={() => {
           return (
             <SliderComponent
-              Images={Images}
-              height="30vh"
-              backgroundOpacity={true}
+              Images={ImageSliderMobile}
+              height="100vh"
+              opacityBlack={true}
               fromLocationPage={true}
               gotomainsection={gotomainSection}
             />
@@ -388,4 +353,4 @@ const Location = () => {
     </Layout >
   )
 }
-export default Location;
+export default memo(Location);

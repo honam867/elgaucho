@@ -1,5 +1,5 @@
 import Layout from "../../components/ResponsiveHeader/index";
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import SliderComponent from "../../components/SliderComponent";
 import {
   Container,
@@ -44,18 +44,6 @@ const ElDeliveryTakeOutComponent = () => {
   // NOTE new logic here:
   const [subcategoryId, setSubCategoyId] = useState(0);
   const [areaId, setAreaId] = useState(8);
-  const overlayMenuStyle = {
-    position: "relative",
-    top: 0,
-    transition: "top 2s ease",
-  };
-
-  const fixedOverlayMenuStyle = {
-    ...overlayMenuStyle,
-    top: "200px",
-    width: "250px"
-  };
-
   const overlayMenuMobileStyle = {};
   const fixedOverlayMenuMobileStyle = {
     backgroundColor: "#fff",
@@ -100,7 +88,7 @@ const ElDeliveryTakeOutComponent = () => {
       >
         <Grid doubling columns={3}  >
           <Grid.Column width={3} >
-            <Menu style={{ background: "#FFF" }} secondary vertical>
+            <Menu style={{ background: "#FFF", width: "100%" }} secondary vertical>
               <Dropdown item text='Choosing a location' >
                 <Dropdown.Menu style={{ background: "#FFF" }}>
                   <Dropdown.Header>Location</Dropdown.Header>
@@ -121,7 +109,7 @@ const ElDeliveryTakeOutComponent = () => {
               onTopVisible={unStickOverlay}
             />
             <Menu
-              style={{ background: "#FFF" }}
+              style={{ background: "#FFF", width: "100%" }}
               secondary
               vertical
             >
@@ -280,4 +268,4 @@ const ElDeliveryTakeOutComponent = () => {
 //   };
 // }
 
-export default ElDeliveryTakeOutComponent;
+export default memo(ElDeliveryTakeOutComponent);

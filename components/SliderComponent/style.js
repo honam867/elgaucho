@@ -1,5 +1,11 @@
 import { Header } from "semantic-ui-react";
 import styled from "styled-components";
+
+export const SliderWrapper = styled.div`
+  position: relative;
+
+`
+
 export const CustomHeaderFullSlider = styled(Header)`
 font-size: 40px !important;
 color: white !important;
@@ -141,15 +147,15 @@ animation: fadeInDownButtonLocations 2s  !important;
 }
 `
 
-
 export const AngleDownButton = styled.div`
 cursor: pointer !important;
 position: absolute !important;
 color: #FFFFFF  !important;
+left: calc(50% - 22px);
+bottom: calc(15% - 22px);
 font-size: 40px !important;
 z-index: 1 !important;
 text-align: center !important;
-width: 100% !important;
 animation: fadeInDownAngleDown 2.5s infinite !important;
 animation-timing-function: ease-in-out !important;
 @keyframes fadeInDownAngleDown {
@@ -163,14 +169,6 @@ animation-timing-function: ease-in-out !important;
     }
  }
 
-`
-
-export const AngleDowButtonPosition = styled.div`
-position: relative !important;
-top: 150px !important;
-@media only screen and (min-width:320px) and (max-width:767px)  {
-    top: 120px !important;
-  }
 `
 
 export const CustomHeaderPrivateDining = styled(Header)`
@@ -206,7 +204,6 @@ animation: PrivateDiningFullSlider 1s  !important;
  }
 }
 `
-
 
 export const NameLocationFromDiningPages = styled.div`
     position: absolute;

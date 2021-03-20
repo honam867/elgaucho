@@ -9,10 +9,10 @@ import {
   CustomHeaderLocations,
   CustomButtonAtLocationPage,
   AngleDownButton,
-  AngleDowButtonPosition,
   CustomHeaderPrivateDining,
   NameLocationFromDiningPages,
-  SlideShowAlignCaptionFullSlider
+  SlideShowAlignCaptionFullSlider,
+  SliderWrapper
 } from "./style";
 const SliderComponent = ({ Images, height, ...props }) => {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -96,14 +96,8 @@ const SliderComponent = ({ Images, height, ...props }) => {
       />
     );
   }
-  const CustomBackground = {
-    position: 'relative',
-    top: "0px",
-    background: `${props.background}`
-  }
-  const CustomBackgroundOpacity = {
-    position: 'relative',
-  }
+
+
   const SlideShowAlignCaption = {
     color: "white !important",
     position: "absolute",
@@ -118,17 +112,19 @@ const SliderComponent = ({ Images, height, ...props }) => {
   //     width: "100%",
   //     textAlign: "center",
   // }
-
   const gotoMainSection = () => {
     props.gotomainsection();
   }
-  // `onClick`, `href`, and `ref` need to be passed to the DOM element
-  // for proper handling
-
   return (
-    <div style={props.backgroundOpacity ? CustomBackgroundOpacity : CustomBackground}>
-      <Slider   {...settings}>
-        {Images.map((item, i) => {
+    <SliderWrapper>
+      {props.angleDown ?
+        <AngleDownButton onClick={gotoMainSection} >
+          <Icon name="angle down" />
+        </AngleDownButton>
+        : null
+      }
+      <Slider {...settings}>
+        {Images.map((item) => {
           return (
             <div key={item.id}>
               <div
@@ -140,8 +136,21 @@ const SliderComponent = ({ Images, height, ...props }) => {
                   backgroundAttachment: `${props.backgroundAttachment}`,
                   width: '100%',
                   height: height,
+                  position: "relative"
                 }}
               >
+                {
+                  item.opacityBlack &&
+                  <div style={{
+                    background: "rgba(0,0,0, .3)",
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                  }}></div>
+                }
+
               </div>
               {
                 props.fromLocationPage ?
@@ -176,16 +185,8 @@ const SliderComponent = ({ Images, height, ...props }) => {
       <SlideShowAlignCaptionFullSlider>
         <CustomHeaderFullSlider as="h1">{props.captionTitle}</CustomHeaderFullSlider>
         <CustomHeaderFullSliderSubTitle>{props.captionContent}</CustomHeaderFullSliderSubTitle>
-        {props.angleDown ?
-          <AngleDowButtonPosition>
-            <AngleDownButton onClick={gotoMainSection} >
-              <Icon name="angle down" />
-            </AngleDownButton>
-          </AngleDowButtonPosition>
-          : null
-        }
       </SlideShowAlignCaptionFullSlider>
-    </div >
+    </SliderWrapper >
 
   )
 }

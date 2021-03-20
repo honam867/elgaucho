@@ -1,11 +1,12 @@
 import { Container, Header, Image } from "semantic-ui-react";
 import Layout from "../../components/ResponsiveHeader/index";
-import styleMenuPage from "./menupage.module.css";
 import ImageMenuPageData from "../../datafake/menuimage";
 import SliderComponent from "../../components/SliderComponent";
 import styled from "styled-components";
 import ButtonCustomComponent from "../../components/ButtonCustomComponent";
 import Responsive from "../../components/Responsive";
+import { MenuWrapper } from "./style";
+import { memo } from "react";
 const CustomHeader = styled(Header)`
     color: white !important;
     font-weight: 300 !important;
@@ -19,8 +20,7 @@ const MenuPage = () => {
         captionTitle="MENU"
         background={"black"}
         height="50vh" />
-      <div className={styleMenuPage.backgroundFullScreen}>
-
+      <MenuWrapper className="backgroundFullScreen">
         <Container textAlign='center' style={{ padding: "10px" }}>
           <CustomHeader as='h2'>
             OUR MENUS
@@ -38,7 +38,7 @@ const MenuPage = () => {
               Although the menu centerpiece is steak, non-meat lovers also find something to indulge in – Argentinean style appetizers, homemade soups, fresh salads, seafood,
               pork and poultry dishes, and also a variety of savoury desserts satisfy even the most demanding gourmet palates.
                         </p>
-            <p className={styleMenuPage.textAnimtion}>
+            <p className="textAnimtion">
               Although the menu centerpiece is steak, non-meat lovers also find something to indulge in – Argentinean style appetizers, homemade soups,
               fresh salads, seafood, pork and poultry dishes, and also a variety of savoury desserts satisfy even the most demanding gourmet palates.
                         </p>
@@ -100,7 +100,7 @@ const MenuPage = () => {
               All wines can be purchased for take away directly at our restaurants at 30% off (no service charge added).
               Alternatively, feel free to visit our online shop to get your wine conveniently delivered home.
                     </p>
-            <p className={styleMenuPage.textAnimtion}>
+            <p className="textAnimtion">
               Please note that our wine list might slightly vary by availability and location, this applies especially to our coastal and island locations.
               If you are visiting us with having a very specific wine in mind, we are recommending contacting the restaurant location in advance to enquire the wine’s availability.
                     </p>
@@ -123,7 +123,7 @@ const MenuPage = () => {
               Having our bars as an established focal point within our restaurant locations, they have become a trademark of quality for classic and fusion cocktails, carefully executed to satisfy the most sophisticated taste.
               At the same time the bar is a preferred seating for single guests, private and business traveling people who enjoy the comfortable and blended atmosphere likewise.
                         </p>
-            <p className={styleMenuPage.textAnimtion}>
+            <p className="textAnimtion">
               Please note that our drink list might slightly vary by availability and location, this applies especially to our coastal and island locations. If you are visiting us with having a very specific drink in mind, we are recommending contacting the restaurant location in advance to enquire the drink’s availability.
                         </p>
           </Container>
@@ -155,7 +155,7 @@ const MenuPage = () => {
               All wines can be purchased for take away directly at our restaurants at 30% off (no service charge added). Alternatively, feel free to visit our online shop to get your wine conveniently delivered home.
                         </p>
 
-            <p className={styleMenuPage.textAnimtion}>
+            <p className="textAnimtion">
               Please note that our wine list might slightly vary by availability and location, this applies especially to our coastal and island locations. If you are visiting us with having a very specific wine in mind, we are recommending contacting the restaurant location in advance to enquire the wine’s availability.
                         </p>
           </Container>
@@ -178,7 +178,7 @@ const MenuPage = () => {
             <p style={{ textAlign: 'justify' }}>
               Our cigar offer is designated for the discerning patron who enjoys the relaxing ritual of cigar smoking, accompanied by a glass of fine cognac, aged whisky, port or deeper red to enhance the sensation of a cigar for the aficionado.
                         </p>
-            <p className={styleMenuPage.textAnimtion}>
+            <p className="textAnimtion">
               Please note that our cigar offering and availability varies by location, this applies especially to our coastal and island locations. If you are visiting us with the wish to enjoy our cigar selection, we are recommending contacting the restaurant location in advance to enquire the offer and availability.
                         </p>
           </Container>
@@ -191,8 +191,8 @@ const MenuPage = () => {
           }}>
           </Responsive>
         </Container>
-      </div>
+      </MenuWrapper>
     </Layout >
   )
 }
-export default MenuPage;
+export default memo(MenuPage);

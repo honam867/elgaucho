@@ -115,7 +115,6 @@ const HeaderOnDesktop = ({ children,
                       <DropdownItemStyle
                         key={i}
                         pathname={item.pathname}
-
                         onClick={navigateToLocation}
                       >
                         {item.text}
@@ -157,6 +156,7 @@ const HeaderOnDesktop = ({ children,
                   {menuOptions.map((item, i) => {
                     return (
                       <DropdownItemStyle
+                        key={i}
                         pathname={item.pathname}
                         onClick={navigateToLocation}
                       >

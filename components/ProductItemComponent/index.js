@@ -82,7 +82,7 @@ const ProductItem = ({ products, addCart, areaId }) => {
 
                                 <PriceCustomFromHeader floated="right">
                                   {productItem.price.toLocaleString("en-US")} VND
-                                  <del style={{ color: "#000000", fontWeight: "lighter", fontSize: "15px", paddingLeft: "5px" }}> {productItem.promotedPrice.toLocaleString("en-US")} VND</del>
+                                  <del style={{ color: "#000000", fontWeight: "300", fontSize: "15px", paddingLeft: "5px" }}> {productItem.promotedPrice.toLocaleString("en-US")} VND</del>
                                 </PriceCustomFromHeader>
                                 :
                                 <PriceCustomFromHeader floated="right">

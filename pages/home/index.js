@@ -1,35 +1,10 @@
 import { Container, Header } from "semantic-ui-react";
 import SliderComponent from "../../components/SliderComponent";
-import SrcImg1 from "../../public/static/img/home-2-1.jpg"
-import SrcImg2 from "../../public/static/img/home-3.jpg"
-import SrcImg3 from "../../public/static/img/home-4.jpg";
 import ButtonCustomComponent from "../../components/ButtonCustomComponent";
-import { useRef } from "react";
+import { memo, useRef } from "react";
 import Responsive from "../../components/Responsive";
-const Images = [
-  {
-    id: 1,
-    name: "Img 2",
-    imgUrl: SrcImg1,
-    size: "450px",
-    title: ""
-  },
-  {
-    id: 2,
-    name: "Img 1",
-    imgUrl: SrcImg2,
-    size: "450px",
-    opacity: "0.5",
-    title: ""
-  },
-  {
-    id: 3,
-    name: "Img 3",
-    imgUrl: SrcImg3,
-    size: "450px",
-    title: ""
-  }
-];
+import { ImageSliderDesktop, ImageSliderMobile, ImageSliderTablet } from "./imageSlider";
+
 const ButtonData = [
   {
     id: 1,
@@ -76,7 +51,7 @@ const HomeFullSlider = () => {
       <Responsive onDesktop={() => {
         return (
           <SliderComponent
-            Images={Images}
+            Images={ImageSliderDesktop}
             height="100vh"
             captionTitle={captionTitle}
             captionContent={captionContent}
@@ -88,23 +63,25 @@ const HomeFullSlider = () => {
       }} onTablet={() => {
         return (
           <SliderComponent
-            Images={Images}
-            height="40vh"
-            captionTitle={captionTitle}
-            captionContent={captionContent}
-            backgroundOpacity={true}
-            gotomainsection={gotomainSection}
-          />
-        )
-      }} onMobile={() => {
-        return (
-          <SliderComponent
-            Images={Images}
+            Images={ImageSliderTablet}
             height="100vh"
             captionTitle={captionTitle}
             captionContent={captionContent}
             backgroundOpacity={true}
             gotomainsection={gotomainSection}
+            angleDown={true}
+          />
+        )
+      }} onMobile={() => {
+        return (
+          <SliderComponent
+            Images={ImageSliderMobile}
+            height="100vh"
+            captionTitle={captionTitle}
+            captionContent={captionContent}
+            backgroundOpacity={true}
+            gotomainsection={gotomainSection}
+            angleDown={true}
           />
         )
       }}>
@@ -171,4 +148,4 @@ const HomeFullSlider = () => {
 
   )
 }
-export default HomeFullSlider;
+export default memo(HomeFullSlider);
