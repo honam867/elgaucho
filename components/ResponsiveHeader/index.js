@@ -84,13 +84,6 @@ const ResponsiveHeader = ({ children, numberCart }) => {
 
     },
     {
-      key: 2,
-      text: "Megazing",
-      value: 3,
-      pathname: "/location#XuanThuy",
-
-    },
-    {
       key: 3,
       text: "News",
       value: 4,
