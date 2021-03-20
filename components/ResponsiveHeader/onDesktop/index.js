@@ -101,6 +101,7 @@ const HeaderOnDesktop = ({
           <MenuItemLink active={router.pathname == "/news"}>
             <Link href="/news">
               <DropdownStyle
+                open={false}
                 icon={false}
                 item
                 simple
@@ -144,6 +145,7 @@ const HeaderOnDesktop = ({
           <MenuItemLink>
             <Link href="/menu">
               <DropdownStyle
+                open={false}
                 icon={false}
                 item
                 simple
@@ -184,6 +186,7 @@ const HeaderOnDesktop = ({
           <MenuItemLink className="link">
             <Link href="/get-in-touch">
               <DropdownStyle
+                open={false}
                 icon={false}
                 item
                 simple
@@ -198,7 +201,7 @@ const HeaderOnDesktop = ({
                   <Link href="/privacy-cookie-policy">
                     <DropdownItemStyle text="Privacy & Cookie Policy" />
                   </Link>
-          
+
                 </DropdownMenuStyle>
               </DropdownStyle>
             </Link>

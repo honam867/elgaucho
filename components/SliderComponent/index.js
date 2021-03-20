@@ -24,7 +24,6 @@ const SliderComponent = ({ Images, height, ...props }) => {
     slidesToScroll: 1,
     autoplay: true,
     speed: 500,
-    slidesToShow: 1,
     arrows: true,
     adaptiveHeight: true,
     beforeChange: (current, next) => { setActiveSlide(next) },
