@@ -95,14 +95,14 @@ const ElDeliveryTakeOutComponent = () => {
   const MenusOnDesktop = () => {
     return (
       <Container
-        style={{ margin: "auto", width: "100%", padding: "0px 30px" }}
+        style={{ margin: "10px 0px", width: "100%", padding: "0px 30px", background: "#F2F2F2" }}
         fluid
       >
-        <Grid divided doubling columns={3} style={{ marginTop: "30px" }}>
-          <Grid.Column width={3}>
-            <Menu secondary vertical>
+        <Grid doubling columns={3}  >
+          <Grid.Column width={3} >
+            <Menu style={{ background: "#FFF" }} secondary vertical>
               <Dropdown item text='Choosing a location' >
-                <Dropdown.Menu >
+                <Dropdown.Menu style={{ background: "#FFF" }}>
                   <Dropdown.Header>Location</Dropdown.Header>
                   {
                     AreaData.map(item => {
@@ -121,7 +121,7 @@ const ElDeliveryTakeOutComponent = () => {
               onTopVisible={unStickOverlay}
             />
             <Menu
-              className={MenuCustomStyle.customBorder}
+              style={{ background: "#FFF" }}
               secondary
               vertical
             >
@@ -146,14 +146,14 @@ const ElDeliveryTakeOutComponent = () => {
               }
             </Menu>
           </Grid.Column>
-          <Grid.Column width={9}>
+          <Grid.Column width={9} style={{ background: "#FFF", margin: "15px 0px" }}>
             <div>
               <ProductsComponent subcategories={SubCategories.filter(sub => sub.categoryId === subcategoryId)} products={Products} areaId={areaId}></ProductsComponent>
             </div>
           </Grid.Column>
 
           <Grid.Column width={4}>
-            <div  >
+            <div >
               <ViewCartComponent ></ViewCartComponent>
             </div>
           </Grid.Column>
