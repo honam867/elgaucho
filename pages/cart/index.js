@@ -40,7 +40,7 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
   let VAT = 0;
   let priceDiscount = 0;
   let cartTotal = 0;
-  let cartTolalDiscount = 0 ;
+  let cartTolalDiscount = 0;
   Object.keys(items.Carts).forEach((item) => {
     // let priceAfterParse = items.Carts[item].prices.replace(/[^0-9]/g, "");
     // let priceOfProduct = Number(priceAfterParse)
@@ -50,7 +50,7 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
     cartTotal = totalCart + VAT;
     cartTolalDiscount = totalCart - priceDiscount + VAT;
     listCart.push(items.Carts[item]);
-  }); 
+  });
   const [open, setOpen] = React.useState(false);
   const [isActiveCode, setActive] = React.useState(false);
   function applyCode() {
@@ -232,10 +232,14 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                         <Table.Cell>
                           {isActiveCode ? (
                             <div>
-                              <Label color = 'teal' size = "large">
-                                 XQW12
+                              <Label color="teal" size="large">
+                                XQW12
                               </Label>
-                              <Button onClick = {() => setActive(false)} floated="right" compact>
+                              <Button
+                                onClick={() => setActive(false)}
+                                floated="right"
+                                compact
+                              >
                                 Cancel
                               </Button>
                             </div>
@@ -246,7 +250,7 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                               open={open}
                               trigger={
                                 <Button floated="right" compact>
-                                  Choice Voucher
+                                  Discount
                                 </Button>
                               }
                               size="tiny"
@@ -301,7 +305,11 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                                         <p>Apply all</p>
                                       </Item.Description>
                                       <Item.Extra>
-                                        <Button onClick={applyCode} primary floated="right">
+                                        <Button
+                                          onClick={applyCode}
+                                          primary
+                                          floated="right"
+                                        >
                                           Apply
                                         </Button>
                                         <Label>X2</Label>
@@ -326,7 +334,11 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                                         <p>Apply all</p>
                                       </Item.Description>
                                       <Item.Extra>
-                                        <Button onClick={applyCode} primary floated="right">
+                                        <Button
+                                          onClick={applyCode}
+                                          primary
+                                          floated="right"
+                                        >
                                           Apply
                                         </Button>
                                         <Label>X2</Label>
@@ -350,21 +362,23 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                       <Table.Row>
                         <Table.Cell>TOTAL</Table.Cell>
                         <Table.Cell>
-                          {
-                            isActiveCode ? 
-                          <div>
-                          <CustomStrong>
-                          <strike>{cartTotal.toLocaleString("en-US")} VND</strike>
-                          </CustomStrong>
-                          <CustomStrong>
-                          &nbsp; {priceDiscount.toLocaleString("en-US")} VND
-                          </CustomStrong>
-                          </div>
-                            :
+                          {isActiveCode ? (
+                            <div>
+                              <CustomStrong>
+                                {priceDiscount.toLocaleString("en-US")} VND
+                              </CustomStrong>
+                              <a style={{ color: "black" }}>
+                                &nbsp;{" "}
+                                <strike>
+                                  {cartTotal.toLocaleString("en-US")} VND
+                                </strike>
+                              </a>
+                            </div>
+                          ) : (
                             <CustomStrong>
-                           {cartTotal.toLocaleString("en-US")} VND
+                              {cartTotal.toLocaleString("en-US")} VND
                             </CustomStrong>
-                          }
+                          )}
                         </Table.Cell>
                       </Table.Row>
                     </Table.Body>
@@ -532,10 +546,14 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                         <Table.Cell>
                           {isActiveCode ? (
                             <div>
-                              <Label color = 'teal' size = "large">
-                                 XQW12
+                              <Label color="teal" size="large">
+                                XQW12
                               </Label>
-                              <Button onClick = {() => setActive(false)} floated="right" compact>
+                              <Button
+                                onClick={() => setActive(false)}
+                                floated="right"
+                                compact
+                              >
                                 Cancel
                               </Button>
                             </div>
@@ -546,7 +564,7 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                               open={open}
                               trigger={
                                 <Button floated="right" compact>
-                                  Choice Voucher
+                                  Discount
                                 </Button>
                               }
                               size="tiny"
@@ -601,7 +619,11 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                                         <p>Apply all</p>
                                       </Item.Description>
                                       <Item.Extra>
-                                        <Button onClick={applyCode} primary floated="right">
+                                        <Button
+                                          onClick={applyCode}
+                                          primary
+                                          floated="right"
+                                        >
                                           Apply
                                         </Button>
                                         <Label>X2</Label>
@@ -626,7 +648,11 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                                         <p>Apply all</p>
                                       </Item.Description>
                                       <Item.Extra>
-                                        <Button onClick={applyCode} primary floated="right">
+                                        <Button
+                                          onClick={applyCode}
+                                          primary
+                                          floated="right"
+                                        >
                                           Apply
                                         </Button>
                                         <Label>X2</Label>
@@ -650,21 +676,23 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                       <Table.Row>
                         <Table.Cell>TOTAL</Table.Cell>
                         <Table.Cell>
-                          {
-                            isActiveCode ? 
-                          <div>
-                          <CustomStrong>
-                          <strike>{cartTotal.toLocaleString("en-US")} VND</strike>
-                          </CustomStrong>
-                          <CustomStrong>
-                          &nbsp; {priceDiscount.toLocaleString("en-US")} VND
-                          </CustomStrong>
-                          </div>
-                            :
+                          {isActiveCode ? (
+                            <div>
+                              <CustomStrong>
+                                {priceDiscount.toLocaleString("en-US")} VND
+                              </CustomStrong>
+                              <a style={{ color: "black" }}>
+                                &nbsp;{" "}
+                                <strike>
+                                  {cartTotal.toLocaleString("en-US")} VND
+                                </strike>
+                              </a>
+                            </div>
+                          ) : (
                             <CustomStrong>
-                           {cartTotal.toLocaleString("en-US")} VND
+                              {cartTotal.toLocaleString("en-US")} VND
                             </CustomStrong>
-                          }
+                          )}
                         </Table.Cell>
                       </Table.Row>
                     </Table.Body>
@@ -776,10 +804,14 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                         <Table.Cell>
                           {isActiveCode ? (
                             <div>
-                              <Label color = 'teal' size = "large">
-                                 XQW12
+                              <Label color="teal" size="large">
+                                XQW12
                               </Label>
-                              <Button onClick = {() => setActive(false)} floated="right" compact>
+                              <Button
+                                onClick={() => setActive(false)}
+                                floated="right"
+                                compact
+                              >
                                 Cancel
                               </Button>
                             </div>
@@ -790,7 +822,7 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                               open={open}
                               trigger={
                                 <Button floated="right" compact>
-                                  Voucher
+                                  Discount
                                 </Button>
                               }
                               size="tiny"
@@ -802,7 +834,10 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                                       size="tiny"
                                       src="https://react.semantic-ui.com/images/wireframe/image.png"
                                     />
-                                    <Item.Content style = {{width: "270px"}} verticalAlign='middle'>
+                                    <Item.Content
+                                      style={{ width: "270px" }}
+                                      verticalAlign="middle"
+                                    >
                                       <Item.Header as="a">
                                         Discount 50%
                                       </Item.Header>
@@ -832,7 +867,10 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                                       size="small"
                                       src="https://react.semantic-ui.com/images/wireframe/image.png"
                                     />
-                                     <Item.Content style = {{width: "270px"}} verticalAlign='middle'>
+                                    <Item.Content
+                                      style={{ width: "270px" }}
+                                      verticalAlign="middle"
+                                    >
                                       <Item.Header as="a">
                                         Discount 50%
                                       </Item.Header>
@@ -845,7 +883,11 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                                         <p>Apply all</p>
                                       </Item.Description>
                                       <Item.Extra>
-                                        <Button onClick={applyCode} primary floated="right">
+                                        <Button
+                                          onClick={applyCode}
+                                          primary
+                                          floated="right"
+                                        >
                                           Apply
                                         </Button>
                                         <Label>X2</Label>
@@ -857,7 +899,10 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                                       size="small"
                                       src="https://react.semantic-ui.com/images/wireframe/image.png"
                                     />
-                                   <Item.Content style = {{width: "270px"}} verticalAlign='middle'>
+                                    <Item.Content
+                                      style={{ width: "270px" }}
+                                      verticalAlign="middle"
+                                    >
                                       <Item.Header as="a">
                                         Discount 50%
                                       </Item.Header>
@@ -870,7 +915,11 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                                         <p>Apply all</p>
                                       </Item.Description>
                                       <Item.Extra>
-                                        <Button onClick={applyCode} primary floated="right">
+                                        <Button
+                                          onClick={applyCode}
+                                          primary
+                                          floated="right"
+                                        >
                                           Apply
                                         </Button>
                                         <Label>X2</Label>
@@ -894,21 +943,23 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                       <Table.Row>
                         <Table.Cell>TOTAL</Table.Cell>
                         <Table.Cell>
-                          {
-                            isActiveCode ? 
-                          <div>
-                          <CustomStrong>
-                          <strike>{cartTotal.toLocaleString("en-US")} VND</strike>
-                          </CustomStrong>
-                          <CustomStrong>
-                          &nbsp; {priceDiscount.toLocaleString("en-US")} VND
-                          </CustomStrong>
-                          </div>
-                            :
+                          {isActiveCode ? (
+                            <div>
+                              <CustomStrong>
+                                {priceDiscount.toLocaleString("en-US")} VND
+                              </CustomStrong>
+                              <a style={{ color: "black" }}>
+                                &nbsp;{" "}
+                                <strike>
+                                  {cartTotal.toLocaleString("en-US")} VND
+                                </strike>
+                              </a>
+                            </div>
+                          ) : (
                             <CustomStrong>
-                           {cartTotal.toLocaleString("en-US")} VND
+                              {cartTotal.toLocaleString("en-US")} VND
                             </CustomStrong>
-                          }
+                          )}
                         </Table.Cell>
                       </Table.Row>
                     </Table.Body>
@@ -926,8 +977,6 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
           );
         }}
       ></Responsive>
-      {/* </div>
-      </div> */}
     </Layout>
   );
 };

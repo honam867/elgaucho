@@ -3,15 +3,15 @@ const AreaData =
   [
     {
       id: 8,
-      name: "Thành phố Hồ Chí Minh"
+      name: "Ho Chi Minh"
     },
     {
       id: 7,
-      name: "Đà Nẵng"
+      name: "Da Nang"
     },
     {
       id: 9,
-      name: "Hà Nội"
+      name: "Ha Noi"
     }
   ]
 export default AreaData;
