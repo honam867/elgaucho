@@ -1,6 +1,5 @@
 import { memo } from "react";
 import { Container, Grid, Header } from "semantic-ui-react";
-
 import {FooterWapper } from "./style";
 const Footer = () => {
     return <>

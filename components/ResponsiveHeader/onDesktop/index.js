@@ -27,14 +27,16 @@ const active = {
 const unactive = {
   color: "#222222",
 };
-const HeaderOnDesktop = ({ children,
+const HeaderOnDesktop = ({
+  children,
   Logo,
   newsOptions,
   router,
   locationOptions,
   navigateToLocation,
   menuOptions,
-  numberCart }) => {
+  numberCart,
+}) => {
   const [menuFixed, setFixedMenu] = useState(false);
   const hideFixedMenu = () => {
     setFixedMenu(false);
@@ -59,9 +61,7 @@ const HeaderOnDesktop = ({ children,
               <MenuItemLinkImage
                 src={Logo}
                 alt="website logo"
-                style={
-                  menuFixed ? { width: "52px" } : { width: "72px" }
-                }
+                style={menuFixed ? { width: "52px" } : { width: "72px" }}
               />
             </Link>
           </Menu.Item>
@@ -76,9 +76,7 @@ const HeaderOnDesktop = ({ children,
                 item
                 simple
                 text="Locations"
-                style={
-                  router.pathname == "/location" ? active : unactive
-                }
+                style={router.pathname == "/location" ? active : unactive}
               >
                 <DropdownMenuStyle>
                   {locationOptions.map((item, i) => {
@@ -87,7 +85,11 @@ const HeaderOnDesktop = ({ children,
                         key={i}
                         pathname={item.pathname}
                         onClick={navigateToLocation}
-                        active={`${router.asPath}` === `${item.pathname}` ? true : false}
+                        active={
+                          `${router.asPath}` === `${item.pathname}`
+                            ? true
+                            : false
+                        }
                       >
                         {item.text}
                       </DropdownItemStyle>
@@ -104,9 +106,7 @@ const HeaderOnDesktop = ({ children,
                 item
                 simple
                 text="News"
-                style={
-                  router.pathname == "/news" ? active : unactive
-                }
+                style={router.pathname == "/news" ? active : unactive}
               >
                 <DropdownMenuStyle>
                   {newsOptions.map((item, i) => {
@@ -114,7 +114,6 @@ const HeaderOnDesktop = ({ children,
                       <DropdownItemStyle
                         key={i}
                         pathname={item.pathname}
-
                         onClick={navigateToLocation}
                       >
                         {item.text}
@@ -132,7 +131,7 @@ const HeaderOnDesktop = ({ children,
               active={router.pathname == "/delivery"}
             >
               EL Delivery
-          </MenuItemLink>
+            </MenuItemLink>
           </Link>
           <Link href="/butcher-shop" forwardRef>
             <MenuItemLink
@@ -140,7 +139,7 @@ const HeaderOnDesktop = ({ children,
               active={router.pathname == "/butcher-shop"}
             >
               Butcher Shop
-          </MenuItemLink>
+            </MenuItemLink>
           </Link>
 
           <MenuItemLink>
@@ -174,7 +173,7 @@ const HeaderOnDesktop = ({ children,
               active={router.pathname == "/private-dining-events"}
             >
               Private | Dining Events
-          </MenuItemLink>
+            </MenuItemLink>
           </Link>
           <Link href="/gift-card" forwardRef>
             <MenuItemLink
@@ -189,9 +188,7 @@ const HeaderOnDesktop = ({ children,
                 item
                 simple
                 text="Contact Us"
-                style={
-                  router.pathname == "/get-in-touch" ? active : unactive
-                }
+                style={router.pathname == "/get-in-touch" ? active : unactive}
               >
                 <DropdownMenuStyle>
                   <DropdownItemStyle text="Get In Touch" />
@@ -201,9 +198,7 @@ const HeaderOnDesktop = ({ children,
                   <Link href="/privacy-cookie-policy">
                     <DropdownItemStyle text="Privacy & Cookie Policy" />
                   </Link>
-                  <Link href="/magazine">
-                    <DropdownItemStyle text="Magazine" />
-                  </Link>
+          
                 </DropdownMenuStyle>
               </DropdownStyle>
             </Link>
@@ -225,21 +220,24 @@ const HeaderOnDesktop = ({ children,
               </Label>
             </MenuItemLink>
           </Link>
-          <Link taget ="_blank" href="https://www.facebook.com/ElGauchoVietnam/" passHref forwardRef>
-            <MenuItemLink>
+          <MenuItemLink>
+            <a target="_blank" href="https://www.facebook.com/ElGauchoVietnam/">
               <Icon name="facebook" color="blue" />
-            </MenuItemLink>
-          </Link>
-          <Link href="/" forwardRef>
-            <MenuItemLink>
+            </a>
+          </MenuItemLink>
+          <MenuItemLink>
+            <a
+              target="_blank"
+              href="https://www.instagram.com/elgauchovietnam/"
+            >
               <Icon name="instagram" color="violet" />
-            </MenuItemLink>
-          </Link>
+            </a>
+          </MenuItemLink>
         </Menu>
       </Visibility>
       {children}
     </>
   );
-}
+};
 
 export default memo(HeaderOnDesktop);

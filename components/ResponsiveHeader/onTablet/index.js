@@ -1,8 +1,19 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { memo } from "react"
-import { Divider, Icon, Label, Menu, Sidebar, Transition } from "semantic-ui-react";
-import { MenuItemMobileTablet, MenuItemLink, MenuItemLinkImage } from "../style";
+import { memo } from "react";
+import {
+  Divider,
+  Icon,
+  Label,
+  Menu,
+  Sidebar,
+  Transition,
+} from "semantic-ui-react";
+import {
+  MenuItemMobileTablet,
+  MenuItemLink,
+  MenuItemLinkImage,
+} from "../style";
 const noFixedMenuStyleOnTable = {
   borderBottom: "1px solid #cf1b15",
   backgroundColor: "#fff",
@@ -14,25 +25,23 @@ const noFixedMenuStyleOnTable = {
   position: "relative",
   zIndex: "1",
 };
-const HeaderOnTablet = (
-  { children,
-    handleToggle,
-    numberCart,
-    handleSidebarHide,
-    sidebarOpened,
-    toggleVisibility,
-    visible,
-    locationOptions,
-    toggleMenu,
-    visibleMenu,
-    menuOptions,
-    visibleContact,
-    toggleContact,
-    Logo,
-    navigateToLocation
-  }
-
-) => {
+const HeaderOnTablet = ({
+  children,
+  handleToggle,
+  numberCart,
+  handleSidebarHide,
+  sidebarOpened,
+  toggleVisibility,
+  visible,
+  locationOptions,
+  toggleMenu,
+  visibleMenu,
+  menuOptions,
+  visibleContact,
+  toggleContact,
+  Logo,
+  navigateToLocation,
+}) => {
   const router = useRouter();
   console.log(locationOptions);
   return (
@@ -66,16 +75,16 @@ const HeaderOnTablet = (
             </Label>
           </MenuItemLink>
         </Link>
-        <Link href="/" forwardRef>
-          <MenuItemLink>
+        <MenuItemLink>
+          <a target="_blank" href="https://www.facebook.com/ElGauchoVietnam/">
             <Icon size="large" name="facebook" color="blue" />
-          </MenuItemLink>
-        </Link>
-        <Link href="/" forwardRef>
-          <MenuItemLink>
+          </a>
+        </MenuItemLink>
+        <MenuItemLink>
+          <a target="_blank" href="https://www.instagram.com/elgauchovietnam/">
             <Icon size="large" name="instagram" color="violet" />
-          </MenuItemLink>
-        </Link>
+          </a>
+        </MenuItemLink>
       </Menu>
       <Sidebar
         as={Menu}
@@ -104,11 +113,7 @@ const HeaderOnTablet = (
             ></MenuItemMobileTablet>
 
             <Divider style={{ margin: "0px" }} hidden />
-            <Transition
-              visible={visible}
-              animation="fade down"
-              duration={50}
-            >
+            <Transition visible={visible} animation="fade down" duration={50}>
               <div>
                 {locationOptions.map((item) => (
                   <MenuItemMobileTablet
@@ -129,7 +134,7 @@ const HeaderOnTablet = (
                 color="red"
               >
                 EL Delivery & Take out
-          </MenuItemMobileTablet>
+              </MenuItemMobileTablet>
             </Link>
             <Link href="/butcher-shop" forwardRef>
               <MenuItemMobileTablet
@@ -137,7 +142,7 @@ const HeaderOnTablet = (
                 active={router.pathname == "/butcher-shop"}
               >
                 Butcher Shop
-          </MenuItemMobileTablet>
+              </MenuItemMobileTablet>
             </Link>
             <MenuItemMobileTablet
               name="Menus"
@@ -170,7 +175,7 @@ const HeaderOnTablet = (
                 active={router.pathname == "/private-dining-events"}
               >
                 Private | Dining Events
-          </MenuItemMobileTablet>
+              </MenuItemMobileTablet>
             </Link>
             <Link href="/gift-card" forwardRef>
               <MenuItemMobileTablet
@@ -195,22 +200,22 @@ const HeaderOnTablet = (
                 <Link href="/privacy-cookie-policy">
                   <MenuItemMobileTablet style={{ paddingLeft: "20px" }}>
                     - Privacy & Cookie Policy
-              </MenuItemMobileTablet>
+                  </MenuItemMobileTablet>
                 </Link>
                 <Link href="/magazine">
                   <MenuItemMobileTablet style={{ paddingLeft: "20px" }}>
                     - Magazine
-              </MenuItemMobileTablet>
+                  </MenuItemMobileTablet>
                 </Link>
                 <Link href="/get-in-touch">
                   <MenuItemMobileTablet style={{ paddingLeft: "20px" }}>
                     - Get In Touch
-              </MenuItemMobileTablet>
+                  </MenuItemMobileTablet>
                 </Link>
                 <Link href="/careers">
                   <MenuItemMobileTablet style={{ paddingLeft: "20px" }}>
                     - Careers
-              </MenuItemMobileTablet>
+                  </MenuItemMobileTablet>
                 </Link>
               </div>
             </Transition>
@@ -219,6 +224,6 @@ const HeaderOnTablet = (
       </Sidebar>
       {children}
     </>
-  )
-}
-export default memo(HeaderOnTablet)
+  );
+};
+export default memo(HeaderOnTablet);
