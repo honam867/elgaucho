@@ -78,21 +78,28 @@ const ResponsiveHeader = ({ children, numberCart }) => {
   const newsOptions = [
     {
       key: 1,
-      text: "Megazing",
+      text: "Magazine",
       value: 1,
-      pathname: "/location#XuanThuy",
+      pathname: "/magazine",
 
     },
     {
       key: 2,
-      text: "News",
-      value: 2,
+      text: "Megazing",
+      value: 3,
       pathname: "/location#XuanThuy",
+
     },
     {
       key: 3,
+      text: "News",
+      value: 4,
+      pathname: "/location#XuanThuy",
+    },
+    {
+      key: 4,
       text: "Promotions",
-      value: 3,
+      value: 5,
       pathname: "/location#XuanThuy",
     },
   ];
