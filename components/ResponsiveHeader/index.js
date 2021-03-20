@@ -3,7 +3,6 @@ import Logo from "../../public/static/img/elgauchologonobg.png";
 import Responsive from "../../components/Responsive";
 import { useRouter } from "next/router";
 import { connect } from "react-redux";
-import { motion } from "framer-motion";
 import HeaderOnDesktop from "./onDesktop/index";
 import HeaderOnMobile from "./onMobile/index";
 import HeaderOnTablet from "./onTablet/index";

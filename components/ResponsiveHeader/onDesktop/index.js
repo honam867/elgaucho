@@ -76,7 +76,11 @@ const HeaderOnDesktop = ({
                 item
                 simple
                 text="Locations"
-                style={router.pathname == "/location" ? active : unactive}
+                style={
+                  router.pathname == "/location" ? active : unactive
+                }
+                open={false}
+
               >
                 <DropdownMenuStyle>
                   {locationOptions.map((item, i) => {
@@ -85,11 +89,6 @@ const HeaderOnDesktop = ({
                         key={i}
                         pathname={item.pathname}
                         onClick={navigateToLocation}
-                        active={
-                          `${router.asPath}` === `${item.pathname}`
-                            ? true
-                            : false
-                        }
                       >
                         {item.text}
                       </DropdownItemStyle>
