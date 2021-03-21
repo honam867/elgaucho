@@ -5,7 +5,7 @@ import ButtonCustomComponent from "../../components/ButtonCustomComponent";
 import styled from "styled-components";
 import Link from "next/link";
 import Responsive from "../../components/Responsive";
-import { ImageSliderDesktop, ImageSliderMobile, ImageSliderTablet } from "./ImageSlider";
+import { ImageSliderDesktop, ImageSliderMobile, ImageSliderTablet } from "../../datafake/ResponsiveImage/at-location";
 import { memo } from "react";
 const CustomButton = styled(Button)`
 color: #fff  !important;
