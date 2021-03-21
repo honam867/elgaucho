@@ -246,8 +246,8 @@ const ElDeliveryTakeOutComponent = () => {
     <Layout>
       <SliderComponent backgroundAttachment="fixed" Images={Images} height="40vh" />
       <ResponsiveComponent
-        onTablet={ElDevlieryOnDesktop}
-        onDesktop={ElDevlieryOnTablet}
+        onTablet={ElDevlieryOnTablet}
+        onDesktop={ElDevlieryOnDesktop}
         onMobile={ElDevlieryOnMobile}
       ></ResponsiveComponent>
     </Layout>
