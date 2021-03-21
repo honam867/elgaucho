@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Container, Divider, Header } from "semantic-ui-react";
 import ProductItem from "../ProductItemComponent";
 import CustomHeader from "./product.module.css";
@@ -19,4 +20,4 @@ const ProductsComponent = ({ subcategories, products, areaId }) => {
     </Container>
   )
 }
-export default ProductsComponent;
+export default memo(ProductsComponent);
