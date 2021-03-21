@@ -6,4 +6,7 @@ export const FooterWapper = styled.div`
         border-top: 1px solid #cf1b15;
         box-sizing: border-box;
     }
+    .ui.grid{
+        margin-right: 0px !important;
+    }
 `;
