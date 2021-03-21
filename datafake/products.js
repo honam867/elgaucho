@@ -31,27 +31,7 @@ const Products = [
     "additions": [],
     "areaId": 8
   },
-  {
-    "id": 66,
-    "name": "LOBSTER AND CRAB MEAT SOUP",
-    "description": "",
-    "price": 290000.0,
-    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/40-Lapostolle-Clos-Apalta-2011-100x100.jpg",
-    "currency": null,
-    "isAvailable": true,
-    "priority": 0,
-    "subCategory": 0,
-    "category": 0,
-    "menuId": 8,
-    "additions": [],
-    "menu": {
-      "id": 8,
-      "areaName": "Đà Nẵng",
-      "areaId": 8,
-      "country": 0
-    },
-    "areaId": 8
-  },
+
   {
     "id": 67,
     "name": "BEEF EMPANADA",

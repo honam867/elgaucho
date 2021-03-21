@@ -14,6 +14,7 @@ import { connect } from "react-redux";
 import ShowMoreText from "react-show-more-text";
 import { ProductItemWrapper, AddToCartButton, PriceCustomFromHeader, ItemHeaderCustom, CustomButton } from "./style";
 import { memo } from "react";
+import ProductItemOnMobile from "./onMobile/index"
 const ProductItem = ({ products, addCart, areaId }) => {
   const productList = products.filter(item => item.areaId === areaId);
   return (
@@ -138,56 +139,10 @@ const ProductItem = ({ products, addCart, areaId }) => {
         }}
         onMobile={() => {
           return (
-
-            <Grid columns={2} textAlign="center" >
-              {productList.map((productItem) => {
-                return (
-                  <>
-                    <Grid.Column>
-                      <Card key={productItem.id} style={{ margin: "10px auto", }}>
-                        <Image
-                          src={productItem.imageUrl}
-                          size="tiny"
-                          wrapped
-                          ui={false}
-                        />
-                        <Card.Content>
-                          <Card.Header> {productItem.name}</Card.Header>
-                          <Card.Meta>
-                          </Card.Meta>
-                          <Card.Description>
-                            <ShowMoreText
-                              lines={5}
-                              more="Show more"
-                              less="Show less"
-                              className="content-css"
-                              anchorClass="my-anchor-css-class"
-                              expanded={false}
-                              width={0}
-                            >
-                              {productItem.description}
-                            </ShowMoreText>
-                          </Card.Description>
-                        </Card.Content>
-                        <Card.Content extra>
-                          {productItem.promotedPrice > 0 ?
-
-                            <PriceCustomFromHeader floated="right">
-                              <del> {productItem.promotedPrice.toLocaleString("en-US")}</del>  {productItem.price.toLocaleString("en-US")} VND
-                          </PriceCustomFromHeader>
-                            :
-                            <PriceCustomFromHeader floated="right">
-                              {productItem.price.toLocaleString("en-US")} VND
-                            </PriceCustomFromHeader>
-                          }
-                        </Card.Content>
-                      </Card>
-                    </Grid.Column>
-
-                  </>
-                );
-              })}
-            </Grid>
+            <ProductItemOnMobile
+              productList={productList}
+              addCart={addCart}
+            />
           );
         }}
       />
