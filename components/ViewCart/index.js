@@ -22,7 +22,7 @@ const ViewCartComponent = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCa
   })
   return (
     <ViewCartWrapper>
-      <Card style={{ width: "100%" }}>
+      <Card style={{ width: "100%", maxHeight: "480px" }}>
         <Card.Content style={{ borderBottom: "1px solid rgba(34,36,38,.1)" }} textAlign="center">
           <Header as="h3">Cart</Header>
         </Card.Content>

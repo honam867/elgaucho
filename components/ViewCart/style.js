@@ -18,6 +18,9 @@ export const ViewCartWrapper = styled.div`
   .ui.active.button:active, .ui.button:active{
     color: white !important;
   }
+  .ui.card>.extra, .ui.cards>.card>.extra{
+    min-height: fit-content !important;
+  }
   .viewcart{
     max-height: 450px !important;
     overflow: auto;
