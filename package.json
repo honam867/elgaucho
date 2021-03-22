@@ -43,7 +43,8 @@
     "redux-thunk": "^2.3.0",
     "semantic-ui-react": "^2.0.3",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^5.2.0"
+    "styled-components": "^5.2.0",
+    "video-react": "^0.14.1"
   },
   "eslintConfig": {
     "extends": "react-app"
