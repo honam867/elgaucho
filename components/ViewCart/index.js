@@ -33,11 +33,11 @@ const ViewCartComponent = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCa
                 return (
                   <Card.Content className="viewcart-item" key={i}>
                     <Grid columns={4}>
-                      <Grid.Column width={11}>
+                      <Grid.Column width={12}>
                         <p>{item.name}</p>
                         {item.price.toLocaleString("es-US")} VND
                       </Grid.Column>
-                      <Grid.Column width={5}>
+                      <Grid.Column width={4}>
                         <LabelCustom attached='top right'>
                           <IconCustom onClick={() => DeleteCart(i)} name="delete" />
                         </LabelCustom>

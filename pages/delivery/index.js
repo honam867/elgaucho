@@ -16,8 +16,8 @@ import Categories from "../../datafake/categories";
 import SubCategories from "../../datafake/subcategories";
 import AreaData from "../../datafake/area";
 import Products from "../../datafake/products";
-import styled from "styled-components";
-
+import ElDevlieryOnDesktop from "../../components/pages/delivery/onDesktop/index"
+import ElDevlieryOnMobile from "../../components/pages/delivery/onMobile/index"
 const Images = [
   {
     id: 1,
@@ -49,7 +49,6 @@ const ElDeliveryTakeOutComponent = () => {
   const fixedOverlayMenuMobileStyle = {
     backgroundColor: "#fff",
     border: "1px solid #ddd",
-    padding: "20px",
     boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.2)",
   };
 
@@ -71,88 +70,11 @@ const ElDeliveryTakeOutComponent = () => {
     setAreaId(value.id)
   }
 
-  const MenuCustom = styled(Menu)`
- .active.item{
-   border-bottom: 2px solid red !important;
-   border-radius: 0px !important;
- }
 
-  `
   useEffect(() => {
     setActiveItem(Categories[0].name);
   }, []);
 
-  const ElDevlieryOnDesktop = () => {
-    return (
-      <Container
-        style={{ margin: "10px 0px", width: "100%", padding: "0px 30px", background: "#F2F2F2" }}
-        fluid
-      >
-        <Grid doubling columns={3}  >
-          <Grid.Column width={3} >
-            <div style={{ position: "sticky", top: "50px", zIndex: 1 }}>
-              <Menu style={{ background: "#FFF", width: "100%" }} secondary vertical>
-                <Dropdown item text='Choosing a location' >
-                  <Dropdown.Menu style={{ background: "#FFF" }}>
-                    <Dropdown.Header>Location</Dropdown.Header>
-                    {
-                      AreaData.map(item => {
-                        return (
-                          <Dropdown.Item active={activeArea === item.name} key={item.id} onClick={choosingArea} value={item}>{item.name}</Dropdown.Item>
-                        )
-                      })
-                    }
-                  </Dropdown.Menu>
-                </Dropdown>
-              </Menu>
-              <Visibility
-                offset={80}
-                once={false}
-                onTopPassed={stickOverlay}
-                onTopVisible={unStickOverlay}
-              />
-              <Menu
-                style={{ background: "#FFF", width: "100%" }}
-                secondary
-                vertical
-              >
-                {Categories.length > 0 ? Categories.map((item) => {
-                  return (
-                    <Menu.Item
-                      className={MenuCustomStyle.customCorlor}
-                      key={item.id}
-                      name={item.name}
-                      active={activeItem === item.name}
-                      onClick={handleItemClick}
-                      value={item}
-                    >
-                      {item.name}
-
-                    </Menu.Item>
-
-                  );
-                })
-                  :
-                  <div>No data</div>
-                }
-              </Menu>
-            </div>
-          </Grid.Column>
-          <Grid.Column width={9} style={{ background: "#FFF", margin: "15px 0px" }}>
-            <div>
-              <ProductsComponent subcategories={SubCategories.filter(sub => sub.categoryId === subcategoryId)} products={Products} areaId={areaId}></ProductsComponent>
-            </div>
-          </Grid.Column>
-
-          <Grid.Column width={4}>
-            <div style={{ position: "sticky", top: "50px", zIndex: 1 }}>
-              <ViewCartComponent ></ViewCartComponent>
-            </div>
-          </Grid.Column>
-        </Grid>
-      </Container>
-    );
-  };
   const ElDevlieryOnTablet = () => {
     return (
       <Container
@@ -206,51 +128,50 @@ const ElDeliveryTakeOutComponent = () => {
       </Container>
     );
   };
-  const ElDevlieryOnMobile = () => {
-    return (
-      <div>
-        <Visibility
-          once={false}
-          onBottomPassed={stickOverlay}
-          onBottomVisible={unStickOverlay}
-          once={false}
-        />
 
-        <MenuCustom
-          fixed={overlayFixed ? "top" : undefined}
-          style={
-            overlayFixed ? fixedOverlayMenuMobileStyle : overlayMenuMobileStyle
-          }
-          size="small"
-          secondary
-          className={MenuCustomStyle.customMobile}
-        >
-          {Categories.map((item) => {
-            return (
-              <Menu.Item
-                active={activeItem === item.name}
-                key={item.id}
-                name={item.name}
-                className={MenuCustomStyle.customCorlorMobile}
-                onClick={handleItemClick}
-                value={item}
-              ></Menu.Item>
-            );
-          })}
-        </MenuCustom>
-        <ProductsComponent subcategories={SubCategories.filter(sub => sub.categoryId === subcategoryId)} products={Products} areaId={areaId}></ProductsComponent>
-      </div>
-    );
-  };
+
   return (
     <Layout>
       <SliderComponent backgroundAttachment="fixed" Images={Images} height="40vh" />
       <ResponsiveComponent
-        onTablet={ElDevlieryOnTablet}
-        onDesktop={ElDevlieryOnDesktop}
-        onMobile={ElDevlieryOnMobile}
+        onTablet={
+          ElDevlieryOnTablet
+        }
+        onDesktop={() => {
+          return <ElDevlieryOnDesktop
+            AreaData={AreaData}
+            activeArea={activeArea}
+            choosingArea={choosingArea}
+            stickOverlay={stickOverlay}
+            unStickOverlay={unStickOverlay}
+            Categories={Categories}
+            activeItem={activeItem}
+            handleItemClick={handleItemClick}
+            SubCategories={SubCategories}
+            subcategoryId={subcategoryId}
+            Products={Products}
+            areaId={areaId}
+          />
+        }
+        }
+        onMobile={() => {
+          return <ElDevlieryOnMobile
+            stickOverlay={stickOverlay}
+            unStickOverlay={unStickOverlay}
+            overlayFixed={overlayFixed}
+            fixedOverlayMenuMobileStyle={fixedOverlayMenuMobileStyle}
+            overlayMenuMobileStyle={overlayMenuMobileStyle}
+            Categories={Categories}
+            activeItem={activeItem}
+            handleItemClick={handleItemClick}
+            SubCategories={SubCategories}
+            subcategoryId={subcategoryId}
+            Products={Products}
+            areaId={areaId}
+          />
+        }}
       ></ResponsiveComponent>
-    </Layout>
+    </Layout >
   );
 };
 
