@@ -146,7 +146,7 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                             <Table.Cell width="3" textAlign="center">
                               <span className="woocommerce-Price-amount amount">
                                 <bdi>
-                                  &nbsp;VND {item.price.toLocaleString("es-US")}
+                                   {item.price.toLocaleString("es-US")} &nbsp;VND
                                 </bdi>
                               </span>
                             </Table.Cell>
@@ -179,13 +179,9 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                             <Table.Cell textAlign="center" width="3">
                               <span className="woocommerce-Price-amount amount">
                                 <bdi>
-                                  <span className="woocommerce-Price-currencySymbol">
-                                    VND
-                                  </span>
-                                  &nbsp;
                                   {item.totalPriceOfProduct.toLocaleString(
                                     "es-US"
-                                  )}
+                                  )} &nbsp;VND
                                 </bdi>
                               </span>
                             </Table.Cell>
@@ -211,7 +207,7 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                       <Table.Row>
                         <Table.Cell>SUBTOTAL</Table.Cell>
                         <Table.Cell>
-                          VND {totalCart.toLocaleString("en-US")}
+                           {totalCart.toLocaleString("en-US")} &nbsp;VND
                         </Table.Cell>
                       </Table.Row>
                       <Table.Row>
@@ -224,7 +220,7 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                       <Table.Row>
                         <Table.Cell>VAT</Table.Cell>
                         <Table.Cell>
-                          VND {VAT.toLocaleString("en-US")}
+                           {VAT.toLocaleString("en-US")} &nbsp;VND
                         </Table.Cell>
                       </Table.Row>
                       <Table.Row>

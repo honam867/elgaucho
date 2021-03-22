@@ -38,14 +38,6 @@ const fixedMenuStyle = {
   borderBottom: "1px solid #cf1b15",
 };
 
-const iconHover = {
-  backgroundColor: "#fff",
-  height: "10px",
-  maxHeight: "600px",
-  transition: "height 0.2s",
-  borderBottom: "1px solid #cf1b15",
-};
-
 const active = {
   color: "#cf1b15",
 };
@@ -70,55 +62,12 @@ const HeaderOnDesktop = ({
     setFixedMenu(true);
   };
   const [open, setOpen] = React.useState(false);
-  const [datas, setDatas] = useState([
-    {
-      key: 1,
-      text: "Xuan Thuy | HCMC",
-      value: 1,
-      pathname: "/location#XuanThuy",
-      tag: "#XuanThuy",
-      visible: false
-    },
-    {
-      key: 2,
-      text: "Saigon Pearl | HCMC",
-      value: 2,
-      pathname: "/location#SaigonPearl",
-      tag: "#SaigonPearl",
-      visible: false
-    },
-    {
-      key: 3,
-      text: "Hai Ba Trung | HCMC",
-      value: 3,
-      pathname: "/location#HaiBaTrung",
-      visible: false
-    },
-    { key: 4, text: "An Phu | HCMC", value: 4, pathname: "/location#AnPhu", visible: false },
-    {
-      key: 5,
-      text: "Phu My Hung | HCMC",
-      value: 5,
-      pathname: "/location#PhuMyHung",
-      visible: false
-    },
-    {
-      key: 6,
-      text: "Bach Dang | Da Nang",
-      value: 6,
-      pathname: "/location#BachDang",
-      visible: false
-    },
-    { key: 7, text: "Ba Dinh | Hanoi", value: 7, pathname: "/location#BaDinh", visible: false },
-    { key: 8, text: "Tay Ho | Hanoi", value: 8, pathname: "/location#TayHo", visible: false },
-    {
-      key: 9,
-      text: "Trang Tien | Hanoi",
-      value: 9,
-      pathname: "/location#TrangTien",
-      visible: false
-    },
-]);
+  const [locations, setDatas] = useState(locationOptions);
+  function openLocationChild(locationObject) {
+    console.log(locationObject)
+    locationObject.visible = !locationObject.visible;
+    setDatas([...locations])
+  }
   return (
     <>
       <Visibility
@@ -325,14 +274,11 @@ const HeaderOnDesktop = ({
       >
         <Modal.Content scrolling>
           <List divided>
-            {datas.map((item, i) => {
+            {locations.map((item, i) => {
               return (
                 <List.Item>
                   <List.Content style={{ textAlign: "center" }}>
-                    <ButtonCustom onClick = {() =>{
-                      console.log(item.visible)
-                      item.visible = !item.visible;
-                      setDatas([...datas])}} fluid>
+                    <ButtonCustom onClick = {() => openLocationChild(item)} fluid>
                       {item.text}
                     </ButtonCustom>
                     <Divider style = {{margin: "0px"}} hidden />
@@ -343,7 +289,7 @@ const HeaderOnDesktop = ({
                     >
                       <div>
                       <List.Description>
-                        <Icon link size="big" name="phone" />
+                        <Icon flipped = "horizontally" link size="big" name="phone" />
                         <Icon
                           link
                           size="big"
