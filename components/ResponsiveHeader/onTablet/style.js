@@ -6,8 +6,8 @@ export const IconPhoneHover = styled(Icon.Group)`
     text-shadow: 3px 3px 6px !important;
   }
   position: fixed !important;
-  top: 94% !important;
-  right: 7% !important;
+  bottom: 70px !important;
+  right: 12px !important;
 `;
 
 export const ButtonCustom = styled(Button)`
@@ -21,6 +21,6 @@ export const IconBookHover = styled(Icon.Group)`
     text-shadow: 3px 3px 6px !important;
   }
   position: fixed !important;
-  top: 94% !important;
-  right: 1% !important;
+  bottom: 20px !important;
+  right: 12px !important;
 `;
