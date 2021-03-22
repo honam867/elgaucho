@@ -37,7 +37,8 @@ const ResponsiveHeader = ({ children, numberCart }) => {
       text: "Xuan Thuy | HCMC",
       value: 1,
       pathname: "/location#XuanThuy",
-      tag: "#XuanThuy"
+      tag: "#XuanThuy",
+      visible: true
     },
     {
       key: 2,
