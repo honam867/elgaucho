@@ -8,8 +8,8 @@ const News = () => {
     <Layout>
       <Container style={{ height: "1000px", padding: "20px 0px" }}>
         <h1 style={{ textAlign: "center " }}>Welcome to Elgaucho News</h1>
-        <Player autoPlay={true} src="/static/GEMAShowcaseVideo.mp4">
-        </Player>
+        <iframe width="1200" height="800" title="video" src="https://www.youtube.com/embed/zOGWFqOG3m4?autoplay=1">
+        </iframe>
       </Container>
     </Layout>
   )
