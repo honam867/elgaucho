@@ -1,60 +1,15 @@
-import { Container, Grid, Image, Item } from "semantic-ui-react";
+import { Container, } from "semantic-ui-react";
 import Layout from "../../components/ResponsiveHeader/index";
-import NewsCss from "./news.module.css";
+import { Player } from 'video-react';
+
 const News = () => {
   return (
+
     <Layout>
-      <Container>
-        {/* <Grid divided='vertically'>
-          <Grid.Row columns={2}>
-            <Grid.Column width={10}>
-              <video className={NewsCss.MyVideo} autoPlay muted loop id="myVideo">
-                <source type="video/mp4" src="http://techslides.com/demos/sample-videos/small.mp4" />
-              </video>            </Grid.Column>
-            <Grid.Column width={6}>
-              <Item.Group>
-                <Item>
-                  <Item.Image size='tiny' src='https://react.semantic-ui.com/images/wireframe/image.png' />
-
-                  <Item.Content>
-                    <Item.Header as='a'>Header</Item.Header>
-                    <Item.Meta>Description</Item.Meta>
-                    <Item.Description>
-                      <Image src='https://react.semantic-ui.com/images/wireframe/short-paragraph.png' />
-                    </Item.Description>
-                    <Item.Extra>Additional Details</Item.Extra>
-                  </Item.Content>
-                </Item>
-
-                <Item>
-                  <Item.Image size='tiny' src='https://react.semantic-ui.com/images/wireframe/image.png' />
-
-                  <Item.Content>
-                    <Item.Header as='a'>Header</Item.Header>
-                    <Item.Meta>Description</Item.Meta>
-                    <Item.Description>
-                      <Image src='https://react.semantic-ui.com/images/wireframe/short-paragraph.png' />
-                    </Item.Description>
-                    <Item.Extra>Additional Details</Item.Extra>
-                  </Item.Content>
-                </Item>
-                <Item>
-                  <Item.Image size='tiny' src='https://react.semantic-ui.com/images/wireframe/image.png' />
-
-                  <Item.Content>
-                    <Item.Header as='a'>Header</Item.Header>
-                    <Item.Meta>Description</Item.Meta>
-                    <Item.Description>
-                      <Image src='https://react.semantic-ui.com/images/wireframe/short-paragraph.png' />
-                    </Item.Description>
-                    <Item.Extra>Additional Details</Item.Extra>
-                  </Item.Content>
-                </Item>
-              </Item.Group>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid> */}
-
+      <Container style={{ height: "1000px", padding: "20px 0px" }}>
+        <h1 style={{ textAlign: "center " }}>Welcome to Elgaucho News</h1>
+        <iframe width="1200" height="800" title="video" src="https://www.youtube.com/embed/zOGWFqOG3m4?autoplay=1">
+        </iframe>
       </Container>
     </Layout>
   )
