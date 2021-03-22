@@ -40,6 +40,7 @@ const Images = [
 ];
 const ElDeliveryTakeOutComponent = () => {
   const [activeItem, setActiveItem] = useState("");
+  const [activeArea, setActiveArea] = useState("");
   const [overlayFixed, setStickOverlay] = useState(false);
   // NOTE new logic here:
   const [subcategoryId, setSubCategoyId] = useState(0);
@@ -66,6 +67,7 @@ const ElDeliveryTakeOutComponent = () => {
   };
 
   const choosingArea = (e, { value }) => {
+    setActiveArea(value.name)
     setAreaId(value.id)
   }
 
@@ -80,7 +82,7 @@ const ElDeliveryTakeOutComponent = () => {
     setActiveItem(Categories[0].name);
   }, []);
 
-  const MenusOnDesktop = () => {
+  const ElDevlieryOnDesktop = () => {
     return (
       <Container
         style={{ margin: "10px 0px", width: "100%", padding: "0px 30px", background: "#F2F2F2" }}
@@ -88,51 +90,53 @@ const ElDeliveryTakeOutComponent = () => {
       >
         <Grid doubling columns={3}  >
           <Grid.Column width={3} >
-            <Menu style={{ background: "#FFF", width: "100%" }} secondary vertical>
-              <Dropdown item text='Choosing a location' >
-                <Dropdown.Menu style={{ background: "#FFF" }}>
-                  <Dropdown.Header>Location</Dropdown.Header>
-                  {
-                    AreaData.map(item => {
-                      return (
-                        <Dropdown.Item key={item.id} onClick={choosingArea} value={item}>{item.name}</Dropdown.Item>
-                      )
-                    })
-                  }
-                </Dropdown.Menu>
-              </Dropdown>
-            </Menu>
-            <Visibility
-              offset={80}
-              once={false}
-              onTopPassed={stickOverlay}
-              onTopVisible={unStickOverlay}
-            />
-            <Menu
-              style={{ background: "#FFF", width: "100%" }}
-              secondary
-              vertical
-            >
-              {Categories.length > 0 ? Categories.map((item) => {
-                return (
-                  <Menu.Item
-                    className={MenuCustomStyle.customCorlor}
-                    key={item.id}
-                    name={item.name}
-                    active={activeItem === item.name}
-                    onClick={handleItemClick}
-                    value={item}
-                  >
-                    {item.name}
+            <div style={{ position: "sticky", top: "50px", zIndex: 1 }}>
+              <Menu style={{ background: "#FFF", width: "100%" }} secondary vertical>
+                <Dropdown item text='Choosing a location' >
+                  <Dropdown.Menu style={{ background: "#FFF" }}>
+                    <Dropdown.Header>Location</Dropdown.Header>
+                    {
+                      AreaData.map(item => {
+                        return (
+                          <Dropdown.Item active={activeArea === item.name} key={item.id} onClick={choosingArea} value={item}>{item.name}</Dropdown.Item>
+                        )
+                      })
+                    }
+                  </Dropdown.Menu>
+                </Dropdown>
+              </Menu>
+              <Visibility
+                offset={80}
+                once={false}
+                onTopPassed={stickOverlay}
+                onTopVisible={unStickOverlay}
+              />
+              <Menu
+                style={{ background: "#FFF", width: "100%" }}
+                secondary
+                vertical
+              >
+                {Categories.length > 0 ? Categories.map((item) => {
+                  return (
+                    <Menu.Item
+                      className={MenuCustomStyle.customCorlor}
+                      key={item.id}
+                      name={item.name}
+                      active={activeItem === item.name}
+                      onClick={handleItemClick}
+                      value={item}
+                    >
+                      {item.name}
 
-                  </Menu.Item>
+                    </Menu.Item>
 
-                );
-              })
-                :
-                <div>No data</div>
-              }
-            </Menu>
+                  );
+                })
+                  :
+                  <div>No data</div>
+                }
+              </Menu>
+            </div>
           </Grid.Column>
           <Grid.Column width={9} style={{ background: "#FFF", margin: "15px 0px" }}>
             <div>
@@ -141,7 +145,7 @@ const ElDeliveryTakeOutComponent = () => {
           </Grid.Column>
 
           <Grid.Column width={4}>
-            <div >
+            <div style={{ position: "sticky", top: "50px", zIndex: 1 }}>
               <ViewCartComponent ></ViewCartComponent>
             </div>
           </Grid.Column>
@@ -149,7 +153,7 @@ const ElDeliveryTakeOutComponent = () => {
       </Container>
     );
   };
-  const MenusOnTablet = () => {
+  const ElDevlieryOnTablet = () => {
     return (
       <Container
         style={{ margin: "auto", width: "100%", padding: "0px 30px" }}
@@ -202,7 +206,7 @@ const ElDeliveryTakeOutComponent = () => {
       </Container>
     );
   };
-  const MenusOnMobile = () => {
+  const ElDevlieryOnMobile = () => {
     return (
       <div>
         <Visibility
@@ -242,9 +246,9 @@ const ElDeliveryTakeOutComponent = () => {
     <Layout>
       <SliderComponent backgroundAttachment="fixed" Images={Images} height="40vh" />
       <ResponsiveComponent
-        onTablet={MenusOnTablet}
-        onDesktop={MenusOnDesktop}
-        onMobile={MenusOnMobile}
+        onTablet={ElDevlieryOnTablet}
+        onDesktop={ElDevlieryOnDesktop}
+        onMobile={ElDevlieryOnMobile}
       ></ResponsiveComponent>
     </Layout>
   );
