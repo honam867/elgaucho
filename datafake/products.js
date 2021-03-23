@@ -162,134 +162,423 @@ const Products = [
 
   },
   {
-    "id": 28,
-    "name": "taittinger brut reserve",
-    "description": "Brut Réserve Taittinger is one of the last great Champagne Houses to remain independent and is owned and actively managed by the family named on the label. The family are guardians of Taittinger’s style quality and integrity. The hallmark of their fine Champagnes is the high proportion of Chardonnay used in their winemaking which is key, in the Champagne region, for producing wines of great elegance and finesse. Additionally, with its vineyard ownership of 288 ha (one of the largest in Champagne}, Taittinger can guarantee a flawless signature, and wines heralded worldwide for their consistent quality. Our signature cuvée, Taittinger Brut Réserve, is assembled from more than 35 crus and incorporates 40% Chardonnay – this high level is seldom offered in a non-vintage Champagne. Distinguished by a delicate nose marked by subtle brioche notes, it has a palate of considerable depth and balance with hints of honey and fresh fruit with a long, fresh finish.",
-    "price": 2099200.0,
-    "promotedPrice": 2089200.0,
-    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/73-MARCHESI-ANTINORI-“SOLAIA”-100x100.jpg",
+    "id": 1,
+    "name": "1865 single vineyard",
+    "description": "This wine demonstrates a strong bouquet, marked by elegant and intense aromas of ripe red fruit like cherries, plums and blueberries, in addition to cassis blended with notes of chocolate, mocha and cedar.Very dense and concentrated, with mature and noticeable tannins. In addition, the wine displays a very good balance between the tannins, acidity and oak.Ideal for accompanying red meats in general, venison, game birds, and strong cheeses.",
+    "price": 1493900.0,
+    "promotedPrice": 1483900.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/35-1865-Single-Vineyard-Cabernet-Sauvignon-2011-100x100.jpg",
     "currency": null,
     "isAvailable": true,
     "priority": 0,
-    "subCategory": 16,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 7,
+    "additions": [],
+    "menu": {
+      "id": 7,
+      "areaName": "Hồ Chí Minh",
+      "areaId": 7,
+      "country": 0
+    },
+    "areaId": 7
+  },
+  {
+    "id": 3,
+    "name": "trapiche oak cask",
+    "description": "Founded in 1883, Trapiche is one of Argentina’s best-known wine brands. Located at the foothills of the Andes in Mendoza, they own more than 3000 acres of vineyards ranging from 600 meters to over 1200 meters. Chief winemaker, Daniel Pi’s goal and vission is to represent the richness and diversity of Argentina’s terroir. Trapiche is dedicated to creating the best Malbec wines in the world as exemplified by the winery’s most successful project, The Single Vineyard Malbec Series. As a tribute to the growers’ passion and dedication, the winery selects three of its best growers and bottles their wines exclusively in limited production. The result is rich, incredibly massive, terroir-driven wines, prossessing bold, powerful fruit that express passion, history and the grower’s personal touch.Purple-colored, the nose offers up plum and black cherry notes with a touch of black pepper. The palate is soft and round with ripe, saturated berry flavors. Finishes spicy and full with chewy tannins.Ideal to serve with cheeses, red meats, mushrooms, stew and the typical Argentinian “asado”.",
+    "price": 539700.0,
+    "promotedPrice": 509700.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/11-TRAPICHE-OAK-CASK-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
   {
-    "id": 55,
-    "name": "krug grande cuvee",
-    "description": "Behind every precious drop of Krug stands the dream of a visionary. One man who, long before others, understood that the essence of Champagne is pleasure. So, over 170 years ago, Joseph Krug broke with convention to follow his vision. To create the most generous expression of Champagne every year, regardless of climatic unpredictability.Joseph’s bold experiment proved a triumph and he succeeded in creating Champagne like never before. And like no other Champagne House since. To this day, the House of Krug lives and breathes his enduring philosophy, creating only prestige Champagnes since 1843. Deep golden colour and fine, vivacious bubbles, predicting fullness and elegance. Aromas of flowers in bloom, ripe & dried fruit, marzipan, gingerbread and citrus fruits. Flavours of hazelnut, nougat, barley sugar, jellied and citrus fruits, almonds, brioche and honey.Krug Grande Cuvée lends itself to a plethora of culinary combinations, from the simplest to the most sophisticated, from an extra mature parmesan to a dish of turbot à la truffle.",
-    "price": 12499500.0,
-    "promotedPrice": 12489500.0,
-    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Guidalberto-by-Sassicaia-100x100.jpg",
+    "id": 10,
+    "name": "vistalba corte c",
+    "description": "Intense red color. Red fruit aromas, prunes and rippen cherries. Sweet entrance, silky tannis. Ripened cherries and dry fruits such as alomd and nuts.Pairs well with meat, pasta, stews, leumes, mature cheese.",
+    "price": 990000.0,
+    "promotedPrice": -1.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Bodega-Vistalba-Corte-C-100x100.jpg",
     "currency": null,
     "isAvailable": true,
     "priority": 0,
-    "subCategory": 16,
+    "subCategory": 20,
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
   {
-    "id": 56,
-    "name": "dom perignon",
-    "description": "Dom Pérignon (1638–1715) was a monk and cellar master at the Benedictine abbey in Hautvillers. He pioneered a number of winemaking techniques around 1670—being the first to blend grapes in such a way as to improve the quality of wines, balance one element with another in order to make a better whole, and deal with a number of their imperfections; perfecting the art of producing clear white wines from black grapes by clever manipulation of the presses.Dom Perignon has an intense, full and radiant bouquet with notes of honeysuckle, orange coloured fruits and hints of iodine sensations. The creamy chewiness characterizing the vintage is channelled in a direction that is edgy yet embracing with a wave of aromatic persistence. Smoky, biting and full energy finish balances it all out.The Dom Perignon pairs very well with sushi, scallops, oysters, white fish, white meat.",
-    "price": 11999400.0,
-    "promotedPrice": 11979400.0,
-    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Kaiken-Reserva-malbec-100x100.jpg",
+    "id": 11,
+    "name": "vistalba corte b",
+    "description": "Intense bordeaux color with brillant violet hues. Fresh prunes aromas, dry fig and blackberries. Barrel aromas such as tabacco, vanilla and cedarwood. Sweet and velvety tannis. Great volume and body. Cacao, dark chocolate and subtle coffee notes can be found on its long lasting finish.Pairs well with grilled red meats, roast game birds, mature cheese.",
+    "price": 1253900.0,
+    "promotedPrice": 1233900.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/16-BKK-Bodega-Vistalba-Corte-B-2015-100x100.jpg",
     "currency": null,
     "isAvailable": true,
     "priority": 0,
-    "subCategory": 16,
+    "subCategory": 20,
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
   {
-    "id": 57,
-    "name": "bollinger special cuvee brut",
-    "description": "To the eye: A golden colour, distinctive of black grape varieties; very ne bubbles. To the nose: A beautiful aromatic complexity; ripe fruit and spicy aromas; hints of roasted apples, apple compote and peaches. On the palate: A subtle combination of structure, length and vivacity; bubbles like velvet; pear, brioche and spicy aromas, notes of fresh walnut.This wine goes very well with any fish, especially sushi and sashimi. Seafood: shrimp, prawn, crayfish, grilled lobster. Poultry and white meat. Parmesan, good cured ham.",
-    "price": 2579300.0,
-    "promotedPrice": 2549300.0,
-    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Kaiken-Ultra-malbec-100x100.jpg",
+    "id": 12,
+    "name": "vistalba corte a",
+    "description": "Made with grapes from the Vistalba land, these wines are a complete universe for the palate. Blends from the best selection of Malbec, Cabernet Sauvignon and Bonarda red grapes representing the best of each harvest and with great qualities for storage.Color: Intense garnet red.Nose: Complex aromas where dark chocolate, prune and tobbaco stand out.Palate: Sweet entrance, good volume and structure. Long lasting end where notes of chocolate and spices appears on the back.Winemaking: this wine is 100% aged in new French Oak for 18 months, then stored for 12 months in the bottle prior to being released into the market. All grapes are hand harvested from old vines, most planted around 1948. Vineyards sit 950m above sea level and good climatic conditions allow the winery to maintain vineyards almost naturally with almost no fitosanitary treatment. During the vegetative season there is a difference of temperature between day and night of 15¡C allowing for excellent colour and tannin development.",
+    "price": 2519800.0,
+    "promotedPrice": 2489800.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Bodega-Vistalba-Corte-A-100x100.jpg",
     "currency": null,
     "isAvailable": true,
     "priority": 0,
-    "subCategory": 16,
+    "subCategory": 20,
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
   {
-    "id": 58,
-    "name": "bollinger rose",
-    "description": "To the eye: bronze tones combined with the intense depth of a great red wine. To the nose: the nobility of red berries: hints of red currant, cherry and wild strawberry;a spicy touch, not unlike Special Cuvée. To the palate: a subtle combination of structure, length and vivacity, with a tannic finish due to the adjunction of red wine; bubbles as fine as velvet; flavours of wild berries.Cellar aged for more than twice the time required by the appellation.it pairs well with crayfish, lobster, one-side cooked salmon. Japanese cuisine or not-so-spicy Asian cuisine.",
-    "price": 3119200.0,
-    "promotedPrice": 3079200.0,
-    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Lapostolle-Cabernet-Sauvignon-1-100x100.jpg",
+    "id": 13,
+    "name": "vega sicillia, valbuena 5",
+    "description": "Vega Sicilia is the most significant wine producer in Spain, considered amongst the greatest in the world. Their property is found 700 metres above sea level in the shallow Spanish part of the Duero River valley on the high remote plateau of Castilla y Leon. This unique climate delivers cold nights and hot days, allowing the grapes to become beautifully ripe and develop wonderful tannic structure, with a delightful backbone of acidity and therefore superb balance.The Valbuena 5° takes its name from the village where it is produced. It is aged for less time than the Unico or the Reserva Especial with the 5° designating the years it has been aged before release.",
+    "price": 5399700.0,
+    "promotedPrice": 5359700.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Penfolds-Bin-407-100x100.jpg",
     "currency": null,
     "isAvailable": true,
     "priority": 0,
-    "subCategory": 16,
+    "subCategory": 20,
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
   {
-    "id": 63,
-    "name": "veuve clicquot brut",
-    "description": "A Champagne House is eventually judged on the quality of its Brut Non Vintage. It is in the making of such a wine that the true Art of Champagne blending reveals itself. This is an art in which the House of Veuve Clicquot excels. Our Brut Yellow Label reflects the superb vineyards we own and the consistent nature of our House style.The predominance of Pinot Noir provides the structure that is so typically Clicquot, while a touch of Pinot Meunier rounds out the blend. Chardonnay adds the elegance and finesse essential in a perfectly balanced wine.",
-    "price": 2339700.0,
-    "promotedPrice": 2339700.0,
-    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Clos-du-Val-100x100.jpg",
+    "id": 16,
+    "name": "lucente, luce della vite",
+    "description": "Lucente 2014 is a deep red color with purple highlights. The wine’sbouquet is complex: fruity notes of black cherry and small red fruitsare enhanced by moderately toasted scents; pleasant vanilla and lightly roasted coffee beans linger delicately in the background. Well rounded with silky tannins that bestow a balanced and harmonious structure, this is an eminently elegant and enjoyable wine.James Suckling – “Lots of blueberry, black currant and lavender aromas and flavors to this. Medium to full body, fine tannins and a fresh finish. Drink or hold. So long and refined. Extremely well done.”",
+    "price": 1433400.0,
+    "promotedPrice": 1363400.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/17-TERRAZAS-RESERVA--100x100.jpg",
     "currency": null,
     "isAvailable": true,
     "priority": 0,
-    "subCategory": 16,
+    "subCategory": 20,
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
   {
-    "id": 31,
-    "name": "prosecco liquid gold classic",
-    "description": "Selected and healthy grapes; soft pressing and 10-day test winemaking in steel tanks. After the second fermentation at controlled temperature in pressurised vats using the Charmat method, the wine is filtered and decanted with isobaric technique before being bottled.Pale straw yellow with light lime green highlights. Pleasant, light, fine, delicate and long-lasting, fruity, with characteristic bouquet of Golden Delicious apples. Velvety, fresh, fruity and lively, slight and smooth, with a fine perlage, full-bodied, harmonic, excellent acidity.A classic Venetian aperitif, ideal with all meatbased starters, sausages, seafood salad and fish and shellfi sh pasta and rice courses. Perfect with white meats, grilled, boiled or fried fish with polenta.",
-    "price": 889900.0,
-    "promotedPrice": 849900.0,
-    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/28-Lapostolle-Merlot-2014-100x100.jpg",
+    "id": 17,
+    "name": "le petit clos apalta",
+    "description": "Cool aromas of cola, coffee, blackberry, stewed plum, herbs and minerals make for a highly attractive and complex bouquet. In the mouth, wall-to-wall power and tannins suggest that this needs a few more years to mellow out. Flavors of stewed plum, blackberry, Carolina barbecue sauce and a hint of citrus peel are complex and set up a deep finish with dark flavors and intensity to spare.",
+    "price": 2699300.0,
+    "promotedPrice": 2619300.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/15-TERRAZAS-reserve-malbec-100x100.jpg",
     "currency": null,
     "isAvailable": true,
     "priority": 0,
-    "subCategory": 17,
+    "subCategory": 20,
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
   {
-    "id": 29,
-    "name": "cotes de provence, villa garrel",
-    "description": "In the 16th century, the Villa Garrel was part of the former fief of Piegros. Today, Château de l’Aumérade Cru Classé is the jewel of the Fabre properties. Completely renovated, it now houses the head office of Fabre en Provence. The initials HF, engraved in one of the stones of the bastide, date from the Emperor Napoleon III (1868).Today, the vintners have the most modern equipment available with which to work, and craft an array of outstanding wines — including one for which Provence is perhaps best known: a fresh and juicy rosé.Crafted from three grape varieties — Grenache, Cinsault and Syrah — the 2018 Villa Garrel Rosé is a delightful wine with strawberry and papaya flavors that cascade into a long and creamy finish. It’s a wonderful wine for sipping on a hot summer day, or makes a great companion to summer salads.Pale pink, fruit-forward and refreshing rosé, crafted from Grenache, Cinsault and Syrah grapes. The nose is dominated by intense aromas of orange peel, white peach, strawberry and red cherry. This light and crisp rosé can complement a meal perfectly or be delightful on its own. Pairs well with light appetizers or spicy tapas.",
-    "price": 889100.0,
-    "promotedPrice": 869100.0,
-    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/67-Ornellaia-Le-Serre-Nuove-dellOrnellaia-2013-100x100.jpg",
+    "id": 18,
+    "name": "chateau la fleur-petrus",
+    "description": "Situated between Châteaux Lafleur and Petrus, Château La Fleur-Pétrus took its name in the 18th century. Jean-Pierre Moueix, who established his wine merchant business in Libourne in 1937, purchased La Fleur-Pétrus in 1950. This historic estate on the plateau of Pomerol was his first vineyard acquisition.La Fleur-Pétrus is composed predominantly of Merlot, which lends silkiness and generosity to the wine, while a small percentage of Cabernet Franc contributes rigor and complexity.The vineyard is made up of three parcels on the plateau of Pomerol with altitudes averaging 33 to 38 meters above sea level. The pebbly soils from the northern parcel yield a wine of great elegance with notes of black cherries. The center plot, known for its summer heat (the area is called “Tropchaud”}, produces a wine of tremendous suppleness with a hint of plum. Wine from the southern parcel is particularly velvety, dense, structured, with a pronounced nose of blackcurrant.Blended, these three singular terroirs with nuanced and complementary characteristics produce a generous, expressive wine with apparent structure and a dominance of black fruit. An attentive tasting reveals remarkable refinement, complexity, and a touch of violet.",
+    "price": 11999200.0,
+    "promotedPrice": 11999200.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/70-MARCHESI-ANTINORI-“TIGNANELLO”--100x100.jpg",
     "currency": null,
     "isAvailable": true,
     "priority": 0,
-    "subCategory": 18,
+    "subCategory": 20,
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
-
+  {
+    "id": 19,
+    "name": "chateau darmailhac, pauillac",
+    "description": "The wine is a garnet red with a crimson tint. The highly expressive nose is remarkable for its intense and radiant red fruit aromas mingled with notes of roasted coffee and marzipan. The ample and full-bodied attack reveals a well-rounded, silky tannic structure, giving an impression of richness and volume, underlined by a generous and varied range of flavours such as cherry, vanilla and liquorice. The long finish is sustained by hints of chocolate.",
+    "price": 3299100.0,
+    "promotedPrice": 3289100.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/6-Torbreck-Woodcutter-Shiraz-2015-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 20,
+    "name": "chateau tertre, grand cru classe",
+    "description": "The complex aroma is punctuated by long-lasting touches of fully-ripe red berries. Drunk as a young wine, Château Pindefleurs allows its fresh fruitiness to blossom. Kept in a cellar, it unrolls a long and silky taste in the mouth, the mark of the Grands Crus of Saint-Emilion.Since Bordeaux red blends are often quite structured and tannic, they pair best with hearty, flavorful, and fatty meat dishes. Any type of steak makes for a classic pairing. Equally welcome with these wines would be beef brisket, pot roast, braised lamb, or smoked duck.",
+    "price": 2520000.0,
+    "promotedPrice": -1.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/11-TRAPICHE-OAK-CASK-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 21,
+    "name": "caymus grand durif",
+    "description": "A dark, ruby red, with the lush scent of German chocolate cake and wisps of cigar tabacco. The palate of this wine is refined, bold, and layered, with cassis at the center, infused with warming notes of chocolate and ripe dark berries. Grippy tannis maintain structure yet are velvety soft, allowing flavors of continually evolve during a lingering finish that showcases this wine’s multiple layers of complexity.",
+    "price": 3059900.0,
+    "promotedPrice": 3029900.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Vega-Sicilia-Valbuena-5-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 22,
+    "name": "caymus",
+    "description": "A dark, ruby red, with the lush scent of German chocolate cake and wisps of cigar tabacco. The palate of this wine is refined, bold, and layered, with cassis at the center, infused with warming notes of chocolate and ripe dark berries. Grippy tannis maintain structure yet are velvety soft, allowing flavors of continually evolve during a lingering finish that showcases this wine’s multiple layers of complexity.",
+    "price": 3599800.0,
+    "promotedPrice": 3559800.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/45-Caymus-Napa-Valley-Cabernet-Sauvignon-2014-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 23,
+    "name": "catena zapata argentino",
+    "description": "A classically Argentine wine, our Alamos Malbec blends the deeply concentrated plum flavours of the country’s signature variety – Malbec – with small portions of Syrah and Bonarda to add dark cherry and blackberry flavours. Well-integrated hints of brown spice and vanilla contribute layers of complexity. A full structure, firm tannis and a long finish make this Malbec unforgettable.",
+    "price": 3299700.0,
+    "promotedPrice": 3249700.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/16-BKK-Bodega-Vistalba-Corte-B-2015-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 24,
+    "name": "catena malbec",
+    "description": "The Catena wines are a special assemblage of High Mountain Estate Vineyards made by fourth generation vintner, Laura Catena and chief winemaker, Alejandro Vigil. Although we have found that most of the Catena wines are consumed shortly after release, we are pleased to see that they age beautifully for ten to twenty years. Through decades of study and exploration within Mendoza’s high altitude mountain terroirs, the Catena family has identified special locations for its Estate vineyards. From the marriage of these historic vineyards emerges a wine of unique character that has natural balance, concentration and a distinct varietal identity.",
+    "price": 1489600.0,
+    "promotedPrice": 1429600.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Bodega-Vistalba-Corte-C-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 25,
+    "name": "catena cabernet sauvignon",
+    "description": "The Catena wines are a special assemblage of High Mountain Estate Vineyards made by fourth generation vintner, Laura Catena and chief winemaker, Alejandro Vigil. Although we have found that most of the Catena wines are consumed shortly after release, we are pleased to see that they age beautifully for ten to twenty years. Through decades of study and exploration within Mendoza’s high altitude mountain terroirs, the Catena family has identified special locations for its Estate vineyards. From the marriage of these historic vineyards emerges a wine of unique character that has natural balance, concentration and a distinct varietal identity.The Catena Cabernet Sauvignon shows a dark ruby color with violet tones. On the nose, it offers intense aromas of ripe raspberries and cassis with notes of pepper, clove, and a touch of cedar. On the palate, it is full-bodied and rich and displays layers of black currant and black raspberry with notes of cedar and oregano. This Cabernet Sauvignon is an elegant wine with silky tannins that provide structure and a long and persistent finish.Pair this Cabernet with red meats like steak or lamb, demi-glace sauces, or with Steak Frites for a simple bistro-style meal.",
+    "price": 1373500.0,
+    "promotedPrice": 1303500.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Catena-Cabernet-Sauvignon-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 26,
+    "name": "catena alta malbec",
+    "description": "Catena Alta Malbec is deep violet in color with indigo highlights. The nose has aromas of ripe red and black berry fruits with notes of violets and lavender and hints of leather and a touch of spices. The wine is full-bodied and rich, with sweet tannins and a smooth structure, offering multiple layers of of blackberries and black currant with hints of liquorice, vanilla, and black pepper. This wine’s lengthy finish shows beautiful minerality with fine tannins and lively acidity.This Malbec would be absolutely wonderful with a variety of grilled meats but especially with more full-flavored dishes like Barbecued Leg of Lamb or Roasted Baby Goat.",
+    "price": 2699400.0,
+    "promotedPrice": 2619400.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/23-Catena-Alta-Malbec-2012-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 27,
+    "name": "chateauneuf du pape, jaboulet",
+    "description": "This is the most famous appellation of the southern Rhône and also one of the best-known in France and abroad. Its rise to fame goes back to the presence of the papal seat in Avignon from 1309 to 1376. It was Pope John XXII who developed the château, which is today in ruins. Powerful and warm attack, with a spicy, hot finish.Pairs well with noisettes of venison with sauce grand veneur Fillet of beef with cèpes cream; Sautéd veal kidneys infused with lime.",
+    "price": 2699300.0,
+    "promotedPrice": 2699300.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Parallele-45-Jaboulet-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 32,
+    "name": "tignanello antinori",
+    "description": "Intensely ruby red in color with purple highlights, the 2013 Tignanello shows an intense nose of ripe red fruit in addition to notes of vanilla, chocolate, and leather imparted from the oak. Spicy and balsamic sensations give additional complexity in the layers of aromatics. The wine is ample and enveloping on the palate with supple tannins and a savory freshness that fully respects the character and personality of the Sangiovese grape. The balance between acidity and tannins is excellent and the finish and aftertaste are of a lovely length and persistence.James Suckling – “This is amazing on the nose with blackberry, black truffle, dried cherry and hints of tobacco. So complex on the nose. Almost no need to taste it. Full body, soft and velvety tannins, and a persistent, fabulous finish. The mouthfeel is magic. 80% Sangiovese and 20% Cabernet Sauvignon. Drink or hold.”",
+    "price": 4199800.0,
+    "promotedPrice": 4149800.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Almaviva-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
   {
     "id": 33,
     "name": "terrazas reserva malbec",
@@ -304,6 +593,12 @@ const Products = [
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
   {
@@ -320,6 +615,12 @@ const Products = [
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
   {
@@ -336,6 +637,12 @@ const Products = [
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
   {
@@ -352,6 +659,12 @@ const Products = [
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
   {
@@ -368,6 +681,12 @@ const Products = [
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
   {
@@ -384,6 +703,12 @@ const Products = [
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
   {
@@ -400,6 +725,12 @@ const Products = [
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
   {
@@ -416,6 +747,12 @@ const Products = [
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
   {
@@ -432,6 +769,12 @@ const Products = [
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
   {
@@ -448,6 +791,12 @@ const Products = [
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
   {
@@ -464,6 +813,12 @@ const Products = [
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
   {
@@ -480,6 +835,12 @@ const Products = [
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
   {
@@ -496,6 +857,12 @@ const Products = [
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
   {
@@ -512,6 +879,12 @@ const Products = [
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
   {
@@ -528,6 +901,12 @@ const Products = [
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
   {
@@ -544,6 +923,12 @@ const Products = [
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
   {
@@ -560,6 +945,12 @@ const Products = [
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
   {
@@ -576,6 +967,12 @@ const Products = [
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
   {
@@ -592,6 +989,12 @@ const Products = [
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
   },
   {
@@ -608,7 +1011,1025 @@ const Products = [
     "category": 5,
     "menuId": 8,
     "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
     "areaId": 8
-  }
+  },
+  {
+    "id": 53,
+    "name": "torbreck woodcutters",
+    "description": "This wine reflects the up & coming Shiraz vineyards of the Barossa, rather than the battle hardened old vines which make up the core of our other cuvee’s. Full of deep, dark berry fruit, the 2015 vintage is sensational array of opulent rich fruit with a wonderful freshness and balance. A dark deep, central core of fruit gives way to an intense textural mid palate full of mocha, plum, spice and dark chocolate. Whilst offering immense pleasure in its youth the 2015 Woodcutter’s Shiraz will certainly develop into an impressive wine with a few years in the cellar. Another fantastic introduction to the Torbreck range.",
+    "price": 1389700.0,
+    "promotedPrice": 1309700.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Gaja-Ca-Marcanda-Vistamare-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 54,
+    "name": "trivento golden reserve",
+    "description": "Founded in 1996, Trivento produces brand-name wines under their own label. The company has created a portfolio of wines distinguished for preserving the character of the Mendozan terroir. These wines have received numerous recognitions at international contests and in wine industry publications. Trivento has become the most diversely distributed Argentine wine brand in the world positioning the positioning the company among the preeminent Argentine exporters.Yellow with olive tinges in colour with aromas of white peach and green apple. Fresh acidity with a fruity finish.Wine of Mendoza, Argentina; 2016 Gold Decanter Award winner",
+    "price": 1493600.0,
+    "promotedPrice": 1493600.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Gevrey-Chambertin-Latour-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 59,
+    "name": "castillo de molina",
+    "description": "Intense ruby-red color with violet hues. Characterized mainly by red fruits such as raspberry and cherry, as well as berries like blackberry and blueberry. There are also aromas provided by aging in barrels, lending the wine complexity. Balanced on the palate, with excellent volume and structure. Ripe tannins allow for a long, pleasing and elegant finish.",
+    "price": 713100.0,
+    "promotedPrice": 663100.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/30-Castillo-de-Molina-Cabernet-Sauvignon-2015-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 60,
+    "name": "tondonia reserva 07",
+    "description": "A wine with medium-high depth of color — black-cherry red with garnet hues. First, red-fruit notes appear on the nose, with hints of fennel and scrubby heathland, all nicely balanced by smokey aromas from the time spent in medium-toasted wood. Underlying hints of vanilla come through with coffee notes. On the palate, there is a full mouth-feel with slightly mentholated nuances and white chocolate. The vanilla reappears and the red-berry fruit aromas found on the nose persist, with an elegant acidity which makes the aftertaste long.This wine can be paired with veal, Iberian pork charcuterie and some types of casseroles (stew).This wine is ruby-red with glints of brick-red and a medium-high depth of colour. Dense legs which provide you with a sequence of patterns around the sides of the glass.Initially you can find notes of red fruit aromas such as blackberries and reminders of spices. This is all well balanced by smoked aromas from its time in wood which had received a light-to-medium toasting. A subtle vanilla pod aroma coming through with roast coffee nuances.A smooth, mellow attack, with tannins wrapping the sides of the mouth with hints of menthol. In the finish the interesting lingering persistence is worthy of note.Food pairing:You can pair this wine with veal, Iberian ham and charcuterie and some kinds of stews and hotpots.",
+    "price": 2394000.0,
+    "promotedPrice": -1.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/1-Catena-Alamos-Cabernet-Sauvignon-2013-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 61,
+    "name": "cape mentelle",
+    "description": "At Cape Mentelle we draw inspiration from the great wines of the world. This is reflected in the techniques employed in our vineyards as we aim to produce wines that capture a unique sense of place in every bottle. These characteristics are defined by our pristine coastal location, unique soils and 40 years of viticultural history. Our philosophy extends beyond the glass as we endeavour to create a legacy of sustainability and longevity.  Constantly improving the potential of our vineyards and local environments, we pave the way for the next generation to continue the pursuit of crafting Australia’s definitive wine styles and while doing so we are preserving and building on what is uniquely Cape Mentelle.Nose: Perfumed violets and black currant, plum skin, Dutch cacao and rosemary. Palate: Medium to full bodied with sweet ripe fruits of mulberry, plums and currants. The structure is fine with grapey soft tannins providing great length and intensity of flavour balanced by a subtle mix of roasted spices.Pairs well with American style slow cooked and smoked beef ribs with coleslaw and pickled vegetables.",
+    "price": 1313900.0,
+    "promotedPrice": 1243900.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/50-CAPE-MENTELLE-cabernet-merlot-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 62,
+    "name": "bourgogne pinot noir, domaine chanson",
+    "description": "Bright red colour with purple nuances. Intense aromas of raspberry and violets with a hint of pepper. Concentrated and well-structured. Refreshing, lively and displaying an array of spicy nuances.Super “everyday” Burgundy, ideal with braised and roasted meats, as well as meat-sauced pastas.",
+    "price": 1073800.0,
+    "promotedPrice": 993800.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/43-VN-DECOY-cabernet-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 75,
+    "name": "gaja barbaresco",
+    "description": "Intense floral notes of acacia and linden flowers. The refreshing presence of Fiano gives notes of fern, musk and menthol. On the palate, it is fresh and compact with notes of bergamot, pear, nectarine and white currant. Then it shifts toward a more mineral and spicy character, with notes of flint, rosemary, saffron. The wine gets riper in the finish with hints of mango, almond and fig leaves.On the palate, the wine is intensely smooth and characterized by an electric tang of acidity and minerality. The wine finishes with ripe and honey notes.",
+    "price": 7499500.0,
+    "promotedPrice": 7469500.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/73-MARCHESI-ANTINORI-“SOLAIA”-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 90,
+    "name": "clos apalta",
+    "description": "Cool aromas of cola, coffee, blackberry, stewed plum, herbs and minerals make for a highly attractive and complex bouquet. In the mouth, wall-to-wall power and tannins suggest that this needs a few more years to mellow out. Flavors of stewed plum, blackberry, Carolina barbecue sauce and a hint of citrus peel are complex and set up a deep finish with dark flavors and intensity to spare.",
+    "price": 4800000.0,
+    "promotedPrice": -1.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/40-Lapostolle-Clos-Apalta-2011-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 91,
+    "name": "clos du val",
+    "description": "This wine delivers everything we are looking for from a great vintage. The color is an inky purple hue and the wine has aromas of coffee, blueberry, and toast. The palate is rich and complex, full of flavors of plum, boysenberry, and cocoa. The texture is lush, silky and full with well structured tannins that are approachable now or will cellar well for decades.",
+    "price": 1913900.0,
+    "promotedPrice": 1903900.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Clos-du-Val-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 92,
+    "name": "cornas, maison les alexandrins",
+    "description": "Cornas has a dark full color with a purple edge. The aroma is intense with black fruit, pepper, violets and roasted chocolate. Cornas tastes powerful and dark with spicy fruit that clearly refers to the granite surface. The wine has ripe and round tannins and a stunning mineral final.Serve at room temperature, when young with grilled meat, delicious after 5 years with game and aged cheeses.This small appellation is located on the right bank of the Rhone Valley with granite soils at an altitude of 300m. A cold maceration removes all the aromas and the deep color from the fruit. In all, maceration and fermentation takes 20 days with pumping and pigeage to the end. The wine ages in 1 and 2 year old barrels for 15 months.",
+    "price": 1553800.0,
+    "promotedPrice": 1533800.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Parallele-45-Jaboulet-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 93,
+    "name": "banfi aska, bolgheri",
+    "description": "The grapes of ASKA are vinified with a brief maceration in temperature-controlled stainless steel tanks for approximately 12-14 days. Once the alcoholic and malolactic fermentations are completed, the wine is aged for 10 months in oak barrels, completing its evolution with appropriate bottle aging.Color: Deep ruby red with violet reflections. Bouquet: Red berries, blueberries and plum jam are followed by hints of tobacco and licorice. Taste: The wine is well rounded, with velvety tannins and a persistent finish.Superb accompaniment to red meats, game, and aged cheeses.",
+    "price": 1553700.0,
+    "promotedPrice": 1523700.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/67-Ornellaia-Le-Serre-Nuove-dellOrnellaia-2013-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 94,
+    "name": "atica antinori",
+    "description": "Intensely ruby red in color with purple highlights, the 2013 Tignanello shows an intense nose of ripe red fruit in addition to notes of vanilla, chocolate, and leather imparted from the oak. Spicy and balsamic sensations give additional complexity in the layers of aromatics. The wine is ample and enveloping on the palate with supple tannins and a savory freshness that fully respects the character and personality of the Sangiovese grape. The balance between acidity and tannins is excellent and the finish and aftertaste are of a lovely length and persistence.James Suckling – “This is amazing on the nose with blackberry, black truffle, dried cherry and hints of tobacco. So complex on the nose. Almost no need to taste it. Full body, soft and velvety tannins, and a persistent, fabulous finish. The mouthfeel is magic. 80% Sangiovese and 20% Cabernet Sauvignon. Drink or hold.”",
+    "price": 2393600.0,
+    "promotedPrice": 2353600.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Chateau-dArmailhac-Rothschild-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 95,
+    "name": "amarone della valpolicella, tommasi",
+    "description": "Deep ruby red color with garnet shades. Warm, ripe on the nose, intense and of great refinement. The taste is complex, smooth, full bodied, lots of cherry notes and plum.TOMMASI Amarone is a wine which one can proudly serve on special occasions, particularly with red meats, game and ripe cheeses. But it can also be sipped an ideal companion to enjoyable conversation.",
+    "price": 2633500.0,
+    "promotedPrice": 2583500.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/64-LUCENTE-LUCCE-DELLA-VITE-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 96,
+    "name": "alter ego de palmer",
+    "description": "Catena Alta Malbec is deep violet in color with indigo highlights. The nose has aromas of ripe red and black berry fruits with notes of violets and lavender and hints of leather and a touch of spices. The wine is full-bodied and rich, with sweet tannins and a smooth structure, offering multiple layers of of blackberries and black currant with hints of liquorice, vanilla, and black pepper. This wine’s lengthy finish shows beautiful minerality with fine tannins and lively acidity.This Malbec would be absolutely wonderful with a variety of grilled meats but especially with more full-flavored dishes like Barbecued Leg of Lamb or Roasted Baby Goat.",
+    "price": 4199400.0,
+    "promotedPrice": 4139400.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Parallele-45-Jaboulet-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 97,
+    "name": "almaviva",
+    "description": "Attractive dark crimson, deep and opaque. The nose is pure and layered, revealing delicate and focused aromas of black cherries, ripe cassis and violet associated with black licorice, cacao and toffee notes.The mouth shows outstanding amplitude and balance, a luscious texture, bright acidity, elegance and persistence. The tannins are fine, smooth and silky, enhancing the fresh and juicy character of the year. Precise and well-built, the wine combines harmoniously elegance and freshness in a cooler and generous vintage.",
+    "price": 5999300.0,
+    "promotedPrice": 5929300.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Almaviva-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 98,
+    "name": "alamos",
+    "description": "Deep and rich, our Alamos Cabernet Sauvignon expresses dark berry characteristics that are complemented nicely by slight herbal notes. Oak aging lent complex layers of brown spice and vanilla with firm tannis to this wine.",
+    "price": 893200.0,
+    "promotedPrice": 813200.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/1-Catena-Alamos-Cabernet-Sauvignon-2013-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 99,
+    "name": "casanova di neri, irrosso",
+    "description": "This is a big wine, as Syrah should be, but not so big that it floors you. Rich and oaky, it’s full of juicy black fruits, spice and a touch of liquorice (in sweet form, I can’t stand liquorice. But in wine, when done well, I can cope). Made by one of Chile’s biggest producers from grapes grown in the Maipo region, this shows their best side. If you’ve got sausages on the table, open this.Dark and deep red, bright. Very ripe and dense on the nose, remarkably focused on flavor, offering solid blackberry and cherry flavors. At the end a lasting smoky yet rich black-tar. Firm in texture, with fine grained tannins supporting bright fruit. There’s already some complexity beginning to develop out of its firm, quiet, supple core. drink now through 2015.",
+    "price": 1793100.0,
+    "promotedPrice": 1793100.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Merryvale-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 100,
+    "name": "le serre nuove dellornellaia, bolgheri",
+    "description": "“A marvellous summer and a cool, sunny September made it possible to achieve perfect maturation of the grapes despite the difficult flowering period, with wines that express a particularly elegant side. Le Serre Nuove dell’Ornellaia 2013 has an intense, bright colour. The nose is vibrant and fruity underscored by delicate toasty notes. On the palate, the smooth, silky texture contrasts with tannins of great freshness. Whilst its structure will enable it to mellow with age, the crispness of the fruit and its soft, fine character make it perfect to enjoy straight away.”",
+    "price": 2274000.0,
+    "promotedPrice": -1.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Parallele-45-Jaboulet-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 101,
+    "name": "cheval des andes",
+    "description": "Red ruby color with violet highlights. The nose is complex and elegant. It shows notes of tobacco and white pepper followed by some notes of ripe yellow fruits such as apricot, peach, black fig and quince jam. On the palate, the first impression is driven by mentholated hints. A very balanced character between acidity and the dense silkiness of the tannins impacts on the elegant finish of this Grand Cru. ",
+    "price": 3299900.0,
+    "promotedPrice": 3279900.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/26-CHEVAL-DES-ANDES-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 102,
+    "name": "clos de la gaffeliere",
+    "description": "This wine delivers everything we are looking for from a great vintage. The color is an inky purple hue and the wine has aromas of coffee, blueberry, and toast. The palate is rich and complex, full of flavors of plum, boysenberry, and cocoa. The texture is lush, silky and full with well structured tannins that are approachable now or will cellar well for decades.",
+    "price": 1979800.0,
+    "promotedPrice": 1949800.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Parallele-45-Jaboulet-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 103,
+    "name": "lapostolle, cuvee alexandre",
+    "description": "Ruby red with cherry edge. Red fruit aromas such as cherries and strawberry with fresh herbs aromas and a touch of vanilla. Silky and elegant attack, medium bodied with plums and cherry flavors.Drink now or cellar for several years. Decant for 1 hour and serve at 16°C (58° F). Enjoy with homemade pastas such as beetroot capeletti stuffed with cheese and pistachios or turkey panzotti and bolognesa sauce.The wine makers says: As a general winemaking philosophy, in our Cuvée Alexandre Merlot we look for elegance, balance and ageing potential. Express the terroir of Apalta is our mission; so, our winemaking philosophy remains a very natural process with minimal intervention. ",
+    "price": 1313700.0,
+    "promotedPrice": 1273700.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/39-Montes-Alpha-M-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 104,
+    "name": "lapostolle merlot",
+    "description": "Valle del Rapel is located in the central part of Chile, including the sub Valleys of Cachapoal and Colchagua. It exhibits a semi–arid Mediterranean climate with a winter only rainfall pattern. During the growing season, we have warm and dry days and pleasantly cool nights as a result of cold breezes coming from the Andes Mountains. Rapel also has a cool influence from the Pacific’s Humboldt Current, which lowers temperatures in the coastal areas of the Valley. This leads to warm days with ample sunlight and dry conditions, allowing a slow ripening period and maintain its natural acidity that is a characteristic of our Lapostolle Grand Selection range. Color: Brilliant ruby color.Nose: Expressive nose of fresh red fruit such as plum, strawberries and cherries. Also chocolate, coffee and black pepper aromas.Palate: Fresh attack and a medium structure with soft and round tannins. Spicy mouthfeel with fresh red fruit flavors and a long and juicy finish.The ideal companion for pastas with red sauces, marinated pork and grilled red meat well seasoned.",
+    "price": 713600.0,
+    "promotedPrice": 663600.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/28-Lapostolle-Merlot-2014-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 105,
+    "name": "lapostolle cabernet",
+    "description": "The vision at Lapostolle is to create world class wines using French expertise and the outstanding terroirs in Chile.The Cabernet grapes are joined by small percentages of Syrah, Petit Verdot and Cabernet Franc each adding lifted aromatics to the already expressive aroma profile. Overall medium bodied with juicy cherry fruit surrounded by firm yet balanced tannins. Enjoy with tomato based pasta dishes and well seasoned, grilled red meats.",
+    "price": 889500.0,
+    "promotedPrice": 829500.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Lapostolle-Cabernet-Sauvignon-1-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 106,
+    "name": "kaiken ultra malbec",
+    "description": "The fruit for our Malbec Ultra was hand-picked into 15kg-trays in April. The process was aimed at preserving the berries, which were selected manually in the winery to ensure removal of any foreign particles capable of affecting final product quality.This deep brilliant red-colored wine with purplish tones displays rich aromas. The nose has interesting spicy and floral notes —a clear expression of a cool year—intertwined with black fruit aromas reminiscent of blueberries and blackberries that show this variety’s great typicity. Good structure and soft tannins call for a second glass. The finish is fresh, complex, and persistent with fruit notes and subtle spicy undertones of rosemary, thyme, and dry flowers.Pair with with stews, red meats or simply enjoy it with mature cheeses.",
+    "price": 1073400.0,
+    "promotedPrice": 1003400.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Kaiken-Ultra-malbec-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 107,
+    "name": "kaiken reserva malbec",
+    "description": "Kaiken Reserva Malbec Reserva grapes come from vineyards in the Agrelo zone,60 km from the city of Mendoza and at an altitude of 950 meters above sea level. This terroir features soils composed of silt, clay, and sand with a presence of stones at a depth of two meters and derived from erosion from the Andes Mountains. The region’s climate is warmer than that of the Uco Valley, which allows us to obtain grapes with more fresh fruit aromas and flavors as well as very soft tannins.Kaiken Reserva Malbec is deep purple in colour. Dried fruit aromas of strawberries and cherries are nicely complemented with spicy notes and menthol aromas. On the palate this wine displays extraordinary balance, freshness and soft tannins.",
+    "price": 773300.0,
+    "promotedPrice": 693300.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Kaiken-Reserva-malbec-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 108,
+    "name": "guidalberto by sassicaia",
+    "description": "Tenuta San Guido release their second wine Guidalberto a year before Sassicaia. The name Guidalberto, introduced in 2000.0, was inspired by the current proprietor’s great great great grandfather Guidalberto della Gheradesca. The wine was created for two reasons; the Estates desire to accomplish something with Merlot (a grape that they do not use in Sassicaia) and to create a wine which could be enjoyed younger than their ‘veteran Sassicaia’.",
+    "price": 2693200.0,
+    "promotedPrice": 2693200.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Guidalberto-by-Sassicaia-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 109,
+    "name": "guado al tasso",
+    "description": "Intense floral notes of acacia and linden flowers. The refreshing presence of Fiano gives notes of fern, musk and menthol. On the palate, it is fresh and compact with notes of bergamot, pear, nectarine and white currant. Then it shifts toward a more mineral and spicy character, with notes of flint, rosemary, saffron. The wine gets riper in the finish with hints of mango, almond and fig leaves.On the palate, the wine is intensely smooth and characterized by an electric tang of acidity and minerality. The wine finishes with ripe and honey notes.",
+    "price": 4739100.0,
+    "promotedPrice": 4729100.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Muga-reserva-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 110,
+    "name": "gevrey chambertin, latour",
+    "description": "Situated about 10 Km from Dijon, Gevrey-Chambertin is one of the finest viticultural villages of the Côte de Nuits. In 1847 Gevrey-Chambertin was the first village of the Côte d’Or to join the village name with that of one of its Grand Crus – hence ‘Gevrey-en-Montagne’ became ‘Gevrey-Chambertin. Planted only with Pinot Noir, here one finds the complete hierarchy of the Burgundian appellations: to the north, the premiers crus and to the south the grand crus. The village appellations are gathered on the bottom of the slope. The sparse and pebbly limestone-rich brown-red soils give Gevrey-Chambertin wines power and body. A great Côte de Nuits classic!",
+    "price": 2940000.0,
+    "promotedPrice": -1.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Kaiken-Reserva-malbec-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 111,
+    "name": "gaja sito moresco",
+    "description": "Intense floral notes of acacia and linden flowers. The refreshing presence of Fiano gives notes of fern, musk and menthol. On the palate, it is fresh and compact with notes of bergamot, pear, nectarine and white currant. Then it shifts toward a more mineral and spicy character, with notes of flint, rosemary, saffron. The wine gets riper in the finish with hints of mango, almond and fig leaves.On the palate, the wine is intensely smooth and characterized by an electric tang of acidity and minerality. The wine finishes with ripe and honey notes.",
+    "price": 2393900.0,
+    "promotedPrice": 2363900.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Dominus-estate-cabernet-sauvignon-napa-valley-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 112,
+    "name": "chianti classico peppoli antinori",
+    "description": "Pèppoli was first marketed in 1988 with the initial vintage, the 1985, and represents a wine which is both complex and well structured but with much fruit and aromatic fragrance as well. It is produced at the estate of the same name, and since the year 2013 a part of the crop is fermented at the Antinori Chianti Classico cellars at Bargino.Ruby red in color with purple highlights, the wine shows intensely fruity notes of cherries and red currants on the nose which fuse very well with the typical sensations of violets which characterize Chianti Classico. Very delicate and quite well integrated the smoky sensations created by the oak aging. The palate is savory with a tasty vein of acidity together with silky and polished tannins.Pairs well with homemade pizza, cured meats or pasta with Bolognese sauce.",
+    "price": 2033800.0,
+    "promotedPrice": 1993800.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/4-CHIANTI-CLASSICO-PEPPOLI-ANTINORI-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 113,
+    "name": "gaja camarcanda, promis",
+    "description": "Intense floral notes of acacia and linden flowers. The refreshing presence of Fiano gives notes of fern, musk and menthol. On the palate, it is fresh and compact with notes of bergamot, pear, nectarine and white currant. Then it shifts toward a more mineral and spicy character, with notes of flint, rosemary, saffron. The wine gets riper in the finish with hints of mango, almond and fig leaves.On the palate, the wine is intensely smooth and characterized by an electric tang of acidity and minerality. The wine finishes with ripe and honey notes.",
+    "price": 1973700.0,
+    "promotedPrice": 1923700.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/46-Opus-One-2013-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 114,
+    "name": "errazuriz estate",
+    "description": "Intense cherry red in colour. The nose displays aromas that evoke pencil lead, fresh-roasted coffee beans, light notes of caramel, cloves, and black pepper, while aromas of figs, dates, and cherries lend even greater appeal. The palate echoes the nose with notes of red bell pepper, figs, dates, and cherries, along with a touch of coffee, chocolate, cloves, and black olives. Smooth and round on the medium-bodied palate with elegant and very friendly tannins.",
+    "price": 889600.0,
+    "promotedPrice": 829600.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/4-CHIANTI-CLASSICO-PEPPOLI-ANTINORI-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 115,
+    "name": "donnafugata mille e una notte",
+    "description": "Intense floral notes of acacia and linden flowers. The refreshing presence of Fiano gives notes of fern, musk and menthol. On the palate, it is fresh and compact with notes of bergamot, pear, nectarine and white currant. Then it shifts toward a more mineral and spicy character, with notes of flint, rosemary, saffron. The wine gets riper in the finish with hints of mango, almond and fig leaves.On the palate, the wine is intensely smooth and characterized by an electric tang of acidity and minerality. The wine finishes with ripe and honey notes.",
+    "price": 3479500.0,
+    "promotedPrice": 3409500.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/71-Ornellaia-Bolgheri-DOC-Superiore-2013-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 116,
+    "name": "don melchor",
+    "description": "Deep cherry red in color, Don Melchor captivates with its balanced, depth, and complexity. The aromas of red fruits delicately intermingle with mineral notes that recall cold ashes and pencil lead. Fine, delicate textures appear on the palate and show this to be an ample, deep wine with a smooth, fine attack followed by an intense, mouth-filling evolution. Concentrated, expressive, and generous in flavors and aromas with a long finish dominated by the balance and elegance of the various layers of flavors.Pair with red meats (beef and lamb) and game in different preparations, such as roasts, stews, or braises with red wine, mushrooms, rosemary, and tomatoes. Also pairs very well with assorted terrines and patés, especially duck with truffles, or with aged, dried, or creamy cow’s or goat’s milk cheeses.",
+    "price": 4739400.0,
+    "promotedPrice": 4659400.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Don-Melchor-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 117,
+    "name": "dominus (100 pts js)",
+    "description": "Dominus, with its remarkably complex nose, is an utterly seductive wine. It displays red and black fruits and an ethereal aroma of deep cherry, warm citrus and marzipan. Finely polished tannins on a beautiful, weightless finish are accompanied by great depth and length.",
+    "price": 13199300.0,
+    "promotedPrice": 13199300.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Parallele-45-Jaboulet-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 118,
+    "name": "dog point",
+    "description": "Lucente 2014 is a deep red color with purple highlights. The wine’sbouquet is complex: fruity notes of black cherry and small red fruitsare enhanced by moderately toasted scents; pleasant vanilla and lightly roasted coffee beans linger delicately in the background. Well rounded with silky tannins that bestow a balanced and harmonious structure, this is an eminently elegant and enjoyable wine.James Suckling – “Lots of blueberry, black currant and lavender aromas and flavors to this. Medium to full body, fine tannins and a fresh finish. Drink or hold. So long and refined. Extremely well done.”",
+    "price": 2093200.0,
+    "promotedPrice": 2083200.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Parallele-45-Jaboulet-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 119,
+    "name": "decoy by duckhorn",
+    "description": "From its deep ruby and violet hue to its enticing fruit-forward aromas of blackberry, currant and black cherry, this wine showcases a great Sonoma County Cabernet Sauvignon. On the palate, the lush fruit is balanced by smooth, rich tannins and lovely layers of spice, cocoa and hints of sweet and toasty French oak.Wine Enthusiast – “Made for broad release, this wine impresses for its rounded, approachable layers of dried herb and anise, the tannin and oak lightly applied. Blended with 10% Merlot, it finds a jolt of richness on the finish, a showcase for notions of chocolate, cherry and blackberry.”",
+    "price": 1313100.0,
+    "promotedPrice": 1293100.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Penfolds-Bin-407-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 120,
+    "name": "brunello di montalcino, gaja",
+    "description": "Colour: intense ruby red with garnet reflections. Bouquet: ethereal, wide, light vanilla. Taste: full, soft, velvety and intense, with sensations of liquorice, spices and light goudron note.This wine is particularly suited to accompany red meat, game and aged cheeses. Long aging potential.",
+    "price": 3300000.0,
+    "promotedPrice": -1.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/35-Lapostolle-Cuvee-Alexandre-Merlot-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 121,
+    "name": "1865 single vineyard",
+    "description": "This wine demonstrates a strong bouquet, marked by elegant and intense aromas of ripe red fruit like cherries, plums and blueberries, in addition to cassis blended with notes of chocolate, mocha and cedar.Very dense and concentrated, with mature and noticeable tannins. In addition, the wine displays a very good balance between the tannins, acidity and oak.Ideal for accompanying red meats in general, venison, game birds, and strong cheeses.",
+    "price": 1493900.0,
+    "promotedPrice": 1453900.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/35-1865-Single-Vineyard-Cabernet-Sauvignon-2011-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 8,
+    "additions": [],
+    "menu": {
+      "id": 8,
+      "areaName": "Đà Nẵng",
+      "areaId": 8,
+      "country": 0
+    },
+    "areaId": 8
+  },
+  {
+    "id": 126,
+    "name": "trapiche oak cask",
+    "description": "Founded in 1883, Trapiche is one of Argentina’s best-known wine brands. Located at the foothills of the Andes in Mendoza, they own more than 3000 acres of vineyards ranging from 600 meters to over 1200 meters. Chief winemaker, Daniel Pi’s goal and vission is to represent the richness and diversity of Argentina’s terroir. Trapiche is dedicated to creating the best Malbec wines in the world as exemplified by the winery’s most successful project, The Single Vineyard Malbec Series. As a tribute to the growers’ passion and dedication, the winery selects three of its best growers and bottles their wines exclusively in limited production. The result is rich, incredibly massive, terroir-driven wines, prossessing bold, powerful fruit that express passion, history and the grower’s personal touch.Purple-colored, the nose offers up plum and black cherry notes with a touch of black pepper. The palate is soft and round with ripe, saturated berry flavors. Finishes spicy and full with chewy tannins.Ideal to serve with cheeses, red meats, mushrooms, stew and the typical Argentinian “asado”.",
+    "price": 539400.0,
+    "promotedPrice": 539400.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/11-TRAPICHE-OAK-CASK-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 7,
+    "additions": [],
+    "menu": {
+      "id": 7,
+      "areaName": "Hồ Chí Minh",
+      "areaId": 7,
+      "country": 0
+    },
+    "areaId": 7
+  },
+  {
+    "id": 133,
+    "name": "vistalba corte c",
+    "description": "Intense red color. Red fruit aromas, prunes and rippen cherries. Sweet entrance, silky tannis. Ripened cherries and dry fruits such as alomd and nuts.Pairs well with meat, pasta, stews, leumes, mature cheese.",
+    "price": 989700.0,
+    "promotedPrice": 919700.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Bodega-Vistalba-Corte-C-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 7,
+    "additions": [],
+    "menu": {
+      "id": 7,
+      "areaName": "Hồ Chí Minh",
+      "areaId": 7,
+      "country": 0
+    },
+    "areaId": 7
+  },
+  {
+    "id": 134,
+    "name": "vistalba corte b",
+    "description": "Intense bordeaux color with brillant violet hues. Fresh prunes aromas, dry fig and blackberries. Barrel aromas such as tabacco, vanilla and cedarwood. Sweet and velvety tannis. Great volume and body. Cacao, dark chocolate and subtle coffee notes can be found on its long lasting finish.Pairs well with grilled red meats, roast game birds, mature cheese.",
+    "price": 1253600.0,
+    "promotedPrice": 1173600.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/16-BKK-Bodega-Vistalba-Corte-B-2015-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 7,
+    "additions": [],
+    "menu": {
+      "id": 7,
+      "areaName": "Hồ Chí Minh",
+      "areaId": 7,
+      "country": 0
+    },
+    "areaId": 7
+  },
+  {
+    "id": 135,
+    "name": "vistalba corte a",
+    "description": "Made with grapes from the Vistalba land, these wines are a complete universe for the palate. Blends from the best selection of Malbec, Cabernet Sauvignon and Bonarda red grapes representing the best of each harvest and with great qualities for storage.Color: Intense garnet red.Nose: Complex aromas where dark chocolate, prune and tobbaco stand out.Palate: Sweet entrance, good volume and structure. Long lasting end where notes of chocolate and spices appears on the back.Winemaking: this wine is 100% aged in new French Oak for 18 months, then stored for 12 months in the bottle prior to being released into the market. All grapes are hand harvested from old vines, most planted around 1948. Vineyards sit 950m above sea level and good climatic conditions allow the winery to maintain vineyards almost naturally with almost no fitosanitary treatment. During the vegetative season there is a difference of temperature between day and night of 15¡C allowing for excellent colour and tannin development.",
+    "price": 2519500.0,
+    "promotedPrice": 2519500.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Bodega-Vistalba-Corte-A-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 7,
+    "additions": [],
+    "menu": {
+      "id": 7,
+      "areaName": "Hồ Chí Minh",
+      "areaId": 7,
+      "country": 0
+    },
+    "areaId": 7
+  },
+  {
+    "id": 137,
+    "name": "vega sicillia, valbuena 5",
+    "description": "Vega Sicilia is the most significant wine producer in Spain, considered amongst the greatest in the world. Their property is found 700 metres above sea level in the shallow Spanish part of the Duero River valley on the high remote plateau of Castilla y Leon. This unique climate delivers cold nights and hot days, allowing the grapes to become beautifully ripe and develop wonderful tannic structure, with a delightful backbone of acidity and therefore superb balance.The Valbuena 5° takes its name from the village where it is produced. It is aged for less time than the Unico or the Reserva Especial with the 5° designating the years it has been aged before release.",
+    "price": 5399300.0,
+    "promotedPrice": 5379300.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/Penfolds-Bin-407-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 7,
+    "additions": [],
+    "menu": {
+      "id": 7,
+      "areaName": "Hồ Chí Minh",
+      "areaId": 7,
+      "country": 0
+    },
+    "areaId": 7
+  },
+  {
+    "id": 139,
+    "name": "lucente, luce della vite",
+    "description": "Lucente 2014 is a deep red color with purple highlights. The wine’sbouquet is complex: fruity notes of black cherry and small red fruitsare enhanced by moderately toasted scents; pleasant vanilla and lightly roasted coffee beans linger delicately in the background. Well rounded with silky tannins that bestow a balanced and harmonious structure, this is an eminently elegant and enjoyable wine.James Suckling – “Lots of blueberry, black currant and lavender aromas and flavors to this. Medium to full body, fine tannins and a fresh finish. Drink or hold. So long and refined. Extremely well done.”",
+    "price": 1433100.0,
+    "promotedPrice": 1393100.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/17-TERRAZAS-RESERVA--100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 7,
+    "additions": [],
+    "menu": {
+      "id": 7,
+      "areaName": "Hồ Chí Minh",
+      "areaId": 7,
+      "country": 0
+    },
+    "areaId": 7
+  },
+  {
+    "id": 140,
+    "name": "le petit clos apalta",
+    "description": "Cool aromas of cola, coffee, blackberry, stewed plum, herbs and minerals make for a highly attractive and complex bouquet. In the mouth, wall-to-wall power and tannins suggest that this needs a few more years to mellow out. Flavors of stewed plum, blackberry, Carolina barbecue sauce and a hint of citrus peel are complex and set up a deep finish with dark flavors and intensity to spare.",
+    "price": 2700000.0,
+    "promotedPrice": -1.0,
+    "imageUrl": "https://vn.elgaucho.asia/wp-content/uploads/2020/04/15-TERRAZAS-reserve-malbec-100x100.jpg",
+    "currency": null,
+    "isAvailable": true,
+    "priority": 0,
+    "subCategory": 20,
+    "category": 5,
+    "menuId": 7,
+    "additions": [],
+    "menu": {
+      "id": 7,
+      "areaName": "Hồ Chí Minh",
+      "areaId": 7,
+      "country": 0
+    },
+    "areaId": 7
+  },
 ]
 export default Products;
