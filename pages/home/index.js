@@ -1,10 +1,30 @@
-import { Container, Header } from "semantic-ui-react";
+import { Button, Container, Header } from "semantic-ui-react";
 import SliderComponent from "../../components/SliderComponent";
 import ButtonCustomComponent from "../../components/ButtonCustomComponent";
 import { memo, useRef } from "react";
 import Responsive from "../../components/Responsive";
 import { ImageSliderDesktop, ImageSliderMobile, ImageSliderTablet } from "../../datafake/ResponsiveImage/at-home";
-
+import styled from "styled-components";
+const CustomButton = styled(Button)`
+color: #fff  !important;
+background: #cf1b15 !important;
+font-weight:  300 !important;
+margin: 10px !important;
+@media only screen and (min-width:320px) and (max-width:767px)  {
+  color: white !important;
+  font-size: 10px !important;
+  @keyframes HeaderFullSlider {
+    0% {
+       opacity: 0;
+       transform: translateY(-70px);
+    }
+    100% {
+       opacity: 1;
+       transform: translateY(0);
+    }
+ }
+}
+`;
 const ButtonData = [
   {
     id: 1,
@@ -25,17 +45,7 @@ const ButtonData = [
     id: 4,
     name: 'Philippines',
     url: "/location"
-  },
-  {
-    id: 5,
-    name: 'Czech Republic',
-    url: "/location"
-  },
-  {
-    id: 6,
-    name: 'Slovakia',
-    url: "/location"
-  },
+  }
 ]
 
 const HomeFullSlider = () => {
@@ -91,6 +101,16 @@ const HomeFullSlider = () => {
           {ButtonData.map(button => {
             return <ButtonCustomComponent key={button.id} name={button.name} url={button.url} />
           })}
+          <a style={{ color: "#FFF" }} href="https://cz.elgaucho.eu/" alt="#" target="_blank">
+            <CustomButton  >
+              Czech Republic
+          </CustomButton>
+          </a>
+          <a style={{ color: "#FFF" }} href="https://sk.elgaucho.eu/" alt="#" target="_blank">
+            <CustomButton  >
+              Slovakia
+          </CustomButton>
+          </a>
         </Container>
       </div>
       <Container style={{ background: "#cf1b15", paddingTop: "20px", paddingBottom: "20px" }} fluid>

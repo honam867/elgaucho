@@ -9,4 +9,12 @@ export const FooterWapper = styled.div`
     .ui.grid{
         margin-right: 0px !important;
     }
+    .copyright{
+        margin-top: 20px;
+        background: #8a8a8a;
+        color: white;
+        padding: 15px 40px;
+        font-size: 12px;
+        font-weight: bold;
+    }
 `;
