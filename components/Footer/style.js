@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FooterWapper = styled.div`
     .footer {
-        padding-top: 40px;
+        padding-top: 10px;
         border-top: 1px solid #cf1b15;
         box-sizing: border-box;
     }
@@ -14,7 +14,7 @@ export const FooterWapper = styled.div`
         background: #8a8a8a;
         color: white;
         padding: 15px 40px;
-        font-size: 12px;
+        font-size: 11px;
         font-weight: bold;
     }
 `;
