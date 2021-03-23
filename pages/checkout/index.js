@@ -260,11 +260,7 @@ const CheckOut = ({ items }) => {
                     <Table.Cell textAlign="left" width="6">
                       <span className="woocommerce-Price-amount amount">
                         <bdi>
-                          <span className="woocommerce-Price-currencySymbol">
-                            VND
-                          </span>
-                          &nbsp;
-                          {item.totalPriceOfProduct.toLocaleString("en-US")}
+                          {item.totalPriceOfProduct.toLocaleString("en-US")} VND
                         </bdi>
                       </span>
                     </Table.Cell>
@@ -275,7 +271,7 @@ const CheckOut = ({ items }) => {
                 <Table.Cell>
                   <b>SUBTOTAL</b>
                 </Table.Cell>
-                <Table.Cell>VND {totalCart.toLocaleString("en-US")}</Table.Cell>
+                <Table.Cell>{totalCart.toLocaleString("en-US")} VND</Table.Cell>
               </Table.Row>
               <Table.Row>
                 <Table.Cell>SHIPPING</Table.Cell>
@@ -285,14 +281,13 @@ const CheckOut = ({ items }) => {
                 <Table.Cell>
                   <b>VAT</b>
                 </Table.Cell>
-                <Table.Cell>VND {VAT.toLocaleString("en-US")}</Table.Cell>
+                <Table.Cell>{VAT.toLocaleString("en-US")} VND</Table.Cell>
               </Table.Row>
               <Table.Row>
                 <Table.Cell>TOTAL</Table.Cell>
                 <Table.Cell>
-                  {" "}
                   <CustomStrong>
-                    VND {cartTotal.toLocaleString("en-US")}
+                    {cartTotal.toLocaleString("en-US")} VND
                   </CustomStrong>
                 </Table.Cell>
               </Table.Row>

@@ -216,7 +216,7 @@ const MenuPage = () => {
         </Container>
         <section id="Cigars">
         </section>
-        <Container textAlign='center' style={{ padding: "10px" }}>
+        <Container textAlign='center' style={{ padding: "10px", marginBottom: "-9px"}}>
           <CustomHeader as='h2'>
             FINEST IMPORTED CIGARS
                     </CustomHeader>

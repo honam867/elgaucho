@@ -40,7 +40,7 @@ const GetInTouch = () => {
   return (
     <Layout>
       <div className={styleMagazine.bg}>
-        <Container fluid style= {{paddingBottom: '70px'}}>
+        <Container fluid style= {{paddingBottom: '50px'}}>
           <CustomHeader as="h2">CHECK OUT OUR MAGAZINE</CustomHeader>
           <p>
           Enjoy our annual El Gaucho magazine filled with insights, recommendations and sneak peeks.
