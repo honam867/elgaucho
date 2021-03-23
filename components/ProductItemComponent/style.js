@@ -4,6 +4,14 @@ import styled from "styled-components";
 export const ProductItemWrapper = styled.div`
 .customHeightDescription {
   min-height: 100px !important;
+  text-align: justify;
+}
+.lazy-style{
+  padding: 10px 0px;
+  border-bottom: 1px solid #dededf;
+  :last-child{
+    border: none;
+  }
 }
 `
 
