@@ -120,7 +120,7 @@ const ProductItem = ({ products, addCart, areaId }) => {
               {productList.length > 0 ? (
                 productList.map((productItem) => {
                   return (
-                    <LazyLoad className="lazy-style" once={true} key={productItem.id} height={400} offset={30} placeholder={<Loading />}>
+                    <LazyLoad className="lazy-style" once={true} key={productItem.id} height={400} offset={50} placeholder={<Loading />}>
                       <Item.Group divided>
                         <ItemOfProducts {...productItem} productItem={productItem} addCart={addCart} key={productItem.id} />
                       </Item.Group>

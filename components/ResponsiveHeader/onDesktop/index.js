@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { memo, useState} from "react";
+import { memo, useState } from "react";
 import {
   Icon,
   Label,
@@ -10,16 +10,20 @@ import {
   Image,
   Transition,
   Divider,
-  Button
+  Button,
+  Form,
+  Dropdown,
 } from "semantic-ui-react";
 import { MenuItemLink, MenuItemLinkImage } from "../style";
 import {
   DropdownStyle,
-  DropdownItemStyle,
-  DropdownMenuStyle,
   IconPhoneHover,
   IconBookHover,
   ButtonCustom,
+  Circle,
+  WrappFullScreen,
+  CircleClose,
+  ContactWrapper,
 } from "./style";
 const noFixedMenuStyle = {
   borderBottom: "1px solid #cf1b15",
@@ -61,12 +65,15 @@ const HeaderOnDesktop = ({
   const showFixedMenu = () => {
     setFixedMenu(true);
   };
+  const [visible, setvisible] = useState(true);
   const [open, setOpen] = React.useState(false);
+  const handleVisibility = () => {
+    setvisible(!visible);
+  };
   const [locations, setDatas] = useState(locationOptions);
   function openLocationChild(locationObject) {
-    console.log(locationObject)
     locationObject.visible = !locationObject.visible;
-    setDatas([...locations])
+    setDatas([...locations]);
   }
   return (
     <>
@@ -82,11 +89,13 @@ const HeaderOnDesktop = ({
         >
           <Menu.Item>
             <Link href="/home" forwardRef>
-              <MenuItemLinkImage
-                src={Logo}
-                alt="website logo"
-                style={menuFixed ? { width: "52px" } : { width: "72px" }}
-              />
+              <a>
+                <MenuItemLinkImage
+                  src={Logo}
+                  alt="website logo"
+                  style={menuFixed ? { width: "52px" } : { width: "72px" }}
+                />
+              </a>
             </Link>
           </Menu.Item>
 
@@ -103,19 +112,19 @@ const HeaderOnDesktop = ({
                 style={router.pathname == "/location" ? active : unactive}
                 open={false}
               >
-                <DropdownMenuStyle>
+                <Dropdown.Menu>
                   {locationOptions.map((item, i) => {
                     return (
-                      <DropdownItemStyle
+                      <Dropdown.Item
                         key={i}
                         pathname={item.pathname}
                         onClick={navigateToLocation}
                       >
                         {item.text}
-                      </DropdownItemStyle>
+                      </Dropdown.Item>
                     );
                   })}
-                </DropdownMenuStyle>
+                </Dropdown.Menu>
               </DropdownStyle>
             </Link>
           </MenuItemLink>
@@ -129,19 +138,19 @@ const HeaderOnDesktop = ({
                 text="News"
                 style={router.pathname == "/news" ? active : unactive}
               >
-                <DropdownMenuStyle>
+                <Dropdown.Menu>
                   {newsOptions.map((item, i) => {
                     return (
-                      <DropdownItemStyle
+                      <Dropdown.Item
                         key={i}
                         pathname={item.pathname}
                         onClick={navigateToLocation}
                       >
                         {item.text}
-                      </DropdownItemStyle>
+                      </Dropdown.Item>
                     );
                   })}
-                </DropdownMenuStyle>
+                </Dropdown.Menu>
               </DropdownStyle>
             </Link>
           </MenuItemLink>
@@ -173,19 +182,19 @@ const HeaderOnDesktop = ({
                 text="Menus"
                 style={router.pathname == "/menu" ? active : unactive}
               >
-                <DropdownMenuStyle>
+                <Dropdown.Menu>
                   {menuOptions.map((item, i) => {
                     return (
-                      <DropdownItemStyle
+                      <Dropdown.Item
                         key={i}
                         pathname={item.pathname}
                         onClick={navigateToLocation}
                       >
                         {item.text}
-                      </DropdownItemStyle>
+                      </Dropdown.Item>
                     );
                   })}
-                </DropdownMenuStyle>
+                </Dropdown.Menu>
               </DropdownStyle>
             </Link>
           </MenuItemLink>
@@ -214,15 +223,15 @@ const HeaderOnDesktop = ({
                 text="Contact Us"
                 style={router.pathname == "/get-in-touch" ? active : unactive}
               >
-                <DropdownMenuStyle>
-                  <DropdownItemStyle text="Get In Touch" />
+                <Dropdown.Menu>
+                  <Dropdown.Item text="Get In Touch" />
                   <Link href="/careers">
-                    <DropdownItemStyle text="Careers" />
+                    <Dropdown.Item text="Careers" />
                   </Link>
                   <Link href="/privacy-cookie-policy">
-                    <DropdownItemStyle text="Privacy & Cookie Policy" />
+                    <Dropdown.Item text="Privacy & Cookie Policy" />
                   </Link>
-                </DropdownMenuStyle>
+                </Dropdown.Menu>
               </DropdownStyle>
             </Link>
           </MenuItemLink>
@@ -259,8 +268,70 @@ const HeaderOnDesktop = ({
         </Menu>
       </Visibility>
       {children}
+      <ContactWrapper>
+        <Transition.Group animation={"fade"} duration={400}>
+          {visible && (
+            <Circle className="zoom-animate" onClick={handleVisibility}>
+              <div className="group-icon">
+                <div className="icon-first">
+                  <Icon name="map marker alternate" />
+                </div>
+                <div className="icon-second">
+                  <Icon name="facebook messenger" />
+                </div>
+                <div className="icon-third">
+                  <Icon name="call" />
+                </div>
+              </div>
+            </Circle>
+          )}
+        </Transition.Group>
+        {!visible && (
+          <WrappFullScreen>
+            <div className="group-icon">
+              <a href="#">
+                <div className="icon-first">
+                  Our Elgaucho{" "}
+                  <span>
+                    {" "}
+                    <Icon name="map marker alternate" />
+                  </span>
+                </div>
+              </a>
+              <div className="icon-second ">
+                Free Call
+                <span>
+                  <Icon name="call" />
+                </span>
+              </div>
+              <div className="icon-third">
+                Messenger
+                <span>
+                  {" "}
+                  <Icon name="facebook messenger" />
+                </span>
+              </div>
+              <div className="icon-four">
+                Zalo
+                <span>
+                  {" "}
+                  <img
+                    size="mini"
+                    spaced="right"
+                    alt="#"
+                    src="/static/img/zalo-icon.svg"
+                  />
+                </span>
+              </div>
+            </div>
+            <CircleClose onClick={handleVisibility}>
+              <Icon name="x" className="close-icon" />
+            </CircleClose>
+          </WrappFullScreen>
+        )}
+      </ContactWrapper>
 
-      <Modal
+      {/* <Modal
         size="mini"
         open={open}
         trigger={
@@ -324,7 +395,7 @@ const HeaderOnDesktop = ({
           <Icon color="red" size="big" name="circle outline" />
           <Icon link color="orange" name="calendar check outline" />
         </IconBookHover>
-      </Link>
+      </Link> */}
     </>
   );
 };
