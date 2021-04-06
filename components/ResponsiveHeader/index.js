@@ -28,6 +28,7 @@ const menuOptions = [
 const ResponsiveHeader = ({ children, numberCart }) => {
   const router = useRouter();
   const navigateToLocation = (e, value) => {
+    console.log("🚀 ~ file: index.js ~ line 31 ~ navigateToLocation ~ value", value)
     e.preventDefault();
     router.push(value.pathname);
   };

@@ -18,26 +18,6 @@ import AreaData from "../../datafake/area";
 import Products from "../../datafake/products";
 import ElDevlieryOnDesktop from "../../components/pages/delivery/onDesktop/index"
 import ElDevlieryOnMobile from "../../components/pages/delivery/onMobile/index"
-const Images = [
-  {
-    id: 1,
-    name: "Img 1",
-    imgUrl: "https://vn.elgaucho.asia/wp-content/uploads/2016/04/El-Gaucho-Argentinian-Steakhouse-Restaurant-Homepage-Welcome-1920-x-800.jpg",
-    size: "450px",
-  },
-  {
-    id: 2,
-    name: "Img 2",
-    imgUrl: "https://vn.elgaucho.asia/wp-content/uploads/2019/06/El-Gaucho-Dine-With-Us.jpg",
-    size: "450px",
-  },
-  {
-    id: 3,
-    name: "Img 3",
-    imgUrl: "https://vn.elgaucho.asia/wp-content/uploads/2016/04/VN04-2017_1036_37_38_39_40.jpg",
-    size: "450px",
-  },
-];
 const ElDeliveryTakeOutComponent = () => {
   const [activeItem, setActiveItem] = useState("");
   const [activeArea, setActiveArea] = useState("");
@@ -45,6 +25,7 @@ const ElDeliveryTakeOutComponent = () => {
   // NOTE new logic here:
   const [subcategoryId, setSubCategoyId] = useState(0);
   const [areaId, setAreaId] = useState(8);
+
   const overlayMenuMobileStyle = {};
   const fixedOverlayMenuMobileStyle = {
     backgroundColor: "#fff",
@@ -132,7 +113,6 @@ const ElDeliveryTakeOutComponent = () => {
 
   return (
     <Layout>
-      <SliderComponent backgroundAttachment="fixed" Images={Images} height="40vh" />
       <ResponsiveComponent
         onTablet={
           ElDevlieryOnTablet

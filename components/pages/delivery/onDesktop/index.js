@@ -75,7 +75,7 @@ const ElDevlieryOnDesktop = (
                             </Menu>
                         </div>
                     </Grid.Column>
-                    <Grid.Column width={9} style={{ background: "#FFF", margin: "15px 0px" }}>
+                    <Grid.Column width={9} style={{ background: "#FFF", margin: "15px 0px", padding: "30px 0px" }}>
                         <div>
                             <ProductsComponent subcategories={SubCategories.filter(sub => sub.categoryId === subcategoryId)} products={Products} areaId={areaId}></ProductsComponent>
                         </div>
