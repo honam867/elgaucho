@@ -12,7 +12,7 @@ import {
   CustomHeaderPrivateDining,
   NameLocationFromDiningPages,
   SlideShowAlignCaptionFullSlider,
-  SliderWrapper
+  SliderWrapper,
 } from "./style";
 const SliderComponent = ({ Images, height, ...props }) => {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -26,11 +26,13 @@ const SliderComponent = ({ Images, height, ...props }) => {
     speed: 500,
     arrows: true,
     adaptiveHeight: true,
-    beforeChange: (current, next) => { setActiveSlide(next) },
-    appendDots: dots => (
+    beforeChange: (current, next) => {
+      setActiveSlide(next);
+    },
+    appendDots: (dots) => (
       <div
         style={{
-          paddingBottom: "30px"
+          paddingBottom: "30px",
         }}
       >
         <ul style={{ paddingLeft: "0px" }}> {dots} </ul>
@@ -44,24 +46,19 @@ const SliderComponent = ({ Images, height, ...props }) => {
         border: "1px solid #FFFFFF",
         borderRadius: "50%",
         margin: "2px",
-      }
+      };
       const activeStyle = {
         width: "20px",
         height: "20px",
         border: "1px solid #FFFFFF",
         borderRadius: "50%",
         margin: "2px",
-        background: "#cf1b15"
+        background: "#cf1b15",
       };
-      return (
-        <div
-          style={i === activeSlide ? activeStyle : style}
-        >
-        </div>
-      )
+      return <div style={i === activeSlide ? activeStyle : style}></div>;
     },
     nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    prevArrow: <SamplePrevArrow />,
   };
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
@@ -73,7 +70,7 @@ const SliderComponent = ({ Images, height, ...props }) => {
           display: "block",
           zIndex: 1,
           right: "0px",
-          fontSize: "50px"
+          fontSize: "50px",
         }}
         onClick={onClick}
       />
@@ -89,21 +86,20 @@ const SliderComponent = ({ Images, height, ...props }) => {
           ...style,
           display: "block",
           left: "0px",
-          zIndex: "100"
+          zIndex: "100",
         }}
         onClick={onClick}
       />
     );
   }
 
-
   const SlideShowAlignCaption = {
     color: "white !important",
     position: "absolute",
     top: "40%",
     width: "100%",
-    textAlign: "center"
-  }
+    textAlign: "center",
+  };
   // const SlideShowAlignCaptionFullSlider = {
   //     color: "white !important",
   //     position: "absolute",
@@ -113,15 +109,14 @@ const SliderComponent = ({ Images, height, ...props }) => {
   // }
   const gotoMainSection = () => {
     props.gotomainsection();
-  }
+  };
   return (
     <SliderWrapper>
-      {props.angleDown ?
-        <AngleDownButton onClick={gotoMainSection} >
+      {props.angleDown ? (
+        <AngleDownButton onClick={gotoMainSection}>
           <Icon name="angle down" />
         </AngleDownButton>
-        : null
-      }
+      ) : null}
       <Slider {...settings}>
         {Images.map((item) => {
           return (
@@ -130,63 +125,62 @@ const SliderComponent = ({ Images, height, ...props }) => {
                 style={{
                   backgroundSize: "cover",
                   backgroundPosition: "center center",
-                  backgroundRepeat: 'no-repeat',
+                  backgroundRepeat: "no-repeat",
                   backgroundImage: `url(${item.imgUrl})`,
                   backgroundAttachment: `${props.backgroundAttachment}`,
-                  width: '100%',
+                  width: "100%",
                   height: height,
-                  position: "relative"
+                  position: "relative",
                 }}
               >
-                {
-                  item.opacityBlack &&
-                  <div style={{
-                    background: "rgba(0,0,0, .3)",
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                  }}></div>
-                }
-
+                {item.opacityBlack && (
+                  <div
+                    style={{
+                      background: "rgba(0,0,0, .3)",
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  ></div>
+                )}
               </div>
-              {
-                props.fromLocationPage ?
-                  <div style={SlideShowAlignCaption}>
-                    <CustomHeaderLocations>{item.title}</CustomHeaderLocations>
-                    <CustomSubTitleLocations>{item.subTitle}</CustomSubTitleLocations>
-                    <CustomButtonAtLocationPage>
-                      <ButtonCustomComponent name={item.buttonName} url={item.url} />
-                    </CustomButtonAtLocationPage>
-                  </div>
-                  : null
-              }
-              {
-                props.fromPrivateDiningEventPages ?
-                  <CustomHeaderPrivateDining>{Images[0].title}</CustomHeaderPrivateDining>
-                  : null
-              }
-              {
-                props.fromPrivateDiningEventPagesSection ?
-                  <NameLocationFromDiningPages>
-                    <Header style={{ color: "white" }}>
-                      {item.name}
-                    </Header>
-                  </NameLocationFromDiningPages>
-                  : null
-              }
+              {props.fromLocationPage ? (
+                <div style={SlideShowAlignCaption}>
+                  <CustomHeaderLocations>{item.title}</CustomHeaderLocations>
+                  <CustomSubTitleLocations>
+                    {item.subTitle}
+                  </CustomSubTitleLocations>
+                  <CustomButtonAtLocationPage>
+                    <ButtonCustomComponent
+                      name={item.buttonName}
+                      url={item.url}
+                    />
+                  </CustomButtonAtLocationPage>
+                </div>
+              ) : null}
+              {props.fromPrivateDiningEventPages ? (
+                <CustomHeaderPrivateDining>
+                  {Images[0].title}
+                </CustomHeaderPrivateDining>
+              ) : null}
+              {props.fromPrivateDiningEventPagesSection ? (
+                <NameLocationFromDiningPages>
+                  <Header style={{ color: "white" }}>{item.name}</Header>
+                </NameLocationFromDiningPages>
+              ) : null}
             </div>
-          )
-        }
-        )}
+          );
+        })}
       </Slider>
       <SlideShowAlignCaptionFullSlider>
-        <CustomHeaderFullSlider as="h1">{props.captionTitle}</CustomHeaderFullSlider>
-        <CustomHeaderFullSliderSubTitle>{props.captionContent}</CustomHeaderFullSliderSubTitle>
+        <CustomHeaderFullSlider>{props.captionTitle}</CustomHeaderFullSlider>
+        <CustomHeaderFullSliderSubTitle>
+          {props.captionContent}
+        </CustomHeaderFullSliderSubTitle>
       </SlideShowAlignCaptionFullSlider>
-    </SliderWrapper >
-
-  )
-}
+    </SliderWrapper>
+  );
+};
 export default memo(SliderComponent);

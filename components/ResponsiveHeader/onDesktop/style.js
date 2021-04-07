@@ -1,4 +1,4 @@
-import { Dropdown, Icon, Button, Menu } from "semantic-ui-react";
+import { Dropdown, Icon, Button } from "semantic-ui-react";
 import styled from "styled-components";
 
 export const DropdownStyle = styled(Dropdown)`
@@ -13,6 +13,7 @@ export const DropdownStyle = styled(Dropdown)`
   font-weight: bold !important;
   padding: 0px !important;
 `;
+
 export const IconPhoneHover = styled(Icon.Group)`
   &:hover {
     text-shadow: 3px 3px 6px !important;
@@ -81,6 +82,7 @@ export const Circle = styled.div`
     }
   }
 `;
+
 export const CircleClose = styled.div`
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
@@ -247,5 +249,66 @@ export const ContactWrapper = styled.div`
     -webkit-animation-duration: 1.5s;
     animation-iteration-count: infinite;
     -webkit-animation-iteration-count: infinite;
+  }
+`;
+
+export const ViewCardWrapper = styled.div`
+  animation: fadeIn ease 1.2s;
+  -webkit-animation: fadeIn ease 1.2s;
+  -moz-animation: fadeIn ease 1.2s;
+  -o-animation: fadeIn ease 1.2s;
+  -ms-animation: fadeIn ease 1.2s;
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @-o-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @-ms-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  height: 100px;
+  background: #fff;
+  width: 300px;
+  position: fixed;
+  top: 40px;
+  right: 0px;
+  .menu-cart-normal {
+    top: 60px;
   }
 `;

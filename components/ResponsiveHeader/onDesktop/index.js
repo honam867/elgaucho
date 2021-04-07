@@ -24,7 +24,9 @@ import {
   WrappFullScreen,
   CircleClose,
   ContactWrapper,
+  ViewCardWrapper,
 } from "./style";
+import ViewCartComponent from "../../ViewCart";
 const noFixedMenuStyle = {
   borderBottom: "1px solid #cf1b15",
   backgroundColor: "#fff",
@@ -48,6 +50,9 @@ const active = {
 const unactive = {
   color: "#222222",
 };
+const viewCartWhenFixed = {
+  top: "60px",
+};
 const HeaderOnDesktop = ({
   children,
   Logo,
@@ -66,8 +71,10 @@ const HeaderOnDesktop = ({
     setFixedMenu(true);
   };
   const [visible, setvisible] = useState(true);
-  const [open, setOpen] = React.useState(false);
-  const handleVisibility = () => {
+  const [open, setOpen] = useState(false);
+  const handleVisibility = (e) => {
+    console.log(e);
+    e.stopPropagation();
     setvisible(!visible);
   };
   const [locations, setDatas] = useState(locationOptions);
@@ -83,6 +90,7 @@ const HeaderOnDesktop = ({
         onBottomPassedReverse={hideFixedMenu}
       >
         <Menu
+          onMouseLeave={() => setOpen(false)}
           secondary
           fixed={menuFixed ? "top" : undefined}
           style={menuFixed ? fixedMenuStyle : noFixedMenuStyle}
@@ -111,6 +119,7 @@ const HeaderOnDesktop = ({
                 text="Locations"
                 style={router.pathname == "/location" ? active : unactive}
                 open={false}
+                onMouseOver={() => setOpen(false)}
               >
                 <Dropdown.Menu>
                   {locationOptions.map((item, i) => {
@@ -137,6 +146,7 @@ const HeaderOnDesktop = ({
                 simple
                 text="News"
                 style={router.pathname == "/news" ? active : unactive}
+                onMouseOver={() => setOpen(false)}
               >
                 <Dropdown.Menu>
                   {newsOptions.map((item, i) => {
@@ -181,6 +191,7 @@ const HeaderOnDesktop = ({
                 simple
                 text="Menus"
                 style={router.pathname == "/menu" ? active : unactive}
+                onMouseOver={() => setOpen(false)}
               >
                 <Dropdown.Menu>
                   {menuOptions.map((item, i) => {
@@ -222,6 +233,7 @@ const HeaderOnDesktop = ({
                 simple
                 text="Contact Us"
                 style={router.pathname == "/get-in-touch" ? active : unactive}
+                onMouseOver={() => setOpen(false)}
               >
                 <Dropdown.Menu>
                   <Dropdown.Item text="Get In Touch" />
@@ -236,8 +248,11 @@ const HeaderOnDesktop = ({
             </Link>
           </MenuItemLink>
 
-          <Link href="/cart" forwardRef>
-            <MenuItemLink active={router.pathname == "/cart"}>
+          <Link href="/cart" forwardRef onMouseLeave={() => setOpen(false)}>
+            <MenuItemLink
+              active={router.pathname == "/cart"}
+              onMouseOver={() => setOpen(true)}
+            >
               <Icon name="cart" />
               <Label
                 style={{
@@ -252,14 +267,29 @@ const HeaderOnDesktop = ({
               </Label>
             </MenuItemLink>
           </Link>
+
+          {open && (
+            <ViewCardWrapper
+              style={!menuFixed ? viewCartWhenFixed : null}
+              onMouseLeave={() => setOpen(false)}
+            >
+              <ViewCartComponent></ViewCartComponent>
+            </ViewCardWrapper>
+          )}
+
           <MenuItemLink>
-            <a target="_blank" href="https://www.facebook.com/ElGauchoVietnam/">
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href="https://www.facebook.com/ElGauchoVietnam/"
+            >
               <Icon name="facebook" color="blue" />
             </a>
           </MenuItemLink>
           <MenuItemLink>
             <a
               target="_blank"
+              rel="noreferrer"
               href="https://www.instagram.com/elgauchovietnam/"
             >
               <Icon name="instagram" color="violet" />
@@ -287,9 +317,9 @@ const HeaderOnDesktop = ({
           )}
         </Transition.Group>
         {!visible && (
-          <WrappFullScreen>
+          <WrappFullScreen onClick={handleVisibility}>
             <div className="group-icon">
-              <a href="#">
+              <a onClick={(e) => e.stopPropagation()} href="#">
                 <div className="icon-first">
                   Our Elgaucho{" "}
                   <span>
@@ -298,20 +328,23 @@ const HeaderOnDesktop = ({
                   </span>
                 </div>
               </a>
-              <div className="icon-second ">
+              <div
+                onClick={(e) => e.stopPropagation()}
+                className="icon-second "
+              >
                 Free Call
                 <span>
                   <Icon name="call" />
                 </span>
               </div>
-              <div className="icon-third">
+              <div onClick={(e) => e.stopPropagation()} className="icon-third">
                 Messenger
                 <span>
                   {" "}
                   <Icon name="facebook messenger" />
                 </span>
               </div>
-              <div className="icon-four">
+              <div onClick={(e) => e.stopPropagation()} className="icon-four">
                 Zalo
                 <span>
                   {" "}
