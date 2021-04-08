@@ -1,8 +1,29 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { memo } from "react";
-import { Divider, Icon, Label, Menu, Sidebar, Transition } from "semantic-ui-react";
-import { MenuItemMobileTablet, MenuItemLink, MenuItemLinkImage } from "../style";
+import { memo, useState } from "react";
+import {
+  Divider,
+  Icon,
+  Label,
+  Menu,
+  Sidebar,
+  Transition,
+  Modal,
+  List,
+  Button,
+  Image,
+} from "semantic-ui-react";
+
+import {
+  MenuItemMobileTablet,
+  MenuItemLink,
+  MenuItemLinkImage,
+} from "../style";
+import {
+  IconPhoneHover,
+  IconBookHover,
+  ButtonCustom,
+} from "./style";
 const noFixedMenuStyleOnMobile = {
   borderBottom: "1px solid #cf1b15",
   backgroundColor: "#fff",
@@ -14,26 +35,26 @@ const noFixedMenuStyleOnMobile = {
   position: "relative",
   zIndex: "1",
 };
-const HeaderOnMobile = (
-  {
-    children,
-    handleSidebarHide,
-    handleToggle,
-    numberCart,
-    sidebarOpened,
-    toggleVisibility,
-    visible,
-    locationOptions,
-    Logo,
-    navigateToLocation,
-    toggleMenu,
-    visibleMenu,
-    menuOptions,
-    toggleContact,
-    visibleContact
-  }
-) => {
+const HeaderOnMobile = ({
+  children,
+  handleSidebarHide,
+  handleToggle,
+  numberCart,
+  sidebarOpened,
+  toggleVisibility,
+  visible,
+  locationOptions,
+  Logo,
+  navigateToLocation,
+  toggleMenu,
+  visibleMenu,
+  menuOptions,
+  toggleContact,
+  visibleContact,
+}) => {
   const router = useRouter();
+  const [open, setOpen] = React.useState(false);
+  const [datas, setDatas] = useState(locationOptions);
   return (
     <>
       <Menu secondary style={noFixedMenuStyleOnMobile}>
@@ -93,11 +114,7 @@ const HeaderOnMobile = (
             ></MenuItemMobileTablet>
 
             <Divider style={{ margin: "0px" }} hidden />
-            <Transition
-              visible={visible}
-              animation="fade down"
-              duration={50}
-            >
+            <Transition visible={visible} animation="fade down" duration={50}>
               <div>
                 {locationOptions.map((item) => (
                   <MenuItemMobileTablet
@@ -118,7 +135,7 @@ const HeaderOnMobile = (
                 color="red"
               >
                 EL Delivery & Take out
-          </MenuItemMobileTablet>
+              </MenuItemMobileTablet>
             </Link>
             <Link href="/butcher-shop" forwardRef>
               <MenuItemMobileTablet
@@ -126,7 +143,7 @@ const HeaderOnMobile = (
                 active={router.pathname == "/butcher-shop"}
               >
                 Butcher Shop
-          </MenuItemMobileTablet>
+              </MenuItemMobileTablet>
             </Link>
             <MenuItemMobileTablet
               name="Menus"
@@ -159,7 +176,7 @@ const HeaderOnMobile = (
                 active={router.pathname == "/private-dining-events"}
               >
                 Private | Dining Events
-          </MenuItemMobileTablet>
+              </MenuItemMobileTablet>
             </Link>
             <Link href="/gift-card" forwardRef>
               <MenuItemMobileTablet
@@ -184,22 +201,22 @@ const HeaderOnMobile = (
                 <Link href="/privacy-cookie-policy">
                   <MenuItemMobileTablet style={{ paddingLeft: "20px" }}>
                     - Privacy & Cookie Policy
-              </MenuItemMobileTablet>
+                  </MenuItemMobileTablet>
                 </Link>
                 <Link href="/magazine">
                   <MenuItemMobileTablet style={{ paddingLeft: "20px" }}>
                     - Magazine
-              </MenuItemMobileTablet>
+                  </MenuItemMobileTablet>
                 </Link>
                 <Link href="/get-in-touch">
                   <MenuItemMobileTablet style={{ paddingLeft: "20px" }}>
                     - Get In Touch
-              </MenuItemMobileTablet>
+                  </MenuItemMobileTablet>
                 </Link>
                 <Link href="/careers">
                   <MenuItemMobileTablet style={{ paddingLeft: "20px" }}>
                     - Careers
-              </MenuItemMobileTablet>
+                  </MenuItemMobileTablet>
                 </Link>
               </div>
             </Transition>
@@ -207,9 +224,77 @@ const HeaderOnMobile = (
         </Sidebar.Pusher>
       </Sidebar>
       {children}
-    </>
-  )
-}
 
+      <Modal
+        size="mini"
+        open={open}
+        trigger={
+          <IconPhoneHover size="large">
+            <Icon color="red" size="big" name="circle outline" />
+            <Icon color="red" name="phone" />
+          </IconPhoneHover>
+        }
+        onClose={() => setOpen(false)}
+        onOpen={() => setOpen(true)}
+      >
+        <Modal.Content scrolling>
+          <List divided>
+            {datas.map((item, i) => {
+              return (
+                <List.Item>
+                  <List.Content style={{ textAlign: "center" }}>
+                    <ButtonCustom onClick = {() =>{
+                      console.log(item.visible)
+                      item.visible = !item.visible;
+                      setDatas([...datas])}} fluid>
+                      {item.text}
+                    </ButtonCustom>
+                    <Divider style = {{margin: "0px"}} hidden />
+                    <Transition
+                      visible={item.visible}
+                      animation="slide down"
+                      duration={150}
+                    >
+                      <div>
+                      <List.Description>
+                        <Icon flipped = "horizontally" link size="big" name="phone" />
+                        <Icon
+                          link
+                          size="big"
+                          color="blue"
+                          name="facebook messenger"
+                        />
+                        <a href="" target="_blank">
+                          <Image
+                            size="mini"
+                            spaced="right"
+                            src="/static/img/zalo-icon.svg"
+                          />
+                        </a>
+                      </List.Description>
+                      </div>
+                    </Transition>
+                  </List.Content>
+                </List.Item>
+              );
+            })}
+          </List>
+        </Modal.Content>
+        <Modal.Actions>
+          <Button style = {{textAlign: "center"}} color="red" onClick={() => setOpen(false)}>
+            Close
+          </Button>
+        </Modal.Actions>
+      </Modal>
+
+      <Link href="/private-dining-events" forwardRef>
+        <IconBookHover size="large">
+          <Icon color="red" size="big" name="circle outline" />
+          <Icon link color="orange" name="calendar check outline" />
+        </IconBookHover>
+      </Link>
+    </>
+  );
+};
 
 export default memo(HeaderOnMobile);

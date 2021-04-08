@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { memo } from "react";
+import { memo, useState} from "react";
 import {
   Divider,
   Icon,
@@ -8,12 +8,21 @@ import {
   Menu,
   Sidebar,
   Transition,
+  Modal,
+  List,
+  Button,
+  Image
 } from "semantic-ui-react";
 import {
   MenuItemMobileTablet,
   MenuItemLink,
   MenuItemLinkImage,
 } from "../style";
+import {
+  IconPhoneHover,
+  IconBookHover,
+  ButtonCustom,
+} from "./style";
 const noFixedMenuStyleOnTable = {
   borderBottom: "1px solid #cf1b15",
   backgroundColor: "#fff",
@@ -43,7 +52,8 @@ const HeaderOnTablet = ({
   navigateToLocation,
 }) => {
   const router = useRouter();
-  console.log(locationOptions);
+  const [open, setOpen] = React.useState(false);
+  const [datas, setDatas] = useState(locationOptions);
   return (
     <>
       <Menu secondary style={noFixedMenuStyleOnTable}>
@@ -223,6 +233,74 @@ const HeaderOnTablet = ({
         </Sidebar.Pusher>
       </Sidebar>
       {children}
+      <Modal
+        size="mini"
+        open={open}
+        trigger={
+          <IconPhoneHover size="large">
+            <Icon color="red" size="big" name="circle outline" />
+            <Icon color="red" name="phone" />
+          </IconPhoneHover>
+        }
+        onClose={() => setOpen(false)}
+        onOpen={() => setOpen(true)}
+      >
+        <Modal.Content scrolling>
+          <List divided>
+            {datas.map((item, i) => {
+              return (
+                <List.Item>
+                  <List.Content style={{ textAlign: "center" }}>
+                    <ButtonCustom onClick = {() =>{
+                      item.visible = !item.visible;
+                      setDatas([...datas])}} fluid>
+                      {item.text}
+                    </ButtonCustom>
+                    <Divider style = {{margin: "0px"}} hidden />
+                    <Transition
+                      visible={item.visible}
+                      animation="slide down"
+                      duration={150}
+                    >
+                      <div>
+                      <List.Description>
+                        <Icon flipped = "horizontally" link size="big" name="phone" />
+                        <Icon
+                          flipped = "horizontally"
+                          link
+                          size="big"
+                          color="blue"
+                          name="facebook messenger"
+                        />
+                        <a href="" target="_blank">
+                          <Image
+                            size="mini"
+                            spaced="right"
+                            src="/static/img/zalo-icon.svg"
+                          />
+                        </a>
+                      </List.Description>
+                      </div>
+                    </Transition>
+                  </List.Content>
+                </List.Item>
+              );
+            })}
+          </List>
+        </Modal.Content>
+        <Modal.Actions>
+          <Button style = {{textAlign: "center"}} color="red" onClick={() => setOpen(false)}>
+            Close
+          </Button>
+        </Modal.Actions>
+      </Modal>
+
+      <Link href="/private-dining-events" forwardRef>
+        <IconBookHover size="large">
+          <Icon color="red" size="big" name="circle outline" />
+          <Icon link color="orange" name="calendar check outline" />
+        </IconBookHover>
+      </Link>
     </>
   );
 };

@@ -1,15 +1,36 @@
 import Link from "next/link";
 import { memo, useState } from "react";
-import { Icon, Label, Menu, Visibility } from "semantic-ui-react";
+import {
+  Icon,
+  Label,
+  Menu,
+  Visibility,
+  Modal,
+  List,
+  Image,
+  Transition,
+  Divider,
+  Button,
+  Form,
+  Dropdown,
+} from "semantic-ui-react";
 import { MenuItemLink, MenuItemLinkImage } from "../style";
-import { DropdownStyle, DropdownItemStyle, DropdownMenuStyle } from "./style";
+import {
+  DropdownStyle,
+  IconPhoneHover,
+  IconBookHover,
+  ButtonCustom,
+  Circle,
+  WrappFullScreen,
+  CircleClose,
+  ContactWrapper,
+} from "./style";
 const noFixedMenuStyle = {
   borderBottom: "1px solid #cf1b15",
   backgroundColor: "#fff",
   transition: "height 0.1s",
   height: "60px",
   maxHeight: "600px",
-  // overflow: "auto",
   position: "relative",
   zIndex: "1",
 };
@@ -17,10 +38,10 @@ const fixedMenuStyle = {
   backgroundColor: "#fff",
   height: "10px",
   maxHeight: "600px",
-  // overflow: "hidden",
   transition: "height 0.2s",
   borderBottom: "1px solid #cf1b15",
 };
+
 const active = {
   color: "#cf1b15",
 };
@@ -44,6 +65,31 @@ const HeaderOnDesktop = ({
   const showFixedMenu = () => {
     setFixedMenu(true);
   };
+  const [visible, setvisible] = useState(true);
+  // const [open, setOpen] = React.useState(false);
+  const handleVisibility = () => {
+    setvisible(!visible);
+  };
+  const [locations, setDatas] = useState(locationOptions);
+  // function openLocationChild(locationObject) {
+  //   locationObject.visible = !locationObject.visible;
+  //   setDatas([...locations]);
+  // }
+  function exampleReducer(state, action) {
+    switch (action.type) {
+      case "close":
+        return { openModel: false };
+      case "open":
+        return { openModel: true, size: action.size };
+      default:
+        throw new Error("Unsupported action...");
+    }
+  }
+  const [state, dispatch] = React.useReducer(exampleReducer, {
+    openModel: false,
+    size: undefined,
+  });
+  const { openModel, size } = state;
   return (
     <>
       <Visibility
@@ -58,11 +104,13 @@ const HeaderOnDesktop = ({
         >
           <Menu.Item>
             <Link href="/home" forwardRef>
-              <MenuItemLinkImage
-                src={Logo}
-                alt="website logo"
-                style={menuFixed ? { width: "52px" } : { width: "72px" }}
-              />
+              <a>
+                <MenuItemLinkImage
+                  src={Logo}
+                  alt="website logo"
+                  style={menuFixed ? { width: "52px" } : { width: "72px" }}
+                />
+              </a>
             </Link>
           </Menu.Item>
 
@@ -76,50 +124,48 @@ const HeaderOnDesktop = ({
                 item
                 simple
                 text="Locations"
-                style={
-                  router.pathname == "/location" ? active : unactive
-                }
+                style={router.pathname == "/location" ? active : unactive}
                 open={false}
-
               >
-                <DropdownMenuStyle>
+                <Dropdown.Menu>
                   {locationOptions.map((item, i) => {
                     return (
-                      <DropdownItemStyle
+                      <Dropdown.Item
                         key={i}
                         pathname={item.pathname}
                         onClick={navigateToLocation}
                       >
                         {item.text}
-                      </DropdownItemStyle>
+                      </Dropdown.Item>
                     );
                   })}
-                </DropdownMenuStyle>
+                </Dropdown.Menu>
               </DropdownStyle>
             </Link>
           </MenuItemLink>
           <MenuItemLink active={router.pathname == "/news"}>
             <Link href="/news">
               <DropdownStyle
+                open={false}
                 icon={false}
                 item
                 simple
                 text="News"
                 style={router.pathname == "/news" ? active : unactive}
               >
-                <DropdownMenuStyle>
+                <Dropdown.Menu>
                   {newsOptions.map((item, i) => {
                     return (
-                      <DropdownItemStyle
+                      <Dropdown.Item
                         key={i}
                         pathname={item.pathname}
                         onClick={navigateToLocation}
                       >
                         {item.text}
-                      </DropdownItemStyle>
+                      </Dropdown.Item>
                     );
                   })}
-                </DropdownMenuStyle>
+                </Dropdown.Menu>
               </DropdownStyle>
             </Link>
           </MenuItemLink>
@@ -144,24 +190,26 @@ const HeaderOnDesktop = ({
           <MenuItemLink>
             <Link href="/menu">
               <DropdownStyle
+                open={false}
                 icon={false}
                 item
                 simple
                 text="Menus"
                 style={router.pathname == "/menu" ? active : unactive}
               >
-                <DropdownMenuStyle>
+                <Dropdown.Menu>
                   {menuOptions.map((item, i) => {
                     return (
-                      <DropdownItemStyle
+                      <Dropdown.Item
+                        key={i}
                         pathname={item.pathname}
                         onClick={navigateToLocation}
                       >
                         {item.text}
-                      </DropdownItemStyle>
+                      </Dropdown.Item>
                     );
                   })}
-                </DropdownMenuStyle>
+                </Dropdown.Menu>
               </DropdownStyle>
             </Link>
           </MenuItemLink>
@@ -183,22 +231,22 @@ const HeaderOnDesktop = ({
           <MenuItemLink className="link">
             <Link href="/get-in-touch">
               <DropdownStyle
+                open={false}
                 icon={false}
                 item
                 simple
                 text="Contact Us"
                 style={router.pathname == "/get-in-touch" ? active : unactive}
               >
-                <DropdownMenuStyle>
-                  <DropdownItemStyle text="Get In Touch" />
+                <Dropdown.Menu>
+                  <Dropdown.Item text="Get In Touch" />
                   <Link href="/careers">
-                    <DropdownItemStyle text="Careers" />
+                    <Dropdown.Item text="Careers" />
                   </Link>
                   <Link href="/privacy-cookie-policy">
-                    <DropdownItemStyle text="Privacy & Cookie Policy" />
+                    <Dropdown.Item text="Privacy & Cookie Policy" />
                   </Link>
-          
-                </DropdownMenuStyle>
+                </Dropdown.Menu>
               </DropdownStyle>
             </Link>
           </MenuItemLink>
@@ -235,6 +283,101 @@ const HeaderOnDesktop = ({
         </Menu>
       </Visibility>
       {children}
+      <ContactWrapper>
+        <Transition.Group animation={"fade"} duration={400}>
+          {visible && (
+            <Circle className="zoom-animate" onClick={handleVisibility}>
+              <div className="group-icon">
+                <div className="icon-first">
+                  <Icon name="map marker alternate" />
+                </div>
+                <div className="icon-second">
+                  <Icon name="facebook messenger" />
+                </div>
+                <div className="icon-third">
+                  <Icon name="call" />
+                </div>
+              </div>
+            </Circle>
+          )}
+        </Transition.Group>
+        {!visible && (
+          <WrappFullScreen>
+            <div className="group-icon">
+              <Link href="/private-dining-events" forwardRef>
+                <div className="icon-first">
+                  Our Elgaucho{" "}
+                  <span>
+                    {" "}
+                    <Icon name="map marker alternate" />
+                  </span>
+                </div>
+              </Link>
+              <a onClick={() => dispatch({ type: "open", size: "mini" })}>
+                <div className="icon-second ">
+                  Free Call
+                  <span>
+                    <Icon name="call" />
+                  </span>
+                </div>
+              </a>
+              <div className="icon-third">
+                Messenger
+                <span>
+                  {" "}
+                  <Icon name="facebook messenger" />
+                </span>
+              </div>
+              <div className="icon-four">
+                Zalo
+                <span>
+                  {" "}
+                  <img
+                    size="mini"
+                    spaced="right"
+                    alt="#"
+                    src="/static/img/zalo-icon.svg"
+                  />
+                </span>
+              </div>
+            </div>
+            <CircleClose onClick={handleVisibility}>
+              <Icon name="x" className="close-icon" />
+            </CircleClose>
+          </WrappFullScreen>
+        )}
+      </ContactWrapper>
+
+      <Modal
+        size={size}
+        open={openModel}
+        onClose={() => dispatch({ type: "close" })}
+      >
+        <Modal.Content scrolling>
+          <List divided>
+            {locations.map((item, i) => {
+              return (
+                <List.Item>
+                  <List.Content style={{ textAlign: "center" }}>
+                    <a href={item.phone}>
+                      <ButtonCustom fluid>{item.text}</ButtonCustom>
+                    </a>
+                  </List.Content>
+                </List.Item>
+              );
+            })}
+          </List>
+        </Modal.Content>
+        <Modal.Actions>
+          <Button
+            style={{ textAlign: "center" }}
+            color="red"
+            onClick={() => dispatch({ type: "close" })}
+          >
+            Close
+          </Button>
+        </Modal.Actions>
+      </Modal>
     </>
   );
 };

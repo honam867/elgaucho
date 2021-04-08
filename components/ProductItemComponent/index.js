@@ -1,112 +1,135 @@
 import {
   Button,
-  Card,
   Grid,
-  Header,
   Icon,
-  Image,
   Item,
-  Container
+  Placeholder,
 } from "semantic-ui-react";
-import MenuItemCustom from "./productitem.module.css";
-import styled from "styled-components";
 import Responsive from "../Responsive/index";
 import {
   AddCart,
 } from "../../redux/cart/cart.actions";
 import { connect } from "react-redux";
 import ShowMoreText from "react-show-more-text";
-const AddToCartButton = styled(Button)`
-  color: #fff !important;
-  background: #cf1b15 !important;
-`;
-const PriceCustomFromHeader = styled(Item.Header)`
-  color: #cf1b15 !important;
-  font-weight: 600 !important;
-  font-size: 18px !important;
-  margin-top: 10px !important;
-  @media only screen and (min-width: 320px) and (max-width: 767px) {
-    font-weight: bold !important;
-    font-size: 15px !important;
+import { ProductItemWrapper, AddToCartButton, PriceCustomFromHeader, ItemHeaderCustom, CustomButton } from "./style";
+import { memo } from "react";
+import ProductItemOnMobile from "./onMobile/index"
+import LazyLoad from "react-lazyload";
+const Loading = () => {
+  return <div style={{ margin: "30px 0px" }}>
+    <Placeholder fluid>
+      <Placeholder.Header image >
+        <Placeholder.Line />
+        <Placeholder.Line />
+      </Placeholder.Header>
+      <Placeholder.Paragraph>
+        <Placeholder.Line />
+        <Placeholder.Line />
+        <Placeholder.Line />
+      </Placeholder.Paragraph>
+      <Placeholder.Paragraph>
+        <Placeholder.Line />
+        <Placeholder.Line />
+        <Placeholder.Line />
+      </Placeholder.Paragraph>
+    </Placeholder>
+
+  </div>
+}
+const ItemOfProducts = (
+  {
+    id,
+    imageUrl,
+    name,
+    description,
+    promotedPrice,
+    price,
+    addCart,
+    productItem
+
   }
-`;
-const ItemHeaderCustom = styled(Item.Header)`
-  &:hover {
-    color: #cf1b15 !important;
-    background: #fff !important;
-  }
-  font-size: 15px;
-  font-weight: bold;
-  color: black;
-`;
-const CustomButton = styled(Button)`
-  color: #ffffff !important;
-  background-color: #cf1b15 !important;
-`;
+) => {
+  return <Item key={id}>
+
+    <Item.Image size="small" src={imageUrl} floated="left" />
+    <Item.Content>
+      <ItemHeaderCustom as="a">
+        {name.toUpperCase()}
+      </ItemHeaderCustom>
+      <Item.Description
+        className="customHeightDescription"
+      >
+        <ShowMoreText
+          lines={3}
+          more="Show more"
+          less="Show less"
+          className="content-css1"
+          anchorClass="my-anchor-css-class1"
+          expanded={false}
+          width={0}
+        >
+          {description}
+        </ShowMoreText>
+      </Item.Description>
+      <Grid >
+        <Grid.Column floated="left" width={12}>
+          {promotedPrice > 0 ?
+            <PriceCustomFromHeader floated="right">
+              {price.toLocaleString("en-US")} VND
+           <del style={{ color: "#000000", fontWeight: "300", fontSize: "15px", paddingLeft: "5px" }}> {promotedPrice.toLocaleString("en-US")} VND</del>
+            </PriceCustomFromHeader>
+            :
+            <PriceCustomFromHeader floated="right">
+              {price.toLocaleString("en-US")} VND
+       </PriceCustomFromHeader>
+          }
+        </Grid.Column>
+        <Grid.Column
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center"
+          }}
+          floated="right" width={4}>
+          <CustomButton onClick={() => addCart(productItem)} animated>
+            <Button.Content visible
+              onClick={() => addCart(productItem)}
+              floated="right"
+            >
+              Add To Cart
+       </Button.Content>
+            <Button.Content hidden>
+              <Icon name='add' />
+            </Button.Content>
+          </CustomButton>
+        </Grid.Column>
+      </Grid>
+    </Item.Content>
+  </Item>
+}
+
+
 const ProductItem = ({ products, addCart, areaId }) => {
   const productList = products.filter(item => item.areaId === areaId);
   return (
-    <>
+    <ProductItemWrapper>
       <Responsive
         onDesktop={() => {
           return (
             <>
-              <Item.Group divided>
-                {productList.length > 0 ? (
-                  productList.map((productItem) => {
-                    return (
-                      <Item key={productItem.id}>
-                        <Item.Image size="small" src={productItem.imageUrl} />
-                        <Item.Content>
-                          <ItemHeaderCustom as="a">
-                            {productItem.name}
-                          </ItemHeaderCustom>
-                          <Item.Description
-                            className={MenuItemCustom.customHeightDescription}
-                          >
-                            <ShowMoreText
-                              lines={3}
-                              more="Show more"
-                              less="Show less"
-                              className="content-css1"
-                              anchorClass="my-anchor-css-class1"
-                              expanded={false}
-                              width={0}
-                            >
-                              {productItem.description}
-                            </ShowMoreText>
-                          </Item.Description>
-                          <Grid>
-                            <Grid.Column floated="left" width={10}>
-                              {productItem.promotedPrice > 0 ?
-
-                                <PriceCustomFromHeader floated="right">
-                                  {productItem.price.toLocaleString("en-US")} VND
-                                  <del style={{ color: "#000000", fontWeight: "lighter", fontSize: "15px", paddingLeft: "5px" }}> {productItem.promotedPrice.toLocaleString("en-US")} VND</del>
-                                </PriceCustomFromHeader>
-                                :
-                                <PriceCustomFromHeader floated="right">
-                                  {productItem.price.toLocaleString("en-US")} VND
-                              </PriceCustomFromHeader>
-                              }
-                            </Grid.Column>
-                            <Grid.Column floated="right" width={6}>
-                              <AddToCartButton
-                                onClick={() => addCart(productItem)}
-                                floated="right"
-                              >
-                                Add To Cart
-                              </AddToCartButton>
-                            </Grid.Column>
-                          </Grid>
-                        </Item.Content>
-                      </Item>
-                    );
-                  })
-                ) : (
-                  <div>No data</div>
-                )}
-              </Item.Group>
+              {productList.length > 0 ? (
+                productList.map((productItem) => {
+                  return (
+                    <LazyLoad className="lazy-style" once={true} key={productItem.id} height={400} offset={50} placeholder={<Loading />}>
+                      <Item.Group divided>
+                        <ItemOfProducts {...productItem} productItem={productItem} addCart={addCart} key={productItem.id} />
+                      </Item.Group>
+                    </LazyLoad>
+                  );
+                })
+              ) : (
+                <div>No data</div>
+              )}
             </>
           );
         }}
@@ -123,7 +146,7 @@ const ProductItem = ({ products, addCart, areaId }) => {
                           {productItem.name}
                         </ItemHeaderCustom>
                         <Item.Description
-                          className={MenuItemCustom.customHeightDescription}
+                          className="customHeightDescription"
                         >
                           <ShowMoreText
                             lines={4}
@@ -154,60 +177,14 @@ const ProductItem = ({ products, addCart, areaId }) => {
         }}
         onMobile={() => {
           return (
-
-            <Grid columns={2} textAlign="center" >
-              {productList.map((productItem) => {
-                return (
-                  <>
-                    <Grid.Column>
-                      <Card key={productItem.id} style={{ margin: "10px auto", }}>
-                        <Image
-                          src={productItem.imageUrl}
-                          size="tiny"
-                          wrapped
-                          ui={false}
-                        />
-                        <Card.Content>
-                          <Card.Header> {productItem.name}</Card.Header>
-                          <Card.Meta>
-                          </Card.Meta>
-                          <Card.Description>
-                            <ShowMoreText
-                              lines={5}
-                              more="Show more"
-                              less="Show less"
-                              className="content-css"
-                              anchorClass="my-anchor-css-class"
-                              expanded={false}
-                              width={0}
-                            >
-                              {productItem.description}
-                            </ShowMoreText>
-                          </Card.Description>
-                        </Card.Content>
-                        <Card.Content extra>
-                          {productItem.promotedPrice > 0 ?
-
-                            <PriceCustomFromHeader floated="right">
-                              <del> {productItem.promotedPrice.toLocaleString("en-US")}</del>  {productItem.price.toLocaleString("en-US")} VND
-                          </PriceCustomFromHeader>
-                            :
-                            <PriceCustomFromHeader floated="right">
-                              {productItem.price.toLocaleString("en-US")} VND
-                            </PriceCustomFromHeader>
-                          }
-                        </Card.Content>
-                      </Card>
-                    </Grid.Column>
-
-                  </>
-                );
-              })}
-            </Grid>
+            <ProductItemOnMobile
+              productList={productList}
+              addCart={addCart}
+            />
           );
         }}
       />
-    </>
+    </ProductItemWrapper>
   );
 };
 
@@ -217,4 +194,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(ProductItem);
+export default memo(connect(null, mapDispatchToProps)(ProductItem));

@@ -5,7 +5,7 @@ import styled from "styled-components";
 const CustomButton = styled(Button)`
 color: #fff  !important;
 background: #cf1b15 !important;
-font-weight:lighter !important;
+font-weight:  300 !important;
 margin: 10px !important;
 @media only screen and (min-width:320px) and (max-width:767px)  {
   color: white !important;
@@ -24,15 +24,15 @@ margin: 10px !important;
 `;
 
 const ButtonCustomComponent = ({ name, ...props }) => {
-    return (
-        <Link href={`${props.url}`} passHref>
-            <CustomButton>
-                {props.icon ?
-                    <Icon name={props.iconName} />
-                    : null}
-                {name}</CustomButton>
-        </Link>
+  return (
+    <Link href={`${props.url}`} passHref>
+      <CustomButton>
+        {props.icon ?
+          <Icon name={props.iconName} />
+          : null}
+        {name}</CustomButton>
+    </Link>
 
-    )
+  )
 }
 export default ButtonCustomComponent;

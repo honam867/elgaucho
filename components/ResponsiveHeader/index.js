@@ -28,6 +28,7 @@ const menuOptions = [
 const ResponsiveHeader = ({ children, numberCart }) => {
   const router = useRouter();
   const navigateToLocation = (e, value) => {
+    console.log("🚀 ~ file: index.js ~ line 31 ~ navigateToLocation ~ value", value)
     e.preventDefault();
     router.push(value.pathname);
   };
@@ -37,41 +38,54 @@ const ResponsiveHeader = ({ children, numberCart }) => {
       text: "Xuan Thuy | HCMC",
       value: 1,
       pathname: "/location#XuanThuy",
-      tag: "#XuanThuy"
+      tag: "#XuanThuy",
+      visible: false,
+      phone: "tel:0972697654"
     },
     {
       key: 2,
       text: "Saigon Pearl | HCMC",
       value: 2,
       pathname: "/location#SaigonPearl",
-      tag: "#SaigonPearl"
+      tag: "#SaigonPearl",
+      visible: false,
+      phone: "tel:0972697654"
     },
     {
       key: 3,
       text: "Hai Ba Trung | HCMC",
       value: 3,
       pathname: "/location#HaiBaTrung",
+      visible: false,
+      phone: "tel:0972697654"
     },
-    { key: 4, text: "An Phu | HCMC", value: 4, pathname: "/location#AnPhu" },
+    { key: 4, text: "An Phu | HCMC", value: 4, pathname: "/location#AnPhu", visible: false,phone: "0972697654" },
     {
       key: 5,
       text: "Phu My Hung | HCMC",
       value: 5,
       pathname: "/location#PhuMyHung",
+      visible: false,
+      phone: "tel:0972697654"
     },
     {
       key: 6,
       text: "Bach Dang | Da Nang",
       value: 6,
       pathname: "/location#BachDang",
+      visible: false,
+      phone: "tel:0972697654"
     },
-    { key: 7, text: "Ba Dinh | Hanoi", value: 7, pathname: "/location#BaDinh" },
-    { key: 8, text: "Tay Ho | Hanoi", value: 8, pathname: "/location#TayHo" },
+    { key: 7, text: "Ba Dinh | Hanoi", value: 7, pathname: "/location#BaDinh", visible: false,
+      phone: "tel:0972697654" },
+    { key: 8, text: "Tay Ho | Hanoi", value: 8, pathname: "/location#TayHo", visible: false, phone: "tel:0972697654"},
     {
       key: 9,
       text: "Trang Tien | Hanoi",
       value: 9,
       pathname: "/location#TrangTien",
+      visible: false,
+      phone: "tel:0972697654"
     },
   ];
 
@@ -81,13 +95,6 @@ const ResponsiveHeader = ({ children, numberCart }) => {
       text: "Magazine",
       value: 1,
       pathname: "/magazine",
-
-    },
-    {
-      key: 2,
-      text: "Megazing",
-      value: 3,
-      pathname: "/location#XuanThuy",
 
     },
     {
@@ -137,7 +144,6 @@ const ResponsiveHeader = ({ children, numberCart }) => {
               newsOptions={newsOptions}
               router={router}
               locationOptions={locationOptions}
-              newsOptions={newsOptions}
               navigateToLocation={navigateToLocation}
               menuOptions={menuOptions}
               numberCart={numberCart}
@@ -187,6 +193,7 @@ const ResponsiveHeader = ({ children, numberCart }) => {
           );
         }}
       />
+
       <Footer />
 
     </div>

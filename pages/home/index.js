@@ -1,35 +1,30 @@
-import { Container, Header } from "semantic-ui-react";
+import { Button, Container, Header } from "semantic-ui-react";
 import SliderComponent from "../../components/SliderComponent";
-import SrcImg1 from "../../public/static/img/home-2-1.jpg"
-import SrcImg2 from "../../public/static/img/home-3.jpg"
-import SrcImg3 from "../../public/static/img/home-4.jpg";
 import ButtonCustomComponent from "../../components/ButtonCustomComponent";
-import { useRef } from "react";
+import { memo, useRef } from "react";
 import Responsive from "../../components/Responsive";
-const Images = [
-  {
-    id: 1,
-    name: "Img 2",
-    imgUrl: SrcImg1,
-    size: "450px",
-    title: ""
-  },
-  {
-    id: 2,
-    name: "Img 1",
-    imgUrl: SrcImg2,
-    size: "450px",
-    opacity: "0.5",
-    title: ""
-  },
-  {
-    id: 3,
-    name: "Img 3",
-    imgUrl: SrcImg3,
-    size: "450px",
-    title: ""
-  }
-];
+import { ImageSliderDesktop, ImageSliderMobile, ImageSliderTablet } from "../../datafake/ResponsiveImage/at-home";
+import styled from "styled-components";
+const CustomButton = styled(Button)`
+color: #fff  !important;
+background: #cf1b15 !important;
+font-weight:  300 !important;
+margin: 10px !important;
+@media only screen and (min-width:320px) and (max-width:767px)  {
+  color: white !important;
+  font-size: 10px !important;
+  @keyframes HeaderFullSlider {
+    0% {
+       opacity: 0;
+       transform: translateY(-70px);
+    }
+    100% {
+       opacity: 1;
+       transform: translateY(0);
+    }
+ }
+}
+`;
 const ButtonData = [
   {
     id: 1,
@@ -50,17 +45,7 @@ const ButtonData = [
     id: 4,
     name: 'Philippines',
     url: "/location"
-  },
-  {
-    id: 5,
-    name: 'Czech Republic',
-    url: "/location"
-  },
-  {
-    id: 6,
-    name: 'Slovakia',
-    url: "/location"
-  },
+  }
 ]
 
 const HomeFullSlider = () => {
@@ -76,7 +61,7 @@ const HomeFullSlider = () => {
       <Responsive onDesktop={() => {
         return (
           <SliderComponent
-            Images={Images}
+            Images={ImageSliderDesktop}
             height="100vh"
             captionTitle={captionTitle}
             captionContent={captionContent}
@@ -88,23 +73,25 @@ const HomeFullSlider = () => {
       }} onTablet={() => {
         return (
           <SliderComponent
-            Images={Images}
-            height="40vh"
-            captionTitle={captionTitle}
-            captionContent={captionContent}
-            backgroundOpacity={true}
-            gotomainsection={gotomainSection}
-          />
-        )
-      }} onMobile={() => {
-        return (
-          <SliderComponent
-            Images={Images}
+            Images={ImageSliderTablet}
             height="100vh"
             captionTitle={captionTitle}
             captionContent={captionContent}
             backgroundOpacity={true}
             gotomainsection={gotomainSection}
+            angleDown={true}
+          />
+        )
+      }} onMobile={() => {
+        return (
+          <SliderComponent
+            Images={ImageSliderMobile}
+            height="100vh"
+            captionTitle={captionTitle}
+            captionContent={captionContent}
+            backgroundOpacity={true}
+            gotomainsection={gotomainSection}
+            angleDown={true}
           />
         )
       }}>
@@ -114,6 +101,16 @@ const HomeFullSlider = () => {
           {ButtonData.map(button => {
             return <ButtonCustomComponent key={button.id} name={button.name} url={button.url} />
           })}
+          <a style={{ color: "#FFF" }} href="https://cz.elgaucho.eu/" alt="#" target="_blank">
+            <CustomButton  >
+              Czech Republic
+          </CustomButton>
+          </a>
+          <a style={{ color: "#FFF" }} href="https://sk.elgaucho.eu/" alt="#" target="_blank">
+            <CustomButton  >
+              Slovakia
+          </CustomButton>
+          </a>
         </Container>
       </div>
       <Container style={{ background: "#cf1b15", paddingTop: "20px", paddingBottom: "20px" }} fluid>
@@ -171,4 +168,4 @@ const HomeFullSlider = () => {
 
   )
 }
-export default HomeFullSlider;
+export default memo(HomeFullSlider);

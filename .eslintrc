@@ -1,8 +1,4 @@
 {
-  "extends": [
-    "wesbos"
-  ]
-}{
   "env": {
     "browser": true,
     "es6": true
@@ -32,8 +28,8 @@
       "version": "detect"
     },
     "import/resolver": {
-      "alias": {
-        "extensions": [".ts", ".js", ".jsx", ".json"]
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     }
   },
