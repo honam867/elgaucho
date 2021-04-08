@@ -1,13 +1,7 @@
 import Layout from "../../components/ResponsiveHeader/index";
 import { useState, useEffect, memo } from "react";
 import SliderComponent from "../../components/SliderComponent";
-import {
-  Container,
-  Dropdown,
-  Grid,
-  Menu,
-  Visibility,
-} from "semantic-ui-react";
+import { Container, Dropdown, Grid, Menu, Visibility } from "semantic-ui-react";
 import ResponsiveComponent from "../../components/Responsive";
 import MenuCustomStyle from "./menu.module.css";
 import ProductsComponent from "../../components/ProductsComponent";
@@ -16,8 +10,8 @@ import Categories from "../../datafake/categories";
 import SubCategories from "../../datafake/subcategories";
 import AreaData from "../../datafake/area";
 import Products from "../../datafake/products";
-import ElDevlieryOnDesktop from "../../components/pages/delivery/onDesktop/index"
-import ElDevlieryOnMobile from "../../components/pages/delivery/onMobile/index"
+import ElDevlieryOnDesktop from "../../components/pages/delivery/onDesktop/index";
+import ElDevlieryOnMobile from "../../components/pages/delivery/onMobile/index";
 const ElDeliveryTakeOutComponent = () => {
   const [activeItem, setActiveItem] = useState("");
   const [activeArea, setActiveArea] = useState("");
@@ -47,10 +41,9 @@ const ElDeliveryTakeOutComponent = () => {
   };
 
   const choosingArea = (e, { value }) => {
-    setActiveArea(value.name)
-    setAreaId(value.id)
-  }
-
+    setActiveArea(value.name);
+    setAreaId(value.id);
+  };
 
   useEffect(() => {
     setActiveItem(Categories[0].name);
@@ -68,7 +61,6 @@ const ElDeliveryTakeOutComponent = () => {
               once={false}
               onBottomPassed={stickOverlay}
               onBottomVisible={unStickOverlay}
-              once={false}
             />
 
             <Menu
@@ -81,7 +73,6 @@ const ElDeliveryTakeOutComponent = () => {
               size="small"
               secondary
             >
-
               {Categories.map((item) => {
                 return (
                   <Menu.Item
@@ -98,7 +89,13 @@ const ElDeliveryTakeOutComponent = () => {
           </Grid.Column>
           <Grid.Column width={10}>
             <div>
-              <ProductsComponent subcategories={SubCategories.filter(sub => sub.categoryId === subcategoryId)} products={Products} areaId={areaId}></ProductsComponent>
+              <ProductsComponent
+                subcategories={SubCategories.filter(
+                  (sub) => sub.categoryId === subcategoryId
+                )}
+                products={Products}
+                areaId={areaId}
+              ></ProductsComponent>
             </div>
           </Grid.Column>
 
@@ -110,67 +107,68 @@ const ElDeliveryTakeOutComponent = () => {
     );
   };
 
-
   return (
     <Layout>
       <ResponsiveComponent
-        onTablet={
-          ElDevlieryOnTablet
-        }
+        onTablet={ElDevlieryOnTablet}
         onDesktop={() => {
-          return <ElDevlieryOnDesktop
-            AreaData={AreaData}
-            activeArea={activeArea}
-            choosingArea={choosingArea}
-            stickOverlay={stickOverlay}
-            unStickOverlay={unStickOverlay}
-            Categories={Categories}
-            activeItem={activeItem}
-            handleItemClick={handleItemClick}
-            SubCategories={SubCategories}
-            subcategoryId={subcategoryId}
-            Products={Products}
-            areaId={areaId}
-          />
-        }
-        }
+          return (
+            <ElDevlieryOnDesktop
+              AreaData={AreaData}
+              activeArea={activeArea}
+              choosingArea={choosingArea}
+              stickOverlay={stickOverlay}
+              unStickOverlay={unStickOverlay}
+              Categories={Categories}
+              activeItem={activeItem}
+              handleItemClick={handleItemClick}
+              SubCategories={SubCategories}
+              subcategoryId={subcategoryId}
+              Products={Products}
+              areaId={areaId}
+            />
+          );
+        }}
         onMobile={() => {
-          return <ElDevlieryOnMobile
-            stickOverlay={stickOverlay}
-            unStickOverlay={unStickOverlay}
-            overlayFixed={overlayFixed}
-            fixedOverlayMenuMobileStyle={fixedOverlayMenuMobileStyle}
-            overlayMenuMobileStyle={overlayMenuMobileStyle}
-            Categories={Categories}
-            activeItem={activeItem}
-            handleItemClick={handleItemClick}
-            SubCategories={SubCategories}
-            subcategoryId={subcategoryId}
-            Products={Products}
-            areaId={areaId}
-          />
+          return (
+            <ElDevlieryOnMobile
+              stickOverlay={stickOverlay}
+              unStickOverlay={unStickOverlay}
+              overlayFixed={overlayFixed}
+              fixedOverlayMenuMobileStyle={fixedOverlayMenuMobileStyle}
+              overlayMenuMobileStyle={overlayMenuMobileStyle}
+              Categories={Categories}
+              activeItem={activeItem}
+              handleItemClick={handleItemClick}
+              SubCategories={SubCategories}
+              subcategoryId={subcategoryId}
+              Products={Products}
+              areaId={areaId}
+            />
+          );
         }}
       ></ResponsiveComponent>
-    </Layout >
+    </Layout>
   );
 };
 
-// export async function getStaticProps(context) {
+// export async function getServerSideProps(context) {
 //   // NOTE fetch menu list from api
-//   const res3 = await fetch(
-//     "https://my-json-server.typicode.com/honam867/apiserver/products"
-//   );
-//   const products = await res3.json();
-//   // if (!category) {
-//   //   return {
-//   //     notFound: true,
-//   //   };
-//   // }
-//   return {
-//     props: {
-//       products
-//     },
-//   };
+//   // const res3 = await fetch(
+//   //   "https://115.79.56.78:1011/api/product/all?menuId=7"
+//   // );
+//   // console.log(res3);
+//   // const products = await res3.json();
+//   // // if (!category) {
+//   // //   return {
+//   // //     notFound: true,
+//   // //   };
+//   // // }
+//   // return {
+//   //   props: {
+//   //     products,
+//   //   },
+//   // };
 // }
 
 export default memo(ElDeliveryTakeOutComponent);
