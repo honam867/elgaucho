@@ -7,18 +7,13 @@ import {
   Visibility,
   Modal,
   List,
-  Image,
   Transition,
-  Divider,
   Button,
-  Form,
   Dropdown,
 } from "semantic-ui-react";
 import { MenuItemLink, MenuItemLinkImage } from "../style";
 import {
   DropdownStyle,
-  IconPhoneHover,
-  IconBookHover,
   ButtonCustom,
   Circle,
   WrappFullScreen,
@@ -78,11 +73,8 @@ const HeaderOnDesktop = ({
     setvisible(!visible);
   };
   const [locations, setDatas] = useState(locationOptions);
-  // function openLocationChild(locationObject) {
-  //   locationObject.visible = !locationObject.visible;
-  //   setDatas([...locations]);
-  // }
-  function exampleReducer(state, action) {
+
+  function OpenModal(state, action) {
     switch (action.type) {
       case "close":
         return { openModel: false };
@@ -92,7 +84,7 @@ const HeaderOnDesktop = ({
         throw new Error("Unsupported action...");
     }
   }
-  const [state, dispatch] = React.useReducer(exampleReducer, {
+  const [state, dispatch] = React.useReducer(OpenModal, {
     openModel: false,
     size: undefined,
   });
@@ -351,15 +343,6 @@ const HeaderOnDesktop = ({
                   </span>
                 </div>
               </a>
-              {/* <div
-                onClick={(e) => e.stopPropagation()}
-                className="icon-second "
-              >
-                Free Call
-                <span>
-                  <Icon name="call" />
-                </span>
-              </div> */}
               <div onClick={(e) => e.stopPropagation()} className="icon-third">
                 Messenger
                 <span>
