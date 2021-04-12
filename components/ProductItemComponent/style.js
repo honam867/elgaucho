@@ -31,6 +31,17 @@ export const PriceCustomFromHeader = styled(Item.Header)`
   }
 `;
 
+export const PriceCustomFromModal = styled(Item.Header)`
+  color: #cf1b15 !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  margin-top: 5px !important;
+  @media only screen and (min-width: 320px) and (max-width: 767px) {
+    font-weight: bold !important;
+    font-size: 10px !important;
+  }
+`;
+
 export const CustomButton = styled(Button)`
   color: #ffffff !important;
   background-color: #cf1b15 !important;

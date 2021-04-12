@@ -39,7 +39,8 @@ const ResponsiveHeader = ({ children, numberCart }) => {
       value: 1,
       pathname: "/location#XuanThuy",
       tag: "#XuanThuy",
-      visible: false
+      visible: false,
+      phone: "tel:0972697654"
     },
     {
       key: 2,
@@ -47,38 +48,44 @@ const ResponsiveHeader = ({ children, numberCart }) => {
       value: 2,
       pathname: "/location#SaigonPearl",
       tag: "#SaigonPearl",
-      visible: false
+      visible: false,
+      phone: "tel:0972697654"
     },
     {
       key: 3,
       text: "Hai Ba Trung | HCMC",
       value: 3,
       pathname: "/location#HaiBaTrung",
-      visible: false
+      visible: false,
+      phone: "tel:0972697654"
     },
-    { key: 4, text: "An Phu | HCMC", value: 4, pathname: "/location#AnPhu", visible: false },
+    { key: 4, text: "An Phu | HCMC", value: 4, pathname: "/location#AnPhu", visible: false,phone: "0972697654" },
     {
       key: 5,
       text: "Phu My Hung | HCMC",
       value: 5,
       pathname: "/location#PhuMyHung",
-      visible: false
+      visible: false,
+      phone: "tel:0972697654"
     },
     {
       key: 6,
       text: "Bach Dang | Da Nang",
       value: 6,
       pathname: "/location#BachDang",
-      visible: false
+      visible: false,
+      phone: "tel:0972697654"
     },
-    { key: 7, text: "Ba Dinh | Hanoi", value: 7, pathname: "/location#BaDinh", visible: false },
-    { key: 8, text: "Tay Ho | Hanoi", value: 8, pathname: "/location#TayHo", visible: false },
+    { key: 7, text: "Ba Dinh | Hanoi", value: 7, pathname: "/location#BaDinh", visible: false,
+      phone: "tel:0972697654" },
+    { key: 8, text: "Tay Ho | Hanoi", value: 8, pathname: "/location#TayHo", visible: false, phone: "tel:0972697654"},
     {
       key: 9,
       text: "Trang Tien | Hanoi",
       value: 9,
       pathname: "/location#TrangTien",
-      visible: false
+      visible: false,
+      phone: "tel:0972697654"
     },
   ];
 
