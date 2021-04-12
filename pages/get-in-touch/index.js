@@ -1,16 +1,8 @@
-import { Button, Container, Form, Header, TextArea } from "semantic-ui-react";
+import { Container, Form, Header } from "semantic-ui-react";
 import styled from "styled-components";
 import Layout from "../../components/ResponsiveHeader/index";
+import { CustomButton } from "../../components/UiCustomElement/button";
 import styleGetInTouch from "./getintouch.module.css";
-const CustomButton = styled(Button)`
-  &:hover {
-    color: #cf1b15 !important;
-    background: #fff !important;
-    border: 1px solid #cf1b15;
-  }
-  background: #cf1b15 !important;
-  color: #fff !important;
-`;
 
 const CustomHeader = styled(Header)`
   color: white !important;

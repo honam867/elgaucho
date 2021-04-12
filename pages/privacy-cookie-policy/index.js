@@ -1,16 +1,7 @@
-import { Button, Container, Form, Header, TextArea } from "semantic-ui-react";
+import { Container, Header } from "semantic-ui-react";
 import styled from "styled-components";
 import Layout from "../../components/ResponsiveHeader/index";
 import stylePrivacyCookie from "./privacycookie.module.css";
-const CustomButton = styled(Button)`
-  &:hover {
-    color: #cf1b15 !important;
-    background: #fff !important;
-    border: 1px solid #cf1b15;
-  }
-  background: #cf1b15 !important;
-  color: #fff !important;
-`;
 
 const CustomHeader = styled(Header)`
   color: black !important;
@@ -25,7 +16,7 @@ const PrivacyCookiePolicy = () => {
           <CustomHeader as="h2">
             Privacy <span style={{ color: "#cf1b15" }}>&</span> Cookie Policy
           </CustomHeader>
-          <p style = {{textAlign: 'justify'}}>
+          <p style={{ textAlign: "justify" }}>
             El Gaucho Argentinian Steakhouse is committed to ensuring that your
             privacy on any information that you give to us is protected.
             Depending on your usage of our website or services, we might collect
@@ -40,7 +31,7 @@ const PrivacyCookiePolicy = () => {
             managerial procedures to safeguard and secure the information we
             collect online.
           </p>
-          <p style = {{textAlign: 'justify'}}>
+          <p style={{ textAlign: "justify" }}>
             We use traffic log cookies to identify which pages are being used.
             This helps us analyse data about web page traffic and improve our
             website in order to tailor it to customer needs. We only use this
@@ -56,7 +47,7 @@ const PrivacyCookiePolicy = () => {
             about you, other than the data you choose to share with us. You can
             choose to accept or decline cookies.
           </p>
-          <p style = {{textAlign: 'justify'}}>
+          <p style={{ textAlign: "justify" }}>
             If you have previously agreed to us using your personal information
             for direct marketing purposes, you may change your mind at any time
             by writing to or emailing us at{" "}

@@ -15,24 +15,11 @@ import styled from "styled-components";
 import Layout from "../../components/ResponsiveHeader/index";
 import styleGiftCard from "./giftcard.module.css";
 import React, { useState } from "react";
-const CustomButton = styled(Button)`
-  &:hover {
-    color: #cf1b15 !important;
-    background: #fff !important;
-    border: 1px solid #cf1b15;
-  }
-  background: #cf1b15 !important;
-  color: #fff !important;
-  text-align: left !important;
-`;
+import { CustomButton } from "../../components/UiCustomElement/button";
 
 const CustomHeader = styled(Header)`
   color: black !important;
   font-weight: 300 !important;
-`;
-const CustomLabel = styled.label`
-  color: white !important;
-  text-align: left !important;
 `;
 
 const GiftCard = () => {
@@ -54,7 +41,6 @@ const GiftCard = () => {
         <CustomHeader
           as="h3"
           style={{
-            margin: "auto",
             width: "80%",
             color: "white",
             margin: "30px auto",
@@ -68,8 +54,8 @@ const GiftCard = () => {
           Fill out the Gift Card below and we will send it to your recipient for
           you.
         </p>
-        
-        <Grid container stackable columns='2'>
+
+        <Grid container stackable columns="2">
           <Grid.Row>
             <Grid.Column>
               <Container textAlign="left">
@@ -143,7 +129,7 @@ const GiftCard = () => {
                 </Transition>
               </Container>
             </Grid.Column>
-            <Grid.Column >
+            <Grid.Column>
               <Container>
                 <Image
                   centered
@@ -151,7 +137,7 @@ const GiftCard = () => {
                   size="large"
                 />
               </Container>
-              <Container style = {{paddingTop: "10px"}} fluid>
+              <Container style={{ paddingTop: "10px" }} fluid>
                 <Grid centered columns={1}>
                   <Grid.Column computer={15} mobile={16}>
                     <Card fluid>
@@ -169,7 +155,6 @@ const GiftCard = () => {
                             </CustomHeader>
                           </Grid.Column>
                           <Grid.Column
-                            
                             only="computer table"
                             textAlign="right"
                             computer={8}
@@ -177,7 +162,7 @@ const GiftCard = () => {
                           >
                             <Input action labelPosition="right">
                               <Label basic>$</Label>
-                              <input style = {{width: "90px"}} />
+                              <input style={{ width: "90px" }} />
                               <CustomButton type="button">Buy</CustomButton>
                             </Input>
                           </Grid.Column>

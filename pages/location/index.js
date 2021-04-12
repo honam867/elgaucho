@@ -10,7 +10,6 @@ import {
 } from "semantic-ui-react";
 import SliderComponent from "../../components/SliderComponent";
 import ButtonCustomComponent from "../../components/ButtonCustomComponent";
-import styled from "styled-components";
 import Link from "next/link";
 import Responsive from "../../components/Responsive";
 import {
@@ -19,16 +18,7 @@ import {
   ImageSliderTablet,
 } from "../../datafake/ResponsiveImage/at-location";
 import { memo, useEffect, useState } from "react";
-const CustomButton = styled(Button)`
-  color: #fff !important;
-  background: #cf1b15 !important;
-  font-weight: 300px !important;
-  margin: 10px !important;
-  @media only screen and (min-width: 320px) and (max-width: 767px) {
-    color: white !important;
-    font-size: 10px !important;
-  }
-`;
+import { CustomButton } from "../../components/UiCustomElement/button";
 const Location = () => {
   const [open, setOpen] = useState(false);
   useEffect(() => {
