@@ -7,18 +7,13 @@ import {
   Visibility,
   Modal,
   List,
-  Image,
   Transition,
-  Divider,
   Button,
-  Form,
   Dropdown,
 } from "semantic-ui-react";
 import { MenuItemLink, MenuItemLinkImage } from "../style";
 import {
   DropdownStyle,
-  IconPhoneHover,
-  IconBookHover,
   ButtonCustom,
   Circle,
   WrappFullScreen,
@@ -78,10 +73,22 @@ const HeaderOnDesktop = ({
     setvisible(!visible);
   };
   const [locations, setDatas] = useState(locationOptions);
-  function openLocationChild(locationObject) {
-    locationObject.visible = !locationObject.visible;
-    setDatas([...locations]);
+
+  function OpenModal(state, action) {
+    switch (action.type) {
+      case "close":
+        return { openModel: false };
+      case "open":
+        return { openModel: true, size: action.size };
+      default:
+        throw new Error("Unsupported action...");
+    }
   }
+  const [state, dispatch] = React.useReducer(OpenModal, {
+    openModel: false,
+    size: undefined,
+  });
+  const { openModel, size } = state;
   return (
     <>
       <Visibility
@@ -328,15 +335,14 @@ const HeaderOnDesktop = ({
                   </span>
                 </div>
               </a>
-              <div
-                onClick={(e) => e.stopPropagation()}
-                className="icon-second "
-              >
-                Free Call
-                <span>
-                  <Icon name="call" />
-                </span>
-              </div>
+              <a onClick={() => dispatch({ type: "open", size: "mini" })}>
+                <div className="icon-second ">
+                  Free Call
+                  <span>
+                    <Icon name="call" />
+                  </span>
+                </div>
+              </a>
               <div onClick={(e) => e.stopPropagation()} className="icon-third">
                 Messenger
                 <span>
@@ -364,17 +370,10 @@ const HeaderOnDesktop = ({
         )}
       </ContactWrapper>
 
-      {/* <Modal
-        size="mini"
-        open={open}
-        trigger={
-          <IconPhoneHover size="large">
-            <Icon color="red" size="big" name="circle outline" />
-            <Icon color="red" name="phone" />
-          </IconPhoneHover>
-        }
-        onClose={() => setOpen(false)}
-        onOpen={() => setOpen(true)}
+      <Modal
+        size={size}
+        open={openModel}
+        onClose={() => dispatch({ type: "close" })}
       >
         <Modal.Content scrolling>
           <List divided>
@@ -382,34 +381,9 @@ const HeaderOnDesktop = ({
               return (
                 <List.Item>
                   <List.Content style={{ textAlign: "center" }}>
-                    <ButtonCustom onClick = {() => openLocationChild(item)} fluid>
-                      {item.text}
-                    </ButtonCustom>
-                    <Divider style = {{margin: "0px"}} hidden />
-                    <Transition
-                      visible={item.visible}
-                      animation="slide down"
-                      duration={150}
-                    >
-                      <div>
-                      <List.Description>
-                        <Icon flipped = "horizontally" link size="big" name="phone" />
-                        <Icon
-                          link
-                          size="big"
-                          color="blue"
-                          name="facebook messenger"
-                        />
-                        <a href="" target="_blank">
-                          <Image
-                            size="mini"
-                            spaced="right"
-                            src="/static/img/zalo-icon.svg"
-                          />
-                        </a>
-                      </List.Description>
-                      </div>
-                    </Transition>
+                    <a href={item.phone}>
+                      <ButtonCustom fluid>{item.text}</ButtonCustom>
+                    </a>
                   </List.Content>
                 </List.Item>
               );
@@ -417,18 +391,15 @@ const HeaderOnDesktop = ({
           </List>
         </Modal.Content>
         <Modal.Actions>
-          <Button style = {{textAlign: "center"}} color="red" onClick={() => setOpen(false)}>
+          <Button
+            style={{ textAlign: "center" }}
+            color="red"
+            onClick={() => dispatch({ type: "close" })}
+          >
             Close
           </Button>
         </Modal.Actions>
       </Modal>
-
-      <Link href="/private-dining-events" forwardRef>
-        <IconBookHover size="large">
-          <Icon color="red" size="big" name="circle outline" />
-          <Icon link color="orange" name="calendar check outline" />
-        </IconBookHover>
-      </Link> */}
     </>
   );
 };

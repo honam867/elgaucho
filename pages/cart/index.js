@@ -140,7 +140,8 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                               <Image size="tiny" src={item.imageUrl} />
                             </Table.Cell>
                             <Table.Cell width="6">
-                              <a style={{ fontSize: "12px" }}>{item.name}</a>
+                              <a style={{ fontSize: "15px" }}>{item.name}</a>
+                              <p style={{ fontSize: "12px" }}>Addition: Medium</p>
                             </Table.Cell>
                             <Table.Cell width="3" textAlign="center">
                               <span className="woocommerce-Price-amount amount">

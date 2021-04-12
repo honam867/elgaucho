@@ -29,7 +29,9 @@ const Footer = () => {
                     </Grid.Column>
                 </Grid>
             </Container>
+            <Container style = {{marginTop: '39px'}} fluid>
             <div className="copyright">© Copyright - El Gaucho Argentinian Steakhouse 2021</div>
+            </Container>
         </FooterWapper>
     </>
 }

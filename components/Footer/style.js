@@ -10,6 +10,7 @@ export const FooterWapper = styled.div`
         margin-right: 0px !important;
     }
     .copyright{
+        // height:200px;
         margin-top: 20px;
         background: #8a8a8a;
         color: white;

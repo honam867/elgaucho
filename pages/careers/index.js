@@ -2,6 +2,7 @@ import { Button, Container, Form, Header, Input } from "semantic-ui-react";
 import styled from "styled-components";
 import Layout from "../../components/ResponsiveHeader/index";
 import styleCareers from "./careers.module.css";
+import Responsive from "../../components/Responsive";
 const CustomButton = styled(Button)`
   &:hover {
     color: #cf1b15 !important;
@@ -49,7 +50,7 @@ const Careers = () => {
       <div className={styleCareers.bg}>
         <Container className={styleCareers.background}>
           <CustomHeader as="h4">EMPLOYMENT APPLICATION</CustomHeader>
-          <p style = {{textAlign: 'justify'}}>
+          <p style={{ textAlign: "justify" }}>
             With our continuous expansion, we always appreciate the application
             of potential new staff on all levels. Whether you have years of
             experience or have never worked in the food and beverage business
@@ -98,7 +99,6 @@ const Careers = () => {
               </CustomLabel>
               <input placeholder="Email Address" />
             </Form.Field>
-
             <Form.Field>
               <CustomLabel className={styleCareers.label}>
                 Country Applying For: *
@@ -131,17 +131,51 @@ const Careers = () => {
               </CustomLabel>
               <Form.TextArea></Form.TextArea>
             </Form.Field>
-            <Form.Field>
-              <CustomLabel className={styleCareers.label}>
-                Upload Resume File:
-              </CustomLabel>
-              <Input type="text"  action>
-                <input />
-                <Button type="button">upload</Button>
-                <CustomButton type="button">browse for file</CustomButton>
-              </Input>
-            </Form.Field>
-            <p style = {{textAlign: 'justify'}}>
+            <Responsive
+              onMobile ={() => {
+                return (
+                  <Form.Field>
+                    <CustomLabel className={styleCareers.label}>
+                      Upload Resume File:
+                    </CustomLabel>
+                    <Input type="text" action>
+                      <input style={{ width: "86px" }} />
+                      <Button type="button">upload</Button>
+                      <CustomButton type="button">browse for file</CustomButton>
+                    </Input>
+                  </Form.Field>
+                )
+              }}
+              onDesktop ={() => {
+                return (
+                  <Form.Field>
+                  <CustomLabel className={styleCareers.label}>
+                    Upload Resume File:
+                  </CustomLabel>
+                  <Input type="text" action>
+                    <input />
+                    <Button type="button">upload</Button>
+                    <CustomButton type="button">browse for file</CustomButton>
+                  </Input>
+                </Form.Field>
+                )
+              }}
+              onTablet ={() => {
+                return (
+                  <Form.Field>
+                  <CustomLabel className={styleCareers.label}>
+                    Upload Resume File:
+                  </CustomLabel>
+                  <Input type="text" action>
+                    <input />
+                    <Button type="button">upload</Button>
+                    <CustomButton type="button">browse for file</CustomButton>
+                  </Input>
+                </Form.Field>
+                )
+              }}
+            ></Responsive>
+            <p style={{ textAlign: "justify" }}>
               Please submit your request by selecting the button below. In a few
               seconds you will receive a notification on successful submission.
               NOTE: Please do not click the button more than once to prevent

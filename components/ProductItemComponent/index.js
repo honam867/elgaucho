@@ -1,4 +1,14 @@
-import { Button, Grid, Icon, Item, Placeholder } from "semantic-ui-react";
+import {
+  Button,
+  Grid,
+  Icon,
+  Item,
+  Placeholder,
+  Modal,
+  Image,
+  Select,
+  Input,
+} from "semantic-ui-react";
 import Responsive from "../Responsive/index";
 import { AddCart } from "../../redux/cart/cart.actions";
 import { connect } from "react-redux";
@@ -8,6 +18,7 @@ import {
   AddToCartButton,
   PriceCustomFromHeader,
   ItemHeaderCustom,
+  PriceCustomFromModal,
 } from "./style";
 import { memo } from "react";
 import ProductItemOnMobile from "./onMobile/index";
@@ -45,6 +56,22 @@ const ItemOfProducts = ({
   addCart,
   productItem,
 }) => {
+  function exampleReducer(state, action) {
+    switch (action.type) {
+      case "close":
+        return { open: false };
+      case "open":
+        return { open: true, size: action.size };
+      default:
+        throw new Error("Unsupported action...");
+    }
+  }
+  const [state, dispatch] = React.useReducer(exampleReducer, {
+    open: false,
+    size: undefined,
+  });
+  const { open, size } = state;
+  const countryOptions = [{ key: "af", value: "af", text: "Afghanistan" }];
   return (
     <Item key={id}>
       <Item.Image size="small" src={imageUrl} floated="left" />
@@ -95,10 +122,14 @@ const ItemOfProducts = ({
             floated="right"
             width={4}
           >
-            <CustomButton onClick={() => addCart(productItem)} animated>
+            {/* onClick={() => addCart(productItem)} */}
+            <CustomButton
+              onClick={() => dispatch({ type: "open", size: "tiny" })}
+              animated
+            >
               <Button.Content
                 visible
-                onClick={() => addCart(productItem)}
+                // onClick={() => addCart(productItem)}
                 floated="right"
               >
                 Add To Cart
@@ -107,6 +138,71 @@ const ItemOfProducts = ({
                 <Icon name="add" />
               </Button.Content>
             </CustomButton>
+            <Modal
+              size={size}
+              open={open}
+              onClose={() => dispatch({ type: "close" })}
+            >
+              <Modal.Header>
+                <Image
+                  src={imageUrl}
+                  style={{ width: "60px" }}
+                  floated="left"
+                />
+                <span style={{ fontSize: "14px" }}>{name}</span>
+                <PriceCustomFromModal floated="right">
+                  {price.toLocaleString("en-US")} VND
+                </PriceCustomFromModal>
+              </Modal.Header>
+              <Modal.Content>
+                <p>
+                  <b>Addition</b> <span>(required)</span>
+                </p>
+                <Grid columns="equal">
+                  <Grid.Row>
+                    <Grid.Column>
+                      <Select
+                        // placeholder="Select your country"
+                        options={countryOptions}
+                      />
+                    </Grid.Column>
+                    {/* <Grid.Column>
+                      <Select
+                        options={countryOptions}
+                      />
+                    </Grid.Column> */}
+                  </Grid.Row>
+                </Grid>
+                <p>
+                  <b>Qualities</b>
+                </p>
+                <Input style={{ width: "20%" }} size="mini" type="text">
+                  <Button onClick={() => IncreaseQuantity(i)} icon>
+                    <Icon name="plus" />
+                  </Button>
+                  <input
+                    // value={item.quantity}
+                    style={{ textAlign: "center" }}
+                  />
+                  <Button
+                    style={{ marginLeft: "3px" }}
+                    size="mini"
+                    onClick={() => DecreaseQuantity(i)}
+                    icon
+                  >
+                    <Icon name="minus" />
+                  </Button>
+                </Input>
+              </Modal.Content>
+              <Modal.Actions>
+                {/* <Button negative onClick={() => dispatch({ type: "close" })}>
+                  No
+                </Button> */}
+                <Button positive onClick={() => dispatch({ type: "close" })}>
+                  OK
+                </Button>
+              </Modal.Actions>
+            </Modal>
           </Grid.Column>
         </Grid>
       </Item.Content>
