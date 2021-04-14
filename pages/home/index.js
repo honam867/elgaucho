@@ -9,6 +9,7 @@ import {
   ImageSliderTablet,
 } from "../../datafake/ResponsiveImage/at-home";
 import { CustomButton } from "../../components/UiCustomElement/button";
+import Head from "next/head";
 const ButtonData = [
   {
     id: 1,
@@ -43,6 +44,10 @@ const HomeFullSlider = () => {
   const captionContent = "Please choose the country below to dine with us";
   return (
     <>
+      <Head>
+        <meta name="Description" content="Home Page." />
+        <link rel="icon" href="static/img/elgauchologo.png" />
+      </Head>
       <Responsive
         onDesktop={() => {
           return (
