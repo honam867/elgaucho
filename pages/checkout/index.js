@@ -1,5 +1,4 @@
 import {
-  Button,
   Container,
   Header,
   Table,
@@ -20,14 +19,11 @@ import {
   DeleteCart,
 } from "../../redux/cart/cart.actions";
 import ButtonCustomComponent from "../../components/ButtonCustomComponent";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
+import { CustomButton } from "../../components/UiCustomElement/button";
 const CustomHeader = styled(Header)`
   color: black !important;
   font-weight: 900 !important;
-`;
-const CustomButton = styled(Button)`
-  color: #fff !important;
-  background-color: #cf1b15 !important;
 `;
 
 const CustomStrong = styled.strong`
@@ -135,45 +131,73 @@ const CheckOut = ({ items }) => {
               onClick={toggleVisibilityShip}
               label="Ship to a different address?"
             />
-        {
-          (visibleShip) ? 
-          <Grid columns={2} stackable>
-          <Grid.Column width={8}>
-            <Form.Group widths="equal">
-              <Form.Input fluid label="First name *" />
-              <Form.Input fluid label="Last name  *" />
-            </Form.Group>
-            <Form.Input fluid label="Country / Region *" />
-            <Form.Field>
-              <label>Street address *</label>
-              <input placeholder="House number and street name" />
-            </Form.Field>
-            <Form.Field>
-              <label>Postcode / ZIP (optional)</label>
-              <input />
-            </Form.Field>
-            <Form.Field>
-              <label>Town / City *</label>
-              <input />
-            </Form.Field>
-            <Form.Field>
-              <label>Phone *</label>
-              <input />
-            </Form.Field>
-            <Form.Field>
-              <label>Email address *</label>
-              <input />
-            </Form.Field>
-            <Form.Checkbox label="Create an account?" />
-          </Grid.Column>
-          <Grid.Column width={8}>
-            <Divider style={{ margin: "0px" }} hidden />
-            <Transition
-              visible={visibleShip}
-              animation="slide down"
-              duration={300}
-            >
-              <div>
+            {visibleShip ? (
+              <Grid columns={2} stackable>
+                <Grid.Column width={8}>
+                  <Form.Group widths="equal">
+                    <Form.Input fluid label="First name *" />
+                    <Form.Input fluid label="Last name  *" />
+                  </Form.Group>
+                  <Form.Input fluid label="Country / Region *" />
+                  <Form.Field>
+                    <label>Street address *</label>
+                    <input placeholder="House number and street name" />
+                  </Form.Field>
+                  <Form.Field>
+                    <label>Postcode / ZIP (optional)</label>
+                    <input />
+                  </Form.Field>
+                  <Form.Field>
+                    <label>Town / City *</label>
+                    <input />
+                  </Form.Field>
+                  <Form.Field>
+                    <label>Phone *</label>
+                    <input />
+                  </Form.Field>
+                  <Form.Field>
+                    <label>Email address *</label>
+                    <input />
+                  </Form.Field>
+                  <Form.Checkbox label="Create an account?" />
+                </Grid.Column>
+                <Grid.Column width={8}>
+                  <Divider style={{ margin: "0px" }} hidden />
+                  <Transition
+                    visible={visibleShip}
+                    animation="slide down"
+                    duration={300}
+                  >
+                    <div>
+                      <Form.Group widths="equal">
+                        <Form.Input fluid label="First name *" />
+                        <Form.Input fluid label="Last name  *" />
+                      </Form.Group>
+                      <Form.Input fluid label="Country / Region *" />
+                      <Form.Field>
+                        <label>Street address *</label>
+                        <input placeholder="House number and street name" />
+                      </Form.Field>
+                      <Form.Field>
+                        <label>Postcode / ZIP (optional)</label>
+                        <input />
+                      </Form.Field>
+                      <Form.Field>
+                        <label>Town / City *</label>
+                        <input />
+                      </Form.Field>
+                      <Form.Field
+                        style={{ minHeight: 116 }}
+                        control={TextArea}
+                        label="Order notes (optional)"
+                        placeholder="Notes about your order, e.g. special notes for delivery."
+                      />
+                    </div>
+                  </Transition>
+                </Grid.Column>
+              </Grid>
+            ) : (
+              <Container>
                 <Form.Group widths="equal">
                   <Form.Input fluid label="First name *" />
                   <Form.Input fluid label="Last name  *" />
@@ -191,47 +215,17 @@ const CheckOut = ({ items }) => {
                   <label>Town / City *</label>
                   <input />
                 </Form.Field>
-                <Form.Field
-                  style={{ minHeight: 116 }}
-                  control={TextArea}
-                  label="Order notes (optional)"
-                  placeholder="Notes about your order, e.g. special notes for delivery."
-                />
-              </div>
-            </Transition>
-          </Grid.Column>
-        </Grid>
-        :
-       
-          <Container>
-          <Form.Group widths="equal">
-            <Form.Input fluid label="First name *" />
-            <Form.Input fluid label="Last name  *" />
-          </Form.Group>
-          <Form.Input fluid label="Country / Region *" />
-          <Form.Field>
-            <label>Street address *</label>
-            <input placeholder="House number and street name" />
-          </Form.Field>
-          <Form.Field>
-            <label>Postcode / ZIP (optional)</label>
-            <input />
-          </Form.Field>
-          <Form.Field>
-            <label>Town / City *</label>
-            <input />
-          </Form.Field>
-          <Form.Field>
-            <label>Phone *</label>
-            <input />
-          </Form.Field>
-          <Form.Field>
-            <label>Email address *</label>
-            <input />
-          </Form.Field>
-          <Form.Checkbox label="Create an account?" />
-          </Container>
-        }
+                <Form.Field>
+                  <label>Phone *</label>
+                  <input />
+                </Form.Field>
+                <Form.Field>
+                  <label>Email address *</label>
+                  <input />
+                </Form.Field>
+                <Form.Checkbox label="Create an account?" />
+              </Container>
+            )}
           </Form>
         </Container>
       </div>

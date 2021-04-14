@@ -7,7 +7,7 @@ import {
   Modal,
   Image,
   Select,
-  Input
+  Input,
 } from "semantic-ui-react";
 import Responsive from "../Responsive/index";
 import { AddCart } from "../../redux/cart/cart.actions";
@@ -18,12 +18,12 @@ import {
   AddToCartButton,
   PriceCustomFromHeader,
   ItemHeaderCustom,
-  CustomButton,
   PriceCustomFromModal,
 } from "./style";
-import { memo } from "react";
+import { memo, useReducer } from "react";
 import ProductItemOnMobile from "./onMobile/index";
 import LazyLoad from "react-lazyload";
+import { CustomButton } from "../UiCustomElement/button";
 const Loading = () => {
   return (
     <div style={{ margin: "30px 0px" }}>
@@ -46,7 +46,6 @@ const Loading = () => {
     </div>
   );
 };
-
 const ItemOfProducts = ({
   id,
   imageUrl,
@@ -67,7 +66,7 @@ const ItemOfProducts = ({
         throw new Error("Unsupported action...");
     }
   }
-  const [state, dispatch] = React.useReducer(exampleReducer, {
+  const [state, dispatch] = useReducer(exampleReducer, {
     open: false,
     size: undefined,
   });
@@ -177,26 +176,22 @@ const ItemOfProducts = ({
                 <p>
                   <b>Qualities</b>
                 </p>
-                <Input
-                  style={{ width: "20%"}}
-                  size="mini"
-                  type="text"
-                >
-                  <Button onClick={() => IncreaseQuantity(i)} icon>
+                <Input style={{ width: "20%" }} size="mini" type="text">
+                  {/* <Button onClick={() => IncreaseQuantity(i)} icon>
                     <Icon name="plus" />
-                  </Button>
+                  </Button> */}
                   <input
                     // value={item.quantity}
                     style={{ textAlign: "center" }}
                   />
-                  <Button
+                  {/* <Button
                     style={{ marginLeft: "3px" }}
                     size="mini"
                     onClick={() => DecreaseQuantity(i)}
                     icon
                   >
                     <Icon name="minus" />
-                  </Button>
+                  </Button> */}
                 </Input>
               </Modal.Content>
               <Modal.Actions>

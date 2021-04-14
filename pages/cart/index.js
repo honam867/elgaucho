@@ -20,6 +20,7 @@ import {
   DeleteCart,
 } from "../../redux/cart/cart.actions";
 import ButtonCustomComponent from "../../components/ButtonCustomComponent";
+import { useState } from "react";
 const CustomHeader = styled(Header)`
   color: black !important;
   font-weight: 900 !important;
@@ -40,7 +41,6 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
   let VAT = 0;
   let priceDiscount = 0;
   let cartTotal = 0;
-  let cartTolalDiscount = 0;
   Object.keys(items.Carts).forEach((item) => {
     // let priceAfterParse = items.Carts[item].prices.replace(/[^0-9]/g, "");
     // let priceOfProduct = Number(priceAfterParse)
@@ -48,11 +48,10 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
     VAT = (totalCart * 10) / 100;
     priceDiscount = (totalCart * 50) / 100;
     cartTotal = totalCart + VAT;
-    cartTolalDiscount = totalCart - priceDiscount + VAT;
     listCart.push(items.Carts[item]);
   });
-  const [open, setOpen] = React.useState(false);
-  const [isActiveCode, setActive] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [isActiveCode, setActive] = useState(false);
   function applyCode() {
     setOpen(false);
     setActive(true);
@@ -147,7 +146,7 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                             <Table.Cell width="3" textAlign="center">
                               <span className="woocommerce-Price-amount amount">
                                 <bdi>
-                                   {item.price.toLocaleString("es-US")} &nbsp;VND
+                                  {item.price.toLocaleString("es-US")} &nbsp;VND
                                 </bdi>
                               </span>
                             </Table.Cell>
@@ -182,7 +181,8 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                                 <bdi>
                                   {item.totalPriceOfProduct.toLocaleString(
                                     "es-US"
-                                  )} &nbsp;VND
+                                  )}{" "}
+                                  &nbsp;VND
                                 </bdi>
                               </span>
                             </Table.Cell>
@@ -208,7 +208,7 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                       <Table.Row>
                         <Table.Cell>SUBTOTAL</Table.Cell>
                         <Table.Cell>
-                           {totalCart.toLocaleString("en-US")} &nbsp;VND
+                          {totalCart.toLocaleString("en-US")} &nbsp;VND
                         </Table.Cell>
                       </Table.Row>
                       <Table.Row>
@@ -221,7 +221,7 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                       <Table.Row>
                         <Table.Cell>VAT</Table.Cell>
                         <Table.Cell>
-                           {VAT.toLocaleString("en-US")} &nbsp;VND
+                          {VAT.toLocaleString("en-US")} &nbsp;VND
                         </Table.Cell>
                       </Table.Row>
                       <Table.Row>

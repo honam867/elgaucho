@@ -379,7 +379,7 @@ const HeaderOnDesktop = ({
           <List divided>
             {locations.map((item, i) => {
               return (
-                <List.Item>
+                <List.Item key={i}>
                   <List.Content style={{ textAlign: "center" }}>
                     <a href={item.phone}>
                       <ButtonCustom fluid>{item.text}</ButtonCustom>

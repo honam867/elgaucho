@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Head from "next/head";
-import ReactDOM from "react-dom";
 import "../.semantic/dist/semantic.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -19,14 +18,8 @@ Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 function MyApp({ Component, pageProps }) {
-
   const store = useStore((state) => state);
-  useEffect(() => {
-    if (process.env.NODE_ENV !== "production") {
-      const axe = require("react-axe");
-      axe(React, ReactDOM, 1000);
-    }
-  }, []);
+
   return (
     <>
       <Head>
