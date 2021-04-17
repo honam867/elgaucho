@@ -12,10 +12,11 @@
             Theme
 *******************************/
 
-@type: "element";
-@element: "divider";
+@type    : 'element';
+@element : 'divider';
 
-@import (multiple) "../../theme.config";
+@import (multiple) '../../theme.config';
+
 
 /*******************************
             Divider
@@ -72,7 +73,7 @@
 
   .ui.horizontal.divider:before,
   .ui.horizontal.divider:after {
-    content: "";
+    content: '';
     display: table-cell;
     position: relative;
     top: 50%;
@@ -113,7 +114,7 @@
   .ui.vertical.divider:after {
     position: absolute;
     left: 50%;
-    content: "";
+    content: '';
     z-index: 3;
 
     border-left: @shadowWidth @borderStyle @shadowColor;
@@ -132,7 +133,8 @@
   }
 
   /* Inside grid */
-  @media only screen and (max-width: @largestMobileScreen) {
+  @media only screen and (max-width : @largestMobileScreen) {
+
     .ui.stackable.grid .ui.vertical.divider,
     .ui.grid .stackable.row .ui.vertical.divider {
       display: table;
@@ -155,7 +157,7 @@
       left: 0;
       border-left: none;
       border-right: none;
-      content: "";
+      content: '';
       display: table-cell;
       position: relative;
       top: 50%;
@@ -219,7 +221,7 @@
   ---------------*/
 
   .ui.hidden.divider {
-    border-color: transparent;
+    border-color: transparent !important;
   }
 
   .ui.hidden.divider:before,
@@ -240,10 +242,10 @@
   .ui.divider.inverted,
   .ui.divider.inverted:after,
   .ui.divider.inverted:before {
-    border-top-color: @invertedShadowColor;
-    border-left-color: @invertedShadowColor;
-    border-bottom-color: @invertedHighlightColor;
-    border-right-color: @invertedHighlightColor;
+    border-top-color: @invertedShadowColor !important;
+    border-left-color: @invertedShadowColor !important;
+    border-bottom-color: @invertedHighlightColor !important;
+    border-right-color: @invertedHighlightColor !important;
   }
 }
 
@@ -290,7 +292,7 @@
     .ui.@{value}.divider {
       font-size: @s;
     }
-  });
+  })
 }
 
 .loadUIOverrides();

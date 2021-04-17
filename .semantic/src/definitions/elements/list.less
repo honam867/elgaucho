@@ -12,10 +12,10 @@
             Theme
 *******************************/
 
-@type: "element";
-@element: "list";
+@type    : 'element';
+@element : 'list';
 
-@import (multiple) "../../theme.config";
+@import (multiple) '../../theme.config';
 
 /*******************************
             List
@@ -65,7 +65,7 @@ ul.ui.list > li:first-child:after,
 ol.ui.list > li:first-child:after,
 .ui.list > .list > .item:after,
 .ui.list > .item:after {
-  content: "";
+  content: '';
   display: block;
   height: 0;
   clear: both;
@@ -234,11 +234,11 @@ ol.ui.list ol li,
 .ui.list .list > .item a.header,
 .ui.list > .item a.header {
   cursor: pointer;
-  color: @itemHeaderLinkColor;
+  color: @itemHeaderLinkColor !important;
 }
 .ui.list .list > .item > a.header:hover,
 .ui.list > .item > a.header:hover {
-  color: @itemHeaderLinkHoverColor;
+  color: @itemHeaderLinkHoverColor !important;
 }
 
 & when (@variationListFloated) {
@@ -292,6 +292,7 @@ ol.ui.list ol li,
   padding-bottom: 0;
 }
 
+
 /*******************************
             Types
 *******************************/
@@ -335,7 +336,7 @@ ol.ui.list ol li,
   }
   & when (@variationListIcon) {
     /* Horizontal List */
-    .ui.horizontal.list > .item > i.icon,
+    .ui.horizontal.list > .item > i.icon ,
     .ui.horizontal.list .item > i.icons > i.icon {
       margin: 0;
       padding: 0 @horizontalIconDistance 0 0;
@@ -369,12 +370,12 @@ ol.ui.list ol li,
   .ui.list .list > .disabled.item,
   .ui.list > .disabled.item {
     pointer-events: none;
-    color: @disabledColor;
+    color: @disabledColor !important;
   }
   & when (@variationListInverted) {
     .ui.inverted.list .list > .disabled.item,
     .ui.inverted.list > .disabled.item {
-      color: @invertedDisabledColor;
+      color: @invertedDisabledColor !important;
     }
   }
 }
@@ -428,12 +429,13 @@ ol.ui.list ol li,
     color: @invertedItemLinkHoverColor;
   }
 
+
   /* Linking Content */
   .ui.inverted.list .item a:not(.ui) {
-    color: @invertedItemLinkColor;
+    color: @invertedItemLinkColor !important;
   }
   .ui.inverted.list .item a:not(.ui):hover {
-    color: @invertedItemLinkHoverColor;
+    color: @invertedItemLinkHoverColor !important;
   }
 }
 
@@ -445,17 +447,17 @@ ol.ui.list ol li,
   .ui.list[class*="top aligned"] .image,
   .ui.list[class*="top aligned"] .content,
   .ui.list [class*="top aligned"] {
-    vertical-align: top;
+    vertical-align: top !important;
   }
   .ui.list[class*="middle aligned"] .image,
   .ui.list[class*="middle aligned"] .content,
   .ui.list [class*="middle aligned"] {
-    vertical-align: middle;
+    vertical-align: middle !important;
   }
   .ui.list[class*="bottom aligned"] .image,
   .ui.list[class*="bottom aligned"] .content,
   .ui.list [class*="bottom aligned"] {
-    vertical-align: bottom;
+    vertical-align: bottom !important;
   }
 }
 
@@ -513,8 +515,7 @@ ol.ui.list ol li,
   .ui.selection.list > .item {
     cursor: pointer;
     background: @selectionListBackground;
-    padding: @selectionListItemVerticalPadding
-      @selectionListItemHorizontalPadding;
+    padding: @selectionListItemVerticalPadding @selectionListItemHorizontalPadding;
     margin: @selectionListItemMargin;
     color: @selectionListColor;
     border-radius: @selectionListItemBorderRadius;
@@ -948,7 +949,7 @@ ol.ui.list ol li,
     .ui.celled.inverted.horizontal.list > .item {
       border-color: @celledInvertedBorder;
     }
-  }
+    }
 }
 
 & when (@variationListRelaxed) {
@@ -1013,7 +1014,8 @@ ol.ui.list ol li,
         font-size: @s;
       }
     }
-  });
+  })
 }
 
 .loadUIOverrides();
+

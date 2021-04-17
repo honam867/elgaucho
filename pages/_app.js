@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import "../.semantic/dist/semantic.min.css";
 import "slick-carousel/slick/slick.css";
@@ -8,9 +8,10 @@ import "nprogress/nprogress.css";
 import Router from "next/router";
 import { wrapper } from "../redux/store";
 import { PersistGate } from "redux-persist/integration/react";
-import { useStore } from "react-redux";
+import { connect, useStore } from "react-redux";
 import theme from "../styles/theme";
 import { ThemeProvider } from "styled-components";
+import { FetchLocation } from "../redux/location/location.action";
 NProgress.configure({
   template:
     '<div id="nprogress"><div class="bar" role="bar" style="background: #cf1b15; height: 3px"></div>',
@@ -19,9 +20,11 @@ NProgress.configure({
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, FetchLocation }) {
   const store = useStore((state) => state);
-
+  useEffect(() => {
+    FetchLocation();
+  }, []);
   return (
     <>
       <Head>
@@ -36,5 +39,9 @@ function MyApp({ Component, pageProps }) {
     </>
   );
 }
-
-export default wrapper.withRedux(MyApp);
+function mapDispatchToProps(dispatch) {
+  return {
+    FetchLocation: () => dispatch(FetchLocation()),
+  };
+}
+export default wrapper.withRedux(connect(null, mapDispatchToProps)(MyApp));

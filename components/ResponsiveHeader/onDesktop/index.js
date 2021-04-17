@@ -57,6 +57,7 @@ const HeaderOnDesktop = ({
   navigateToLocation,
   menuOptions,
   numberCart,
+  countryCode,
 }) => {
   const [menuFixed, setFixedMenu] = useState(false);
   const hideFixedMenu = () => {
@@ -73,7 +74,7 @@ const HeaderOnDesktop = ({
     setvisible(!visible);
   };
   const [locations, setDatas] = useState(locationOptions);
-
+  console.log("🚀 ~ file: index.js ~ line 62 ~ country_code", countryCode);
   function OpenModal(state, action) {
     switch (action.type) {
       case "close":
@@ -301,6 +302,20 @@ const HeaderOnDesktop = ({
             >
               <Icon name="instagram" color="violet" />
             </a>
+          </MenuItemLink>
+          <MenuItemLink active={router.pathname == "/cart"}>
+            <Icon name="globe" />
+            <Label
+              style={{
+                margin: "2px 9px",
+                background: "none",
+                color: "#000",
+              }}
+              color="red"
+              floating
+            >
+              {countryCode}
+            </Label>
           </MenuItemLink>
         </Menu>
       </Visibility>

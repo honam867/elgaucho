@@ -12,14 +12,16 @@
             Theme
 *******************************/
 
-@type: "element";
-@element: "input";
+@type    : 'element';
+@element : 'input';
 
-@import (multiple) "../../theme.config";
+@import (multiple) '../../theme.config';
+
 
 /*******************************
            Standard
 *******************************/
+
 
 /*--------------------
         Inputs
@@ -53,6 +55,7 @@
   box-shadow: @boxShadow;
 }
 
+
 /*--------------------
       Placeholder
 ---------------------*/
@@ -68,6 +71,7 @@
 .ui.input > input:-ms-input-placeholder {
   color: @placeholderColor;
 }
+
 
 /*******************************
             States
@@ -107,7 +111,7 @@
 
   .ui.loading.loading.input > i.icon:before {
     position: absolute;
-    content: "";
+    content: '';
     top: 50%;
     left: 50%;
 
@@ -120,7 +124,7 @@
   }
   .ui.loading.loading.input > i.icon:after {
     position: absolute;
-    content: "";
+    content: '';
     top: 50%;
     left: 50%;
 
@@ -137,12 +141,13 @@
   }
 }
 
+
 /*--------------------
         Focus
 ---------------------*/
 
 .ui.input.focus > input,
-.ui.input > input:focus {
+.ui.input > input:focus  {
   border-color: @focusBorderColor;
   background: @focusBackground;
   color: @focusColor;
@@ -160,6 +165,7 @@
 .ui.input > input:focus:-ms-input-placeholder {
   color: @placeholderFocusColor;
 }
+
 
 & when (@variationInputStates) {
   /*--------------------
@@ -183,7 +189,7 @@
       color: @formStates[@@state][inputPlaceholderColor];
     }
     .ui.input.@{state} > input:-ms-input-placeholder {
-      color: @formStates[@@state][inputPlaceholderColor]  ;
+      color: @formStates[@@state][inputPlaceholderColor] !important;
     }
 
     /* Focused Placeholder */
@@ -194,9 +200,9 @@
       color: @formStates[@@state][inputPlaceholderFocusColor];
     }
     .ui.input.@{state} > input:focus:-ms-input-placeholder {
-      color: @formStates[@@state][inputPlaceholderFocusColor]  ;
+      color: @formStates[@@state][inputPlaceholderFocusColor] !important;
     }
-  });
+  })
 }
 /*******************************
            Variations
@@ -207,13 +213,14 @@
         Transparent
   ---------------------*/
 
+
   .ui.transparent.input > textarea,
   .ui.transparent.input > input {
-    border-color: transparent;
-    background-color: transparent;
+    border-color: transparent !important;
+    background-color: transparent !important;
     padding: 0;
-    box-shadow: none;
-    border-radius: 0;
+    box-shadow: none !important;
+    border-radius: 0 !important;
   }
   .field .ui.transparent.input > textarea {
     padding: @padding;
@@ -347,17 +354,15 @@
     border-bottom-left-radius: 0;
     border-left-color: transparent;
   }
-  .ui.labeled.input:not([class*="corner labeled"])
-    .label:first-child
-    + input:focus {
+  .ui.labeled.input:not([class*="corner labeled"]) .label:first-child + input:focus {
     border-left-color: @focusBorderColor;
   }
 
   /* Regular Label on Right */
   .ui[class*="right labeled"].input > input {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-right-color: transparent;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-right-color: transparent !important;
   }
   .ui[class*="right labeled"].input > input + .label {
     border-top-left-radius: 0;
@@ -365,7 +370,7 @@
   }
 
   .ui[class*="right labeled"].input > input:focus {
-    border-right-color: @focusBorderColor;
+    border-right-color: @focusBorderColor !important;
   }
 }
 
@@ -379,32 +384,27 @@
   }
 
   /* Spacing with corner label */
-  .ui[class*="corner labeled"]:not([class*="left corner labeled"]).labeled.input
-    > textarea,
-  .ui[class*="corner labeled"]:not([class*="left corner labeled"]).labeled.input
-    > input {
-    padding-right: @labeledMargin;
+  .ui[class*="corner labeled"]:not([class*="left corner labeled"]).labeled.input > textarea,
+  .ui[class*="corner labeled"]:not([class*="left corner labeled"]).labeled.input > input {
+    padding-right: @labeledMargin !important;
   }
-  .ui[class*="corner labeled"].icon.input:not([class*="left corner labeled"])
-    > textarea,
-  .ui[class*="corner labeled"].icon.input:not([class*="left corner labeled"])
-    > input {
-    padding-right: @labeledIconInputMargin;
+  .ui[class*="corner labeled"].icon.input:not([class*="left corner labeled"]) > textarea,
+  .ui[class*="corner labeled"].icon.input:not([class*="left corner labeled"]) > input {
+    padding-right: @labeledIconInputMargin !important;
   }
-  .ui[class*="corner labeled"].icon.input:not([class*="left corner labeled"])
-    > i.icon {
+  .ui[class*="corner labeled"].icon.input:not([class*="left corner labeled"]) > i.icon {
     margin-right: @labeledIconMargin;
   }
 
   /* Left Labeled */
   .ui[class*="left corner labeled"].labeled.input > textarea,
   .ui[class*="left corner labeled"].labeled.input > input {
-    padding-left: @labeledMargin;
+    padding-left: @labeledMargin !important;
   }
   & when (@variationInputIcon) {
     .ui[class*="left corner labeled"].icon.input > textarea,
     .ui[class*="left corner labeled"].icon.input > input {
-      padding-left: @labeledIconInputMargin;
+      padding-left: @labeledIconInputMargin !important;
     }
     .ui[class*="left corner labeled"].icon.input > i.icon {
       margin-left: @labeledIconMargin;
@@ -431,7 +431,7 @@
   }
 }
 
-& when (@variationInputLabeled) or (@variationInputAction) {
+& when (@variationInputLabeled)  or (@variationInputAction) {
   /* Labeled and action input states */
   each(@formStates, {
     @state: replace(@key, '@', '');
@@ -460,7 +460,7 @@
     .ui.right.labeled.input.@{state}:not([class*="corner labeled"]) > .ui.label:first-child {
       border-left: @borderWidth solid @borderColor;
     }
-  });
+  })
 }
 
 & when (@variationInputAction) {
@@ -542,7 +542,7 @@
     display: flex;
   }
   .ui.fluid.input > input {
-    width: 0;
+    width: 0 !important;
   }
 }
 
@@ -559,7 +559,7 @@
     .ui.@{value}.input {
       font-size: @@s;
     }
-  });
+  })
 }
 
 .loadUIOverrides();

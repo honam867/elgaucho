@@ -3,8 +3,8 @@
 *******************************/
 
 .ui.steps .step:after {
-  display: none  ;
+  display: none !important;
 }
 .ui.steps .step {
-  border-radius: 500px  ;
+  border-radius: 500px !important;
 }
