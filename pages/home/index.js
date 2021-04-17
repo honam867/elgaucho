@@ -1,6 +1,5 @@
 import { Container, Header } from "semantic-ui-react";
 import SliderComponent from "../../components/SliderComponent";
-import ButtonCustomComponent from "../../components/ButtonCustomComponent";
 import { memo, useRef } from "react";
 import Responsive from "../../components/Responsive";
 import {
@@ -10,6 +9,7 @@ import {
 } from "../../datafake/ResponsiveImage/at-home";
 import { CustomButton } from "../../components/UiCustomElement/button";
 import Head from "next/head";
+import ButtonLink from "../../components/UiCustomElement/button-link";
 const ButtonData = [
   {
     id: 1,
@@ -100,11 +100,7 @@ const HomeFullSlider = () => {
         <Container textAlign="center">
           {ButtonData.map((button) => {
             return (
-              <ButtonCustomComponent
-                key={button.id}
-                name={button.name}
-                url={button.url}
-              />
+              <ButtonLink key={button.id} name={button.name} url={button.url} />
             );
           })}
           <a

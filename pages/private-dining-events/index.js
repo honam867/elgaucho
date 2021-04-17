@@ -19,16 +19,16 @@ import SrcImgLocation4 from "../../public/static/img/Phu-My-Hung-3.jpg";
 import SrcImgLocation5 from "../../public/static/img/Phu-My-Hung-7.jpg";
 const CustomButton = styled(Button)`
   &:hover {
-    color: #cf1b15 !important;
-    background: #fff !important;
+    color: #cf1b15;
+    background: #fff;
     border: 1px solid #cf1b15;
   }
-  background: #cf1b15 !important;
-  color: #fff !important;
+  background: #cf1b15;
+  color: #fff;
 `;
 
 const ContentAnimationLeft = styled.div`
-  animation: LocationSection 1s !important;
+  animation: LocationSection 1s;
   @keyframes LocationSection {
     0% {
       opacity: 0;
@@ -41,7 +41,7 @@ const ContentAnimationLeft = styled.div`
   }
 `;
 const ContentAnimationRight = styled.div`
-  animation: FormSection 1s !important;
+  animation: FormSection 1s;
   @keyframes FormSection {
     0% {
       opacity: 0;
@@ -279,102 +279,102 @@ const partysize = [
   },
 ];
 const times = [
-    {
-      key: "1",
-      text: "11:30 AM",
-      value: "11:30 AM",
-    },
-    {
-      key: "2",
-      text: "12:00 AM",
-      value: "12:00 AM",
-    },
-    {
-      key: "3",
-      text: "12:30 AM",
-      value: "12:30 AM",
-    },
-    {
-      key: "4",
-      text: "1:00 PM",
-      value: "1:00 PM",
-    },
-    {
-      key: "5",
-      text: "1:30 PM",
-      value: "1:30 PM",
-    },
-    {
-      key: "6",
-      text: "2:00 PM",
-      value: "2:00 PM",
-    },
-    {
-      key: "7",
-      text: "2:30 PM",
-      value: "2:30 PM",
-    },
-    {
-      key: "8",
-      text: "3:00 PM",
-      value: "3:00 PM",
-    },
-    {
-      key: "9",
-      text: "3:30 PM",
-      value: "3:30 PM",
-    },
-    {
-      key: "10",
-      text: "4:00 PM",
-      value: "4:00 PM",
-    },
-    {
-      key: "11",
-      text: "4:30 PM",
-      value: "4:30 PM",
-    },
-    {
-      key: "12",
-      text: "5:00 PM",
-      value: "5:00 PM",
-    },
-    {
-      key: "13",
-      text: "5:30 PM",
-      value: "5:30 PM",
-    },
-    {
-      key: "14",
-      text: "6:00 PM",
-      value: "6:00 PM",
-    },
-    {
-      key: "15",
-      text: "6:30 PM",
-      value: "6:30 PM",
-    },
-    {
-      key: "16",
-      text: "7:00 PM",
-      value: "7:00 PM",
-    },
-    {
-      key: "17",
-      text: "7:30 PM",
-      value: "7:30 PM",
-    },
-    {
-      key: "18",
-      text: "8:00 PM",
-      value: "8:00 PM",
-    },
-    {
-      key: "19",
-      text: "8:30 PM",
-      value: "8:30 PM",
-    },
-  ];
+  {
+    key: "1",
+    text: "11:30 AM",
+    value: "11:30 AM",
+  },
+  {
+    key: "2",
+    text: "12:00 AM",
+    value: "12:00 AM",
+  },
+  {
+    key: "3",
+    text: "12:30 AM",
+    value: "12:30 AM",
+  },
+  {
+    key: "4",
+    text: "1:00 PM",
+    value: "1:00 PM",
+  },
+  {
+    key: "5",
+    text: "1:30 PM",
+    value: "1:30 PM",
+  },
+  {
+    key: "6",
+    text: "2:00 PM",
+    value: "2:00 PM",
+  },
+  {
+    key: "7",
+    text: "2:30 PM",
+    value: "2:30 PM",
+  },
+  {
+    key: "8",
+    text: "3:00 PM",
+    value: "3:00 PM",
+  },
+  {
+    key: "9",
+    text: "3:30 PM",
+    value: "3:30 PM",
+  },
+  {
+    key: "10",
+    text: "4:00 PM",
+    value: "4:00 PM",
+  },
+  {
+    key: "11",
+    text: "4:30 PM",
+    value: "4:30 PM",
+  },
+  {
+    key: "12",
+    text: "5:00 PM",
+    value: "5:00 PM",
+  },
+  {
+    key: "13",
+    text: "5:30 PM",
+    value: "5:30 PM",
+  },
+  {
+    key: "14",
+    text: "6:00 PM",
+    value: "6:00 PM",
+  },
+  {
+    key: "15",
+    text: "6:30 PM",
+    value: "6:30 PM",
+  },
+  {
+    key: "16",
+    text: "7:00 PM",
+    value: "7:00 PM",
+  },
+  {
+    key: "17",
+    text: "7:30 PM",
+    value: "7:30 PM",
+  },
+  {
+    key: "18",
+    text: "8:00 PM",
+    value: "8:00 PM",
+  },
+  {
+    key: "19",
+    text: "8:30 PM",
+    value: "8:30 PM",
+  },
+];
 
 const PrivateDiningEvent = () => {
   return (

@@ -12,10 +12,10 @@
             Theme
 *******************************/
 
-@type    : 'element';
-@element : 'segment';
+@type: "element";
+@element: "segment";
 
-@import (multiple) '../../theme.config';
+@import (multiple) "../../theme.config";
 
 /*******************************
             Segment
@@ -56,7 +56,6 @@
   }
 }
 
-
 /*-------------------
     Loose Coupling
 --------------------*/
@@ -82,7 +81,8 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
-  .ui.attached.segment:not(.top):not(.bottom) > [class*="bottom attached"].label {
+  .ui.attached.segment:not(.top):not(.bottom)
+    > [class*="bottom attached"].label {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
@@ -160,7 +160,7 @@
     margin-right: auto;
   }
 
-  .ui.placeholder.segment > .inline  {
+  .ui.placeholder.segment > .inline {
     align-self: center;
   }
   .ui.placeholder.segment > .inline > .button {
@@ -196,7 +196,7 @@
   .ui.piled.segment:before {
     background-color: @white;
     visibility: visible;
-    content: '';
+    content: "";
     display: block;
     height: 100%;
     left: 0;
@@ -248,7 +248,7 @@
   .ui.stacked.segments:after,
   .ui.stacked.segment:before,
   .ui.stacked.segment:after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -(@stackedHeight / 2);
     left: 0;
@@ -372,7 +372,6 @@
     margin-bottom: 0;
   }
 
-
   /* Nested Segment */
   .ui.segments > .segment {
     top: 0;
@@ -408,7 +407,6 @@
   .ui.segments:not(.horizontal) > .segment:only-child {
     border-radius: @borderRadius;
   }
-
 
   /* Nested Group */
   .ui.segments > .ui.segments {
@@ -478,7 +476,6 @@
   }
 }
 
-
 /*******************************
             States
 *******************************/
@@ -503,12 +500,12 @@
     position: relative;
     cursor: default;
     pointer-events: none;
-    text-shadow: none !important;
+    text-shadow: none;
     transition: all 0s linear;
   }
   .ui.loading.segment:before {
     position: absolute;
-    content: '';
+    content: "";
     top: 0;
     left: 0;
     background: @loaderDimmerColor;
@@ -519,7 +516,7 @@
   }
   .ui.loading.segment:after {
     position: absolute;
-    content: '';
+    content: "";
     top: 50%;
     left: 50%;
 
@@ -536,8 +533,6 @@
     z-index: @loaderLineZIndex;
   }
 }
-
-
 
 /*******************************
            Variations
@@ -589,8 +584,9 @@ each(@colors,{
     }
   }
 })
-
-& when (@variationSegmentAligned) {
+  &
+  when
+  (@variationSegmentAligned) {
   /*-------------------
          Aligned
   --------------------*/
@@ -768,7 +764,7 @@ each(@colors,{
     .ui.@{value}.segment {
       font-size: @s;
     }
-  })
+  });
 }
 
 .loadUIOverrides();

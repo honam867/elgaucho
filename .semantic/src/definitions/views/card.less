@@ -99,18 +99,18 @@
 
 .ui.cards > .card > :first-child,
 .ui.card > :first-child {
-  border-radius: @borderRadius @borderRadius 0 0 !important;
-  border-top: none !important;
+  border-radius: @borderRadius @borderRadius 0 0;
+  border-top: none;
 }
 
 .ui.cards > .card > :last-child,
 .ui.card > :last-child {
-  border-radius: 0 0 @borderRadius @borderRadius !important;
+  border-radius: 0 0 @borderRadius @borderRadius;
 }
 
 .ui.cards > .card > :only-child,
 .ui.card > :only-child {
-  border-radius: @borderRadius !important;
+  border-radius: @borderRadius;
 }
 
 /*--------------
@@ -393,9 +393,9 @@
 .ui.cards > .card > .extra,
 .ui.card > .extra {
   max-width: 100%;
-  min-height: 0 !important;
+  min-height: 0;
   flex-grow: 0;
-  border-top: @extraDivider !important;
+  border-top: @extraDivider;
   position: @extraPosition;
   background: @extraBackground;
   width: @extraWidth;
@@ -873,17 +873,17 @@ each(@colors,{
 
   @media only screen and (max-width: @largestMobileScreen) {
     .ui.stackable.cards {
-      display: block !important;
+      display: block;
     }
     .ui.stackable.cards .card:first-child {
-      margin-top: 0 !important;
+      margin-top: 0;
     }
     .ui.stackable.cards > .card {
-      display: block !important;
-      height: auto !important;
+      display: block;
+      height: auto;
       margin: @stackableRowSpacing @stackableCardSpacing;
-      padding: 0 !important;
-      width: @stackableMargin !important;
+      padding: 0;
+      width: @stackableMargin;
     }
   }
 }
@@ -950,7 +950,7 @@ each(@colors,{
   /* Extra */
   .ui.inverted.cards > .card > .extra,
   .ui.inverted.card > .extra {
-    border-top: @invertedExtraDivider !important;
+    border-top: @invertedExtraDivider;
     color: @invertedExtraColor;
   }
   .ui.inverted.cards > .card > .extra a:not(.ui),

@@ -1,7 +1,6 @@
 import Slider from "react-slick";
 import { memo, useState } from "react";
 import { Header, Icon } from "semantic-ui-react";
-import ButtonCustomComponent from "../ButtonCustomComponent";
 import {
   CustomHeaderFullSlider,
   CustomHeaderFullSliderSubTitle,
@@ -14,6 +13,7 @@ import {
   SlideShowAlignCaptionFullSlider,
   SliderWrapper,
 } from "./style";
+import ButtonLink from "../UiCustomElement/button-link";
 const SliderComponent = ({ Images, height, ...props }) => {
   const [activeSlide, setActiveSlide] = useState(0);
   const settings = {
@@ -129,6 +129,7 @@ const SliderComponent = ({ Images, height, ...props }) => {
                   backgroundImage: `url(${item.imgUrl})`,
                   backgroundAttachment: `${props.backgroundAttachment}`,
                   width: "100%",
+                  objectFit: "cover",
                   height: height,
                   position: "relative",
                 }}
@@ -153,10 +154,7 @@ const SliderComponent = ({ Images, height, ...props }) => {
                     {item.subTitle}
                   </CustomSubTitleLocations>
                   <CustomButtonAtLocationPage>
-                    <ButtonCustomComponent
-                      name={item.buttonName}
-                      url={item.url}
-                    />
+                    <ButtonLink name={item.buttonName} url={item.url} />
                   </CustomButtonAtLocationPage>
                 </div>
               ) : null}

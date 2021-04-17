@@ -61,7 +61,7 @@
 @downBackgroundImage: '';
 @downBoxShadow:
   0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset,
-  0px 1px 4px 0px rgba(0, 0, 0, 0.1) inset !important
+  0px 1px 4px 0px rgba(0, 0, 0, 0.1) inset  
 ;
 @downColor: @pressedTextColor;
 
@@ -71,7 +71,7 @@
 @activeColor: @selectedTextColor;
 @activeBoxShadow:
   0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset,
-  0px 1px 4px 0px rgba(0, 0, 0, 0.1) inset !important
+  0px 1px 4px 0px rgba(0, 0, 0, 0.1) inset  
 ;
 
 /* Active + Hovered */
@@ -79,7 +79,7 @@
 @activeHoverBackgroundImage: none;
 @activeHoverBoxShadow:
   0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset,
-  0px 1px 4px 0px rgba(0, 0, 0, 0.1) inset !important
+  0px 1px 4px 0px rgba(0, 0, 0, 0.1) inset  
 ;
 @activeHoverColor: @selectedTextColor;
 

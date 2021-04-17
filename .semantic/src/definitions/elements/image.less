@@ -8,16 +8,14 @@
  *
  */
 
-
 /*******************************
             Theme
 *******************************/
 
-@type    : 'element';
-@element : 'image';
+@type: "element";
+@element: "image";
 
-@import (multiple) '../../theme.config';
-
+@import (multiple) "../../theme.config";
 
 /*******************************
              Image
@@ -41,7 +39,6 @@ img.ui.image {
   max-width: 100%;
   height: auto;
 }
-
 
 /*******************************
             States
@@ -68,7 +65,6 @@ img.ui.image {
     opacity: @disabledOpacity;
   }
 }
-
 
 /*******************************
           Variations
@@ -109,15 +105,15 @@ img.ui.image {
     display: inline-block;
     vertical-align: bottom;
   }
-  .ui.top.aligned.images .image, 
+  .ui.top.aligned.images .image,
   .ui.images .ui.top.aligned.image {
     align-self: flex-start;
   }
-  .ui.middle.aligned.images .image, 
+  .ui.middle.aligned.images .image,
   .ui.images .ui.middle.aligned.image {
     align-self: center;
   }
-  .ui.bottom.aligned.images .image, 
+  .ui.bottom.aligned.images .image,
   .ui.images .ui.bottom.aligned.image {
     align-self: flex-end;
   }
@@ -217,7 +213,7 @@ img.ui.image {
   --------------------*/
 
   .ui.spaced.image {
-    display: inline-block !important;
+    display: inline-block;
     margin-left: @spacedDistance;
     margin-right: @spacedDistance;
   }
@@ -297,7 +293,7 @@ img.ui.image {
       height: auto;
       font-size: @s;
     }
-  })
+  });
 }
 
 & when (@variationImageGroups) {

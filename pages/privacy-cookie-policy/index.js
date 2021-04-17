@@ -4,8 +4,8 @@ import Layout from "../../components/ResponsiveHeader/index";
 import stylePrivacyCookie from "./privacycookie.module.css";
 
 const CustomHeader = styled(Header)`
-  color: black !important;
-  font-weight: 300 !important;
+  color: black;
+  font-weight: 300;
 `;
 
 const PrivacyCookiePolicy = () => {

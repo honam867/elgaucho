@@ -3,13 +3,13 @@ import Layout from "../../components/ResponsiveHeader/index";
 import ImageMenuPageData from "../../datafake/menuimage";
 import SliderComponent from "../../components/SliderComponent";
 import styled from "styled-components";
-import ButtonCustomComponent from "../../components/ButtonCustomComponent";
 import Responsive from "../../components/Responsive";
 import { memo } from "react";
 import Head from "next/head";
+import ButtonLink from "../../components/UiCustomElement/button-link";
 const CustomHeader = styled(Header)`
-  color: white !important;
-  font-weight: 300 !important;
+  color: white;
+  font-weight: 300;
 `;
 const MenuWrapper = styled.div`
   position: relative;
@@ -112,7 +112,7 @@ const MenuPage = () => {
             <CustomHeader as="h2">
               ENJOY THE TASTE OF OUR ARGENTINA
             </CustomHeader>
-            <ButtonCustomComponent
+            <ButtonLink
               name="Order Now | El Delivery | Take Away"
               url="/delivery"
             />

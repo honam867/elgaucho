@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Icon } from "semantic-ui-react";
 import { CustomButton } from "../UiCustomElement/button";
 
-const ButtonCustomComponent = ({ name, ...props }) => {
+const ButtonLink = ({ name, ...props }) => {
   return (
     <Link href={`${props.url}`} passHref>
       <CustomButton>
@@ -12,4 +12,4 @@ const ButtonCustomComponent = ({ name, ...props }) => {
     </Link>
   );
 };
-export default ButtonCustomComponent;
+export default ButtonLink;

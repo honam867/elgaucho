@@ -8,16 +8,14 @@
  *
  */
 
-
-
 /*******************************
             Theme
 *******************************/
 
-@type    : 'module';
-@element : 'sidebar';
+@type: "module";
+@element: "sidebar";
 
-@import (multiple) '../../theme.config';
+@import (multiple) "../../theme.config";
 
 /*******************************
             Sidebar
@@ -36,11 +34,11 @@
   visibility: hidden;
   -webkit-overflow-scrolling: touch;
 
-  height: 100% !important;
+  height: 100%;
   max-height: 100%;
-  border-radius: 0 !important;
-  margin: 0 !important;
-  overflow-y: auto !important;
+  border-radius: 0;
+  margin: 0;
+  overflow-y: auto;
   z-index: @topLayer;
 }
 
@@ -48,7 +46,6 @@
 .ui.sidebar > * {
   backface-visibility: hidden;
 }
-
 
 /*--------------
    Direction
@@ -62,8 +59,8 @@
 }
 & when (@variationSidebarRight) {
   .ui.right.sidebar {
-    right: 0 !important;
-    left: auto !important;
+    right: 0;
+    left: auto;
     transform: translate3d(100%, 0, 0);
   }
 }
@@ -71,25 +68,24 @@
 & when (@variationSidebarTop) or (@variationSidebarBottom) {
   .ui.top.sidebar,
   .ui.bottom.sidebar {
-    width: 100% !important;
-    height: auto !important;
+    width: 100%;
+    height: auto;
   }
   & when (@variationSidebarTop) {
     .ui.top.sidebar {
-      top: 0 !important;
-      bottom: auto !important;
+      top: 0;
+      bottom: auto;
       transform: translate3d(0, -100%, 0);
     }
   }
   & when (@variationSidebarBottom) {
     .ui.bottom.sidebar {
-      top: auto !important;
-      bottom: 0 !important;
+      top: auto;
+      bottom: 0;
       transform: translate3d(0, 100%, 0);
     }
   }
 }
-
 
 /*--------------
      Pushable
@@ -98,7 +94,7 @@
 .pushable {
   height: 100%;
   overflow-x: hidden;
-  padding: 0 !important;
+  padding: 0;
 }
 
 /* Whole Page */
@@ -119,7 +115,6 @@ body.pushable {
 .pushable:not(body) > .pusher:after {
   position: absolute;
 }
-
 
 /*--------------
      Fixed
@@ -162,7 +157,7 @@ body.pushable > .pusher {
   position: fixed;
   top: 0;
   right: 0;
-  content: '';
+  content: "";
   background: @dimmerColor;
   overflow: hidden;
   opacity: 0;
@@ -176,7 +171,7 @@ body.pushable > .pusher {
 ---------------*/
 
 .ui.sidebar.menu .item {
-  border-radius: 0 !important;
+  border-radius: 0;
 }
 
 /*******************************
@@ -188,9 +183,9 @@ body.pushable > .pusher {
 ---------------*/
 
 .pushable > .pusher.dimmed:after {
-  width: 100% !important;
-  height: 100% !important;
-  opacity: 1 !important;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
 }
 
 /*--------------
@@ -263,7 +258,6 @@ body.pushable > .pusher {
 /*--------------
        iOS
 ---------------*/
-
 
 /*******************************
           Variations
@@ -359,8 +353,6 @@ body.pushable > .pusher {
   }
 }
 
-
-
 /*******************************
           Animations
 *******************************/
@@ -427,10 +419,9 @@ body.pushable > .pusher {
   /* End - Pusher */
   .ui.visible.overlay.sidebar ~ .fixed,
   .ui.visible.overlay.sidebar ~ .pusher {
-    transform: none !important;
+    transform: none;
   }
 }
-
 
 & when (@variationSidebarPush) {
   /*--------------
@@ -586,7 +577,6 @@ body.pushable > .pusher {
     z-index: @topLayer;
   }
 
-
   & when (@variationSidebarLeft) {
     .ui.left.scale.down.sidebar {
       transform: translate3d(-100%, 0, 0);
@@ -636,10 +626,10 @@ body.pushable > .pusher {
   }
   .ui.visible.scale.down.sidebar ~ .pusher,
   .ui.animating.scale.down.sidebar ~ .pusher {
-    display: block !important;
+    display: block;
     width: 100%;
     height: 100%;
-    overflow: hidden !important;
+    overflow: hidden;
   }
 
   /* End */
