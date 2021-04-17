@@ -12,39 +12,38 @@
             Theme
 *******************************/
 
-@type    : 'element';
-@element : 'reveal';
+@type: "element";
+@element: "reveal";
 
-@import (multiple) '../../theme.config';
+@import (multiple) "../../theme.config";
 
 /*******************************
             Reveal
 *******************************/
 
-.ui.reveal  {
+.ui.reveal {
   display: inherit;
-  position: relative !important;
+  position: relative;
   font-size: 0;
 }
 
 .ui.reveal > .visible.content {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  z-index: @topZIndex !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: @topZIndex;
   transition: @transition;
 }
 .ui.reveal > .hidden.content {
-  position: relative !important;
-  z-index: @bottomZIndex !important;
+  position: relative;
+  z-index: @bottomZIndex;
 }
 
 /* Make sure hovered element is on top of other reveal */
 .ui.active.reveal .visible.content,
 .ui.reveal:hover .visible.content {
-  z-index: @activeZIndex !important;
+  z-index: @activeZIndex;
 }
-
 
 /*******************************
               Types
@@ -56,8 +55,8 @@
   ---------------*/
 
   .ui.slide.reveal {
-    position: relative !important;
-    overflow: hidden !important;
+    position: relative;
+    overflow: hidden;
     white-space: nowrap;
   }
 
@@ -72,60 +71,60 @@
   }
 
   .ui.slide.reveal > .visible.content {
-    position: relative !important;
+    position: relative;
   }
   .ui.slide.reveal > .hidden.content {
-    position: absolute !important;
-    left: 0 !important;
-    width: 100% !important;
-    transform: translateX(100%) !important;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    transform: translateX(100%);
   }
   .ui.slide.active.reveal > .visible.content,
   .ui.slide.reveal:hover > .visible.content {
-    transform: translateX(-100%) !important;
+    transform: translateX(-100%);
   }
   .ui.slide.active.reveal > .hidden.content,
   .ui.slide.reveal:hover > .hidden.content {
-    transform: translateX(0%) !important;
+    transform: translateX(0%);
   }
 
   .ui.slide.right.reveal > .visible.content {
-    transform: translateX(0%) !important;
+    transform: translateX(0%);
   }
   .ui.slide.right.reveal > .hidden.content {
-    transform: translateX(-100%) !important;
+    transform: translateX(-100%);
   }
   .ui.slide.right.active.reveal > .visible.content,
   .ui.slide.right.reveal:hover > .visible.content {
-    transform: translateX(100%) !important;
+    transform: translateX(100%);
   }
   .ui.slide.right.active.reveal > .hidden.content,
   .ui.slide.right.reveal:hover > .hidden.content {
-    transform: translateX(0%) !important;
+    transform: translateX(0%);
   }
 
   .ui.slide.up.reveal > .hidden.content {
-    transform: translateY(100%) !important;
+    transform: translateY(100%);
   }
   .ui.slide.up.active.reveal > .visible.content,
   .ui.slide.up.reveal:hover > .visible.content {
-    transform: translateY(-100%) !important;
+    transform: translateY(-100%);
   }
   .ui.slide.up.active.reveal > .hidden.content,
   .ui.slide.up.reveal:hover > .hidden.content {
-    transform: translateY(0%) !important;
+    transform: translateY(0%);
   }
 
   .ui.slide.down.reveal > .hidden.content {
-    transform: translateY(-100%) !important;
+    transform: translateY(-100%);
   }
   .ui.slide.down.active.reveal > .visible.content,
   .ui.slide.down.reveal:hover > .visible.content {
-    transform: translateY(100%) !important;
+    transform: translateY(100%);
   }
   .ui.slide.down.active.reveal > .hidden.content,
   .ui.slide.down.reveal:hover > .hidden.content {
-    transform: translateY(0%) !important;
+    transform: translateY(0%);
   }
 }
 
@@ -149,8 +148,8 @@
   ---------------*/
 
   .ui.move.reveal {
-    position: relative !important;
-    overflow: hidden !important;
+    position: relative;
+    overflow: hidden;
     white-space: nowrap;
   }
 
@@ -164,31 +163,30 @@
   }
 
   .ui.move.reveal > .visible.content {
-    position: relative !important;
+    position: relative;
   }
   .ui.move.reveal > .hidden.content {
-    position: absolute !important;
-    left: 0 !important;
-    width: 100% !important;
+    position: absolute;
+    left: 0;
+    width: 100%;
   }
   .ui.move.active.reveal > .visible.content,
   .ui.move.reveal:hover > .visible.content {
-    transform: translateX(-100%) !important;
+    transform: translateX(-100%);
   }
   .ui.move.right.active.reveal > .visible.content,
   .ui.move.right.reveal:hover > .visible.content {
-    transform: translateX(100%) !important;
+    transform: translateX(100%);
   }
   .ui.move.up.active.reveal > .visible.content,
   .ui.move.up.reveal:hover > .visible.content {
-    transform: translateY(-100%) !important;
+    transform: translateY(-100%);
   }
   .ui.move.down.active.reveal > .visible.content,
   .ui.move.down.reveal:hover > .visible.content {
-    transform: translateY(100%) !important;
+    transform: translateY(100%);
   }
 }
-
 
 & when (@variationRevealRotate) {
   /*--------------
@@ -226,20 +224,19 @@
 
 & when (@variationRevealDisabled) {
   .ui.disabled.reveal:hover > .visible.visible.content {
-    position: static !important;
-    display: block !important;
-    opacity: 1 !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: auto !important;
-    bottom: auto !important;
-    transform: none !important;
+    position: static;
+    display: block;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    right: auto;
+    bottom: auto;
+    transform: none;
   }
   .ui.disabled.reveal:hover > .hidden.hidden.content {
-    display: none !important;
+    display: none;
   }
 }
-
 
 /*******************************
            Coupling
@@ -266,9 +263,8 @@
 ---------------*/
 
 .ui.instant.reveal > .content {
-  transition-delay: 0s !important;
+  transition-delay: 0s;
 }
-
 
 /*--------------
      Sizing
@@ -283,7 +279,7 @@
     .ui.@{value}.reveal > .content {
       font-size: @s;
     }
-  })
+  });
 }
 
 .loadUIOverrides();

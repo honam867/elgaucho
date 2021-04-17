@@ -12,10 +12,10 @@
             Theme
 *******************************/
 
-@type    : 'view';
-@element : 'item';
+@type: "view";
+@element: "item";
 
-@import (multiple) '../../theme.config';
+@import (multiple) "../../theme.config";
 
 /*******************************
             Standard
@@ -52,10 +52,10 @@
 }
 
 .ui.items:first-child {
-  margin-top: 0 !important;
+  margin-top: 0;
 }
 .ui.items:last-child {
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
 }
 
 /*--------------
@@ -64,7 +64,7 @@
 
 .ui.items > .item:after {
   display: block;
-  content: ' ';
+  content: " ";
   height: 0;
   clear: both;
   overflow: hidden;
@@ -76,8 +76,6 @@
 .ui.items > .item:last-child {
   margin-bottom: 0;
 }
-
-
 
 /*--------------
      Images
@@ -105,7 +103,6 @@
   border-radius: @borderRadius;
 }
 
-
 /*--------------
      Content
 ---------------*/
@@ -124,7 +121,7 @@
 }
 .ui.items > .item > .content:after {
   display: block;
-  content: ' ';
+  content: " ";
   height: 0;
   clear: both;
   overflow: hidden;
@@ -163,7 +160,6 @@
   float: right;
 }
 
-
 /*--------------
   Content Image
 ---------------*/
@@ -178,7 +174,6 @@
   height: @avatarSize;
   border-radius: @avatarBorderRadius;
 }
-
 
 /*--------------
    Description
@@ -254,8 +249,6 @@
   color: @metaLinkHoverColor;
 }
 
-
-
 /*--------------
      Labels
 ---------------*/
@@ -311,21 +304,22 @@
   border-top: @extraDivider;
 }
 .ui.items > .item .extra > * {
-  margin: (@extraRowSpacing / 2) @extraHorizontalSpacing (@extraRowSpacing / 2) 0;
+  margin: (@extraRowSpacing / 2) @extraHorizontalSpacing (@extraRowSpacing / 2)
+    0;
 }
 .ui.items > .item .extra > [class*="right floated"] {
-  margin: (@extraRowSpacing / 2) 0 (@extraRowSpacing / 2) @extraHorizontalSpacing;
+  margin: (@extraRowSpacing / 2) 0 (@extraRowSpacing / 2)
+    @extraHorizontalSpacing;
 }
 
 .ui.items > .item .extra:after {
   display: block;
-  content: ' ';
+  content: " ";
   height: 0;
   clear: both;
   overflow: hidden;
   visibility: hidden;
 }
-
 
 /*******************************
           Responsive
@@ -335,7 +329,6 @@
 .ui.items > .item > .image:not(.ui) {
   width: @imageWidth;
 }
-
 
 /* Tablet Only */
 @media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
@@ -349,7 +342,6 @@
     display: block;
     padding: 0 0 0 @tabletContentImageDistance;
   }
-
 }
 
 /* Mobile Only */
@@ -365,16 +357,15 @@
   }
   .ui.items:not(.unstackable) > .item > .image,
   .ui.items:not(.unstackable) > .item > .image > img {
-    max-width: 100% !important;
-    width: @mobileImageWidth !important;
-    max-height: @mobileImageMaxHeight !important;
+    max-width: 100%;
+    width: @mobileImageWidth;
+    max-height: @mobileImageMaxHeight;
   }
   .ui.items:not(.unstackable) > .item > .image + .content {
     display: block;
     padding: @mobileContentImageDistance 0 0;
   }
 }
-
 
 /*******************************
            Variations
@@ -421,12 +412,12 @@
   }
   .ui.divided.items > .item:first-child {
     border-top: none;
-    margin-top: @dividedFirstLastMargin !important;
-    padding-top: @dividedFirstLastPadding !important;
+    margin-top: @dividedFirstLastMargin;
+    padding-top: @dividedFirstLastPadding;
   }
   .ui.divided.items > .item:last-child {
-    margin-bottom: @dividedFirstLastMargin !important;
-    padding-bottom: @dividedFirstLastPadding !important;
+    margin-bottom: @dividedFirstLastMargin;
+    padding-bottom: @dividedFirstLastPadding;
   }
   & when (@variationItemRelaxed) {
     /* Relaxed Divided */
@@ -457,7 +448,6 @@
   }
 }
 
-
 /*--------------
       Size
 ---------------*/
@@ -471,7 +461,7 @@
     .ui.@{value}.items > .item  {
       font-size: @@s;
     }
-  })
+  });
 }
 
 & when (@variationItemUnstackable) {
@@ -482,7 +472,7 @@
   @media only screen and (max-width: @largestMobileScreen) {
     .ui.unstackable.items > .item > .image,
     .ui.unstackable.items > .item > .image > img {
-      width: @unstackableMobileImageWidth !important;
+      width: @unstackableMobileImageWidth;
     }
   }
 }

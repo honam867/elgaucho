@@ -18,9 +18,9 @@ import {
   DecreaseQuantity,
   DeleteCart,
 } from "../../redux/cart/cart.actions";
-import ButtonCustomComponent from "../../components/ButtonCustomComponent";
 import React, { useState } from "react";
 import { CustomButton } from "../../components/UiCustomElement/button";
+import ButtonLink from "../../components/UiCustomElement/button-link";
 const CustomHeader = styled(Header)`
   color: black !important;
   font-weight: 900 !important;
@@ -319,7 +319,7 @@ const CheckOut = ({ items }) => {
               </p>
               <Checkbox label=" I have read and agree to the website terms and conditions *" />
               <br />
-              <ButtonCustomComponent name="Proceed to PayPal" url="/checkout" />
+              <ButtonLink name="Proceed to PayPal" url="/checkout" />
             </Card.Content>
           </Card>
         </Container>

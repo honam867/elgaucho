@@ -41,7 +41,7 @@
 @hoverBackgroundColor: @white;
 @hoverBoxShadow:
   @borderBoxShadow,
-  0px 2px 3px 0px rgba(0, 0, 0, 0.2) !important
+  0px 2px 3px 0px rgba(0, 0, 0, 0.2)  
 ;
 
 @downBackgroundColor: @white;

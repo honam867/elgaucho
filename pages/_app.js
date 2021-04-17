@@ -9,6 +9,8 @@ import Router from "next/router";
 import { wrapper } from "../redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 import { useStore } from "react-redux";
+import theme from "../styles/theme";
+import { ThemeProvider } from "styled-components";
 NProgress.configure({
   template:
     '<div id="nprogress"><div class="bar" role="bar" style="background: #cf1b15; height: 3px"></div>',
@@ -27,7 +29,9 @@ function MyApp({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <PersistGate persistor={store.__persistor}>
-        <Component {...pageProps} />
+        <ThemeProvider theme={theme}>
+          <Component {...pageProps} />
+        </ThemeProvider>
       </PersistGate>
     </>
   );

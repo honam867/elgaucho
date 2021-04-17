@@ -8,16 +8,14 @@
  *
  */
 
-
 /*******************************
             Theme
 *******************************/
 
-@type    : 'module';
-@element : 'popup';
+@type: "module";
+@element: "popup";
 
-@import (multiple) '../../theme.config';
-
+@import (multiple) "../../theme.config";
 
 /*******************************
             Popup
@@ -60,7 +58,7 @@
 
 .ui.popup:before {
   position: absolute;
-  content: '';
+  content: "";
   width: @arrowSize;
   height: @arrowSize;
 
@@ -89,7 +87,7 @@
   [data-tooltip]:before {
     pointer-events: none;
     position: absolute;
-    content: '';
+    content: "";
     font-size: @medium;
     width: @arrowSize;
     height: @arrowSize;
@@ -151,13 +149,11 @@
     pointer-events: none;
     visibility: hidden;
     opacity: 0;
-    transition:
-            transform @tooltipDuration @tooltipEasing,
-            opacity @tooltipDuration @tooltipEasing
-    ;
+    transition: transform @tooltipDuration @tooltipEasing,
+      opacity @tooltipDuration @tooltipEasing;
   }
   [data-tooltip]:before {
-    transform: rotate(45deg) scale(0) !important;
+    transform: rotate(45deg) scale(0);
     transform-origin: center top;
   }
   [data-tooltip]:after {
@@ -170,39 +166,39 @@
     opacity: 1;
   }
   [data-tooltip]:hover:before {
-    transform: rotate(45deg) scale(1) !important;
+    transform: rotate(45deg) scale(1);
   }
 
   /* Animation Position */
   [data-tooltip]:after,
   [data-tooltip][data-position="top center"]:after,
   [data-tooltip][data-position="bottom center"]:after {
-    transform: translateX(-50%) scale(0) !important;
+    transform: translateX(-50%) scale(0);
   }
   [data-tooltip]:hover:after,
   [data-tooltip][data-position="bottom center"]:hover:after {
-    transform: translateX(-50%) scale(1) !important;
+    transform: translateX(-50%) scale(1);
   }
   [data-tooltip][data-position="left center"]:after,
   [data-tooltip][data-position="right center"]:after {
-    transform: translateY(-50%) scale(0) !important;
+    transform: translateY(-50%) scale(0);
   }
   [data-tooltip][data-position="left center"]:hover:after,
   [data-tooltip][data-position="right center"]:hover:after {
-    transform: translateY(-50%) scale(1) !important;
-    -moz-transform: translateY(-50%) scale(1.0001) !important;
+    transform: translateY(-50%) scale(1);
+    -moz-transform: translateY(-50%) scale(1.0001);
   }
   [data-tooltip][data-position="top left"]:after,
   [data-tooltip][data-position="top right"]:after,
   [data-tooltip][data-position="bottom left"]:after,
   [data-tooltip][data-position="bottom right"]:after {
-    transform: scale(0) !important;
+    transform: scale(0);
   }
   [data-tooltip][data-position="top left"]:hover:after,
   [data-tooltip][data-position="top right"]:hover:after,
   [data-tooltip][data-position="bottom left"]:hover:after,
   [data-tooltip][data-position="bottom right"]:hover:after {
-    transform: scale(1) !important;
+    transform: scale(1);
   }
   & when (@variationPopupFixed) {
     [data-tooltip][data-variation~="fixed"]:after {
@@ -228,7 +224,7 @@
 
     /* Arrow */
     [data-tooltip][data-inverted]:before {
-      box-shadow: none !important;
+      box-shadow: none;
     }
 
     /* Arrow Position */
@@ -689,7 +685,6 @@
   }
 }
 
-
 /*******************************
             Coupling
 *******************************/
@@ -720,7 +715,6 @@
   transform: translateZ(0);
   backface-visibility: hidden;
 }
-
 
 /*******************************
             Variations
@@ -765,7 +759,7 @@
     .ui[class*="very wide"].popup {
       max-width: @maxWidth;
       &.fixed when (@variationPopupFixed) {
-        width:@maxWidth;
+        width: @maxWidth;
       }
     }
   }
@@ -800,7 +794,7 @@
   }
   .ui.inverted.popup:before {
     background-color: @invertedArrowColor;
-    box-shadow: none !important;
+    box-shadow: none;
   }
 }
 
@@ -813,7 +807,6 @@
     max-width: none;
   }
 }
-
 
 /*--------------
      Sizes
@@ -834,8 +827,7 @@
         font-size: @s;
       }
     }
-  })
+  });
 }
-
 
 .loadUIOverrides();

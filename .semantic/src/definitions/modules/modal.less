@@ -8,15 +8,14 @@
  *
  */
 
-
 /*******************************
             Theme
 *******************************/
 
-@type    : 'module';
-@element : 'modal';
+@type: "module";
+@element: "modal";
 
-@import (multiple) '../../theme.config';
+@import (multiple) "../../theme.config";
 
 /*******************************
              Modal
@@ -179,7 +178,7 @@
   margin-left: @buttonDistance;
 }
 .ui.basic.modal > .actions {
-  border-top:none;
+  border-top: none;
 }
 
 /*-------------------
@@ -187,31 +186,31 @@
 --------------------*/
 
 /* Modal Width */
-@media only screen and (max-width : @largestMobileScreen) {
+@media only screen and (max-width: @largestMobileScreen) {
   .ui.modal:not(.fullscreen) {
     width: @mobileWidth;
     margin: @mobileMargin;
   }
 }
-@media only screen and (min-width : @tabletBreakpoint) {
+@media only screen and (min-width: @tabletBreakpoint) {
   .ui.modal:not(.fullscreen) {
     width: @tabletWidth;
     margin: @tabletMargin;
   }
 }
-@media only screen and (min-width : @computerBreakpoint) {
+@media only screen and (min-width: @computerBreakpoint) {
   .ui.modal:not(.fullscreen) {
     width: @computerWidth;
     margin: @computerMargin;
   }
 }
-@media only screen and (min-width : @largeMonitorBreakpoint) {
+@media only screen and (min-width: @largeMonitorBreakpoint) {
   .ui.modal:not(.fullscreen) {
     width: @largeMonitorWidth;
     margin: @largeMonitorMargin;
   }
 }
-@media only screen and (min-width : @widescreenMonitorBreakpoint) {
+@media only screen and (min-width: @widescreenMonitorBreakpoint) {
   .ui.modal:not(.fullscreen) {
     width: @widescreenMonitorWidth;
     margin: @widescreenMonitorMargin;
@@ -219,7 +218,7 @@
 }
 
 /* Tablet and Mobile */
-@media only screen and (max-width : @largestTabletScreen) {
+@media only screen and (max-width: @largestTabletScreen) {
   .ui.modal > .header {
     padding-right: @closeHitbox;
   }
@@ -231,11 +230,10 @@
 }
 
 /* Mobile */
-@media only screen and (max-width : @largestMobileScreen) {
-
+@media only screen and (max-width: @largestMobileScreen) {
   .ui.modal > .header {
-    padding: @mobileHeaderPadding !important;
-    padding-right: @closeHitbox !important;
+    padding: @mobileHeaderPadding;
+    padding-right: @closeHitbox;
   }
   .ui.overlay.fullscreen.modal > .content.content.content {
     min-height: @overlayFullscreenScrollingContentMaxHeightMobile;
@@ -245,11 +243,11 @@
   }
   .ui.modal > .content {
     display: block;
-    padding: @mobileContentPadding !important;
+    padding: @mobileContentPadding;
   }
   .ui.modal > .close {
-    top: @mobileCloseTop !important;
-    right: @mobileCloseRight !important;
+    top: @mobileCloseTop;
+    right: @mobileCloseRight;
   }
 
   /*rtl:ignore*/
@@ -259,9 +257,9 @@
   .ui.modal > .content > .image {
     display: block;
     max-width: 100%;
-    margin: 0 auto !important;
+    margin: 0 auto;
     text-align: center;
-    padding: @mobileImagePadding !important;
+    padding: @mobileImagePadding;
   }
   .ui.modal > .content > .image > i.icon {
     font-size: @mobileImageIconSize;
@@ -271,15 +269,15 @@
   /*rtl:ignore*/
   .ui.modal > .content > .description {
     display: block;
-    width: 100% !important;
-    margin: 0 !important;
-    padding: @mobileDescriptionPadding !important;
+    width: 100%;
+    margin: 0;
+    padding: @mobileDescriptionPadding;
     box-shadow: none;
   }
 
   /* Let Buttons Stack */
   .ui.modal > .actions {
-    padding: @mobileActionPadding !important;
+    padding: @mobileActionPadding;
   }
   .ui.modal .actions > .buttons,
   .ui.modal .actions > .button {
@@ -303,7 +301,7 @@
     background-color: transparent;
     border: none;
     border-radius: 0;
-    box-shadow: none !important;
+    box-shadow: none;
     color: @basicModalColor;
   }
   .ui.basic.modal > .header,
@@ -332,7 +330,7 @@
   /* Resort to margin positioning if legacy */
   .ui.legacy.legacy.modal,
   .ui.legacy.legacy.page.dimmer > .ui.modal {
-    left: 50% !important;
+    left: 50%;
   }
   .ui.legacy.legacy.modal:not(.aligned),
   .ui.legacy.legacy.page.dimmer > .ui.modal:not(.aligned) {
@@ -346,7 +344,7 @@
   }
   & when (@variationModalOverlay) {
     .ui.legacy.overlay.fullscreen.modal {
-      margin-top: -@scrollingMargin !important;
+      margin-top: -@scrollingMargin;
     }
   }
 }
@@ -381,7 +379,7 @@
     bottom: @bottomAlignedMargin;
   }
 
-  @media only screen and (max-width : @largestMobileScreen) {
+  @media only screen and (max-width: @largestMobileScreen) {
     .modals.dimmer .ui.top.aligned.modal {
       top: @mobileTopAlignedMargin;
     }
@@ -411,12 +409,12 @@
   .modals.dimmer .ui.scrolling.modal:not(.fullscreen) {
     margin: @scrollingMargin auto;
   }
-/* Fix for Firefox, Edge, IE11 */
-.modals.dimmer .ui.scrolling.modal:not([class*="overlay fullscreen"])::after {
-  content:'\00A0';
-  position: absolute;
-  height: @scrollingMargin;
-}
+  /* Fix for Firefox, Edge, IE11 */
+  .modals.dimmer .ui.scrolling.modal:not([class*="overlay fullscreen"])::after {
+    content: "\00A0";
+    position: absolute;
+    height: @scrollingMargin;
+  }
   /* Undetached Scrolling */
   .scrolling.undetached.dimmable.dimmed {
     overflow: auto;
@@ -428,7 +426,6 @@
   .scrolling.undetached.dimmable .ui.scrolling.modal:not(.fullscreen) {
     position: absolute;
     left: 50%;
-
   }
 
   /* Scrolling Content */
@@ -447,7 +444,13 @@
   }
 }
 
-& when (@variationModalFullscreen) or (@variationModalOverlay) or (@variationModalCloseInside) {
+&
+  when
+  (@variationModalFullscreen)
+  or
+  (@variationModalOverlay)
+  or
+  (@variationModalCloseInside) {
   /*--------------
      Full Screen
   ---------------*/
@@ -463,7 +466,7 @@
       left: 0;
       margin: 0 auto;
       top: 0;
-      border-radius:0;
+      border-radius: 0;
     }
   }
   .ui.modal > .close.inside + .header,
@@ -535,7 +538,7 @@
         margin: @@wm;
       }
     }
-  })
+  });
 }
 
 & when (@variationModalInverted) {
@@ -563,7 +566,6 @@
     color: @invertedDimmerCloseColor;
   }
 
-
   @media only screen and (max-width: @largestTabletScreen) {
     .ui.dimmer .inverted.modal > .close {
       color: @invertedCloseColor;
@@ -576,8 +578,5 @@
     }
   }
 }
-
-
-
 
 .loadUIOverrides();

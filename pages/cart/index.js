@@ -19,8 +19,8 @@ import {
   DecreaseQuantity,
   DeleteCart,
 } from "../../redux/cart/cart.actions";
-import ButtonCustomComponent from "../../components/ButtonCustomComponent";
 import { useState } from "react";
+import ButtonLink from "../../components/UiCustomElement/button-link";
 const CustomHeader = styled(Header)`
   color: black !important;
   font-weight: 900 !important;
@@ -141,7 +141,9 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                             </Table.Cell>
                             <Table.Cell width="6">
                               <a style={{ fontSize: "15px" }}>{item.name}</a>
-                              <p style={{ fontSize: "12px" }}>Addition: Medium</p>
+                              <p style={{ fontSize: "12px" }}>
+                                Addition: Medium
+                              </p>
                             </Table.Cell>
                             <Table.Cell width="3" textAlign="center">
                               <span className="woocommerce-Price-amount amount">
@@ -383,10 +385,7 @@ const Cart = ({ items, IncreaseQuantity, DecreaseQuantity, DeleteCart }) => {
                 </div>
 
                 {listCart.length > 0 ? (
-                  <ButtonCustomComponent
-                    name="Proceed to checkout"
-                    url="/checkout"
-                  />
+                  <ButtonLink name="Proceed to checkout" url="/checkout" />
                 ) : (
                   <CustomButton style={{ display: "none" }}>
                     Proceed to checkout

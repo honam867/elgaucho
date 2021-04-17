@@ -8,7 +8,6 @@
  *
  */
 
-
 /*******************************
              Step
 *******************************/
@@ -17,10 +16,10 @@
    Load Theme
 ---------------*/
 
-@type    : 'element';
-@element : 'step';
+@type: "element";
+@element: "step";
 
-@import (multiple) '../../theme.config';
+@import (multiple) "../../theme.config";
 
 /*******************************
             Plural
@@ -50,7 +49,6 @@
 .ui.steps:last-child {
   margin-bottom: 0;
 }
-
 
 /*******************************
            Singular
@@ -82,7 +80,7 @@
   display: none;
   position: absolute;
   z-index: 2;
-  content: '';
+  content: "";
   top: @arrowTopOffset;
   right: @arrowRightOffset;
   background-color: @arrowBackgroundColor;
@@ -114,7 +112,6 @@
 .ui.steps .step:only-child {
   border-radius: @stepsBorderRadius;
 }
-
 
 /*******************************
             Content
@@ -227,7 +224,6 @@
     border-radius: @stepsBorderRadius;
   }
 
-
   /* Arrow */
   .ui.vertical.steps .step:after {
     top: @verticalArrowTopOffset;
@@ -253,21 +249,19 @@
   }
 }
 
-
 /*---------------
     Responsive
 ----------------*/
 
 /* Mobile (Default) */
 @media only screen and (max-width: (@largestMobileScreen)) {
-
   .ui.steps:not(.unstackable) {
     display: inline-flex;
     overflow: visible;
     flex-direction: column;
   }
   .ui.steps:not(.unstackable) .step {
-    width: 100% !important;
+    width: 100%;
     flex-direction: column;
     border-radius: @borderRadius;
     padding: @verticalPadding @horizontalPadding;
@@ -303,7 +297,6 @@
   .ui.ordered.steps:not(.unstackable) .step:before {
     margin: 0 0 @mobileIconDistance 0;
   }
-
 }
 
 /*******************************
@@ -391,7 +384,6 @@
   }
 }
 
-
 /*******************************
            Variations
 *******************************/
@@ -403,7 +395,6 @@
 
   /* Tablet Or Below */
   @media only screen and (max-width: @largestTabletScreen) {
-
     .ui[class*="tablet stackable"].steps {
       display: inline-flex;
       overflow: visible;
@@ -445,7 +436,6 @@
     .ui[class*="tablet stackable"].ordered.steps .step:before {
       margin: 0 0 @mobileIconDistance 0;
     }
-
   }
 }
 
@@ -468,7 +458,7 @@
 
   /* Top */
   .ui.attached.steps {
-    width: @attachedWidth !important;
+    width: @attachedWidth;
     margin: 0 @attachedHorizontalOffset @attachedVerticalOffset;
     max-width: @attachedWidth;
     border-radius: @stepsBorderRadius @stepsBorderRadius 0 0;
@@ -539,7 +529,7 @@
   width: 14.285%;
 }
 .ui.eight.steps > .step {
-  width: 12.500%;
+  width: 12.5%;
 }
 
 /*-------------------
@@ -557,7 +547,7 @@
     .ui.@{value}.step {
       font-size: @s;
     }
-  })
+  });
 }
 
 & when (@variationStepInverted) {
@@ -625,6 +615,5 @@
     color: @invertedPressedTextColor;
   }
 }
-
 
 .loadUIOverrides();

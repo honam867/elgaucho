@@ -8,15 +8,14 @@
  *
  */
 
-
 /*******************************
             Theme
 *******************************/
 
-@type    : 'module';
-@element : 'tab';
+@type: "module";
+@element: "tab";
 
-@import (multiple) '../../theme.config';
+@import (multiple) "../../theme.config";
 
 /*******************************
            UI Tabs
@@ -51,14 +50,14 @@
     min-height: @loadingMinHeight;
   }
   .ui.tab.loading * {
-    position: @loadingContentPosition !important;
-    left: @loadingContentOffset !important;
+    position: @loadingContentPosition;
+    left: @loadingContentOffset;
   }
 
   .ui.tab.loading:before,
   .ui.tab.loading.segment:before {
     position: absolute;
-    content: '';
+    content: "";
     top: @loaderDistanceFromTop;
     left: 50%;
 
@@ -72,7 +71,7 @@
   .ui.tab.loading:after,
   .ui.tab.loading.segment:after {
     position: absolute;
-    content: '';
+    content: "";
     top: @loaderDistanceFromTop;
     left: 50%;
 
