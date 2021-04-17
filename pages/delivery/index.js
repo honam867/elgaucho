@@ -1,7 +1,6 @@
 import Layout from "../../components/ResponsiveHeader/index";
 import { useState, useEffect, memo } from "react";
-import SliderComponent from "../../components/SliderComponent";
-import { Container, Dropdown, Grid, Menu, Visibility } from "semantic-ui-react";
+import { Container, Grid, Menu, Visibility } from "semantic-ui-react";
 import ResponsiveComponent from "../../components/Responsive";
 import MenuCustomStyle from "./menu.module.css";
 import ProductsComponent from "../../components/ProductsComponent";

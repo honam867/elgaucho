@@ -1,4 +1,4 @@
-import React, { memo, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import Logo from "../../public/static/img/elgauchologonobg.png";
 import Responsive from "../../components/Responsive";
 import { useRouter } from "next/router";
@@ -7,6 +7,7 @@ import HeaderOnDesktop from "./onDesktop/index";
 import HeaderOnMobile from "./onMobile/index";
 import HeaderOnTablet from "./onTablet/index";
 import Footer from "../Footer";
+import { FetchLocation } from "../../redux/location/location.action";
 
 const menuOptions = [
   {
@@ -25,13 +26,19 @@ const menuOptions = [
   { key: 4, text: "Wine", value: 4, pathname: "/menu#Wine" },
   { key: 5, text: "Cigars & Butcher", value: 5, pathname: "/menu#Cigars" },
 ];
-const ResponsiveHeader = ({ children, numberCart }) => {
+const ResponsiveHeader = ({ children, numberCart, data }) => {
+  console.log(
+    "🚀 ~ file: index.js ~ line 30 ~ ResponsiveHeader ~ location",
+    data
+  );
   const router = useRouter();
   const navigateToLocation = (e, value) => {
-    console.log("🚀 ~ file: index.js ~ line 31 ~ navigateToLocation ~ value", value)
     e.preventDefault();
     router.push(value.pathname);
   };
+  useEffect(() => {
+    FetchLocation();
+  }, []);
   const locationOptions = [
     {
       key: 1,
@@ -40,7 +47,7 @@ const ResponsiveHeader = ({ children, numberCart }) => {
       pathname: "/location#XuanThuy",
       tag: "#XuanThuy",
       visible: false,
-      phone: "tel:0972697654"
+      phone: "tel:0972697654",
     },
     {
       key: 2,
@@ -49,7 +56,7 @@ const ResponsiveHeader = ({ children, numberCart }) => {
       pathname: "/location#SaigonPearl",
       tag: "#SaigonPearl",
       visible: false,
-      phone: "tel:0972697654"
+      phone: "tel:0972697654",
     },
     {
       key: 3,
@@ -57,16 +64,23 @@ const ResponsiveHeader = ({ children, numberCart }) => {
       value: 3,
       pathname: "/location#HaiBaTrung",
       visible: false,
-      phone: "tel:0972697654"
+      phone: "tel:0972697654",
     },
-    { key: 4, text: "An Phu | HCMC", value: 4, pathname: "/location#AnPhu", visible: false,phone: "0972697654" },
+    {
+      key: 4,
+      text: "An Phu | HCMC",
+      value: 4,
+      pathname: "/location#AnPhu",
+      visible: false,
+      phone: "0972697654",
+    },
     {
       key: 5,
       text: "Phu My Hung | HCMC",
       value: 5,
       pathname: "/location#PhuMyHung",
       visible: false,
-      phone: "tel:0972697654"
+      phone: "tel:0972697654",
     },
     {
       key: 6,
@@ -74,18 +88,31 @@ const ResponsiveHeader = ({ children, numberCart }) => {
       value: 6,
       pathname: "/location#BachDang",
       visible: false,
-      phone: "tel:0972697654"
+      phone: "tel:0972697654",
     },
-    { key: 7, text: "Ba Dinh | Hanoi", value: 7, pathname: "/location#BaDinh", visible: false,
-      phone: "tel:0972697654" },
-    { key: 8, text: "Tay Ho | Hanoi", value: 8, pathname: "/location#TayHo", visible: false, phone: "tel:0972697654"},
+    {
+      key: 7,
+      text: "Ba Dinh | Hanoi",
+      value: 7,
+      pathname: "/location#BaDinh",
+      visible: false,
+      phone: "tel:0972697654",
+    },
+    {
+      key: 8,
+      text: "Tay Ho | Hanoi",
+      value: 8,
+      pathname: "/location#TayHo",
+      visible: false,
+      phone: "tel:0972697654",
+    },
     {
       key: 9,
       text: "Trang Tien | Hanoi",
       value: 9,
       pathname: "/location#TrangTien",
       visible: false,
-      phone: "tel:0972697654"
+      phone: "tel:0972697654",
     },
   ];
 
@@ -95,7 +122,6 @@ const ResponsiveHeader = ({ children, numberCart }) => {
       text: "Magazine",
       value: 1,
       pathname: "/magazine",
-
     },
     {
       key: 3,
@@ -134,12 +160,13 @@ const ResponsiveHeader = ({ children, numberCart }) => {
     setVisibleContact(!visibleContact);
   };
   return (
-    <div >
+    <div>
       <Responsive
         onDesktop={() => {
           return (
             <HeaderOnDesktop
               children={children}
+              countryCode={data.country_code}
               Logo={Logo}
               newsOptions={newsOptions}
               router={router}
@@ -195,11 +222,12 @@ const ResponsiveHeader = ({ children, numberCart }) => {
       />
 
       <Footer />
-
     </div>
   );
 };
 const mapStateToProps = (state) => ({
   numberCart: state.cart.numberCart,
+  data: state.location,
 });
+
 export default memo(connect(mapStateToProps, null)(ResponsiveHeader));

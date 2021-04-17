@@ -19,7 +19,7 @@ const gotomainSection = () =>
     behavior: "smooth",
   });
 
-const test = [
+const fakeEventPopup = [
   {
     id: 0,
     imgUrl:
@@ -38,7 +38,7 @@ const test = [
 ];
 
 const LocationPage = () => {
-  const [listPopUp, setlistPopUp] = useState(test);
+  const [listPopUp, setlistPopUp] = useState(fakeEventPopup);
   const handleClick = (item) => {
     setlistPopUp(listPopUp.filter((test) => item.id !== test.id));
   };

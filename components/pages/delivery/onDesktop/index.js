@@ -42,6 +42,7 @@ const ElDevlieryOnDesktop = ({
                     {AreaData.map((item) => {
                       return (
                         <Dropdown.Item
+                          style={{ zIndex: "3" }}
                           active={activeArea === item.name}
                           key={item.id}
                           onClick={choosingArea}

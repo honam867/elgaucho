@@ -8,14 +8,15 @@
  *
  */
 
+
 /*******************************
             Theme
 *******************************/
 
-@type: "element";
-@element: "label";
+@type    : 'element';
+@element : 'label';
 
-@import (multiple) "../../theme.config";
+@import (multiple) '../../theme.config';
 
 /*******************************
             Label
@@ -66,7 +67,7 @@ a.ui.label {
 
 /* Image */
 .ui.label > img {
-  width: auto;
+  width: auto !important;
   vertical-align: middle;
   height: @imageHeight;
 }
@@ -131,6 +132,7 @@ a.ui.label {
   margin: 0 @groupHorizontalMargin @groupVerticalMargin 0;
 }
 
+
 /*-------------------
        Coupling
 --------------------*/
@@ -139,30 +141,31 @@ a.ui.label {
   margin-top: @lineHeightOffset;
 }
 
+
 /* Remove border radius on attached segment */
 .ui.attached.segment > .ui.top.left.attached.label,
-.ui.bottom.attached.segment > .ui.top.left.attached.label {
+.ui.bottom.attached.segment > .ui.top.left.attached.label  {
   border-top-left-radius: 0;
 }
 .ui.attached.segment > .ui.top.right.attached.label,
-.ui.bottom.attached.segment > .ui.top.right.attached.label {
+.ui.bottom.attached.segment > .ui.top.right.attached.label  {
   border-top-right-radius: 0;
 }
-.ui.top.attached.segment > .ui.bottom.left.attached.label {
+.ui.top.attached.segment > .ui.bottom.left.attached.label  {
   border-bottom-left-radius: 0;
 }
-.ui.top.attached.segment > .ui.bottom.right.attached.label {
+.ui.top.attached.segment > .ui.bottom.right.attached.label  {
   border-bottom-right-radius: 0;
 }
 
 /* Padding on next content after a label */
 .ui.top.attached.label ~ .ui.bottom.attached.label + :not(.attached),
 .ui.top.attached.label + :not(.attached) {
-  margin-top: @attachedSegmentPadding;
+  margin-top: @attachedSegmentPadding !important;
 }
 .ui.bottom.attached.label ~ :last-child:not(.attached) {
-  margin-top: 0;
-  margin-bottom: @attachedSegmentPadding;
+  margin-top:0;
+  margin-bottom: @attachedSegmentPadding !important;
 }
 
 .ui.segment:not(.basic) > .ui.top.attached.label {
@@ -180,6 +183,8 @@ a.ui.label {
 .ui.segment:not(.basic) > .ui.attached.label:not(.left):not(.right) {
   width: @attachedWidthOffset;
 }
+
+
 
 /*******************************
              Types
@@ -231,7 +236,7 @@ a.ui.label {
 }
 
 & when (@variationLabelTag) {
-  /*-------------------
+/*-------------------
          Tag
 --------------------*/
 
@@ -247,25 +252,26 @@ a.ui.label {
   }
   .ui.tag.labels .label:before,
   .ui.tag.label:before {
-    position: absolute;
-    transform: translateY(-50%) translateX(50%) rotate(-45deg);
+      position: absolute;
+      transform: translateY(-50%) translateX(50%) rotate(-45deg);
 
-    top: @tagTriangleTopOffset;
-    right: @tagTriangleRightOffset;
-    content: "";
+      top: @tagTriangleTopOffset;
+      right: @tagTriangleRightOffset;
+      content: '';
 
-    background-color: inherit;
-    background-image: @tagTriangleBackgroundImage;
+      background-color: inherit;
+      background-image: @tagTriangleBackgroundImage;
 
-    width: @tagTriangleSize;
-    height: @tagTriangleSize;
-    transition: @tagTransition;
+      width: @tagTriangleSize;
+      height: @tagTriangleSize;
+      transition: @tagTransition;
   }
+
 
   .ui.tag.labels .label:after,
   .ui.tag.label:after {
     position: absolute;
-    content: "";
+    content: '';
     top: 50%;
     left: -(@tagCircleSize / 2);
 
@@ -293,7 +299,7 @@ a.ui.label {
 }
 
 & when (@variationLabelCorner) {
-  /*-------------------
+/*-------------------
     Corner Label
 --------------------*/
 
@@ -314,8 +320,8 @@ a.ui.label {
   }
 
   /* Icon Label */
-  .ui.corner.label {
-    background-color: transparent;
+  .ui.corner.label{
+    background-color: transparent !important;
   }
   .ui.corner.label:after {
     position: absolute;
@@ -392,7 +398,7 @@ a.ui.label {
 
   .ui.ribbon.label:after {
     position: absolute;
-    content: "";
+    content: '';
 
     top: 100%;
     left: 0;
@@ -599,13 +605,14 @@ a.ui.active.label:hover:before {
   color: @labelActiveHoverTextColor;
 }
 
+
 /*-------------------
       Visible
 --------------------*/
 
 .ui.labels.visible .label,
 .ui.label.visible:not(.dropdown) {
-  display: inline-block;
+  display: inline-block !important;
 }
 
 /*-------------------
@@ -614,12 +621,14 @@ a.ui.active.label:hover:before {
 
 .ui.labels.hidden .label,
 .ui.label.hidden {
-  display: none;
+  display: none !important;
 }
+
 
 /*******************************
            Variations
 *******************************/
+
 
 & when (@variationLabelBasic) {
   /*-------------------
@@ -655,7 +664,7 @@ a.ui.active.label:hover:before {
     box-shadow: @basicHoverBoxShadow;
   }
   & when (@variationLabelPointing) {
-    /* Pointing */
+      /* Pointing */
     .ui.basic.pointing.label:before {
       border-color: inherit;
     }
@@ -685,11 +694,11 @@ a.ui.active.label:hover:before {
     background-color: @invertedBackgroundColor;
   }
   .ui.inverted.corner.label {
-    border-color: @invertedBackgroundColor;
+      border-color: @invertedBackgroundColor;
   }
   .ui.inverted.corner.label:hover {
-    border-color: @backgroundColor;
-    transition: none;
+      border-color: @backgroundColor;
+      transition: none;
   }
   .ui.inverted.basic.labels .label,
   .ui.inverted.basic.label,
@@ -841,7 +850,7 @@ each(@colors,{
     min-width: @circularMinSize;
     min-height: @circularMinSize;
 
-    padding: @circularPadding;
+    padding: @circularPadding !important;
 
     line-height: 1em;
     text-align: center;
@@ -881,7 +890,7 @@ each(@colors,{
   /* Arrow */
   .ui.pointing.label:before {
     position: absolute;
-    content: "";
+    content: '';
     transform: rotate(45deg);
     background-image: none;
 
@@ -989,8 +998,8 @@ each(@colors,{
     transform: translateX(@floatingAlignOffset);
   }
   .ui.left.floating.label {
-    left: 0;
-    right: auto;
+    left:0;
+    right:auto;
     transform: translateX(-50%);
   }
   .ui.left.aligned.floating.label {
@@ -1017,7 +1026,7 @@ each(@colors,{
     .ui.@{value}.label {
       font-size: @s;
     }
-  });
+  })
 }
 
 .loadUIOverrides();

@@ -12,10 +12,10 @@
             Theme
 *******************************/
 
-@type: "view";
-@element: "statistic";
+@type    : 'view';
+@element : 'statistic';
 
-@import (multiple) "../../theme.config";
+@import (multiple) '../../theme.config';
 
 /*******************************
            Statistic
@@ -39,6 +39,8 @@
 .ui.statistic:last-child {
   margin-bottom: 0;
 }
+
+
 
 /*******************************
             Group
@@ -65,7 +67,7 @@
 /* Clearing */
 .ui.statistics:after {
   display: block;
-  content: " ";
+  content: ' ';
   height: 0;
   clear: both;
   overflow: hidden;
@@ -76,9 +78,11 @@
   margin-top: 0;
 }
 
+
 /*******************************
             Content
 *******************************/
+
 
 /*--------------
       Value
@@ -121,6 +125,8 @@
   margin-top: @bottomLabelDistance;
 }
 
+
+
 /*******************************
              Types
 *******************************/
@@ -162,13 +168,17 @@
   vertical-align: @imageVerticalAlign;
 }
 
+
+
 /*******************************
             Variations
 *******************************/
 
+
 /*--------------
       Count
 ---------------*/
+
 
 .ui.ten.statistics {
   margin: @itemGroupMargin;
@@ -250,6 +260,8 @@
   margin: @itemMargin;
 }
 
+
+
 & when (@variationStatisticHorizontal) {
   /*--------------
      Horizontal
@@ -273,7 +285,7 @@
 
   .ui.horizontal.statistic > .text.value,
   .ui.horizontal.statistics > .statistic > .text.value {
-    min-height: 0;
+    min-height: 0 !important;
   }
   .ui.horizontal.statistics .statistic > .value > i.icon,
   .ui.horizontal.statistic > .value > i.icon {
@@ -330,9 +342,8 @@ each(@colors,{
     }
   }
 })
-  &
-  when
-  (@variationStatisticFloated) {
+
+& when (@variationStatisticFloated) {
   /*--------------
       Floated
   ---------------*/
@@ -358,13 +369,13 @@ each(@colors,{
   @media only screen and (max-width: @largestMobileScreen) {
     .ui.stackable.statistics {
       width: auto;
-      margin-left: 0;
-      margin-right: 0;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
     }
     .ui.stackable.statistics > .statistic {
-      width: 100%;
-      margin: 0 0;
-      padding: (@stackableRowSpacing / 2) (@stackableGutter / 2);
+      width: 100% !important;
+      margin: 0 0 !important;
+      padding: (@stackableRowSpacing / 2) (@stackableGutter / 2) !important;
     }
   }
 }
@@ -372,6 +383,7 @@ each(@colors,{
 /*--------------
      Sizes
 ---------------*/
+
 
 /* Medium */
 .ui.statistics .statistic > .value,
@@ -403,7 +415,7 @@ each(@colors,{
     .ui.@{value}.statistic > .text.value {
       font-size: @@ts;
     }
-  });
+  })
 }
 
 .loadUIOverrides();

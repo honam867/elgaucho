@@ -21,7 +21,8 @@ const reducer = (state, action) => {
       ...state, // use previous state
       ...action.payload, // apply delta from hydration
     };
-    if (state.cart) nextState.cart = state.cart; // preserve count value on client side navigation
+    if (state.cart) nextState.cart = state.cart;
+    if (state.location) nextState.location = state.location;
     return nextState;
   } else {
     return combinedReducer(state, action);
@@ -39,7 +40,7 @@ const makeStore = ({ isServer }) => {
 
     const persistConfig = {
       key: "nextjs",
-      whitelist: ["cart"], // only counter will be persisted, add other reducers if needed
+      whitelist: ["cart", "location"], // only counter will be persisted, add other reducers if needed
       storage, // if needed, use a safer storage
     };
 

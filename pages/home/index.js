@@ -218,4 +218,5 @@ const HomeFullSlider = () => {
     </>
   );
 };
+
 export default memo(HomeFullSlider);
